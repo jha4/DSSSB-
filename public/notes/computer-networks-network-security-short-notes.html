@@ -1,0 +1,190 @@
+<!-- Computer Networks & Network Security complete notes. PYQ blocks are hydrated from the compressed static dataset by noteLoader. -->
+<section class="space-y-5">
+  <h1>Computer Networks &amp; Network Security — Complete Short Notes and PYQ Analysis</h1>
+  <p><strong>Coverage:</strong> Complete exam-oriented theory, syllabus coverage, 261 workbook PYQs with answers, repeated-concept analysis, expected topics and revision traps.</p>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:14px 0;"><strong>How to revise:</strong> Read the theory first, then attempt the PYQs immediately below that topic. Green callouts mark high-priority concepts; yellow blocks contain previous-year questions and answers.</div>
+
+  <h2>1. Detailed PYQ and syllabus analysis</h2>
+  <h3>Dataset scope and reliability</h3>
+  <ul><li><strong>261 records:</strong> 211 tagged Computer Networks and 50 tagged Network Security.</li><li>All 261 records are marked complete and English-language in the supplied workbook.</li><li>One record is a broad, context-free stem (“Which of the following statements is true?”); it is retained under Miscellaneous PYQs rather than guessed into a topic.</li><li>The workbook's Topic field is broad. Subtopic counts below are a manual/keyword-assisted classification of question wording and can overlap conceptually; they are a useful distribution, not an official exam blueprint.</li></ul>
+  <h3>Repeated questions and variations</h3>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>16 repeated records beyond their first occurrence</strong> have exact normalized question-stem duplicates. Near-identical wording also occurs for the definition of a protocol and VPN wording. Guided/unguided-medium stems recur as a concept but sometimes reverse the wording (“which is NOT…”), so their answers must be read carefully. Exact duplicates are not evidence of 16 separate high-frequency concepts.</div>
+  <p>Repeated concept families include OSI layer responsibilities, network topologies and devices, guided versus unguided media, IPv4/IPv6 address sizes, protocol definitions, TCP/UDP and port numbers, email/web/file-transfer protocols, VPN, and malware/antivirus terminology.</p>
+  <h3>Topic-wise question distribution</h3>
+  <table><thead><tr><th>Topic group</th><th>Records</th><th>Priority</th></tr></thead><tbody>
+  <tr><td>Transmission media, signals and switching</td><td>43</td><td>Very high</td></tr>
+  <tr><td>OSI model and layered architecture</td><td>32</td><td>Very high</td></tr>
+  <tr><td>Network fundamentals, architecture and topologies</td><td>34</td><td>Very high</td></tr>
+  <tr><td>Network devices, Ethernet and WLAN</td><td>26</td><td>High</td></tr>
+  <tr><td>Application protocols and Internet services</td><td>19</td><td>High</td></tr>
+  <tr><td>IP addressing, IPv4/IPv6 and subnetting</td><td>18</td><td>High</td></tr>
+  <tr><td>Data link, MAC and error/flow control</td><td>17</td><td>High</td></tr>
+  <tr><td>Transport layer, TCP/UDP and ports</td><td>13</td><td>High</td></tr>
+  <tr><td>Routing and network-layer protocols</td><td>13</td><td>High</td></tr>
+  <tr><td>Cryptography and encryption algorithms</td><td>10</td><td>High</td></tr>
+  <tr><td>Cyber law, privacy, IPR and digital conduct</td><td>9</td><td>Medium</td></tr>
+  <tr><td>Security principles, authentication and controls</td><td>8</td><td>Medium</td></tr>
+  <tr><td>Wireless, mobile and ad hoc networks</td><td>5</td><td>Medium</td></tr>
+  <tr><td>Malware, vulnerabilities and cyber attacks</td><td>5</td><td>Medium</td></tr>
+  <tr><td>Internet governance, standards and services</td><td>4</td><td>Medium</td></tr>
+  <tr><td>Hashing, certificates and digital signatures</td><td>4</td><td>Medium</td></tr>
+  <tr><td>Miscellaneous / ambiguous classification</td><td>1</td><td>Review wording</td></tr>
+  </tbody></table>
+  <p><em>Counts sum to 261. A question is assigned to one primary bucket for this table even where its concept crosses layers.</em></p>
+  <h3>What the pattern suggests</h3>
+  <ul><li><strong>Highest PYQ emphasis:</strong> transmission media and signal concepts; OSI responsibilities; network architecture/topology; devices; IP addressing; application and transport protocols.</li><li><strong>Security emphasis:</strong> encryption basics, authentication, malware, antivirus, spoofing, VPN, digital conduct, privacy and intellectual-property law. Security has fewer raw records, so its smaller count should not be mistaken for low syllabus importance.</li><li><strong>Question style:</strong> many direct definition/full-form questions, layer/device matching, port/protocol identification, comparisons, and a smaller number of numerical questions on signal timing, bandwidth, encoding and error control.</li></ul>
+  <h3>High-probability revision priorities (prediction, not guarantee)</h3>
+  <ol><li><strong>Very high:</strong> OSI layer functions and devices; guided/unguided media; transmission modes; network types/topologies; IPv4/IPv6; TCP/UDP; common ports and application protocols.</li><li><strong>High:</strong> MAC access methods, Ethernet/Wi-Fi standards, ARP/ICMP/DNS/DHCP, routing, subnetting, error detection, flow control and switching.</li><li><strong>High security priority:</strong> CIA triad, authentication versus authorization, symmetric/asymmetric cryptography, RSA/AES/DES, hashes, digital signatures, certificates, firewalls, VPN/IPSec/TLS, malware and common attacks.</li><li><strong>Important syllabus gaps:</strong> deeper subnet calculations, routing algorithms/protocol comparisons, congestion control, TCP handshake/state, DNS resolution, ARQ numericals, CRC/Hamming calculations, modern Wi-Fi security, IDS versus IPS, PKI/certificate revocation and incident response deserve study even when the workbook has few or no direct questions.</li></ol>
+  <h3>Limits of prediction</h3>
+  <p>The workbook aggregates exams and practice records from multiple boards and years, not only one DSSSB paper series. Topic frequency is therefore a revision signal, not a statistically validated forecast. The syllabus for the target post remains the authority; no topic should be omitted because it has not appeared in this extract.</p>
+
+  <h2>2. Network fundamentals, architecture and topologies</h2>
+  <h3>Core definitions</h3>
+  <ul><li><strong>Computer network:</strong> interconnected devices that exchange data and share resources using communication links and protocols.</li><li><strong>Protocol:</strong> agreed rules for message format, meaning, timing, sequencing and error handling.</li><li><strong>Node:</strong> any connected endpoint or intermediate device. <strong>Host:</strong> an end system that sends or receives data.</li><li><strong>Client-server:</strong> clients request services from a server. <strong>Peer-to-peer:</strong> peers can act as both clients and servers; no dedicated central server is inherently required.</li><li><strong>Internet:</strong> a global network of interconnected networks using the TCP/IP protocol suite. ARPANET was an important precursor.</li></ul>
+  <h3>Network types</h3>
+  <table><thead><tr><th>Type</th><th>Coverage</th><th>Example</th></tr></thead><tbody><tr><td>PAN</td><td>Personal range</td><td>Bluetooth peripherals</td></tr><tr><td>LAN</td><td>Room, building or campus</td><td>Office Ethernet</td></tr><tr><td>MAN</td><td>City/metropolitan area</td><td>City-wide network</td></tr><tr><td>WAN</td><td>Large geographic area</td><td>Inter-country network</td></tr></tbody></table>
+  <h3>Topologies</h3>
+  <table><thead><tr><th>Topology</th><th>Structure</th><th>Exam point</th></tr></thead><tbody><tr><td>Bus</td><td>All nodes share a backbone</td><td>Backbone failure can disrupt the segment; terminators are used.</td></tr><tr><td>Star</td><td>Nodes connect to a central hub/switch</td><td>Easy to manage; central-device failure affects the network.</td></tr><tr><td>Ring</td><td>Each node connects to neighbours</td><td>Token passing is a classic access method.</td></tr><tr><td>Mesh</td><td>Many/all nodes interconnect</td><td>High redundancy; full mesh links = n(n−1)/2.</td></tr><tr><td>Tree</td><td>Hierarchical star-like branches</td><td>Scalable hierarchy.</td></tr><tr><td>Hybrid</td><td>Combination of topologies</td><td>Common in real networks.</td></tr></tbody></table>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Exam focus:</strong> LAN/MAN/WAN/PAN expansions; bus backbone; peer-to-peer versus client-server; mesh reliability and link formula.</div>
+  <!-- PYQ:fundamentals -->
+
+  <h2>3. OSI model and layered architecture</h2>
+  <p>The OSI reference model has <strong>7 layers</strong>. Encapsulation adds layer-specific control information as data moves down the stack; decapsulation removes it at the receiver.</p>
+  <table><thead><tr><th>Layer</th><th>Name</th><th>Core function / examples</th></tr></thead><tbody>
+  <tr><td>7</td><td>Application</td><td>Network services to applications; HTTP, FTP, SMTP, DNS.</td></tr>
+  <tr><td>6</td><td>Presentation</td><td>Translation, character encoding, compression, encryption/decryption.</td></tr>
+  <tr><td>5</td><td>Session</td><td>Dialog control, session establishment/maintenance and synchronization.</td></tr>
+  <tr><td>4</td><td>Transport</td><td>End-to-end delivery, segmentation, reliability, flow and congestion control; TCP/UDP.</td></tr>
+  <tr><td>3</td><td>Network</td><td>Logical addressing and routing; IP; routers.</td></tr>
+  <tr><td>2</td><td>Data Link</td><td>Framing, MAC addressing, link-level error detection/access; switches/bridges.</td></tr>
+  <tr><td>1</td><td>Physical</td><td>Bits, signals, connectors and transmission media; repeaters/hubs.</td></tr>
+  </tbody></table>
+  <p><strong>Data-unit memory:</strong> Physical—bits; Data Link—frames; Network—packets/datagrams; Transport—segments (TCP) or datagrams (UDP); upper layers—data.</p>
+  <p><strong>TCP/IP model:</strong> Link/Network Access, Internet, Transport and Application. The Internet layer corresponds broadly to OSI Network; TCP/IP Application combines OSI Application, Presentation and Session.</p>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Common trap:</strong> Routing is a Network-layer function; framing is Data Link; bit transmission is Physical; dialog control is Session; encryption/translation are Presentation-layer textbook functions.</div>
+  <!-- PYQ:osi -->
+
+  <h2>4. Transmission media, signals and switching</h2>
+  <h3>Guided media</h3>
+  <ul><li><strong>Twisted pair:</strong> two insulated copper wires twisted to reduce interference; UTP/STP; common Ethernet medium. RJ-45 is commonly used with Ethernet twisted-pair cabling.</li><li><strong>Coaxial cable:</strong> central conductor, insulation, metallic shield and outer jacket; better shielding than ordinary UTP.</li><li><strong>Optical fibre:</strong> transmits light through a core and cladding using total internal reflection; high bandwidth, long distance and immunity to electromagnetic interference. Single-mode supports long distances; multimode is common for shorter links.</li></ul>
+  <h3>Unguided media</h3>
+  <ul><li><strong>Radio:</strong> can be omnidirectional; used in broadcast and wireless systems.</li><li><strong>Microwave:</strong> generally directional and often line-of-sight; terrestrial and satellite links.</li><li><strong>Infrared:</strong> short range, typically line-of-sight or reflected indoor links.</li></ul>
+  <h3>Signal and performance terms</h3>
+  <ul><li><strong>Bit rate:</strong> bits transmitted per second (bps). <strong>Baud rate:</strong> symbols per second; bit rate = baud × bits per symbol for a fixed modulation.</li><li><strong>Bandwidth:</strong> frequency range in hertz; in common networking usage it is also used informally for capacity/throughput.</li><li><strong>Latency:</strong> total delay; propagation delay = distance / propagation speed; transmission delay = frame bits / link bit rate.</li><li><strong>Simplex:</strong> one direction only. <strong>Half-duplex:</strong> both directions, but not simultaneously. <strong>Full-duplex:</strong> simultaneous two-way communication.</li></ul>
+  <h3>Multiplexing</h3>
+  <ul><li><strong>FDM:</strong> users/channels occupy different frequency bands.</li><li><strong>TDM:</strong> users share a channel in different time slots.</li><li><strong>WDM:</strong> optical channels use different wavelengths of light.</li><li><strong>CDM/CDMA:</strong> users share spectrum using distinct spreading codes.</li></ul>
+  <h3>Switching</h3>
+  <ul><li><strong>Circuit switching:</strong> dedicated path/resources for a session; setup is generally required.</li><li><strong>Packet switching:</strong> data divided into packets that share network links; used by the Internet.</li><li><strong>Message switching:</strong> store-and-forward of an entire message; no dedicated end-to-end circuit.</li></ul>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>High priority:</strong> Fibre = light and total internal reflection; guided = physical path; radio/microwave/infrared = unguided; WDM is optical multiplexing; half-duplex is not simultaneous.</div>
+  <!-- PYQ:media -->
+
+  <h2>5. Data Link layer, MAC and error/flow control</h2>
+  <h3>Framing and MAC</h3>
+  <ul><li>Data Link layer frames network-layer packets and uses link-layer addressing (MAC address in Ethernet/Wi-Fi).</li><li><strong>CSMA:</strong> station senses the medium before transmitting. <strong>CSMA/CD:</strong> detects collisions; classic shared, half-duplex Ethernet. <strong>CSMA/CA:</strong> attempts to avoid collisions; used by Wi-Fi.</li><li><strong>ALOHA:</strong> random access. Slotted ALOHA restricts transmission starts to slot boundaries. Token passing grants controlled access to the token holder.</li><li>Ethernet MAC addresses are 48 bits in conventional IEEE 802 networks.</li></ul>
+  <h3>Error detection and correction</h3>
+  <table><thead><tr><th>Method</th><th>Principle</th><th>Use</th></tr></thead><tbody><tr><td>Parity</td><td>Adds even/odd parity bit</td><td>Detects many odd-bit errors; not all errors.</td></tr><tr><td>Checksum</td><td>One's-complement arithmetic sum</td><td>Error detection in several protocols.</td></tr><tr><td>CRC</td><td>Modulo-2 polynomial division</td><td>Strong burst-error detection.</td></tr><tr><td>Hamming code</td><td>Parity positions and syndrome</td><td>Can correct single-bit errors in standard SEC code.</td></tr></tbody></table>
+  <p>Hamming parity bits for m data bits satisfy <strong>2ʳ ≥ m + r + 1</strong>. Standard SECDED adds an overall parity bit for single-error correction and double-error detection.</p>
+  <h3>Flow and error control</h3>
+  <ul><li><strong>Stop-and-Wait:</strong> send one frame, wait for ACK; simple but poor link utilization on long-delay links.</li><li><strong>Sliding window:</strong> multiple outstanding frames improve utilization.</li><li><strong>Go-Back-N ARQ:</strong> retransmit the missing/damaged frame and later frames in the outstanding window.</li><li><strong>Selective Repeat ARQ:</strong> retransmit only missing/damaged frames; needs receiver buffering and careful sequence-number/window sizing.</li></ul>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Trap:</strong> CSMA/CD detects collisions; CSMA/CA avoids them. CRC detects errors; it does not itself correct them. Selective Repeat resends only selected frames.</div>
+  <!-- PYQ:datalink -->
+
+  <h2>6. Network devices, Ethernet and WLAN</h2>
+  <table><thead><tr><th>Device</th><th>Typical layer</th><th>Function</th></tr></thead><tbody><tr><td>Repeater / hub</td><td>Physical (L1)</td><td>Regenerates signals / repeats bits; hub sends to all ports.</td></tr><tr><td>Bridge / switch</td><td>Data Link (L2)</td><td>Learns MAC addresses and forwards frames; each switch port is its own collision domain.</td></tr><tr><td>Router</td><td>Network (L3)</td><td>Forwards IP packets between networks using routing table.</td></tr><tr><td>Gateway</td><td>Can operate across layers</td><td>Connects dissimilar systems/protocols; meaning depends on context.</td></tr><tr><td>Modem</td><td>Physical/link functions</td><td>Modulates/demodulates signals for a transmission system.</td></tr></tbody></table>
+  <ul><li><strong>Ethernet:</strong> IEEE 802.3. Classic Ethernet uses CSMA/CD only in shared half-duplex settings; modern switched full-duplex Ethernet has no collisions.</li><li><strong>Wi-Fi:</strong> IEEE 802.11 family. 802.11i specifies WLAN security mechanisms associated with WPA2; WPA3 is a later Wi-Fi security generation.</li><li><strong>NIC:</strong> Network Interface Card/controller connects a host to a network. <strong>SSID:</strong> wireless network name; up to 32 octets.</li></ul>
+  <!-- PYQ:devices -->
+
+  <h2>7. IP addressing, IPv4/IPv6 and subnetting</h2>
+  <h3>IPv4</h3>
+  <ul><li>IPv4 address = <strong>32 bits</strong>, conventionally dotted decimal (four octets).</li><li>IPv4 header minimum = <strong>20 bytes</strong>; maximum header = 60 bytes. Total datagram length field is 16 bits, so maximum packet size is 65,535 bytes.</li><li>Private ranges: 10.0.0.0/8; 172.16.0.0/12; 192.168.0.0/16. Loopback: 127.0.0.0/8; link-local: 169.254.0.0/16.</li><li>Classful addressing is historical; modern networks use CIDR/prefix notation.</li></ul>
+  <h3>IPv6</h3>
+  <ul><li>IPv6 address = <strong>128 bits</strong>, written as eight hexadecimal groups; leading zeros may be omitted and one consecutive zero run may be compressed with ::.</li><li>Fixed base header = <strong>40 bytes</strong>; routers do not fragment IPv6 packets in transit. Extension headers carry optional information.</li><li>IPv6 has no broadcast; multicast and anycast are used. :: is unspecified; ::1 is loopback.</li></ul>
+  <h3>Subnetting</h3>
+  <ul><li>A /p prefix uses p network bits; host bits = 32 − p for IPv4.</li><li>For a conventional subnet, usable hosts = 2ʰ − 2 (network and broadcast excluded). /31 point-to-point and /32 host routes are special cases.</li><li>Subnet mask 255.255.240.0 = /20. A /20 has 12 host bits and 4096 total addresses, conventionally 4094 usable.</li><li>Default gateway forwards traffic outside the local subnet. ARP resolves local IPv4 next-hop addresses to MAC addresses; IPv6 uses Neighbor Discovery.</li></ul>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Must memorize:</strong> IPv4 32-bit / 20-byte minimum header; IPv6 128-bit / 40-byte fixed header. Do not confuse address length with header length.</div>
+  <!-- PYQ:ip -->
+
+  <h2>8. Routing and network-layer protocols</h2>
+  <ul><li><strong>Routing:</strong> selecting a path for packets; forwarding sends a packet to the selected next hop.</li><li><strong>Static routing:</strong> manually configured. <strong>Dynamic routing:</strong> routers exchange information and adapt to topology changes.</li><li><strong>Distance vector:</strong> shares route distance with neighbours; RIP is a classic example. Count-to-infinity is a known problem; split horizon/poison reverse and bounded metrics help mitigate it.</li><li><strong>Link state:</strong> routers distribute link-state information and compute shortest paths; OSPF uses Dijkstra's algorithm.</li><li><strong>BGP:</strong> path-vector inter-domain routing protocol used between autonomous systems.</li><li><strong>ARP:</strong> IPv4 address-to-MAC resolution on a local link. <strong>ICMP:</strong> network diagnostics/error reporting (e.g. ping uses ICMP Echo).</li><li><strong>NAT:</strong> translates address information, commonly private IPv4 to public IPv4. <strong>IPsec:</strong> security at IP layer.</li></ul>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Trap:</strong> RIP = distance vector; OSPF = link state; BGP = path vector. Count-to-infinity is associated with distance-vector routing.</div>
+  <!-- PYQ:routing -->
+
+  <h2>9. Transport layer, TCP/UDP and ports</h2>
+  <table><thead><tr><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>Connection-oriented byte stream</td><td>Connectionless datagrams</td></tr><tr><td>Reliable, ordered delivery using sequence numbers, ACKs and retransmission</td><td>No built-in delivery/order guarantee</td></tr><tr><td>Flow and congestion control</td><td>Low overhead; application handles reliability if needed</td></tr><tr><td>Web, email, file transfer and many reliable services</td><td>DNS queries, streaming/real-time and latency-sensitive uses (depending on application)</td></tr></tbody></table>
+  <p><strong>TCP three-way handshake:</strong> SYN → SYN-ACK → ACK. TCP connection termination commonly uses FIN/ACK exchanges. UDP has no handshake.</p>
+  <h3>Common port numbers</h3>
+  <table><thead><tr><th>Service</th><th>Port</th><th>Transport</th></tr></thead><tbody><tr><td>FTP control</td><td>21</td><td>TCP</td></tr><tr><td>SSH</td><td>22</td><td>TCP</td></tr><tr><td>Telnet</td><td>23</td><td>TCP</td></tr><tr><td>SMTP</td><td>25</td><td>TCP</td></tr><tr><td>DNS</td><td>53</td><td>UDP and TCP</td></tr><tr><td>DHCP server/client</td><td>67 / 68</td><td>UDP</td></tr><tr><td>HTTP</td><td>80</td><td>TCP (HTTP/3 uses QUIC/UDP)</td></tr><tr><td>POP3</td><td>110</td><td>TCP</td></tr><tr><td>NTP</td><td>123</td><td>UDP</td></tr><tr><td>IMAP</td><td>143</td><td>TCP</td></tr><tr><td>HTTPS</td><td>443</td><td>TCP; HTTP/3 uses QUIC/UDP</td></tr></tbody></table>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Exam focus:</strong> TCP/UDP are Transport-layer protocols. Memorize HTTP 80, HTTPS 443, SMTP 25, DNS 53, FTP 20/21, SSH 22, Telnet 23.</div>
+  <!-- PYQ:transport -->
+
+  <h2>10. Application protocols and Internet services</h2>
+  <ul><li><strong>HTTP:</strong> web request/response protocol. HTTPS = HTTP protected by TLS. HTTP is stateless at protocol level; cookies/tokens can maintain application sessions.</li><li><strong>FTP:</strong> file transfer; traditional control connection uses TCP 21 and active-mode data commonly TCP 20. FTPS adds TLS; SFTP is file transfer over SSH and is not FTP with TLS.</li><li><strong>SMTP:</strong> sends/relays email. <strong>POP3:</strong> retrieves mail (often download-oriented). <strong>IMAP:</strong> accesses/synchronizes mail on server.</li><li><strong>DNS:</strong> resolves names to records such as A/AAAA, MX and CNAME; normally port 53 UDP, with TCP also used.</li><li><strong>DHCP:</strong> automatically leases IP configuration; DORA = Discover, Offer, Request, Acknowledge. <strong>BOOTP:</strong> older boot configuration protocol; DHCP extends its capabilities.</li><li><strong>SNMP:</strong> network monitoring/management; manager/agent and MIB concepts. <strong>TFTP:</strong> simple file transfer using UDP port 69.</li><li><strong>URL:</strong> Uniform Resource Locator. <strong>ISP:</strong> Internet Service Provider. <strong>VoIP:</strong> Voice over IP.</li></ul>
+  <p><strong>Email direction:</strong> SMTP sends; POP3/IMAP retrieve. <strong>Web:</strong> HTTP/HTTPS. <strong>Name resolution:</strong> DNS. <strong>Dynamic configuration:</strong> DHCP.</p>
+  <!-- PYQ:application -->
+
+  <h2>11. Wireless, mobile and ad hoc networks</h2>
+  <ul><li><strong>WLAN:</strong> wireless local area network, commonly Wi-Fi (IEEE 802.11).</li><li><strong>WPAN:</strong> short-range personal network, e.g. Bluetooth (IEEE 802.15.1 historical association).</li><li><strong>GSM:</strong> Global System for Mobile Communications; cellular standard family. <strong>GPRS:</strong> packet-data service associated with GSM.</li><li><strong>CDMA:</strong> Code Division Multiple Access; users share spectrum using codes.</li><li><strong>MANET:</strong> Mobile Ad Hoc Network; infrastructure-less, self-organizing mobile nodes.</li><li><strong>WDM:</strong> wavelength division multiplexing in fibre; WDMA is wavelength-division multiple access.</li></ul>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Trap:</strong> WLAN is a network category; IEEE 802.11 is the Wi-Fi family. WDM is multiplexing, not the same term as WDMA.</div>
+  <!-- PYQ:wireless -->
+
+  <h2>12. Internet governance, standards and organizations</h2>
+  <ul><li><strong>IETF:</strong> Internet Engineering Task Force; develops Internet standards and publishes RFCs.</li><li><strong>RFC:</strong> Request for Comments; documents Internet protocols, practices and standards.</li><li><strong>ICANN:</strong> coordinates the global DNS and unique Internet identifiers in collaboration with other organizations.</li><li><strong>IANA:</strong> coordinates global IP address allocation functions, protocol parameter registries and DNS root-zone functions under the relevant stewardship arrangements.</li><li><strong>ISP peering:</strong> networks exchange traffic directly by agreement; transit is a paid service providing reachability to other networks.</li></ul>
+  <!-- PYQ:governance -->
+
+  <h2>13. Cryptography and encryption algorithms</h2>
+  <ul><li><strong>Plaintext:</strong> readable input. <strong>Ciphertext:</strong> transformed encrypted output. <strong>Encryption:</strong> plaintext to ciphertext; decryption reverses it with the required key.</li><li><strong>Symmetric cryptography:</strong> same shared secret key encrypts/decrypts; fast for bulk data. Key distribution is a challenge. AES is the modern standard.</li><li><strong>Asymmetric cryptography:</strong> public/private key pair. RSA is a classic public-key algorithm; public-key operations are slower than symmetric bulk encryption.</li><li><strong>Block cipher:</strong> processes fixed-size blocks (AES block size 128 bits). <strong>Stream cipher:</strong> generates a keystream combined with plaintext.</li><li><strong>DES:</strong> 64-bit block, 56-bit effective key; obsolete for secure use. <strong>3DES:</strong> legacy triple DES; deprecated. <strong>IDEA:</strong> 64-bit block and 128-bit key.</li><li><strong>Confusion:</strong> obscures relationship between key and ciphertext. <strong>Diffusion:</strong> spreads plaintext statistics across ciphertext.</li><li><strong>Transposition:</strong> rearranges character positions. <strong>Substitution:</strong> replaces symbols with other symbols.</li></ul>
+  <p>For RSA, choose primes p and q; n=pq; φ(n)=(p−1)(q−1); choose e coprime to φ(n); choose d such that ed ≡ 1 (mod φ(n)). Public key (e,n); private key (d,n). Toy exam numbers are not secure in practice.</p>
+  <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Key facts:</strong> RSA = asymmetric; AES = 128-bit block; DES effective key = 56 bits; IDEA key = 128 bits. Modern systems use authenticated encryption such as AES-GCM or ChaCha20-Poly1305.</div>
+  <!-- PYQ:crypto -->
+
+  <h2>14. Hashing, certificates and digital signatures</h2>
+  <ul><li><strong>Cryptographic hash:</strong> fixed-length digest from arbitrary input; one-way design, collision resistance and avalanche effect are desirable. SHA-256 produces 256 bits. MD5 and SHA-1 are not suitable for collision-resistant security.</li><li><strong>Message authentication code (MAC/HMAC):</strong> keyed integrity/authentication; unlike a plain hash, requires a secret key.</li><li><strong>Digital signature:</strong> signer signs a digest using private key; recipient verifies with the corresponding public key. Provides integrity, origin authentication and supports non-repudiation, subject to key control and legal context.</li><li><strong>Digital certificate:</strong> binds an identity to a public key and is signed by a Certificate Authority (CA). PKI manages keys, certificates, trust and revocation.</li><li><strong>CRL:</strong> Certificate Revocation List. <strong>OCSP:</strong> Online Certificate Status Protocol for checking certificate status.</li></ul>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Common trap:</strong> A signature is created with the sender's private key and verified with the sender's public key. Encryption for confidentiality to a recipient typically uses the recipient's public key.</div>
+  <!-- PYQ:signatures -->
+
+  <h2>15. Security principles, authentication and controls</h2>
+  <h3>CIA triad and security services</h3>
+  <ul><li><strong>Confidentiality:</strong> prevent unauthorized disclosure.</li><li><strong>Integrity:</strong> prevent/detect unauthorized modification.</li><li><strong>Availability:</strong> ensure authorized access when needed.</li><li><strong>Authentication:</strong> verify identity or message origin. <strong>Authorization:</strong> determine permitted actions. <strong>Accounting/auditing:</strong> record activity.</li><li><strong>Non-repudiation:</strong> provide evidence that a party performed an action; digital signatures can support it.</li></ul>
+  <h3>Security controls</h3>
+  <ul><li><strong>Firewall:</strong> enforces traffic policy using packet, stateful or application-layer inspection.</li><li><strong>IDS:</strong> detects suspicious activity and alerts. <strong>IPS:</strong> can actively block/prevent detected traffic.</li><li><strong>Antivirus/endpoint protection:</strong> detects, blocks or removes malware; signatures, heuristics and behaviour analysis are common.</li><li><strong>VPN:</strong> creates protected connectivity over an untrusted network; VPN alone does not guarantee a trustworthy endpoint.</li><li><strong>TLS:</strong> protects application transport (e.g. HTTPS). <strong>IPsec:</strong> protects IP traffic; AH provides integrity/authentication but no encryption; ESP can provide confidentiality and integrity/authentication.</li><li><strong>IPsec modes:</strong> Transport protects payload; Tunnel encapsulates/protects the entire original IP packet inside a new packet.</li><li><strong>WLAN security:</strong> use WPA2-AES or WPA3; avoid WEP and obsolete TKIP.</li></ul>
+  <!-- PYQ:security -->
+
+  <h2>16. Malware, vulnerabilities and cyber attacks</h2>
+  <table><thead><tr><th>Threat</th><th>Meaning</th></tr></thead><tbody><tr><td>Virus</td><td>Attaches to a host file/program and runs when host executes.</td></tr><tr><td>Worm</td><td>Self-replicates and spreads independently, often over networks.</td></tr><tr><td>Trojan horse</td><td>Malicious program disguised as legitimate software; does not self-replicate by definition.</td></tr><tr><td>Spyware</td><td>Secretly monitors/collects user information.</td></tr><tr><td>Ransomware</td><td>Locks or encrypts data and demands payment.</td></tr><tr><td>Rootkit</td><td>Hides malicious presence and maintains privileged access.</td></tr></tbody></table>
+  <ul><li><strong>Phishing:</strong> deceptive messages/sites to steal credentials or induce actions. <strong>Spear phishing:</strong> targeted phishing.</li><li><strong>Spoofing:</strong> disguising identity/source to appear trusted (email, IP, DNS, caller ID).</li><li><strong>DoS/DDoS:</strong> denial of service; DDoS uses many distributed sources.</li><li><strong>MITM:</strong> attacker positions between communicating parties. <strong>Replay:</strong> reuses captured valid messages. <strong>SQL injection:</strong> untrusted input alters database queries.</li><li><strong>Social engineering:</strong> manipulates people rather than exploiting only technical weaknesses.</li><li><strong>Defense:</strong> patching, MFA, least privilege, backups, segmentation, endpoint protection, secure configuration, monitoring and user awareness.</li></ul>
+  <!-- PYQ:malware -->
+
+  <h2>17. Cyber law, privacy, IPR and digital conduct</h2>
+  <ul><li><strong>Software piracy:</strong> unauthorized copying, distribution or use of software.</li><li><strong>Copyright:</strong> protects original expression (such as software code, text and media); it does not protect an abstract idea itself.</li><li><strong>Patent:</strong> may protect a qualifying invention for a limited statutory term, subject to jurisdiction and eligibility.</li><li><strong>Trademark:</strong> distinguishes goods/services by signs, names or logos.</li><li><strong>Privacy:</strong> concerns collection, use, sharing, retention and protection of personal data. Apply purpose limitation, data minimization, transparency and safeguards.</li><li><strong>India DPDP Act, 2023:</strong> establishes a framework for processing digital personal data. A child is an individual below 18 years under the Act; statutory duties and exemptions must be read with current rules/notifications.</li><li><strong>Netiquette:</strong> responsible and respectful behaviour online. <strong>CAPTCHA:</strong> challenge-response mechanism designed to distinguish humans from automated programs (not a complete security solution).</li><li>Cyber offences may attract civil and criminal consequences under applicable law; exact remedy depends on the offence and statute. Do not treat a generic MCQ's “imprisonment” answer as a complete legal rule.</li></ul>
+  <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Exam trap:</strong> Copyright, patent and trademark are different IPR protections. Software piracy is unauthorized copying/use. Netiquette means Internet etiquette.</div>
+  <!-- PYQ:cyberlaw -->
+
+  <h2>18. Miscellaneous PYQs</h2>
+  <p>One workbook record has an incomplete, context-free stem and cannot be safely mapped to a specific syllabus subtopic. It is retained here with its source answer key, clearly marked for original-paper verification.</p>
+  <!-- PYQ:misc -->
+
+  <h2>19. Expected questions and syllabus-gap checklist</h2>
+  <p>The following are predictions for practice, not previously asked questions.</p>
+  <ul><li>Calculate usable hosts and network/broadcast addresses for /26, /27 and /20 IPv4 prefixes.</li><li>Compare distance-vector, link-state and path-vector routing; explain count-to-infinity and split horizon.</li><li>Explain TCP three-way handshake, sequence numbers, acknowledgements, flow control and congestion control.</li><li>Trace DNS resolution and DHCP DORA sequence; distinguish DHCP from BOOTP.</li><li>Calculate transmission delay, propagation delay, baud rate and channel capacity using Nyquist/Shannon ideas.</li><li>Calculate CRC remainder and Hamming parity positions; compare Stop-and-Wait, Go-Back-N and Selective Repeat.</li><li>Differentiate firewall, proxy, IDS, IPS, antivirus, VPN, TLS and IPsec.</li><li>Compare AES, RSA, hashing, HMAC and digital signatures; identify the key used for signing and verification.</li><li>Explain phishing, spoofing, replay, MITM, DoS/DDoS, ransomware and least-privilege defense.</li><li>Revise current Wi-Fi security, IPv6 addressing/Neighbor Discovery, PKI certificate revocation and secure network operations.</li></ul>
+
+  <h2>20. Final exam traps and rapid revision</h2>
+  <table><thead><tr><th>Confused pair / fact</th><th>Correct distinction</th></tr></thead><tbody>
+  <tr><td>Hub vs switch</td><td>Hub repeats bits (L1); switch forwards frames by MAC (usually L2).</td></tr>
+  <tr><td>Switch vs router</td><td>Switch connects LAN devices; router forwards IP packets between networks.</td></tr>
+  <tr><td>TCP vs UDP</td><td>TCP reliable ordered stream; UDP connectionless datagrams without built-in reliability.</td></tr>
+  <tr><td>HTTP vs HTTPS</td><td>HTTPS is HTTP protected by TLS.</td></tr>
+  <tr><td>SMTP vs POP3/IMAP</td><td>SMTP sends; POP3/IMAP retrieve/synchronize.</td></tr>
+  <tr><td>IPv4 vs IPv6</td><td>32-bit vs 128-bit addresses; fixed IPv6 header 40 bytes.</td></tr>
+  <tr><td>CSMA/CD vs CSMA/CA</td><td>Collision detection vs collision avoidance.</td></tr>
+  <tr><td>Fibre vs copper</td><td>Fibre carries light and resists EMI; copper carries electrical signals.</td></tr>
+  <tr><td>Virus vs worm</td><td>Virus needs a host; worm self-replicates independently.</td></tr>
+  <tr><td>Encryption vs hashing</td><td>Encryption is reversible with key; hash is designed as one-way digest.</td></tr>
+  <tr><td>Authentication vs authorization</td><td>Who are you? vs what may you do?</td></tr>
+  <tr><td>IDS vs IPS</td><td>IDS detects/alerts; IPS can block.</td></tr>
+  <tr><td>Signature keys</td><td>Sign with private key; verify with corresponding public key.</td></tr>
+  <tr><td>DES / AES / RSA</td><td>DES symmetric legacy; AES symmetric; RSA asymmetric.</td></tr>
+  </tbody></table>
+  <h3>Revision order</h3>
+  <ol><li>OSI/TCP-IP and devices.</li><li>Media, switching, topologies and transmission numericals.</li><li>IP addressing, subnetting and routing.</li><li>TCP/UDP, ports and application protocols.</li><li>MAC, error control and wireless.</li><li>CIA, cryptography, digital signatures, firewall/VPN/TLS/IPsec.</li><li>Malware, cyber attacks, privacy, IPR and law.</li></ol>
+  <p><strong>Final rule:</strong> Learn the direct PYQ facts, but also practise calculations and understand why the answer is correct. Frequency is a guide to revision time, not a reason to skip the rest of the official syllabus.</p>
+</section>
