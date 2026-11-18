@@ -32,12 +32,9 @@ type CompactOsPyqData = {
 type CompactOsPyqQuestion = CompactOsPyqData['q'][number];
 
 const escapePyqHtml = (value: string): string =>
-  value.replace(/[&<>"]/g, (char) => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-  })[char] ?? char);
+  value.replace(/[&<>"]/g, (char) =>
+    char === '&' ? '&amp;' : char === '<' ? '&lt;' : char === '>' ? '&gt;' : '&quot;'
+  );
 
 function renderOsPyqBlock(title: string, rows: CompactOsPyqQuestion[], data: CompactOsPyqData): string {
   const questions = rows.map((row) => {
