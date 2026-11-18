@@ -390,7 +390,7 @@ async function hydratePyqPlaceholders(
       const title = PYQ_TITLES[key] ?? 'PYQs';
       const items = questions.map((question) => {
         const metadata = [question.y, question.e, question.s]
-          .filter(Boolean)
+          .filter((value): value is string => Boolean(value))
           .map(escapePyqHtml)
           .join(' · ');
         return `<li><strong>${escapePyqHtml(question.q)}</strong><br><strong>Correct answer:</strong> ${escapePyqHtml(question.a)}${metadata ? `<br><small>${metadata}</small>` : ''}</li>`;
