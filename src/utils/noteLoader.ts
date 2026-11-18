@@ -367,7 +367,8 @@ async function hydratePyqPlaceholders(
   const compressed = Uint8Array.from(atob(encoded), (character) =>
     character.charCodeAt(0)
   );
-  const decompressed = new Blob([compressed]).stream().pipeThrough(
+  const compressedBuffer = compressed.buffer as ArrayBuffer;
+  const decompressed = new Blob([compressedBuffer]).stream().pipeThrough(
     new DecompressionStream('deflate')
   );
   const records = JSON.parse(
