@@ -200,3 +200,110 @@
   <ul><li>Ten OS records have no year.</li><li>Difficulty labels are missing for most questions.</li><li>Some records are duplicated across exam-name variants.</li><li>Some extracted questions have incomplete or ambiguous wording.</li><li>The workbook's OS label is not a detailed syllabus map.</li><li>The 2026 sample has only two questions and is too small for trend claims.</li></ul>
   <p><strong>Bottom line:</strong> Complete process management, scheduling, memory/paging and deadlocks first. Then cover synchronization, files, disks, system calls and Linux. Do not skip the remaining syllabus simply because fewer examples appear in this workbook.</p>
 </section>
+
+<section id="topic-wise-pyq">
+<h2>19. Topic-wise PYQ questions and answers</h2>
+<p>The following PYQs are grouped under the topic they test. The year is shown where available. These are selected examples from the uploaded question bank, not a claim that every one of the 189 OS-tagged records has been reproduced here. Some source answer keys and extracted wording require checking against the original paper.</p>
+
+<h3>19.1 Operating-system fundamentals, types and architecture</h3>
+<ol>
+<li><strong>[2023] The term “multi-user” in an OS context refers to what?</strong><br><strong>Answer:</strong> An operating system that supports multiple users working on the same computer system.</li>
+<li><strong>[2023] An integrated set of programs that controls computer-system resources and provides an easy-to-use interface is called what?</strong><br><strong>Answer:</strong> Operating System.</li>
+<li><strong>[2026] What is the full form of GUI?</strong><br><strong>Answer:</strong> Graphical User Interface.</li>
+<li><strong>[2018] Which of the following is not a Windows version?</strong><br><strong>Answer:</strong> WINDOWS-96 (as keyed in the workbook).</li>
+</ol>
+
+<h3>19.2 System calls, Unix/Linux and commands</h3>
+<ol>
+<li><strong>[2024] Which system-call category includes a “wait for time” operation?</strong><br><strong>Answer:</strong> Process Control.</li>
+<li><strong>[2024] Which category of system call includes attaching or detaching remote devices?</strong><br><strong>Answer:</strong> Communication (workbook answer).</li>
+<li><strong>[2016] What does a successful Unix fork() call return to the child process?</strong><br><strong>Answer:</strong> 0. The parent receives the child PID; failure is indicated by a negative return.</li>
+<li><strong>[2016] What is the return type of the Unix write() system call?</strong><br><strong>Answer:</strong> ssize_t.</li>
+<li><strong>[2016] How many lines does the Unix/Linux head command display by default?</strong><br><strong>Answer:</strong> 10 lines.</li>
+</ol>
+
+<h3>19.3 Process management and threads</h3>
+<ol>
+<li><strong>[2023] A program in execution is called what?</strong><br><strong>Answer:</strong> A process.</li>
+<li><strong>[2021] Which is not a standard process state: New, Ready, Running, Blocked, or Excite?</strong><br><strong>Answer:</strong> Excite.</li>
+<li><strong>[2021] Which data structure maintains information about each process?</strong><br><strong>Answer:</strong> Process Control Block (PCB).</li>
+<li><strong>[2021] Which data structure maintains information about each thread?</strong><br><strong>Answer:</strong> Thread Control Block (TCB).</li>
+<li><strong>[2018] When I/O completes, a process waiting in the Blocked state normally moves to which state?</strong><br><strong>Answer:</strong> Ready.</li>
+<li><strong>[2017] A thread is also known as what?</strong><br><strong>Answer:</strong> A lightweight process.</li>
+</ol>
+
+<h3>19.4 CPU scheduling and performance</h3>
+<ol>
+<li><strong>[2024] Which CPU scheduling algorithm can cause starvation of low-priority processes unless aging is used?</strong><br><strong>Answer:</strong> Priority Scheduling.</li>
+<li><strong>[2021] Which is not a CPU scheduling algorithm: FCFS, Round Robin, Priority, or C-SCAN?</strong><br><strong>Answer:</strong> C-SCAN. It is a disk-scheduling algorithm.</li>
+<li><strong>[2020] Which scheduling algorithm gives maximum throughput when task run times are known, under the usual single-CPU assumptions?</strong><br><strong>Answer:</strong> Shortest Job First (SJF).</li>
+<li><strong>[2016] What is the system load when 10 processes arrive per minute and average service time is 3 seconds?</strong><br><strong>Answer:</strong> 0.5 (arrival rate × average service time).</li>
+<li><strong>[2020] With 4 units of context-switch time and 6 units of useful running time before blocking, what is the CPU efficiency under the simplified model?</strong><br><strong>Answer:</strong> 6 / (6 + 4) = 0.6, or 60%.</li>
+</ol>
+
+<h3>19.5 Synchronization and concurrency</h3>
+<ol>
+<li><strong>[2025] Which conditions must be satisfied by a correct critical-section solution?</strong><br><strong>Answer:</strong> Mutual exclusion, progress and bounded waiting.</li>
+<li><strong>[2024] Which standard atomic operations are used with a semaphore?</strong><br><strong>Answer:</strong> wait() and signal().</li>
+<li><strong>[2022] What is the key property of semaphore wait() and signal() operations?</strong><br><strong>Answer:</strong> They must execute atomically; wait() acquires/decrements or blocks, while signal() releases/increments and may wake a waiter.</li>
+</ol>
+
+<h3>19.6 Deadlocks</h3>
+<ol>
+<li><strong>[2023] Banker's algorithm is an example of which deadlock-handling method?</strong><br><strong>Answer:</strong> Deadlock avoidance.</li>
+<li><strong>[2017] Three processes each require at most two units of an identical resource. What minimum number guarantees no deadlock under the standard assumptions?</strong><br><strong>Answer:</strong> 4, using R = n(k − 1) + 1.</li>
+<li><strong>[2018] Which is not one of the four necessary deadlock conditions: mutual exclusion, hold-and-wait, no preemption, or preemption?</strong><br><strong>Answer:</strong> Preemption. The necessary condition is no preemption.</li>
+<li><strong>[2021] Seven tape drives are shared by processes, each of which may need two drives. What is the maximum number of processes guaranteed deadlock-free?</strong><br><strong>Answer:</strong> 6? Verify the wording and official key before using this variant; the workbook key records 3, which appears inconsistent with the standard bound for seven drives and a maximum claim of two.</li>
+</ol>
+
+<h3>19.7 Memory management and allocation</h3>
+<ol>
+<li><strong>[2013] First-Fit and Best-Fit variable-partition allocation can suffer from which type of fragmentation?</strong><br><strong>Answer:</strong> External fragmentation.</li>
+<li><strong>[2016] What is the purpose of a fence register?</strong><br><strong>Answer:</strong> Memory protection; it establishes a boundary that a process must not cross.</li>
+<li><strong>[2021] A process cannot fit in either of two separate free holes even though their combined size is sufficient. What is this problem called?</strong><br><strong>Answer:</strong> External fragmentation.</li>
+<li><strong>[2021] What is the term for moving a process from main memory to disk?</strong><br><strong>Answer:</strong> Swapping out.</li>
+<li><strong>[2016] Physical memory is divided into fixed-size blocks called what?</strong><br><strong>Answer:</strong> Frames.</li>
+</ol>
+
+<h3>19.8 Paging, virtual memory and page replacement</h3>
+<ol>
+<li><strong>[2020] Which page-replacement policy may exhibit Belady’s anomaly?</strong><br><strong>Answer:</strong> FIFO.</li>
+<li><strong>[2024] Of LRU and FIFO, which does not suffer from Belady’s anomaly?</strong><br><strong>Answer:</strong> LRU only. FIFO can exhibit the anomaly.</li>
+<li><strong>[2022] Which page-replacement algorithm replaces the page whose next use is farthest in the future?</strong><br><strong>Answer:</strong> Optimal (OPT).</li>
+<li><strong>[2023] What does a page fault mean?</strong><br><strong>Answer:</strong> The process references a page that is not currently resident in physical memory.</li>
+<li><strong>[2020] A logical address space has four pages of 2048 words each. How many bits are needed for a logical address?</strong><br><strong>Answer:</strong> 13 bits: 2 page-number bits + 11 offset bits.</li>
+</ol>
+
+<h3>19.9 File systems and file management</h3>
+<ol>
+<li><strong>[2023] What does FAT stand for?</strong><br><strong>Answer:</strong> File Allocation Table.</li>
+<li><strong>[2024] Which file operation is also known as File Seek and need not perform actual I/O?</strong><br><strong>Answer:</strong> Repositioning the current file offset.</li>
+<li><strong>[2013] What is a path that begins at the root directory called?</strong><br><strong>Answer:</strong> An absolute path name.</li>
+<li><strong>[2016] How many lines does head display by default?</strong><br><strong>Answer:</strong> 10 lines (also listed under Unix/Linux commands).</li>
+<li><strong>[2021] What is the extension of a Windows batch file?</strong><br><strong>Answer:</strong> .bat.</li>
+</ol>
+
+<h3>19.10 Disk structure and disk scheduling</h3>
+<ol>
+<li><strong>[2017] What is the time required to move the read/write head to the required track called?</strong><br><strong>Answer:</strong> Seek time.</li>
+<li><strong>[2021] What is the time spent waiting for the desired sector to rotate under the read/write head called?</strong><br><strong>Answer:</strong> Rotational latency (rotational delay).</li>
+<li><strong>[2021] Name the main physical organization terms of a disk.</strong><br><strong>Answer:</strong> Cylinders, tracks and sectors.</li>
+<li><strong>[2025] How does FCFS disk scheduling serve requests?</strong><br><strong>Answer:</strong> In the order in which requests arrive.</li>
+</ol>
+
+<h3>19.11 I/O, buffering and storage</h3>
+<ol>
+<li><strong>[2019] What temporary storage area compensates for speed differences between units transferring data?</strong><br><strong>Answer:</strong> A buffer.</li>
+<li><strong>[2013] Sequential, direct, random and associative are access methods associated with which system?</strong><br><strong>Answer:</strong> The workbook key says memory system. Check the original wording because “access methods” can be discussed in more than one storage context.</li>
+</ol>
+
+<h3>19.12 Other OS-linked concepts in the question bank</h3>
+<ol>
+<li><strong>[2023] Which Linux directory contains system configuration files?</strong><br><strong>Answer:</strong> /etc.</li>
+<li><strong>[2023] Which Linux command searches file contents for a pattern?</strong><br><strong>Answer:</strong> grep.</li>
+<li><strong>[2021] Which is an impact printer?</strong><br><strong>Answer:</strong> Dot-matrix printer.</li>
+<li><strong>[2025] In distributed systems, what mechanism is commonly used to maintain consistency across nodes?</strong><br><strong>Answer:</strong> Replication and synchronization (as keyed in the workbook).</li>
+</ol>
+
+<p><strong>Accuracy note:</strong> The question bank contains duplicated variants, OCR/extraction artifacts and some questionable answer keys. I have flagged the tape-drive item rather than silently presenting its source key as correct. For numericals, recompute from the question data instead of memorizing the keyed number.</p>
+</section>
