@@ -18,5 +18,27 @@
     "date": "2026-11-18",
     "summary": "189 OS question-bank records analyzed, with topic-wise PYQ questions and answers, repeated concepts, syllabus priorities, theory, formulas and numerical examples.",
     "file": "notes/operating-system-pyq-short-notes.html"
+  },
+  {
+    "id": "computer-networks-network-security-short-notes",
+    "title": "Computer Networks & Network Security – Complete Short Notes & PYQ Analysis",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Computer Networks & Network Security",
+    "chapterSlug": "computer-networks-network-security",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "computer-networks",
+      "network-security",
+      "PYQ",
+      "DSSSB",
+      "computer-science",
+      "revision",
+      "cryptography",
+      "networking"
+    ],
+    "date": "2026-11-18",
+    "summary": "Complete topic-wise notes, detailed syllabus/PYQ analysis and all 261 Computer Networks and Network Security workbook records with keyed answers.",
+    "file": "notes/computer-networks-network-security-short-notes.html"
   }
 ]
