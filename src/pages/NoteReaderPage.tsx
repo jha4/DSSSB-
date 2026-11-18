@@ -170,7 +170,7 @@ export const NoteReaderPage: React.FC = () => {
         ];
         let html = loadedNote.html;
         let slotIndex = 0;
-        html = html.replace(/<div class="topic-pyq-highlight"[^>]*>[\\s\\S]*?<\\/div>/g, () => {
+        html = html.replace(/<div class="topic-pyq-highlight"[^>]*>[\s\S]*?<\/div>/g, () => {
           const topic = topicSlots[slotIndex++];
           const rows = data.q.filter((row) => data.t[row[0]] === topic);
           return renderOsPyqBlock('Complete topic-wise PYQs', rows, data);
@@ -178,11 +178,11 @@ export const NoteReaderPage: React.FC = () => {
 
         const linuxRows = data.q.filter((row) => data.t[row[0]] === 'Linux, Unix and Windows');
         const linuxBlock = renderOsPyqBlock('Complete Linux, Unix and Windows PYQs', linuxRows, data);
-        html = html.replace(/(?=<h2\\b[^>]*>\\s*14\\.)/, linuxBlock);
+        html = html.replace(/(?=<h2\b[^>]*>\s*14\.)/, linuxBlock);
 
         const miscellaneousRows = data.q.filter((row) => data.t[row[0]] === 'Miscellaneous');
         const miscellaneousBlock = renderOsPyqBlock('Miscellaneous PYQs — not mapped to a core topic', miscellaneousRows, data);
-        html = html.replace(/<\\/section>\\s*$/, miscellaneousBlock + '</section>');
+        html = html.replace(/<\/section>\s*$/, miscellaneousBlock + '</section>');
 
         if (!cancelled) setEnhancedHtml(html);
       } catch (error) {
