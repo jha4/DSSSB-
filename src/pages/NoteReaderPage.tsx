@@ -22,6 +22,49 @@ import {
   type LoadedNoteContent,
 } from '../utils/noteLoader';
 
+
+type CompactOsPyqData = {
+  t: string[];
+  e: string[];
+  q: Array<[number, number, number, string, string[], number]>;
+};
+
+type CompactOsPyqQuestion = CompactOsPyqData['q'][number];
+
+const escapePyqHtml = (value: string): string =>
+  value.replace(/[&<>"]/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+  })[char] ?? char);
+
+function renderOsPyqBlock(title: string, rows: CompactOsPyqQuestion[], data: CompactOsPyqData): string {
+  const questions = rows.map((row) => {
+    const year = row[1] || 'Year not recorded';
+    const exam = data.e[row[2]] || '';
+    const options = row[4].length
+      ? '<ol type="A" style="margin:6px 0 6px 22px;padding-left:18px;">' +
+        row[4].map((option) => '<li style="margin:3px 0;">' + escapePyqHtml(option) + '</li>').join('') +
+        '</ol>'
+      : '';
+    const answerText = row[5] >= 0
+      ? String.fromCharCode(65 + row[5]) + (row[4][row[5]] ? '. ' + escapePyqHtml(row[4][row[5]]) : '')
+      : 'Not supplied';
+    return '<li style="margin:0 0 15px;padding:0 0 12px;border-bottom:1px solid #eadf9d;">' +
+      '<p style="font-size:.86em;color:#625d4c;margin:3px 0 6px;">[' + year + ']' +
+      (exam ? ' · ' + escapePyqHtml(exam) : '') + '</p>' +
+      '<p style="white-space:pre-wrap;margin:5px 0;"><strong>' + escapePyqHtml(row[3]) + '</strong></p>' +
+      options +
+      '<p style="font-weight:600;color:#365b2c;margin:5px 0;">Workbook answer key: ' + answerText + '</p>' +
+      '</li>';
+  }).join('');
+  return '<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 24px;">' +
+    '<h3>' + title + ' — ' + rows.length + ' questions</h3>' +
+    '<p style="font-size:.88em;color:#625d4c;margin:4px 0 10px;">Questions are reproduced from the workbook. Repeated records are retained; answer keys are shown as supplied and have not all been independently verified.</p>' +
+    '<ol style="padding-left:22px;">' + questions + '</ol></div>';
+}
+
 const FONT_SIZE_CLASS: Record<'sm' | 'md' | 'lg', string> = {
   sm: 'text-xs leading-relaxed',
   md: 'text-[13.5px] sm:text-sm',
@@ -40,6 +83,7 @@ export const NoteReaderPage: React.FC = () => {
   );
 
   const [loadedNote, setLoadedNote] = useState<LoadedNoteContent | null>(null);
+  const [enhancedHtml, setEnhancedHtml] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [retryToken, setRetryToken] = useState(0);
@@ -92,6 +136,71 @@ export const NoteReaderPage: React.FC = () => {
       controller.abort();
     };
   }, [note, retryToken]);
+
+
+  useEffect(() => {
+    if (note?.id !== 'operating-system-pyq-short-notes' || !loadedNote?.html) {
+      setEnhancedHtml(null);
+      return;
+    }
+
+    let cancelled = false;
+    const loadCompletePyqs = async () => {
+      try {
+        const dataUrl = `${import.meta.env.BASE_URL}notes/os-pyq-data.json.gz.b64`;
+        const response = await fetch(dataUrl);
+        if (!response.ok) throw new Error(`PYQ data request failed: ${response.status}`);
+        const encoded = (await response.text()).trim();
+        const compressed = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
+        const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+        const data = JSON.parse(await new Response(stream).text()) as CompactOsPyqData;
+        const topicSlots = [
+          'OS fundamentals and structure',
+          'OS structure and system calls',
+          'Process management and threads',
+          'CPU scheduling',
+          'Synchronization and IPC',
+          'Deadlocks',
+          'Memory management',
+          'Paging and virtual memory',
+          'File systems and file management',
+          'Disk management and scheduling',
+          'Device and I/O management',
+          'Additional syllabus concepts',
+        ];
+        let html = loadedNote.html;
+        let slotIndex = 0;
+        html = html.replace(/<div class="topic-pyq-highlight"[^>]*>[\\s\\S]*?<\\/div>/g, () => {
+          const topic = topicSlots[slotIndex++];
+          const rows = data.q.filter((row) => data.t[row[0]] === topic);
+          return renderOsPyqBlock('Complete topic-wise PYQs', rows, data);
+        });
+
+        const linuxRows = data.q.filter((row) => data.t[row[0]] === 'Linux, Unix and Windows');
+        const linuxBlock = renderOsPyqBlock('Complete Linux, Unix and Windows PYQs', linuxRows, data);
+        html = html.replace(/(?=<h2\\b[^>]*>\\s*14\\.)/, linuxBlock);
+
+        const miscellaneousRows = data.q.filter((row) => data.t[row[0]] === 'Miscellaneous');
+        const miscellaneousBlock = renderOsPyqBlock('Miscellaneous PYQs — not mapped to a core topic', miscellaneousRows, data);
+        html = html.replace(/<\\/section>\\s*$/, miscellaneousBlock + '</section>');
+
+        if (!cancelled) setEnhancedHtml(html);
+      } catch (error) {
+        console.error('Unable to load the complete Operating System PYQ dataset', error);
+        if (!cancelled) {
+          setEnhancedHtml(
+            loadedNote.html +
+              '<p style="background:#fff4e5;border-left:4px solid #d97706;padding:10px 14px;">The complete PYQ dataset could not be loaded. Refresh the page to retry.</p>'
+          );
+        }
+      }
+    };
+
+    void loadCompletePyqs();
+    return () => {
+      cancelled = true;
+    };
+  }, [note?.id, loadedNote?.html]);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -318,7 +427,7 @@ export const NoteReaderPage: React.FC = () => {
         ) : loadedNote ? (
           <div
             className={`note-html-body ${FONT_SIZE_CLASS[readingFontSize]}`}
-            dangerouslySetInnerHTML={{ __html: loadedNote.html }}
+            dangerouslySetInnerHTML={{ __html: enhancedHtml ?? loadedNote.html }}
           />
         ) : null}
       </div>
