@@ -1,67 +1,47 @@
-export type RevisionStatus = 'not_started' | 'learning' | 'revised' | 'mastered';
-
-export type SubjectColorKey =
-  | 'indigo'
-  | 'emerald'
-  | 'amber'
-  | 'rose'
-  | 'sky'
-  | 'violet'
-  | 'teal'
-  | 'slate';
-
-export interface Note {
+export interface StaticNoteMeta {
   id: string;
   title: string;
   subject: string;
+  subjectSlug: string;
   chapter: string;
+  chapterSlug: string;
   topic: string;
-  subtopic: string;
-  content: string;
-  importantPoints: string[];
   tags: string[];
-  important: boolean;
-  favorite: boolean;
-  revisionStatus: RevisionStatus;
-  createdAt: string;
-  updatedAt: string;
-  lastViewedAt?: string;
+  date: string;
+  summary: string;
+  file: string;
 }
 
-export interface SubjectItem {
-  id: string;
+export interface DerivedSubject {
   name: string;
-  description: string;
-  color: SubjectColorKey;
+  slug: string;
+  noteCount: number;
+  chapterCount: number;
+  topicCount: number;
 }
 
-export interface AppSettings {
-  theme: 'light' | 'dark';
-  defaultViewMode: 'grid' | 'list';
-  readingFontSize: 'sm' | 'md' | 'lg';
-  showImportantPointsBanner: boolean;
-  confirmBeforeDelete: boolean;
+export interface DerivedChapter {
+  name: string;
+  slug: string;
+  subject: string;
+  subjectSlug: string;
+  noteCount: number;
+  topicCount: number;
+  notes: StaticNoteMeta[];
 }
 
-export type SortOption = 'newest' | 'oldest' | 'title_asc' | 'title_desc' | 'updated';
+export type SortOption = 'newest' | 'oldest' | 'title_asc' | 'title_desc';
 
 export interface NoteFilterState {
   query: string;
-  subject: string;
-  chapter: string;
-  topic: string;
+  subjectSlug: string;
+  chapterSlug: string;
   tag: string;
-  favoritesOnly: boolean;
-  importantOnly: boolean;
-  revisionStatus: RevisionStatus | 'all';
   sortBy: SortOption;
 }
 
-export type DuplicateStrategy = 'duplicate' | 'skip' | 'overwrite';
-
-export interface StudyVaultBackup {
-  version: number;
-  exportedAt: string;
-  notes: Note[];
-  subjects: SubjectItem[];
+export interface NoteHeading {
+  id: string;
+  text: string;
+  level: number;
 }

@@ -1,213 +1,132 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import type { Note, SubjectItem } from '../types/note';
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  deriveChapters,
+  deriveSubjects,
+  getAdjacentNotes,
+  getAllNotes,
+  getNoteById,
+  isSpaFallbackHtml,
+  resolveNoteUrl,
+  sanitizeNoteHtml,
+} from './noteLoader';
 import {
   createDefaultFilterState,
   filterAndSortNotes,
-  getAvailableChapters,
-  getAvailableTopics,
-  getDashboardStats,
+  getAllTags,
+  getAvailableChapterOptions,
+  getStaticDashboardStats,
   hasActiveFilters,
 } from './noteFilters';
-import {
-  createJsonBackup,
-  mergeImportedNotes,
-  noteToMarkdown,
-  parseJsonImport,
-  parseMarkdownToNoteDraft,
-} from './importExport';
-import {
-  estimateReadTimeMinutes,
-  extractHeadings,
-  stripMarkdownSnippet,
-} from './markdownHelpers';
 
-const sampleNotes: Note[] = [
-  {
-    id: 'n1',
-    title: 'Process Management & Scheduling',
-    subject: 'Computer Science',
-    chapter: 'Operating System',
-    topic: 'Process Management',
-    subtopic: 'CPU Scheduling',
-    content: '# Process Management\n\nDeadlock conditions and FCFS scheduling.',
-    importantPoints: ['Mutual exclusion is required for deadlock'],
-    tags: ['OS', 'Scheduling'],
-    important: true,
-    favorite: true,
-    revisionStatus: 'revised',
-    createdAt: '2026-11-10',
-    updatedAt: '2026-11-12',
-  },
-  {
-    id: 'n2',
-    title: 'Fundamental Rights (Articles 12-35)',
-    subject: 'Polity',
-    chapter: 'Indian Constitution',
-    topic: 'Fundamental Rights',
-    subtopic: 'Right to Equality',
-    content: '# Fundamental Rights\n\nArticle 14 guarantees equality before law.',
-    importantPoints: ['Article 32 is the heart and soul of the Constitution'],
-    tags: ['Polity', 'Constitution'],
-    important: true,
-    favorite: false,
-    revisionStatus: 'learning',
-    createdAt: '2026-11-15',
-    updatedAt: '2026-11-15',
-  },
-  {
-    id: 'n3',
-    title: 'Introduction to Operating System',
-    subject: 'Computer Science',
-    chapter: 'Operating System',
-    topic: 'Introduction',
-    subtopic: '',
-    content: '# OS Overview\n\nKernel manages hardware resources.',
-    importantPoints: [],
-    tags: ['OS', 'Fundamentals'],
-    important: false,
-    favorite: false,
-    revisionStatus: 'mastered',
-    createdAt: '2026-11-05',
-    updatedAt: '2026-11-08',
-  },
-];
+test('static index loads notes and every referenced HTML file exists in public/', () => {
+  const notes = getAllNotes();
+  assert.ok(notes.length >= 8);
 
-const sampleSubjects: SubjectItem[] = [
-  { id: 's1', name: 'Computer Science', description: 'CS core', color: 'indigo' },
-  { id: 's2', name: 'Polity', description: 'Constitution', color: 'emerald' },
-  { id: 's3', name: 'Mathematics', description: 'Quant', color: 'amber' },
-];
+  for (const note of notes) {
+    assert.ok(note.id);
+    assert.ok(note.file.startsWith('notes/'));
+    const diskPath = path.resolve(process.cwd(), 'public', note.file);
+    assert.equal(fs.existsSync(diskPath), true, `Missing HTML file: ${note.file}`);
+  }
 
-test('filterAndSortNotes filters by combined subject, chapter, topic, and query', () => {
-  const filter = {
+  const linear = getNoteById('linear-equations');
+  assert.ok(linear);
+  assert.equal(linear.subjectSlug, 'mathematics');
+});
+
+test('deriveSubjects and deriveChapters calculate counts accurately from index', () => {
+  const notes = getAllNotes();
+  const subjects = deriveSubjects(notes);
+  const math = subjects.find((s) => s.slug === 'mathematics');
+  assert.ok(math);
+  assert.equal(math.noteCount, 3);
+  assert.equal(math.chapterCount, 2);
+  assert.equal(math.topicCount, 3);
+
+  const mathChapters = deriveChapters(notes, 'mathematics');
+  assert.equal(mathChapters.length, 2);
+  const algebra = mathChapters.find((c) => c.slug === 'algebra');
+  assert.ok(algebra);
+  assert.equal(algebra.noteCount, 2);
+  assert.deepEqual(
+    algebra.notes.map((n) => n.id),
+    ['linear-equations', 'quadratic-equations']
+  );
+});
+
+test('getAdjacentNotes returns previous and next notes cleanly', () => {
+  const notes = getAllNotes();
+  const first = getAdjacentNotes(notes[0].id, notes);
+  assert.equal(first.prev, null);
+  assert.equal(first.next?.id, notes[1].id);
+
+  const last = getAdjacentNotes(notes[notes.length - 1].id, notes);
+  assert.equal(last.prev?.id, notes[notes.length - 2].id);
+  assert.equal(last.next, null);
+});
+
+test('resolveNoteUrl supports local dev root and GitHub Pages /DSSSB-/ base paths', () => {
+  assert.equal(
+    resolveNoteUrl('notes/mathematics/algebra/linear-equations.html', '/'),
+    '/notes/mathematics/algebra/linear-equations.html'
+  );
+  assert.equal(
+    resolveNoteUrl('notes/mathematics/algebra/linear-equations.html', '/DSSSB-/'),
+    '/DSSSB-/notes/mathematics/algebra/linear-equations.html'
+  );
+  assert.throws(() => resolveNoteUrl('https://evil.example/a.html', '/'));
+  assert.throws(() => resolveNoteUrl('../secret.html', '/'));
+});
+
+test('sanitizeNoteHtml removes unsafe elements/handlers and extracts section headings', () => {
+  const dirty = `
+    <article>
+      <h1>Main Title</h1>
+      <script>alert("xss")</script>
+      <iframe src="https://evil.test"></iframe>
+      <p onclick="alert(1)">Hello <a href="javascript:alert(2)">link</a></p>
+      <h2>Section One</h2>
+      <p>Exam preparation text here.</p>
+      <h3>Key Formula</h3>
+    </article>
+  `;
+  const clean = sanitizeNoteHtml(dirty);
+  assert.equal(clean.html.includes('<script'), false);
+  assert.equal(clean.html.includes('<iframe'), false);
+  assert.equal(clean.html.includes('onclick='), false);
+  assert.equal(clean.html.includes('javascript:'), false);
+  assert.deepEqual(
+    clean.headings.map((h) => h.text),
+    ['Section One', 'Key Formula']
+  );
+  assert.ok(clean.html.includes('id="sec-section-one"'));
+  assert.ok(clean.wordCount >= 5);
+});
+
+test('isSpaFallbackHtml detects SPA shell responses when static HTML is missing', () => {
+  assert.equal(isSpaFallbackHtml('<div id="root"></div>'), true);
+  assert.equal(isSpaFallbackHtml('<article><h1>Notes</h1></article>'), false);
+});
+
+test('filterAndSortNotes filters by subjectSlug, chapterSlug, tag, query, and sorts', () => {
+  const notes = getAllNotes();
+  const filtered = filterAndSortNotes(notes, {
     ...createDefaultFilterState(),
-    subject: 'Computer Science',
-    chapter: 'Operating System',
-    topic: 'Process Management',
-    query: 'deadlock scheduling',
-  };
-  const res = filterAndSortNotes(sampleNotes, filter);
-  assert.equal(res.length, 1);
-  assert.equal(res[0].id, 'n1');
-  assert.equal(hasActiveFilters(filter), true);
-});
-
-test('filterAndSortNotes sorts newest, oldest, and alphabetical', () => {
-  const newest = filterAndSortNotes(sampleNotes, {
-    ...createDefaultFilterState(),
-    sortBy: 'newest',
+    subjectSlug: 'computer-science',
+    chapterSlug: 'operating-system',
+    query: 'scheduling',
   });
-  assert.deepEqual(
-    newest.map((n) => n.id),
-    ['n2', 'n1', 'n3']
-  );
+  assert.equal(filtered.length, 1);
+  assert.equal(filtered[0].id, 'process-management');
+  assert.equal(hasActiveFilters({ ...createDefaultFilterState(), tag: 'os' }), true);
 
-  const oldest = filterAndSortNotes(sampleNotes, {
-    ...createDefaultFilterState(),
-    sortBy: 'oldest',
-  });
-  assert.deepEqual(
-    oldest.map((n) => n.id),
-    ['n3', 'n1', 'n2']
-  );
+  assert.ok(getAvailableChapterOptions(notes, 'mathematics').length === 2);
+  assert.ok(getAllTags(notes).includes('algebra'));
 
-  const alpha = filterAndSortNotes(sampleNotes, {
-    ...createDefaultFilterState(),
-    sortBy: 'title_asc',
-  });
-  assert.deepEqual(
-    alpha.map((n) => n.id),
-    ['n2', 'n3', 'n1']
-  );
-});
-
-test('cascading chapter and topic getters narrow options accurately', () => {
-  assert.deepEqual(getAvailableChapters(sampleNotes, 'Computer Science'), [
-    'Operating System',
-  ]);
-  assert.deepEqual(
-    getAvailableTopics(sampleNotes, 'Computer Science', 'Operating System'),
-    ['Introduction', 'Process Management']
-  );
-});
-
-test('getDashboardStats computes totals and subject breakdowns accurately', () => {
-  const stats = getDashboardStats(sampleNotes, sampleSubjects);
-  assert.equal(stats.totalNotes, 3);
-  assert.equal(stats.totalSubjects, 3);
-  assert.equal(stats.totalTopics, 3);
-  assert.equal(stats.favoriteCount, 1);
-  assert.equal(stats.revisedOrMasteredCount, 2);
-  assert.equal(stats.masteredCount, 1);
-
-  const cs = stats.subjectBreakdown.find((s) => s.name === 'Computer Science');
-  assert.ok(cs);
-  assert.equal(cs.noteCount, 2);
-  assert.equal(cs.chapterCount, 1);
-  assert.equal(cs.topicCount, 2);
-});
-
-test('noteToMarkdown and parseMarkdownToNoteDraft round-trip cleanly', () => {
-  const md = noteToMarkdown(sampleNotes[0]);
-  const parsed = parseMarkdownToNoteDraft(md, 'fallback.md');
-  assert.equal(parsed.title, sampleNotes[0].title);
-  assert.equal(parsed.subject, sampleNotes[0].subject);
-  assert.equal(parsed.chapter, sampleNotes[0].chapter);
-  assert.equal(parsed.topic, sampleNotes[0].topic);
-  assert.deepEqual(parsed.tags, sampleNotes[0].tags);
-  assert.equal(parsed.favorite, true);
-  assert.equal(parsed.revisionStatus, 'revised');
-  assert.deepEqual(parsed.importantPoints, sampleNotes[0].importantPoints);
-});
-
-test('parseMarkdownToNoteDraft handles plain ChatGPT markdown without frontmatter', () => {
-  const raw = `# Indian Monsoon Mechanism\n\nMonsoons are seasonal winds.\n\n## Important Points\n- ITCZ shifts northward in summer\n- El Nino weakens Indian monsoon`;
-  const parsed = parseMarkdownToNoteDraft(raw, 'monsoon-notes.md', {
-    subject: 'Geography',
-    chapter: 'Climatology',
-  });
-  assert.equal(parsed.title, 'Indian Monsoon Mechanism');
-  assert.equal(parsed.subject, 'Geography');
-  assert.equal(parsed.chapter, 'Climatology');
-  assert.equal(parsed.importantPoints.length, 2);
-  assert.equal(parsed.important, true);
-});
-
-test('JSON backup export, parse, and duplicate-safe merge', () => {
-  const backup = createJsonBackup(sampleNotes, sampleSubjects);
-  const parsed = parseJsonImport(JSON.stringify(backup));
-  assert.equal(parsed.notes.length, 3);
-  assert.equal(parsed.subjects.length, 3);
-
-  const dupResult = mergeImportedNotes(sampleNotes, [sampleNotes[0]], 'duplicate');
-  assert.equal(dupResult.addedCount, 1);
-  assert.equal(dupResult.notes.length, 4);
-  assert.notEqual(dupResult.notes[0].id, sampleNotes[0].id);
-  assert.match(dupResult.notes[0].title, /\(Imported\)$/);
-
-  const skipResult = mergeImportedNotes(sampleNotes, [sampleNotes[0]], 'skip');
-  assert.equal(skipResult.skippedCount, 1);
-  assert.equal(skipResult.notes.length, 3);
-});
-
-test('extractHeadings ignores headings inside fenced code blocks', () => {
-  const md = [
-    '# Title',
-    '## Section One',
-    '```bash',
-    '# Not a heading',
-    '```',
-    '### Subsection',
-  ].join('\n');
-  const headings = extractHeadings(md);
-  assert.deepEqual(
-    headings.map((h) => h.text),
-    ['Title', 'Section One', 'Subsection']
-  );
-  assert.ok(estimateReadTimeMinutes(md) >= 1);
-  assert.ok(stripMarkdownSnippet(md).includes('Title'));
-  const tableMd = '| Org | HQ |\n| :--- | :--- |\n| WHO | Geneva |';
-  assert.equal(stripMarkdownSnippet(tableMd).includes(':---'), false);
-  assert.ok(stripMarkdownSnippet(tableMd).includes('Geneva'));
+  const stats = getStaticDashboardStats(notes);
+  assert.equal(stats.totalNotes, notes.length);
+  assert.equal(stats.totalSubjects, 4);
 });

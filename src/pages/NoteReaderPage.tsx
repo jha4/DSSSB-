@@ -1,61 +1,93 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
+  AlertCircle,
   ArrowLeft,
-  Bookmark,
-  Check,
-  Copy,
-  Download,
-  Edit3,
+  ArrowRight,
   Maximize2,
   Minimize2,
   Moon,
-  Star,
+  Printer,
+  RotateCw,
   Sun,
-  Trash2,
 } from 'lucide-react';
-import { ConfirmDialog } from '../components/ConfirmDialog';
-import { MarkdownRenderer } from '../components/MarkdownRenderer';
 import { useStudyVault } from '../context/StudyVaultContext';
-import type { RevisionStatus } from '../types/note';
+import { formatShortDate } from '../utils/formatters';
 import {
-  formatShortDate,
-  REVISION_STATUS_LABELS,
-  REVISION_STATUS_ORDER,
-  sanitizeFileSlug,
-} from '../utils/formatters';
-import { noteToMarkdown } from '../utils/importExport';
-import { estimateReadTimeMinutes, extractHeadings } from '../utils/markdownHelpers';
+  fetchNoteHtml,
+  getAdjacentNotes,
+  getNoteById,
+  type LoadedNoteContent,
+} from '../utils/noteLoader';
+
+const FONT_SIZE_CLASS: Record<'sm' | 'md' | 'lg', string> = {
+  sm: 'text-sm',
+  md: 'text-[15.5px]',
+  lg: 'text-lg',
+};
 
 export const NoteReaderPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const {
-    notes,
-    settings,
-    toggleFavorite,
-    toggleImportant,
-    setRevisionStatus,
-    deleteNote,
-    recordNoteView,
-    toggleTheme,
-    updateSettings,
-    notify,
-  } = useStudyVault();
+  const { theme, toggleTheme, readingFontSize, setReadingFontSize } =
+    useStudyVault();
 
-  const note = useMemo(() => notes.find((n) => n.id === id), [notes, id]);
+  const note = useMemo(() => (id ? getNoteById(id) : undefined), [id]);
+  const { prev, next } = useMemo(
+    () => (id ? getAdjacentNotes(id) : { prev: null, next: null }),
+    [id]
+  );
+
+  const [loadedNote, setLoadedNote] = useState<LoadedNoteContent | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [retryToken, setRetryToken] = useState(0);
 
   const [distractionFree, setDistractionFree] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
-  const [copiedNote, setCopiedNote] = useState(false);
-  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
   const focusContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (note) {
-      recordNoteView(note.id);
+    window.scrollTo(0, 0);
+    setReadProgress(0);
+  }, [id]);
+
+  useEffect(() => {
+    if (!note) {
+      setLoadedNote(null);
+      setErrorMsg(null);
+      setLoading(false);
+      return;
     }
-  }, [note?.id, recordNoteView]);
+
+    const controller = new AbortController();
+    setLoading(true);
+    setErrorMsg(null);
+
+    fetchNoteHtml(note.file, {
+      signal: controller.signal,
+      forceRefresh: retryToken > 0,
+    })
+      .then((content) => {
+        if (!controller.signal.aborted) {
+          setLoadedNote(content);
+          setLoading(false);
+        }
+      })
+      .catch((err: unknown) => {
+        if (controller.signal.aborted) return;
+        const message =
+          err instanceof Error
+            ? err.message
+            : 'Unable to load the static HTML file for this note.';
+        setErrorMsg(message);
+        setLoadedNote(null);
+        setLoading(false);
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, [note, retryToken]);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -99,7 +131,7 @@ export const NoteReaderPage: React.FC = () => {
       window.removeEventListener('scroll', updateScroll);
       window.removeEventListener('resize', updateScroll);
     };
-  }, [note?.id, distractionFree]);
+  }, [note?.id, loadedNote?.html, distractionFree]);
 
   useEffect(() => {
     if (!distractionFree) return;
@@ -112,15 +144,6 @@ export const NoteReaderPage: React.FC = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [distractionFree]);
 
-  const headings = useMemo(
-    () => (note ? extractHeadings(note.content) : []),
-    [note?.content]
-  );
-  const readTime = useMemo(
-    () => (note ? estimateReadTimeMinutes(note.content) : 1),
-    [note?.content]
-  );
-
   if (!note) {
     return (
       <div className="mx-auto max-w-xl rounded-xl border border-slate-200 bg-white p-10 text-center dark:border-slate-800 dark:bg-slate-900">
@@ -128,7 +151,7 @@ export const NoteReaderPage: React.FC = () => {
           Note not found
         </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-          This note may have been deleted or the link is outdated.
+          No entry with ID "{id}" exists in the static notes index.
         </p>
         <Link
           to="/notes"
@@ -141,87 +164,49 @@ export const NoteReaderPage: React.FC = () => {
     );
   }
 
-  const handleCopyMarkdown = async () => {
-    try {
-      await navigator.clipboard.writeText(note.content);
-      setCopiedNote(true);
-      notify(`Copied "${note.title}"`, 'success');
-      window.setTimeout(() => setCopiedNote(false), 1800);
-    } catch {
-      notify('Unable to access clipboard', 'error');
-    }
-  };
-
-  const handleExportMd = () => {
-    const md = noteToMarkdown(note);
-    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${sanitizeFileSlug(note.title)}.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    notify(`Exported "${note.title}.md"`, 'success');
-  };
-
-  const handleDelete = () => {
-    if (settings.confirmBeforeDelete) {
-      setConfirmDeleteOpen(true);
-    } else {
-      deleteNote(note.id);
-      notify(`Deleted "${note.title}"`, 'neutral');
-      navigate('/notes');
-    }
-  };
-
-  const confirmDelete = () => {
-    const title = note.title;
-    deleteNote(note.id);
-    setConfirmDeleteOpen(false);
-    notify(`Deleted "${title}"`, 'neutral');
-    navigate('/notes');
-  };
+  const headings = loadedNote?.headings ?? [];
+  const readTime = loadedNote?.readTimeMinutes ?? 1;
+  const wordCount = loadedNote?.wordCount ?? 0;
 
   const articleBody = (
     <div className="space-y-6">
       {/* Note Header */}
       <header className="border-b border-slate-200 pb-6 dark:border-slate-800">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+        <nav
+          aria-label="Note breadcrumb"
+          className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400"
+        >
           <Link
-            to={`/notes?subject=${encodeURIComponent(note.subject)}`}
+            to={`/subjects/${note.subjectSlug}`}
             className="text-indigo-600 hover:underline dark:text-indigo-400"
           >
             {note.subject}
           </Link>
           <span aria-hidden="true">/</span>
           <Link
-            to={`/notes?subject=${encodeURIComponent(note.subject)}&chapter=${encodeURIComponent(note.chapter)}`}
+            to={`/subjects/${note.subjectSlug}/${note.chapterSlug}`}
             className="hover:text-slate-800 dark:hover:text-slate-200"
           >
             {note.chapter}
           </Link>
           <span aria-hidden="true">/</span>
           <span>{note.topic}</span>
-          {note.subtopic && (
-            <>
-              <span aria-hidden="true">/</span>
-              <span>{note.subtopic}</span>
-            </>
-          )}
-        </div>
+        </nav>
 
         <h1 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
           {note.title}
         </h1>
 
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
-          <span className="tabular-nums">Created {formatShortDate(note.createdAt)}</span>
-          <span aria-hidden="true">·</span>
-          <span className="tabular-nums">Updated {formatShortDate(note.updatedAt)}</span>
-          <span aria-hidden="true">·</span>
-          <span className="tabular-nums">{readTime} min read</span>
+          <span className="tabular-nums">Updated {formatShortDate(note.date)}</span>
+          {loadedNote && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span className="tabular-nums">{readTime} min read</span>
+              <span aria-hidden="true">·</span>
+              <span className="tabular-nums">{wordCount} words</span>
+            </>
+          )}
           {note.tags.length > 0 && (
             <>
               <span aria-hidden="true">·</span>
@@ -243,30 +228,96 @@ export const NoteReaderPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Important Points Summary */}
-      {settings.showImportantPointsBanner && note.importantPoints.length > 0 && (
-        <section
-          aria-labelledby="important-points-heading"
-          className="rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900/80"
-        >
-          <h2
-            id="important-points-heading"
-            className="text-sm font-semibold text-slate-900 dark:text-white"
-          >
-            Important Exam Points
-          </h2>
-          <ul className="mt-2.5 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-            {note.importantPoints.map((point, index) => (
-              <li key={index}>{point}</li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* Markdown Content */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900">
-        <MarkdownRenderer content={note.content} fontSize={settings.readingFontSize} />
+      {/* Static HTML Note Body */}
+      <div className="note-print-card rounded-xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+        {loading ? (
+          <div className="space-y-4 py-2" aria-busy="true" aria-label="Loading note">
+            <div className="h-5 w-2/3 animate-pulse rounded bg-slate-200 dark:bg-slate-800" />
+            <div className="h-4 w-full animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-4 w-5/6 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-24 w-full animate-pulse rounded-lg bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-4 w-3/4 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+          </div>
+        ) : errorMsg ? (
+          <div className="py-6 text-center">
+            <AlertCircle className="mx-auto h-8 w-8 text-rose-500" />
+            <h2 className="mt-3 text-base font-semibold text-slate-900 dark:text-white">
+              Unable to load note content
+            </h2>
+            <p className="mx-auto mt-1.5 max-w-md text-sm text-slate-600 dark:text-slate-400">
+              {errorMsg}
+            </p>
+            <div className="mt-5 flex justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => setRetryToken((c) => c + 1)}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white hover:bg-indigo-700 dark:bg-indigo-500"
+              >
+                <RotateCw className="h-3.5 w-3.5" />
+                <span>Retry</span>
+              </button>
+              <Link
+                to="/notes"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                <span>All Notes</span>
+              </Link>
+            </div>
+          </div>
+        ) : loadedNote ? (
+          <div
+            className={`note-html-body ${FONT_SIZE_CLASS[readingFontSize]}`}
+            dangerouslySetInnerHTML={{ __html: loadedNote.html }}
+          />
+        ) : null}
       </div>
+
+      {/* Previous / Next Note Navigation */}
+      {(prev || next) && (
+        <nav
+          aria-label="Adjacent notes navigation"
+          className="no-print grid grid-cols-1 gap-3 sm:grid-cols-2"
+        >
+          <div>
+            {prev && (
+              <Link
+                to={`/notes/${prev.id}`}
+                className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+              >
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
+                  <span>Previous Note</span>
+                </span>
+                <span className="mt-1 truncate text-sm font-semibold text-slate-900 group-hover:text-indigo-600 dark:text-slate-100 dark:group-hover:text-indigo-400">
+                  {prev.title}
+                </span>
+                <span className="mt-0.5 truncate text-xs text-slate-500 dark:text-slate-400">
+                  {prev.subject} / {prev.chapter}
+                </span>
+              </Link>
+            )}
+          </div>
+          <div>
+            {next && (
+              <Link
+                to={`/notes/${next.id}`}
+                className="group flex flex-col items-end rounded-xl border border-slate-200 bg-white p-4 text-right transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+              >
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <span>Next Note</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+                <span className="mt-1 w-full truncate text-sm font-semibold text-slate-900 group-hover:text-indigo-600 dark:text-slate-100 dark:group-hover:text-indigo-400">
+                  {next.title}
+                </span>
+                <span className="mt-0.5 w-full truncate text-xs text-slate-500 dark:text-slate-400">
+                  {next.subject} / {next.chapter}
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
     </div>
   );
 
@@ -276,9 +327,8 @@ export const NoteReaderPage: React.FC = () => {
         ref={focusContainerRef}
         className="fixed inset-0 z-50 overflow-y-auto bg-slate-50 dark:bg-slate-950"
       >
-        {/* Reading Progress Bar */}
         <div
-          className="fixed top-0 left-0 z-50 h-1 bg-indigo-600 transition-all duration-150 dark:bg-indigo-400"
+          className="no-print fixed top-0 left-0 z-50 h-1 bg-indigo-600 transition-all duration-150 dark:bg-indigo-400"
           style={{ width: `${readProgress}%` }}
           role="progressbar"
           aria-valuenow={readProgress}
@@ -287,10 +337,10 @@ export const NoteReaderPage: React.FC = () => {
           aria-label="Reading progress"
         />
 
-        <div className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-2.5 backdrop-blur-xs sm:px-8 dark:border-slate-800 dark:bg-slate-900/95">
+        <div className="no-print sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-2.5 backdrop-blur-xs sm:px-8 dark:border-slate-800 dark:bg-slate-900/95">
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
             <span className="truncate text-xs font-medium text-slate-600 dark:text-slate-400">
-              Distraction-Free Mode · <span className="tabular-nums">{readProgress}%</span> read
+              Focus Mode · <span className="tabular-nums">{readProgress}%</span> read
             </span>
 
             <div className="flex shrink-0 items-center gap-2">
@@ -299,9 +349,9 @@ export const NoteReaderPage: React.FC = () => {
                   <button
                     key={sz}
                     type="button"
-                    onClick={() => updateSettings({ readingFontSize: sz })}
+                    onClick={() => setReadingFontSize(sz)}
                     className={`rounded-md px-2 py-1 font-medium uppercase ${
-                      settings.readingFontSize === sz
+                      readingFontSize === sz
                         ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
                         : 'text-slate-500 dark:text-slate-400'
                     }`}
@@ -316,7 +366,7 @@ export const NoteReaderPage: React.FC = () => {
                 aria-label="Toggle theme"
                 className="rounded-lg border border-slate-200 p-1.5 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
               >
-                {settings.theme === 'dark' ? (
+                {theme === 'dark' ? (
                   <Sun className="h-4 w-4" />
                 ) : (
                   <Moon className="h-4 w-4" />
@@ -343,7 +393,7 @@ export const NoteReaderPage: React.FC = () => {
     <div className="space-y-6">
       {/* Fixed Reading Progress Indicator */}
       <div
-        className="fixed top-0 left-0 z-50 h-1 bg-indigo-600 transition-all duration-150 dark:bg-indigo-400"
+        className="no-print fixed top-0 left-0 z-50 h-1 bg-indigo-600 transition-all duration-150 dark:bg-indigo-400"
         style={{ width: `${readProgress}%` }}
         role="progressbar"
         aria-valuenow={readProgress}
@@ -353,8 +403,8 @@ export const NoteReaderPage: React.FC = () => {
       />
 
       {/* Action Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
-        <div className="flex items-center gap-2.5">
+      <div className="no-print flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+        <div className="flex items-center gap-3">
           <Link
             to="/notes"
             className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
@@ -362,117 +412,60 @@ export const NoteReaderPage: React.FC = () => {
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>All Notes</span>
           </Link>
-          <span className="tabular-nums hidden text-xs text-slate-500 2xl:inline dark:text-slate-400">
+          <span className="tabular-nums text-xs text-slate-500 dark:text-slate-400">
             {readProgress}% read
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
-          <label htmlFor="reader-revision-status" className="sr-only">
-            Revision Status
-          </label>
-          <select
-            id="reader-revision-status"
-            value={note.revisionStatus}
-            onChange={(e) => {
-              const status = e.target.value as RevisionStatus;
-              setRevisionStatus(note.id, status);
-              notify(`Marked as ${REVISION_STATUS_LABELS[status]}`, 'success');
-            }}
-            className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+        <div className="flex flex-wrap items-center gap-2">
+          <div
+            className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs dark:border-slate-700 dark:bg-slate-800"
+            role="group"
+            aria-label="Reading font size"
           >
-            {REVISION_STATUS_ORDER.map((status) => (
-              <option key={status} value={status}>
-                Status: {REVISION_STATUS_LABELS[status]}
-              </option>
+            {(['sm', 'md', 'lg'] as const).map((sz) => (
+              <button
+                key={sz}
+                type="button"
+                onClick={() => setReadingFontSize(sz)}
+                aria-pressed={readingFontSize === sz}
+                className={`rounded-md px-2 py-1 font-medium uppercase ${
+                  readingFontSize === sz
+                    ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
+                    : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                }`}
+              >
+                {sz}
+              </button>
             ))}
-          </select>
+          </div>
 
           <button
             type="button"
-            onClick={() => toggleFavorite(note.id)}
-            aria-pressed={note.favorite}
-            className={`inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors ${
-              note.favorite
-                ? 'border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-300'
-                : 'border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'
-            }`}
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
           >
-            <Star className={`h-3.5 w-3.5 ${note.favorite ? 'fill-current' : ''}`} />
-            <span>{note.favorite ? 'Favorited' : 'Favorite'}</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => toggleImportant(note.id)}
-            aria-pressed={note.important}
-            className={`inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors ${
-              note.important
-                ? 'border-indigo-300 bg-indigo-50 text-indigo-800 dark:border-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300'
-                : 'border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'
-            }`}
-          >
-            <Bookmark className="h-3.5 w-3.5" />
-            <span>High-Yield</span>
+            <Printer className="h-3.5 w-3.5" />
+            <span>Print / PDF</span>
           </button>
 
           <button
             type="button"
             onClick={() => setDistractionFree(true)}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
           >
             <Maximize2 className="h-3.5 w-3.5" />
             <span>Focus Mode</span>
           </button>
-
-          <button
-            type="button"
-            onClick={handleCopyMarkdown}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-          >
-            {copiedNote ? (
-              <Check className="h-3.5 w-3.5 text-emerald-600" />
-            ) : (
-              <Copy className="h-3.5 w-3.5" />
-            )}
-            <span>{copiedNote ? 'Copied' : 'Copy'}</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={handleExportMd}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-          >
-            <Download className="h-3.5 w-3.5" />
-            <span>Export .md</span>
-          </button>
-
-          <Link
-            to={`/notes/${note.id}/edit`}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
-          >
-            <Edit3 className="h-3.5 w-3.5" />
-            <span>Edit</span>
-          </Link>
-
-          <button
-            type="button"
-            onClick={handleDelete}
-            aria-label="Delete note"
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-rose-600 hover:bg-rose-50 dark:border-slate-700 dark:text-rose-400 dark:hover:bg-rose-950/40"
-          >
-            <Trash2 className="h-3.5 w-3.5" />
-            <span>Delete</span>
-          </button>
         </div>
       </div>
 
-      {/* Main Content + Optional TOC Outline */}
+      {/* Main Content + TOC Outline */}
       <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_240px]">
         <div className="min-w-0">{articleBody}</div>
 
         {headings.length >= 2 && (
-          <aside className="hidden xl:block">
+          <aside className="no-print hidden xl:block">
             <div className="sticky top-20 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
               <h2 className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                 On This Page
@@ -488,7 +481,7 @@ export const NoteReaderPage: React.FC = () => {
                         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }}
                     className={`block w-full truncate text-left text-xs text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 ${
-                      h.level === 2 ? 'pl-2' : h.level === 3 ? 'pl-4' : ''
+                      h.level === 3 ? 'pl-3' : ''
                     }`}
                   >
                     {h.text}
@@ -499,15 +492,6 @@ export const NoteReaderPage: React.FC = () => {
           </aside>
         )}
       </div>
-
-      <ConfirmDialog
-        open={confirmDeleteOpen}
-        title="Delete this note?"
-        description={`"${note.title}" will be permanently deleted from your vault.`}
-        confirmLabel="Delete Note"
-        onConfirm={confirmDelete}
-        onCancel={() => setConfirmDeleteOpen(false)}
-      />
     </div>
   );
 };

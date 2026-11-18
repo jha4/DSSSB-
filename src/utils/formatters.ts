@@ -1,19 +1,3 @@
-import type { RevisionStatus } from '../types/note';
-
-export const REVISION_STATUS_LABELS: Record<RevisionStatus, string> = {
-  not_started: 'Not Started',
-  learning: 'Learning',
-  revised: 'Revised',
-  mastered: 'Mastered',
-};
-
-export const REVISION_STATUS_ORDER: RevisionStatus[] = [
-  'not_started',
-  'learning',
-  'revised',
-  'mastered',
-];
-
 export function formatShortDate(isoDate: string): string {
   if (!isoDate) return '—';
   const parsed = new Date(isoDate.length === 10 ? `${isoDate}T00:00:00` : isoDate);

@@ -1,0 +1,82 @@
+<article>
+  <h1>Computer Fundamentals: Architecture, Memory &amp; Number Systems</h1>
+
+  <blockquote class="definition-box">
+    <p><strong>Von Neumann Architecture:</strong> Proposed by <strong>John von Neumann (1945)</strong>, where both <mark>program instructions and data share the same memory space</mark> and bus system.</p>
+  </blockquote>
+
+  <h2>1. Core Functional Units of a Computer</h2>
+  <ul>
+    <li><strong>Input Unit:</strong> Converts human-readable input into binary form (Keyboard, Mouse, Scanner, MICR, OCR).</li>
+    <li><strong>CPU (Central Processing Unit):</strong>
+      <ul>
+        <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs arithmetic (<code>+, -, *, /</code>) and logical comparisons (<code>&gt;, &lt;, =</code>).</li>
+        <li><strong>CU (Control Unit):</strong> Directs instruction fetch-decode-execute cycle and timing signals.</li>
+        <li><strong>Registers:</strong> Fastest memory inside CPU (PC, IR, MAR, MDR, Accumulator).</li>
+      </ul>
+    </li>
+    <li><strong>Memory Unit &amp; Output Unit:</strong> Stores instructions/results and delivers processed output.</li>
+  </ul>
+
+  <h2>2. Memory Hierarchy (Fastest to Slowest)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Memory Level</th>
+        <th>Volatility</th>
+        <th>Speed &amp; Cost per Bit</th>
+        <th>Primary Technology / Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>CPU Registers</strong></td>
+        <td>Volatile</td>
+        <td>Fastest / Highest</td>
+        <td>Immediate operands &amp; instruction pointers</td>
+      </tr>
+      <tr>
+        <td><strong>Cache Memory (L1/L2/L3)</strong></td>
+        <td>Volatile</td>
+        <td>Very Fast</td>
+        <td><mark>SRAM (Static RAM)</mark> bridging CPU and RAM</td>
+      </tr>
+      <tr>
+        <td><strong>Main Memory (RAM)</strong></td>
+        <td>Volatile</td>
+        <td>Fast</td>
+        <td>DRAM (needs periodic refreshing)</td>
+      </tr>
+      <tr>
+        <td><strong>ROM / BIOS / EEPROM</strong></td>
+        <td>Non-Volatile</td>
+        <td>Moderate</td>
+        <td>Bootloader / Firmware storage</td>
+      </tr>
+      <tr>
+        <td><strong>Secondary Storage (SSD/HDD)</strong></td>
+        <td>Non-Volatile</td>
+        <td>Slowest / Lowest cost</td>
+        <td>Long-term OS &amp; user files</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Memory Units &amp; Binary Conversion</h2>
+  <pre><code>1 Bit   = 0 or 1
+1 Nibble = 4 Bits
+1 Byte   = 8 Bits
+1 KB     = 1024 Bytes (2¹⁰)
+1 MB     = 1024 KB    (2²⁰ Bytes)
+1 GB     = 1024 MB    (2³⁰ Bytes)
+1 TB     = 1024 GB    (2⁴⁰ Bytes)</code></pre>
+
+  <aside class="exam-facts">
+    <h3>Important Exam Facts</h3>
+    <ul>
+      <li><strong>SRAM</strong> uses flip-flops (faster, used in Cache); <strong>DRAM</strong> uses capacitors (slower, needs refreshing, used in main RAM).</li>
+      <li><mark>EEPROM</mark> (Electrically Erasable Programmable ROM) is the basis of modern flash drives and BIOS updates.</li>
+      <li><strong>POST</strong> (Power-On Self-Test) runs from ROM/BIOS immediately when a computer is powered on.</li>
+    </ul>
+  </aside>
+</article>

@@ -1,0 +1,68 @@
+<article>
+  <h1>Process Management &amp; CPU Scheduling Algorithms</h1>
+
+  <blockquote class="definition-box">
+    <p><strong>Definition:</strong> A <strong>process</strong> is a program in execution, represented inside the OS by a <mark>Process Control Block (PCB)</mark> storing its PID, state, program counter, registers, and memory limits.</p>
+  </blockquote>
+
+  <h2>1. Five-State Process Lifecycle</h2>
+  <ol>
+    <li><strong>New:</strong> Process is being created by the OS.</li>
+    <li><strong>Ready:</strong> Loaded in main memory, waiting in the ready queue for CPU allocation.</li>
+    <li><strong>Running:</strong> Instructions are actively executing on a CPU core.</li>
+    <li><strong>Waiting (Blocked):</strong> Waiting for an I/O completion or event signal.</li>
+    <li><strong>Terminated:</strong> Execution completed and PCB is deallocated.</li>
+  </ol>
+
+  <h2>2. Comparison of CPU Scheduling Algorithms</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Algorithm</th>
+        <th>Preemptive?</th>
+        <th>Starvation Risk</th>
+        <th>Key Exam Characteristic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>FCFS</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Suffers from <mark>Convoy Effect</mark></td>
+      </tr>
+      <tr>
+        <td><strong>SJF / SRTF</strong></td>
+        <td>SJF: No / SRTF: Yes</td>
+        <td>Yes (long jobs)</td>
+        <td><mark>Minimum average waiting time</mark></td>
+      </tr>
+      <tr>
+        <td><strong>Round Robin (RR)</strong></td>
+        <td>Yes (Time Quantum)</td>
+        <td>No</td>
+        <td>Best for time-sharing interactive systems</td>
+      </tr>
+      <tr>
+        <td><strong>Priority Scheduling</strong></td>
+        <td>Optional</td>
+        <td>Yes (Fixed via Aging)</td>
+        <td>High-priority tasks execute first</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Scheduling Formulas</h2>
+  <pre><code>Turnaround Time (TAT) = Completion Time - Arrival Time
+Waiting Time (WT)     = Turnaround Time - Burst Time
+Response Time (RT)    = First CPU Time - Arrival Time</code></pre>
+
+  <aside class="exam-facts">
+    <h3>Important Exam Facts</h3>
+    <ul>
+      <li><strong>Aging</strong> prevents starvation in Priority Scheduling by gradually increasing the priority of waiting processes.</li>
+      <li>When Time Quantum <code>q → ∞</code> in Round Robin, it behaves identically to <strong>FCFS</strong>.</li>
+      <li>A <strong>Medium-Term Scheduler</strong> handles swapping processes between main memory and disk to control degree of multiprogramming.</li>
+    </ul>
+  </aside>
+</article>

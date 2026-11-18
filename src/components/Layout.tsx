@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   BookMarked,
   BookOpen,
-  Clock,
   FileText,
   FolderKanban,
   GraduationCap,
@@ -11,12 +10,7 @@ import {
   LayoutDashboard,
   Menu,
   Moon,
-  Plus,
-  RotateCcw,
-  Settings,
-  Star,
   Sun,
-  Upload,
   X,
 } from 'lucide-react';
 import { useStudyVault } from '../context/StudyVaultContext';
@@ -34,39 +28,43 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/subjects', label: 'Subjects', icon: BookOpen },
   { to: '/chapters', label: 'Chapters', icon: FolderKanban },
   { to: '/topics', label: 'Topics', icon: Layers },
-  { to: '/favorites', label: 'Favorites', icon: Star },
-  { to: '/revision', label: 'Revision', icon: RotateCcw },
-  { to: '/recent', label: 'Recently Viewed', icon: Clock },
-  { to: '/import-export', label: 'Import / Export', icon: Upload },
-  { to: '/settings', label: 'Settings', icon: Settings },
 ];
-
-const ROUTE_TITLES: Record<string, string> = {
-  '/': 'Dashboard',
-  '/notes': 'All Notes',
-  '/notes/new': 'New Note',
-  '/subjects': 'Subjects',
-  '/chapters': 'Chapters',
-  '/topics': 'Topics',
-  '/favorites': 'Favorites',
-  '/revision': 'Revision Hub',
-  '/recent': 'Recently Viewed',
-  '/import-export': 'Import / Export',
-  '/settings': 'Settings',
-};
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const { settings, toggleTheme, notes } = useStudyVault();
+  const { theme, toggleTheme, notes, subjects, chapters } = useStudyVault();
   const location = useLocation();
 
-  const pageTitle =
-    ROUTE_TITLES[location.pathname] ??
-    (location.pathname.endsWith('/edit')
-      ? 'Edit Note'
-      : location.pathname.startsWith('/notes/')
-        ? 'Note Reader'
-        : 'StudyVault');
+  const pageTitle = useMemo(() => {
+    const path = location.pathname;
+    if (path === '/') return 'Dashboard';
+    if (path === '/notes') return 'All Notes';
+    if (path.startsWith('/notes/')) return 'Note Reader';
+    if (path === '/subjects') return 'Subjects';
+    if (path === '/chapters') return 'Chapters';
+    if (path === '/topics') return 'Topics';
+
+    if (path.startsWith('/subjects/')) {
+      const parts = path.split('/').filter(Boolean);
+      const subjectSlug = parts[1];
+      const chapterSlug = parts[2];
+      const matchedSubject = subjects.find((s) => s.slug === subjectSlug);
+      if (chapterSlug) {
+        const matchedChapter = chapters.find(
+          (c) => c.subjectSlug === subjectSlug && c.slug === chapterSlug
+        );
+        if (matchedChapter) {
+          return `${matchedChapter.subject} / ${matchedChapter.name}`;
+        }
+      }
+      if (matchedSubject) {
+        return matchedSubject.name;
+      }
+      return 'Subject Explorer';
+    }
+
+    return 'StudyVault';
+  }, [location.pathname, subjects, chapters]);
 
   const sidebarContent = (
     <div className="flex h-full flex-col justify-between bg-white px-3 py-4 dark:bg-slate-900">
@@ -121,7 +119,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         <div className="flex items-center justify-between px-3 py-1.5 text-xs text-slate-500 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
             <BookMarked className="h-3.5 w-3.5" />
-            <span>Vault Library</span>
+            <span>Static Library</span>
           </span>
           <span className="tabular-nums font-medium text-slate-700 dark:text-slate-300">
             {notes.length} {notes.length === 1 ? 'note' : 'notes'}
@@ -134,7 +132,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div className="flex min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       {/* Desktop Sidebar */}
-      <aside className="hidden w-64 shrink-0 border-r border-slate-200 lg:block dark:border-slate-800">
+      <aside className="no-print hidden w-64 shrink-0 border-r border-slate-200 lg:block dark:border-slate-800">
         <div className="sticky top-0 h-screen overflow-y-auto">
           {sidebarContent}
         </div>
@@ -142,7 +140,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* Mobile Drawer */}
       {mobileNavOpen && (
-        <div className="fixed inset-0 z-40 flex lg:hidden">
+        <div className="no-print fixed inset-0 z-40 flex lg:hidden">
           <div
             className="fixed inset-0 bg-slate-950/50"
             onClick={() => setMobileNavOpen(false)}
@@ -156,7 +154,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* Main Column */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b border-slate-200 bg-white/95 px-4 backdrop-blur-xs sm:px-6 dark:border-slate-800 dark:bg-slate-900/95">
+        <header className="no-print sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b border-slate-200 bg-white/95 px-4 backdrop-blur-xs sm:px-6 dark:border-slate-800 dark:bg-slate-900/95">
           <div className="flex min-w-0 items-center gap-3">
             <button
               type="button"
@@ -176,30 +174,19 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               type="button"
               onClick={toggleTheme}
               aria-label={
-                settings.theme === 'dark'
-                  ? 'Switch to light mode'
-                  : 'Switch to dark mode'
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
               }
               title={
-                settings.theme === 'dark'
-                  ? 'Switch to light mode'
-                  : 'Switch to dark mode'
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
               }
               className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white"
             >
-              {settings.theme === 'dark' ? (
+              {theme === 'dark' ? (
                 <Sun className="h-4 w-4" />
               ) : (
                 <Moon className="h-4 w-4" />
               )}
             </button>
-            <Link
-              to="/notes/new"
-              className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg bg-indigo-600 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-indigo-700 sm:text-sm dark:bg-indigo-500 dark:hover:bg-indigo-400"
-            >
-              <Plus className="h-4 w-4" />
-              <span>Add Note</span>
-            </Link>
           </div>
         </header>
 
