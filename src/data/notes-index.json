@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": "operating-system-pyq-short-notes",
+    "title": "Operating System – Complete Short Notes & PYQ Analysis",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Operating System",
+    "chapterSlug": "operating-system",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "operating-system",
+      "PYQ",
+      "DSSSB",
+      "computer-science",
+      "revision",
+      "numericals"
+    ],
+    "date": "2026-11-18",
+    "summary": "189 OS question-bank records analyzed, with repeated concepts, syllabus priorities, theory, direct PYQ facts, formulas and numerical examples.",
+    "file": "notes/operating-system-pyq-short-notes.html"
+  }
+]
