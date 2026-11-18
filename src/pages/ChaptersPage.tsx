@@ -49,16 +49,16 @@ export const ChaptersPage: React.FC = () => {
 
   if (routeSubjectSlug && !activeSubject) {
     return (
-      <div className="mx-auto max-w-xl rounded-xl border border-slate-200 bg-white p-10 text-center dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
+      <div className="mx-auto max-w-md rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-white">
           Subject not found
         </h2>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400">
           No notes exist in the static index for subject "{routeSubjectSlug}".
         </p>
         <Link
           to="/subjects"
-          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-2 text-xs font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500"
         >
           <span>Back to Subjects</span>
         </Link>
@@ -67,13 +67,13 @@ export const ChaptersPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {activeSubject && (
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
           <div>
             <nav
               aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400"
+              className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400"
             >
               <Link to="/subjects" className="hover:text-indigo-600 dark:hover:text-indigo-400">
                 Subjects
@@ -83,23 +83,23 @@ export const ChaptersPage: React.FC = () => {
                 {activeSubject.name}
               </span>
             </nav>
-            <h2 className="mt-1.5 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="mt-1 text-base font-bold tracking-tight text-slate-900 sm:text-lg dark:text-white">
               {activeSubject.name} Chapters
             </h2>
-            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+            <p className="mt-0.5 text-[11px] text-slate-500 dark:text-slate-400">
               <span className="tabular-nums">{activeSubject.chapterCount}</span>{' '}
               {activeSubject.chapterCount === 1 ? 'chapter' : 'chapters'}
-              <span className="mx-1.5" aria-hidden="true">·</span>
+              <span className="mx-1" aria-hidden="true">·</span>
               <span className="tabular-nums">{activeSubject.topicCount}</span>{' '}
               {activeSubject.topicCount === 1 ? 'topic' : 'topics'}
-              <span className="mx-1.5" aria-hidden="true">·</span>
+              <span className="mx-1" aria-hidden="true">·</span>
               <span className="tabular-nums">{activeSubject.noteCount}</span>{' '}
               {activeSubject.noteCount === 1 ? 'note' : 'notes'}
             </p>
           </div>
           <Link
             to={`/notes?subject=${encodeURIComponent(activeSubject.slug)}`}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+            className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
           >
             <span>All {activeSubject.name} Notes</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -107,21 +107,21 @@ export const ChaptersPage: React.FC = () => {
         </div>
       )}
 
-      <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:bg-slate-900">
+      <div className="flex flex-col gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:bg-slate-900">
         <div className="relative flex-1">
-          <Search className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Filter chapters by name, subject, or topic..."
             aria-label="Filter chapters"
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pr-3 pl-10 text-sm text-slate-900 focus:border-indigo-500 focus:bg-white focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs text-slate-900 focus:border-indigo-500 focus:bg-white focus:outline-none sm:text-[13px] dark:border-slate-700 dark:bg-slate-950 dark:text-white"
           />
         </div>
 
         {!routeSubjectSlug && (
-          <div className="sm:w-64">
+          <div className="sm:w-52">
             <label htmlFor="chapters-subject-filter" className="sr-only">
               Filter by subject
             </label>
@@ -129,7 +129,7 @@ export const ChaptersPage: React.FC = () => {
               id="chapters-subject-filter"
               value={selectedSubjectSlug}
               onChange={(e) => setSelectedSubjectSlug(e.target.value)}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
             >
               <option value="">All Subjects</option>
               {subjects.map((sub) => (
@@ -142,14 +142,27 @@ export const ChaptersPage: React.FC = () => {
         )}
       </div>
 
-      {filteredChapters.length === 0 ? (
-        <div className="rounded-xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+      {chapters.length === 0 ? (
+        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+          <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+            No chapters yet
+          </h3>
+          <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
+            Chapters will be grouped automatically once notes are added to{' '}
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-[11px] dark:bg-slate-800">
+              src/data/notes-index.json
+            </code>
+            .
+          </p>
+        </div>
+      ) : filteredChapters.length === 0 ? (
+        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             No chapters match your current filter.
           </p>
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {filteredChapters.map((group) => {
             const key = `${group.subjectSlug}::${group.slug}`;
             const isExpanded = routeSubjectSlug
@@ -169,29 +182,29 @@ export const ChaptersPage: React.FC = () => {
                 key={key}
                 className="rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
               >
-                <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-4">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 py-3">
                   <button
                     type="button"
                     onClick={toggleExpand}
                     aria-expanded={isExpanded}
-                    className="flex min-w-0 flex-1 items-center gap-3 text-left"
+                    className="flex min-w-0 flex-1 items-center gap-2.5 text-left"
                   >
                     {isExpanded ? (
-                      <ChevronDown className="h-4 w-4 shrink-0 text-slate-400" />
+                      <ChevronDown className="h-3.5 w-3.5 shrink-0 text-slate-400" />
                     ) : (
-                      <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+                      <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-400" />
                     )}
                     <div className="min-w-0">
-                      <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
+                      <p className="text-[11px] font-medium text-indigo-600 dark:text-indigo-400">
                         {group.subject}
                       </p>
-                      <h3 className="truncate text-base font-semibold text-slate-900 dark:text-white">
+                      <h3 className="truncate text-sm font-semibold text-slate-900 dark:text-white">
                         {group.name}
                       </h3>
                     </div>
                   </button>
 
-                  <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center gap-2.5 text-[11px] text-slate-500 dark:text-slate-400">
                     <span className="tabular-nums">
                       {group.topicCount}{' '}
                       {group.topicCount === 1 ? 'topic' : 'topics'}
@@ -205,32 +218,32 @@ export const ChaptersPage: React.FC = () => {
                       to={`/subjects/${group.subjectSlug}/${group.slug}`}
                       className="inline-flex items-center gap-1 whitespace-nowrap font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
                     >
-                      <span>Open Chapter</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <span>Open</span>
+                      <ArrowRight className="h-3 w-3" />
                     </Link>
                   </div>
                 </div>
 
                 {isExpanded && (
-                  <div className="border-t border-slate-100 px-5 py-3 dark:border-slate-800">
+                  <div className="border-t border-slate-100 px-4 py-2.5 dark:border-slate-800">
                     <ul className="divide-y divide-slate-100 dark:divide-slate-800">
                       {group.notes.map((note) => (
                         <li
                           key={note.id}
-                          className="flex items-center justify-between gap-4 py-2.5"
+                          className="flex items-center justify-between gap-3 py-2"
                         >
                           <div className="min-w-0">
                             <Link
                               to={`/notes/${note.id}`}
-                              className="block truncate text-sm font-medium text-slate-800 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                              className="block truncate text-[13px] font-medium text-slate-800 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
                             >
                               {note.title}
                             </Link>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400">
                               Topic: {note.topic}
                             </p>
                           </div>
-                          <span className="tabular-nums shrink-0 text-xs text-slate-500 dark:text-slate-400">
+                          <span className="tabular-nums shrink-0 text-[11px] text-slate-500 dark:text-slate-400">
                             {formatShortDate(note.date)}
                           </span>
                         </li>

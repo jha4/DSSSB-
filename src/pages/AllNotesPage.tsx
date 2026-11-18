@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { FilterX, LayoutGrid, List, Search } from 'lucide-react';
+import { FilterX, LayoutGrid, List, Search, SlidersHorizontal } from 'lucide-react';
 import { NoteCard } from '../components/NoteCard';
 import { useStudyVault } from '../context/StudyVaultContext';
 import type { NoteFilterState, SortOption } from '../types/note';
@@ -15,6 +15,7 @@ import {
 export const AllNotesPage: React.FC = () => {
   const { notes, subjects, defaultViewMode, setDefaultViewMode } = useStudyVault();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const [filter, setFilter] = useState<NoteFilterState>(() => ({
     ...createDefaultFilterState(),
@@ -82,65 +83,87 @@ export const AllNotesPage: React.FC = () => {
   );
 
   const filtersActive = hasActiveFilters(filter);
+  const dropdownActiveCount =
+    Number(Boolean(filter.subjectSlug)) +
+    Number(Boolean(filter.chapterSlug)) +
+    Number(Boolean(filter.tag));
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Search & Filter Panel */}
       <section
         aria-label="Search and filter notes"
-        className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900"
+        className="rounded-xl border border-slate-200 bg-white p-3.5 sm:p-4 dark:border-slate-800 dark:bg-slate-900"
       >
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
-          <div className="relative flex-1">
-            <Search className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <div className="flex items-center gap-2">
+          <div className="relative min-w-0 flex-1">
+            <Search className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
             <input
               type="search"
               value={filter.query}
               onChange={(e) => updateFilter({ query: e.target.value })}
-              placeholder="Search by title, subject, chapter, topic, summary, or tags..."
+              placeholder="Search title, topic, summary, tags..."
               aria-label="Search notes"
-              className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pr-4 pl-10 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+              className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none sm:py-2 sm:text-[13px] dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
             />
           </div>
 
-          <div className="flex items-center justify-end gap-2">
-            <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 dark:border-slate-700 dark:bg-slate-800">
-              <button
-                type="button"
-                onClick={() => setDefaultViewMode('grid')}
-                aria-label="Grid view"
-                aria-pressed={defaultViewMode === 'grid'}
-                className={`rounded-md p-1.5 transition-colors ${
-                  defaultViewMode === 'grid'
-                    ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
-                    : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-                }`}
-              >
-                <LayoutGrid className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setDefaultViewMode('list')}
-                aria-label="List view"
-                aria-pressed={defaultViewMode === 'list'}
-                className={`rounded-md p-1.5 transition-colors ${
-                  defaultViewMode === 'list'
-                    ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
-                    : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-                }`}
-              >
-                <List className="h-4 w-4" />
-              </button>
-            </div>
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen((prev) => !prev)}
+            aria-expanded={mobileFiltersOpen}
+            className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium sm:hidden ${
+              mobileFiltersOpen || dropdownActiveCount > 0
+                ? 'border-indigo-300 bg-indigo-50 text-indigo-700 dark:border-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300'
+                : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
+            }`}
+          >
+            <SlidersHorizontal className="h-3.5 w-3.5" />
+            <span>
+              Filters{dropdownActiveCount > 0 ? ` (${dropdownActiveCount})` : ''}
+            </span>
+          </button>
+
+          <div className="flex shrink-0 items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 dark:border-slate-700 dark:bg-slate-800">
+            <button
+              type="button"
+              onClick={() => setDefaultViewMode('grid')}
+              aria-label="Grid view"
+              aria-pressed={defaultViewMode === 'grid'}
+              className={`rounded-md p-1.5 transition-colors ${
+                defaultViewMode === 'grid'
+                  ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
+                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+              }`}
+            >
+              <LayoutGrid className="h-3.5 w-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setDefaultViewMode('list')}
+              aria-label="List view"
+              aria-pressed={defaultViewMode === 'list'}
+              className={`rounded-md p-1.5 transition-colors ${
+                defaultViewMode === 'list'
+                  ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
+                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+              }`}
+            >
+              <List className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
 
         {/* Filter Dropdowns */}
-        <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          className={`mt-3 grid grid-cols-2 gap-2.5 lg:grid-cols-4 ${
+            mobileFiltersOpen ? 'grid' : 'hidden sm:grid'
+          }`}
+        >
           <div>
             <label
               htmlFor="filter-subject"
-              className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400"
+              className="mb-1 block text-[11px] font-medium text-slate-600 dark:text-slate-400"
             >
               Subject
             </label>
@@ -148,7 +171,7 @@ export const AllNotesPage: React.FC = () => {
               id="filter-subject"
               value={filter.subjectSlug}
               onChange={(e) => updateFilter({ subjectSlug: e.target.value })}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
             >
               <option value="">All Subjects</option>
               {subjects.map((sub) => (
@@ -162,7 +185,7 @@ export const AllNotesPage: React.FC = () => {
           <div>
             <label
               htmlFor="filter-chapter"
-              className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400"
+              className="mb-1 block text-[11px] font-medium text-slate-600 dark:text-slate-400"
             >
               Chapter
             </label>
@@ -170,7 +193,7 @@ export const AllNotesPage: React.FC = () => {
               id="filter-chapter"
               value={filter.chapterSlug}
               onChange={(e) => updateFilter({ chapterSlug: e.target.value })}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
             >
               <option value="">All Chapters</option>
               {chapterOptions.map((ch) => (
@@ -184,7 +207,7 @@ export const AllNotesPage: React.FC = () => {
           <div>
             <label
               htmlFor="filter-tag"
-              className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400"
+              className="mb-1 block text-[11px] font-medium text-slate-600 dark:text-slate-400"
             >
               Tag
             </label>
@@ -192,7 +215,7 @@ export const AllNotesPage: React.FC = () => {
               id="filter-tag"
               value={filter.tag}
               onChange={(e) => updateFilter({ tag: e.target.value })}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
             >
               <option value="">All Tags</option>
               {tagOptions.map((t) => (
@@ -206,7 +229,7 @@ export const AllNotesPage: React.FC = () => {
           <div>
             <label
               htmlFor="filter-sort"
-              className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400"
+              className="mb-1 block text-[11px] font-medium text-slate-600 dark:text-slate-400"
             >
               Sort Order
             </label>
@@ -214,7 +237,7 @@ export const AllNotesPage: React.FC = () => {
               id="filter-sort"
               value={filter.sortBy}
               onChange={(e) => updateFilter({ sortBy: e.target.value as SortOption })}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+              className="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
@@ -225,8 +248,8 @@ export const AllNotesPage: React.FC = () => {
         </div>
 
         {/* Count & Clear bar */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">
-          <span className="tabular-nums text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-2.5 dark:border-slate-800">
+          <span className="tabular-nums text-[11px] text-slate-500 dark:text-slate-400">
             Showing {filteredNotes.length} of {notes.length}{' '}
             {notes.length === 1 ? 'note' : 'notes'}
           </span>
@@ -235,43 +258,60 @@ export const AllNotesPage: React.FC = () => {
             <button
               type="button"
               onClick={clearAllFilters}
-              className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+              className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
             >
-              <FilterX className="h-3.5 w-3.5" />
-              <span>Clear All Filters</span>
+              <FilterX className="h-3 w-3" />
+              <span>Clear Filters</span>
             </button>
           )}
         </div>
       </section>
 
       {/* Results */}
-      {filteredNotes.length === 0 ? (
-        <div className="rounded-xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900">
-          <h2 className="text-base font-semibold text-slate-900 dark:text-white">
+      {notes.length === 0 ? (
+        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="text-sm font-semibold text-slate-900 dark:text-white">
+            No notes added yet
+          </h2>
+          <p className="mx-auto mt-1 max-w-md text-xs text-slate-600 dark:text-slate-400">
+            Create HTML note fragments inside{' '}
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-[11px] dark:bg-slate-800">
+              public/notes/
+            </code>{' '}
+            and list them in{' '}
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-[11px] dark:bg-slate-800">
+              src/data/notes-index.json
+            </code>{' '}
+            to browse them here.
+          </p>
+        </div>
+      ) : filteredNotes.length === 0 ? (
+        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="text-sm font-semibold text-slate-900 dark:text-white">
             No matching notes found
           </h2>
-          <p className="mx-auto mt-1.5 max-w-md text-sm text-slate-600 dark:text-slate-400">
+          <p className="mx-auto mt-1 max-w-md text-xs text-slate-600 dark:text-slate-400">
             Try broadening your search keywords or clearing active filters.
           </p>
           {filtersActive && (
             <button
               type="button"
               onClick={clearAllFilters}
-              className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+              className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
             >
-              <FilterX className="h-4 w-4" />
-              <span>Clear All Filters</span>
+              <FilterX className="h-3.5 w-3.5" />
+              <span>Clear Filters</span>
             </button>
           )}
         </div>
       ) : defaultViewMode === 'grid' ? (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
           {filteredNotes.map((note) => (
             <NoteCard key={note.id} note={note} viewMode="grid" />
           ))}
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {filteredNotes.map((note) => (
             <NoteCard key={note.id} note={note} viewMode="list" />
           ))}

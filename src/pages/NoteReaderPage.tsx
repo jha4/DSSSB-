@@ -4,6 +4,8 @@ import {
   AlertCircle,
   ArrowLeft,
   ArrowRight,
+  ChevronDown,
+  ListTree,
   Maximize2,
   Minimize2,
   Moon,
@@ -21,9 +23,9 @@ import {
 } from '../utils/noteLoader';
 
 const FONT_SIZE_CLASS: Record<'sm' | 'md' | 'lg', string> = {
-  sm: 'text-sm',
-  md: 'text-[15.5px]',
-  lg: 'text-lg',
+  sm: 'text-xs leading-relaxed',
+  md: 'text-[13.5px] sm:text-sm',
+  lg: 'text-[15px]',
 };
 
 export const NoteReaderPage: React.FC = () => {
@@ -42,6 +44,7 @@ export const NoteReaderPage: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [retryToken, setRetryToken] = useState(0);
 
+  const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [distractionFree, setDistractionFree] = useState(false);
   const [readProgress, setReadProgress] = useState(0);
   const focusContainerRef = useRef<HTMLDivElement>(null);
@@ -49,6 +52,7 @@ export const NoteReaderPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     setReadProgress(0);
+    setMobileTocOpen(false);
   }, [id]);
 
   useEffect(() => {
@@ -146,18 +150,18 @@ export const NoteReaderPage: React.FC = () => {
 
   if (!note) {
     return (
-      <div className="mx-auto max-w-xl rounded-xl border border-slate-200 bg-white p-10 text-center dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
+      <div className="mx-auto max-w-md rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-white">
           Note not found
         </h2>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+        <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400">
           No entry with ID "{id}" exists in the static notes index.
         </p>
         <Link
           to="/notes"
-          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-2 text-xs font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="h-3.5 w-3.5" />
           <span>Back to All Notes</span>
         </Link>
       </div>
@@ -169,12 +173,12 @@ export const NoteReaderPage: React.FC = () => {
   const wordCount = loadedNote?.wordCount ?? 0;
 
   const articleBody = (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Note Header */}
-      <header className="border-b border-slate-200 pb-6 dark:border-slate-800">
+      <header className="border-b border-slate-200 pb-4 dark:border-slate-800">
         <nav
           aria-label="Note breadcrumb"
-          className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400"
+          className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] font-medium text-slate-500 dark:text-slate-400"
         >
           <Link
             to={`/subjects/${note.subjectSlug}`}
@@ -193,11 +197,11 @@ export const NoteReaderPage: React.FC = () => {
           <span>{note.topic}</span>
         </nav>
 
-        <h1 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
+        <h1 className="mt-2 text-lg font-bold tracking-tight text-slate-900 sm:text-xl dark:text-white">
           {note.title}
         </h1>
 
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] text-slate-500 dark:text-slate-400">
           <span className="tabular-nums">Updated {formatShortDate(note.date)}</span>
           {loadedNote && (
             <>
@@ -228,37 +232,84 @@ export const NoteReaderPage: React.FC = () => {
         </div>
       </header>
 
+      {/* Mobile/Tablet Collapsible Outline */}
+      {!distractionFree && headings.length >= 2 && (
+        <div className="no-print xl:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileTocOpen((prevOpen) => !prevOpen)}
+            aria-expanded={mobileTocOpen}
+            className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <ListTree className="h-3.5 w-3.5 text-slate-400" />
+              <span>On This Page ({headings.length})</span>
+            </span>
+            <ChevronDown
+              className={`h-3.5 w-3.5 text-slate-400 transition-transform ${
+                mobileTocOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+
+          {mobileTocOpen && (
+            <nav
+              aria-label="Mobile note outline"
+              className="mt-1.5 space-y-1 rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900"
+            >
+              {headings.map((h) => (
+                <button
+                  key={h.id}
+                  type="button"
+                  onClick={() => {
+                    setMobileTocOpen(false);
+                    document
+                      .getElementById(h.id)
+                      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className={`block w-full truncate text-left text-xs text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 ${
+                    h.level === 3 ? 'pl-3' : ''
+                  }`}
+                >
+                  {h.text}
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
+      )}
+
       {/* Static HTML Note Body */}
-      <div className="note-print-card rounded-xl border border-slate-200 bg-white p-6 sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+      <div className="note-print-card rounded-xl border border-slate-200 bg-white p-4 sm:p-6 dark:border-slate-800 dark:bg-slate-900">
         {loading ? (
-          <div className="space-y-4 py-2" aria-busy="true" aria-label="Loading note">
-            <div className="h-5 w-2/3 animate-pulse rounded bg-slate-200 dark:bg-slate-800" />
-            <div className="h-4 w-full animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
-            <div className="h-4 w-5/6 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
-            <div className="h-24 w-full animate-pulse rounded-lg bg-slate-100 dark:bg-slate-800/70" />
-            <div className="h-4 w-3/4 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+          <div className="space-y-3 py-2" aria-busy="true" aria-label="Loading note">
+            <div className="h-4 w-2/3 animate-pulse rounded bg-slate-200 dark:bg-slate-800" />
+            <div className="h-3.5 w-full animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-3.5 w-5/6 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-20 w-full animate-pulse rounded-lg bg-slate-100 dark:bg-slate-800/70" />
+            <div className="h-3.5 w-3/4 animate-pulse rounded bg-slate-100 dark:bg-slate-800/70" />
           </div>
         ) : errorMsg ? (
           <div className="py-6 text-center">
-            <AlertCircle className="mx-auto h-8 w-8 text-rose-500" />
-            <h2 className="mt-3 text-base font-semibold text-slate-900 dark:text-white">
+            <AlertCircle className="mx-auto h-7 w-7 text-rose-500" />
+            <h2 className="mt-2.5 text-sm font-semibold text-slate-900 dark:text-white">
               Unable to load note content
             </h2>
-            <p className="mx-auto mt-1.5 max-w-md text-sm text-slate-600 dark:text-slate-400">
+            <p className="mx-auto mt-1 max-w-md text-xs text-slate-600 dark:text-slate-400">
               {errorMsg}
             </p>
-            <div className="mt-5 flex justify-center gap-3">
+            <div className="mt-4 flex justify-center gap-2.5">
               <button
                 type="button"
                 onClick={() => setRetryToken((c) => c + 1)}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white hover:bg-indigo-700 dark:bg-indigo-500"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-indigo-700 dark:bg-indigo-500"
               >
                 <RotateCw className="h-3.5 w-3.5" />
                 <span>Retry</span>
               </button>
               <Link
                 to="/notes"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 <span>All Notes</span>
               </Link>
@@ -276,22 +327,22 @@ export const NoteReaderPage: React.FC = () => {
       {(prev || next) && (
         <nav
           aria-label="Adjacent notes navigation"
-          className="no-print grid grid-cols-1 gap-3 sm:grid-cols-2"
+          className="no-print grid grid-cols-1 gap-2.5 sm:grid-cols-2"
         >
           <div>
             {prev && (
               <Link
                 to={`/notes/${prev.id}`}
-                className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+                className="group flex flex-col rounded-xl border border-slate-200 bg-white p-3.5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
               >
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
-                  <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
-                  <span>Previous Note</span>
+                <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                  <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+                  <span>Previous</span>
                 </span>
-                <span className="mt-1 truncate text-sm font-semibold text-slate-900 group-hover:text-indigo-600 dark:text-slate-100 dark:group-hover:text-indigo-400">
+                <span className="mt-0.5 truncate text-xs font-semibold text-slate-900 group-hover:text-indigo-600 sm:text-[13px] dark:text-slate-100 dark:group-hover:text-indigo-400">
                   {prev.title}
                 </span>
-                <span className="mt-0.5 truncate text-xs text-slate-500 dark:text-slate-400">
+                <span className="mt-0.5 truncate text-[11px] text-slate-500 dark:text-slate-400">
                   {prev.subject} / {prev.chapter}
                 </span>
               </Link>
@@ -301,16 +352,16 @@ export const NoteReaderPage: React.FC = () => {
             {next && (
               <Link
                 to={`/notes/${next.id}`}
-                className="group flex flex-col items-end rounded-xl border border-slate-200 bg-white p-4 text-right transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+                className="group flex flex-col items-end rounded-xl border border-slate-200 bg-white p-3.5 text-right transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
               >
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
-                  <span>Next Note</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                  <span>Next</span>
+                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </span>
-                <span className="mt-1 w-full truncate text-sm font-semibold text-slate-900 group-hover:text-indigo-600 dark:text-slate-100 dark:group-hover:text-indigo-400">
+                <span className="mt-0.5 w-full truncate text-xs font-semibold text-slate-900 group-hover:text-indigo-600 sm:text-[13px] dark:text-slate-100 dark:group-hover:text-indigo-400">
                   {next.title}
                 </span>
-                <span className="mt-0.5 w-full truncate text-xs text-slate-500 dark:text-slate-400">
+                <span className="mt-0.5 w-full truncate text-[11px] text-slate-500 dark:text-slate-400">
                   {next.subject} / {next.chapter}
                 </span>
               </Link>
@@ -337,20 +388,20 @@ export const NoteReaderPage: React.FC = () => {
           aria-label="Reading progress"
         />
 
-        <div className="no-print sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-2.5 backdrop-blur-xs sm:px-8 dark:border-slate-800 dark:bg-slate-900/95">
-          <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
-            <span className="truncate text-xs font-medium text-slate-600 dark:text-slate-400">
-              Focus Mode · <span className="tabular-nums">{readProgress}%</span> read
+        <div className="no-print sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-3 py-2 backdrop-blur-xs sm:px-6 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="mx-auto flex max-w-3xl items-center justify-between gap-2">
+            <span className="truncate text-[11px] font-medium text-slate-600 dark:text-slate-400">
+              Focus · <span className="tabular-nums">{readProgress}%</span> read
             </span>
 
-            <div className="flex shrink-0 items-center gap-2">
-              <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs dark:border-slate-700 dark:bg-slate-800">
+            <div className="flex shrink-0 items-center gap-1.5">
+              <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-[11px] dark:border-slate-700 dark:bg-slate-800">
                 {(['sm', 'md', 'lg'] as const).map((sz) => (
                   <button
                     key={sz}
                     type="button"
                     onClick={() => setReadingFontSize(sz)}
-                    className={`rounded-md px-2 py-1 font-medium uppercase ${
+                    className={`rounded-md px-1.5 py-0.5 font-medium uppercase ${
                       readingFontSize === sz
                         ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
                         : 'text-slate-500 dark:text-slate-400'
@@ -367,30 +418,30 @@ export const NoteReaderPage: React.FC = () => {
                 className="rounded-lg border border-slate-200 p-1.5 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
               >
                 {theme === 'dark' ? (
-                  <Sun className="h-4 w-4" />
+                  <Sun className="h-3.5 w-3.5" />
                 ) : (
-                  <Moon className="h-4 w-4" />
+                  <Moon className="h-3.5 w-3.5" />
                 )}
               </button>
               <button
                 type="button"
                 onClick={() => setDistractionFree(false)}
-                className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+                className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg bg-slate-900 px-2.5 py-1 text-[11px] font-medium text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
               >
-                <Minimize2 className="h-3.5 w-3.5" />
-                <span>Exit Focus</span>
+                <Minimize2 className="h-3 w-3" />
+                <span>Exit</span>
               </button>
             </div>
           </div>
         </div>
 
-        <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">{articleBody}</main>
+        <main className="mx-auto max-w-3xl px-3 py-5 sm:px-5">{articleBody}</main>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Fixed Reading Progress Indicator */}
       <div
         className="no-print fixed top-0 left-0 z-50 h-1 bg-indigo-600 transition-all duration-150 dark:bg-indigo-400"
@@ -403,23 +454,23 @@ export const NoteReaderPage: React.FC = () => {
       />
 
       {/* Action Bar */}
-      <div className="no-print flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
-        <div className="flex items-center gap-3">
+      <div className="no-print flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 sm:px-4 dark:border-slate-800 dark:bg-slate-900">
+        <div className="flex items-center gap-2.5">
           <Link
             to="/notes"
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2 py-1 text-[11px] font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            <span>All Notes</span>
+            <ArrowLeft className="h-3 w-3" />
+            <span>Notes</span>
           </Link>
-          <span className="tabular-nums text-xs text-slate-500 dark:text-slate-400">
+          <span className="tabular-nums text-[11px] text-slate-500 dark:text-slate-400">
             {readProgress}% read
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           <div
-            className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs dark:border-slate-700 dark:bg-slate-800"
+            className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-[11px] dark:border-slate-700 dark:bg-slate-800"
             role="group"
             aria-label="Reading font size"
           >
@@ -429,7 +480,7 @@ export const NoteReaderPage: React.FC = () => {
                 type="button"
                 onClick={() => setReadingFontSize(sz)}
                 aria-pressed={readingFontSize === sz}
-                className={`rounded-md px-2 py-1 font-medium uppercase ${
+                className={`rounded-md px-1.5 py-0.5 font-medium uppercase ${
                   readingFontSize === sz
                     ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-900 dark:text-white'
                     : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
@@ -443,34 +494,34 @@ export const NoteReaderPage: React.FC = () => {
           <button
             type="button"
             onClick={() => window.print()}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg border border-slate-200 px-2 py-1 text-[11px] font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
           >
-            <Printer className="h-3.5 w-3.5" />
-            <span>Print / PDF</span>
+            <Printer className="h-3 w-3" />
+            <span>Print</span>
           </button>
 
           <button
             type="button"
             onClick={() => setDistractionFree(true)}
-            className="inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+            className="inline-flex items-center gap-1 whitespace-nowrap shrink-0 rounded-lg bg-indigo-600 px-2.5 py-1 text-[11px] font-medium text-white hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
           >
-            <Maximize2 className="h-3.5 w-3.5" />
-            <span>Focus Mode</span>
+            <Maximize2 className="h-3 w-3" />
+            <span>Focus</span>
           </button>
         </div>
       </div>
 
-      {/* Main Content + TOC Outline */}
-      <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_240px]">
+      {/* Main Content + Desktop TOC Outline */}
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_220px]">
         <div className="min-w-0">{articleBody}</div>
 
         {headings.length >= 2 && (
           <aside className="no-print hidden xl:block">
-            <div className="sticky top-20 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-              <h2 className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <div className="sticky top-16 rounded-xl border border-slate-200 bg-white p-3.5 dark:border-slate-800 dark:bg-slate-900">
+              <h2 className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">
                 On This Page
               </h2>
-              <nav aria-label="Note outline" className="mt-3 space-y-1.5">
+              <nav aria-label="Note outline" className="mt-2.5 space-y-1">
                 {headings.map((h) => (
                   <button
                     key={h.id}
@@ -480,8 +531,8 @@ export const NoteReaderPage: React.FC = () => {
                         .getElementById(h.id)
                         ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }}
-                    className={`block w-full truncate text-left text-xs text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 ${
-                      h.level === 3 ? 'pl-3' : ''
+                    className={`block w-full truncate text-left text-[11px] text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 ${
+                      h.level === 3 ? 'pl-2.5' : ''
                     }`}
                   >
                     {h.text}
