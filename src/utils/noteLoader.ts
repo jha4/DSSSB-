@@ -306,6 +306,99 @@ export function clearNoteCache(): void {
   noteHtmlCache.clear();
 }
 
+
+interface EmbeddedPyqRecord {
+  k: string;
+  q: string;
+  a: string;
+  y?: string;
+  e?: string;
+  s?: string;
+}
+
+const PYQ_TITLES: Record<string, string> = {
+  fundamentals: 'Network fundamentals, architecture and topologies',
+  osi: 'OSI model and layered architecture',
+  media: 'Transmission media, signals and switching',
+  datalink: 'Data Link layer, MAC and error/flow control',
+  devices: 'Network devices, Ethernet and WLAN',
+  ip: 'IP addressing, IPv4/IPv6 and subnetting',
+  routing: 'Routing and network-layer protocols',
+  transport: 'Transport layer, TCP/UDP and ports',
+  application: 'Application protocols and Internet services',
+  wireless: 'Wireless, mobile and ad hoc networks',
+  governance: 'Internet governance, standards and services',
+  crypto: 'Cryptography and encryption algorithms',
+  signatures: 'Hashing, certificates and digital signatures',
+  security: 'Security principles, authentication and controls',
+  malware: 'Malware, vulnerabilities and cyber attacks',
+  cyberlaw: 'Cyber law, privacy, IPR and digital conduct',
+  misc: 'Miscellaneous PYQs',
+};
+
+function escapePyqHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return entities[character];
+  });
+}
+
+async function hydratePyqPlaceholders(
+  rawHtml: string,
+  signal?: AbortSignal
+): Promise<string> {
+  if (!/<!--\s*PYQ:[a-z-]+\s*-->/.test(rawHtml)) return rawHtml;
+
+  const dataResponse = await fetch(
+    resolveNoteUrl('notes/computer-networks-pyq-data.deflate.b64'),
+    { signal, headers: { Accept: 'text/plain' } }
+  );
+  if (!dataResponse.ok) {
+    throw new Error(`PYQ data could not be loaded (HTTP ${dataResponse.status}).`);
+  }
+
+  const encoded = (await dataResponse.text()).trim();
+  const compressed = Uint8Array.from(atob(encoded), (character) =>
+    character.charCodeAt(0)
+  );
+  const decompressed = new Blob([compressed]).stream().pipeThrough(
+    new DecompressionStream('deflate')
+  );
+  const records = JSON.parse(
+    await new Response(decompressed).text()
+  ) as EmbeddedPyqRecord[];
+
+  const groups = new Map<string, EmbeddedPyqRecord[]>();
+  for (const record of records) {
+    const group = groups.get(record.k) ?? [];
+    group.push(record);
+    groups.set(record.k, group);
+  }
+
+  return rawHtml.replace(
+    /<!--\s*PYQ:([a-z-]+)\s*-->/g,
+    (_marker, key: string) => {
+      const questions = groups.get(key) ?? [];
+      if (questions.length === 0) return '';
+      const title = PYQ_TITLES[key] ?? 'PYQs';
+      const items = questions.map((question) => {
+        const metadata = [question.y, question.e, question.s]
+          .filter(Boolean)
+          .map(escapePyqHtml)
+          .join(' · ');
+        return `<li><strong>${escapePyqHtml(question.q)}</strong><br><strong>Correct answer:</strong> ${escapePyqHtml(question.a)}${metadata ? `<br><small>${metadata}</small>` : ''}</li>`;
+      }).join('');
+      return `<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;"><h3>PYQs — ${escapePyqHtml(title)} (${questions.length})</h3><ol>${items}</ol></div>`;
+    }
+  );
+}
+
 export async function fetchNoteHtml(
   filePath: string,
   options: { signal?: AbortSignal; forceRefresh?: boolean } = {}
@@ -340,7 +433,8 @@ export async function fetchNoteHtml(
     throw new Error(`Note HTML file was not found at "${filePath}".`);
   }
 
-  const sanitized = sanitizeNoteHtml(rawHtml);
+  const hydratedHtml = await hydratePyqPlaceholders(rawHtml, options.signal);
+  const sanitized = sanitizeNoteHtml(hydratedHtml);
   const result: LoadedNoteContent = {
     ...sanitized,
     url,
