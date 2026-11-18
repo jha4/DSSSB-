@@ -22,7 +22,8 @@
   </tbody></table>
   <h3>What the pattern suggests</h3>
   <ul><li>Numerical questions matter: CPU scheduling, page faults, address bits, TLB and disk-head movement.</li><li>Definitions recur: PCB, swapping, throughput, fragmentation, seek time and FAT.</li><li>Comparisons are common: FIFO/LRU, process/thread, paging/segmentation and FCFS/RR.</li><li>Algorithm properties are tested: starvation, Belady’s anomaly, bounded waiting and safe states.</li><li>Practical OS knowledge appears alongside theory: Linux commands, Unix system calls and Windows APIs.</li></ul>
-  <h2>2. Operating System fundamentals</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> PYQ PRIORITY KEY — VERY HIGH: Paging/page replacement, process management, memory management and CPU scheduling. HIGH: Deadlocks, synchronization, file systems and disk management. MEDIUM: System calls, OS structure/types and Linux/Unix/Windows. Use this to prioritize revision, not to skip syllabus areas.</div>
+<h2>2. Operating System fundamentals</h2>
   <h3>Definition and objectives</h3>
   <p>An Operating System is system software that acts as an interface between users/applications and computer hardware. It manages resources and provides services to programs.</p>
   <ul><li><strong>Convenience:</strong> makes the computer easier to use.</li><li><strong>Efficiency:</strong> uses CPU, memory and devices effectively.</li><li><strong>Resource management:</strong> allocates and releases resources.</li><li><strong>Protection:</strong> isolates processes and controls access.</li><li><strong>Abstraction:</strong> hides low-level hardware details.</li></ul>
@@ -34,7 +35,8 @@
   <table><thead><tr><th>Concepts</th><th>Difference</th></tr></thead><tbody><tr><td>Multiprogramming vs multitasking</td><td>Multiprogramming emphasizes CPU utilization; multitasking emphasizes responsive concurrent task execution.</td></tr><tr><td>Multiprocessing vs multitasking</td><td>Multiprocessing uses multiple processing units; multitasking can time-share one CPU.</td></tr><tr><td>Hard vs soft real-time</td><td>Hard deadlines must not be missed; soft deadlines are desirable but occasional misses may be tolerated.</td></tr></tbody></table>
   <h3>Kernel, shell and drivers</h3>
   <ul><li><strong>Kernel:</strong> privileged core of the operating system.</li><li><strong>Shell:</strong> command interpreter/interface.</li><li><strong>Device driver:</strong> software that controls a hardware device.</li><li><strong>System utility:</strong> maintenance and management program.</li></ul>
-  <h2>3. OS structure and system calls</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> MEDIUM PRIORITY — Learn system-call categories, Unix calls and OS architecture. Repeated PYQ themes include sleep/wait-for-time and communication system calls.</div>
+<h2>3. OS structure and system calls</h2>
   <h3>Kernel architectures</h3>
   <ul><li><strong>Monolithic:</strong> most OS services execute in kernel space. Linux is a modular monolithic kernel.</li><li><strong>Microkernel:</strong> keeps only essential mechanisms in kernel; more services run in user space. MINIX 3 is a common example.</li><li><strong>Hybrid:</strong> combines design approaches; Windows NT is commonly described as hybrid.</li><li><strong>Modular:</strong> supports separately loadable kernel modules.</li></ul>
   <h3>System calls</h3>
@@ -46,7 +48,8 @@
   <h3>User mode vs kernel mode</h3>
   <table><thead><tr><th>User mode</th><th>Kernel mode</th></tr></thead><tbody><tr><td>Restricted privileges; applications commonly execute here.</td><td>Privileged execution; kernel controls protected resources.</td></tr><tr><td>Requests services through system calls.</td><td>Can execute privileged instructions.</td></tr></tbody></table>
   <p>A mode switch does not necessarily imply a process/context switch.</p>
-  <h2>4. Process management and threads</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Process states, PCB, process vs thread, context switching, queues and swapping. Repeated PYQ: identify a non-process state (3 occurrences).</div>
+<h2>4. Process management and threads</h2>
   <h3>Process vs program</h3>
   <p>A process is a program in execution. A program is passive code; a process is an executing entity with state and allocated resources.</p>
   <h3>Process Control Block (PCB)</h3>
@@ -64,7 +67,8 @@
   <h3>Schedulers</h3>
   <ul><li><strong>Long-term scheduler:</strong> admits jobs into the system/memory.</li><li><strong>Short-term scheduler:</strong> selects the next process for CPU.</li><li><strong>Medium-term scheduler:</strong> suspends/swaps processes out and later brings them back.</li><li><strong>Dispatcher:</strong> transfers CPU control to the selected process.</li></ul>
   <p>A zombie is a terminated process whose exit status has not yet been collected by its parent. A process waiting for I/O is normally blocked, not ready.</p>
-  <h2>5. CPU scheduling</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — FCFS, SJF/SRTF, Priority and Round Robin; Gantt charts; waiting, turnaround, response time and throughput. Repeated PYQ: identify a non-CPU scheduling algorithm (2 occurrences).</div>
+<h2>5. CPU scheduling</h2>
   <h3>Objectives and formulas</h3>
   <ul><li>Maximize CPU utilization and throughput.</li><li>Minimize turnaround, waiting and response time.</li><li>Provide fairness and avoid starvation.</li></ul>
   <table><thead><tr><th>Measure</th><th>Formula</th></tr></thead><tbody><tr><td>Turnaround time (TAT)</td><td>Completion time − Arrival time</td></tr><tr><td>Waiting time (WT)</td><td>TAT − CPU burst time (for the standard single-burst model)</td></tr><tr><td>Response time</td><td>First CPU start time − Arrival time</td></tr><tr><td>Throughput</td><td>Completed processes ÷ elapsed time</td></tr><tr><td>CPU utilization</td><td>Busy CPU time ÷ total time × 100%</td></tr></tbody></table>
@@ -73,7 +77,8 @@
   <ul><li>FCFS is simple but a long job can delay short jobs (convoy effect).</li><li>SJF/SRTF can starve long jobs.</li><li>Priority scheduling can starve low-priority jobs; <strong>aging</strong> gradually raises waiting jobs' priority.</li><li>Very small RR quantum causes excessive context switches; very large quantum makes RR approach FCFS.</li><li>RR generally improves interactive response compared with FCFS, but exact performance depends on workload and quantum.</li></ul>
   <h3>Worked FCFS example</h3>
   <p>All arrive at time 0: P1 burst 5, P2 burst 3, P3 burst 1. Order: P1 (0–5), P2 (5–8), P3 (8–9). Waiting times: 0, 5, 8. Average waiting time = (0 + 5 + 8) / 3 = 4.33 time units.</p>
-  <h2>6. Synchronization and IPC</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Critical-section requirements, semaphores, wait/signal, bounded waiting and race conditions.</div>
+<h2>6. Synchronization and IPC</h2>
   <h3>Race condition and critical section</h3>
   <p>A race condition occurs when concurrent access to shared data makes the result depend on execution order. A critical section is the code region that accesses shared data/resources.</p>
   <p>Correct critical-section solutions satisfy:</p>
@@ -85,7 +90,8 @@
   <ul><li>Producer–Consumer (bounded buffer).</li><li>Readers–Writers.</li><li>Dining Philosophers.</li></ul>
   <h3>Inter-process communication</h3>
   <p>IPC mechanisms include shared memory, message passing, pipes, named pipes, message queues, sockets and signals. Shared memory can be efficient for large transfers but needs synchronization. Message passing exchanges data through send/receive operations.</p>
-  <h2>7. Deadlocks</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Four necessary conditions, prevention vs avoidance, safe/unsafe states and Banker’s algorithm. Practice resource-allocation numericals.</div>
+<h2>7. Deadlocks</h2>
   <h3>Definition and four necessary conditions</h3>
   <p>Deadlock is a condition in which a set of processes remains blocked because each waits for a resource/event that another process in the set must release.</p>
   <ol><li><strong>Mutual exclusion:</strong> at least one resource is non-sharable.</li><li><strong>Hold and wait:</strong> a process holds resources while requesting more.</li><li><strong>No preemption:</strong> resources cannot be forcibly taken away.</li><li><strong>Circular wait:</strong> a circular chain of processes exists, each waiting for a resource held by the next.</li></ol>
@@ -101,7 +107,8 @@
   <p>For n processes, each requiring at most k identical resources, a sufficient number to guarantee no deadlock under the standard assumptions is:</p>
   <p><strong>R = n(k − 1) + 1</strong></p>
   <p>Example: n = 3, k = 2 gives R = 3(1) + 1 = 4 resources.</p>
-  <h2>8. Memory management</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Internal/external fragmentation, First-Fit/Best-Fit, swapping, logical vs physical addresses and memory protection.</div>
+<h2>8. Memory management</h2>
   <h3>Address translation</h3>
   <ul><li>Logical address is generated by the CPU; it is also commonly called a virtual address.</li><li>Physical address is the actual address in RAM.</li><li>MMU (Memory Management Unit) performs address translation and protection checks.</li></ul>
   <h3>Contiguous allocation and fragmentation</h3>
@@ -112,7 +119,8 @@
   <p>All variable-partition strategies can leave external fragmentation. First Fit is often fast; Best Fit may leave many tiny holes. Results depend on request sequence.</p>
   <h3>Swapping</h3>
   <p>Swapping transfers a process or its memory pages between RAM and secondary storage. Swap-out moves data out; swap-in brings it back. Swap space is secondary-storage space reserved for this purpose. Modern virtual-memory systems often swap pages rather than an entire process.</p>
-  <h2>9. Paging, segmentation and virtual memory</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Page/frame mapping, page faults, FIFO/LRU/Optimal, Belady’s anomaly, TLB and address-bit numericals. Belady’s anomaly/page replacement is a repeated PYQ theme.</div>
+<h2>9. Paging, segmentation and virtual memory</h2>
   <h3>Paging</h3>
   <p>Paging divides logical memory into fixed-size pages and physical memory into equal-size frames. A page table maps page numbers to frame numbers. Page-table entries may include valid, protection, reference and dirty bits.</p>
   <p>Logical address = page number + offset. If page size is 2<sup>d</sup> bytes, offset uses d bits. Page number bits = logical address bits − d.</p>
@@ -131,7 +139,8 @@
   <p>Translation Lookaside Buffer (TLB) is a fast cache of recent page-table translations. For a single-level page table, with TLB lookup time tT, memory access time tM and hit ratio h:</p>
   <p><strong>EAT = h(tT + tM) + (1 − h)(tT + 2tM)</strong></p>
   <p>This assumes a TLB lookup on both paths and one memory access for the page-table entry on a miss, followed by one for the data.</p>
-  <h2>10. File systems and file management</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — File allocation, FAT, directories, file operations and file seek. Repeated PYQ: repositioning the file pointer without transferring file data.</div>
+<h2>10. File systems and file management</h2>
   <h3>File attributes and operations</h3>
   <p>Attributes include name, identifier, type, location, size, permissions and timestamps. Common operations are create, open, read, write, append, seek, close and delete.</p>
   <p><strong>Seek</strong> changes the current file offset; it does not itself transfer file data.</p>
@@ -146,7 +155,8 @@
   <h3>Linux permissions</h3>
   <table><thead><tr><th>Permission</th><th>Numeric value</th><th>Meaning</th></tr></thead><tbody><tr><td>r</td><td>4</td><td>Read</td></tr><tr><td>w</td><td>2</td><td>Write</td></tr><tr><td>x</td><td>1</td><td>Execute</td></tr></tbody></table>
   <p><code>chmod 755 file</code> means owner = 7 (rwx), group = 5 (r-x), others = 5 (r-x).</p>
-  <h2>11. Disk management and scheduling</h2>
+  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Seek time, rotational latency, FCFS, SSTF, SCAN and C-SCAN. Practice total head-movement numericals.</div>
+<h2>11. Disk management and scheduling</h2>
   <h3>Disk terms</h3>
   <ul><li>Platter: circular magnetic disk surface.</li><li>Track: concentric circular path.</li><li>Sector: subdivision of a track.</li><li>Cylinder: tracks at the same radius across platters.</li><li>Seek time: time to move head to the required track.</li><li>Rotational latency: waiting for desired sector to rotate under the head.</li><li>Transfer time: time to transfer data.</li></ul>
   <p>Disk access time is approximately seek time + rotational latency + transfer time (ignoring controller/queue overhead).</p>
@@ -213,7 +223,7 @@
 <li><strong>[2018] Which of the following is not a Windows version?</strong><br><strong>Answer:</strong> WINDOWS-96 (as keyed in the workbook).</li>
 </ol>
 
-<h3>19.2 System calls, Unix/Linux and commands</h3>
+<h3>19.2 System calls, Unix/Linux and commands — <strong>MEDIUM PRIORITY</strong></h3>
 <ol>
 <li><strong>[2024] Which system-call category includes a “wait for time” operation?</strong><br><strong>Answer:</strong> Process Control.</li>
 <li><strong>[2024] Which category of system call includes attaching or detaching remote devices?</strong><br><strong>Answer:</strong> Communication (workbook answer).</li>
@@ -222,7 +232,7 @@
 <li><strong>[2016] How many lines does the Unix/Linux head command display by default?</strong><br><strong>Answer:</strong> 10 lines.</li>
 </ol>
 
-<h3>19.3 Process management and threads</h3>
+<h3>19.3 Process management and threads — <strong>VERY HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2023] A program in execution is called what?</strong><br><strong>Answer:</strong> A process.</li>
 <li><strong>[2021] Which is not a standard process state: New, Ready, Running, Blocked, or Excite?</strong><br><strong>Answer:</strong> Excite.</li>
@@ -232,7 +242,7 @@
 <li><strong>[2017] A thread is also known as what?</strong><br><strong>Answer:</strong> A lightweight process.</li>
 </ol>
 
-<h3>19.4 CPU scheduling and performance</h3>
+<h3>19.4 CPU scheduling and performance — <strong>VERY HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2024] Which CPU scheduling algorithm can cause starvation of low-priority processes unless aging is used?</strong><br><strong>Answer:</strong> Priority Scheduling.</li>
 <li><strong>[2021] Which is not a CPU scheduling algorithm: FCFS, Round Robin, Priority, or C-SCAN?</strong><br><strong>Answer:</strong> C-SCAN. It is a disk-scheduling algorithm.</li>
@@ -241,14 +251,14 @@
 <li><strong>[2020] With 4 units of context-switch time and 6 units of useful running time before blocking, what is the CPU efficiency under the simplified model?</strong><br><strong>Answer:</strong> 6 / (6 + 4) = 0.6, or 60%.</li>
 </ol>
 
-<h3>19.5 Synchronization and concurrency</h3>
+<h3>19.5 Synchronization and concurrency — <strong>HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2025] Which conditions must be satisfied by a correct critical-section solution?</strong><br><strong>Answer:</strong> Mutual exclusion, progress and bounded waiting.</li>
 <li><strong>[2024] Which standard atomic operations are used with a semaphore?</strong><br><strong>Answer:</strong> wait() and signal().</li>
 <li><strong>[2022] What is the key property of semaphore wait() and signal() operations?</strong><br><strong>Answer:</strong> They must execute atomically; wait() acquires/decrements or blocks, while signal() releases/increments and may wake a waiter.</li>
 </ol>
 
-<h3>19.6 Deadlocks</h3>
+<h3>19.6 Deadlocks — <strong>HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2023] Banker's algorithm is an example of which deadlock-handling method?</strong><br><strong>Answer:</strong> Deadlock avoidance.</li>
 <li><strong>[2017] Three processes each require at most two units of an identical resource. What minimum number guarantees no deadlock under the standard assumptions?</strong><br><strong>Answer:</strong> 4, using R = n(k − 1) + 1.</li>
@@ -256,7 +266,7 @@
 <li><strong>[2021] Seven tape drives are shared by processes, each of which may need two drives. What is the maximum number of processes guaranteed deadlock-free?</strong><br><strong>Answer:</strong> 6, using R ≥ n(k − 1) + 1. The workbook key records 3, which appears inconsistent with the stated assumptions; verify the original question before memorizing the keyed value.</li>
 </ol>
 
-<h3>19.7 Memory management and allocation</h3>
+<h3>19.7 Memory management and allocation — <strong>VERY HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2013] First-Fit and Best-Fit variable-partition allocation can suffer from which type of fragmentation?</strong><br><strong>Answer:</strong> External fragmentation.</li>
 <li><strong>[2016] What is the purpose of a fence register?</strong><br><strong>Answer:</strong> Memory protection; it establishes a boundary that a process must not cross.</li>
@@ -265,7 +275,7 @@
 <li><strong>[2016] Physical memory is divided into fixed-size blocks called what?</strong><br><strong>Answer:</strong> Frames.</li>
 </ol>
 
-<h3>19.8 Paging, virtual memory and page replacement</h3>
+<h3>19.8 Paging, virtual memory and page replacement — <strong>VERY HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2020] Which page-replacement policy may exhibit Belady’s anomaly?</strong><br><strong>Answer:</strong> FIFO.</li>
 <li><strong>[2024] Of LRU and FIFO, which does not suffer from Belady’s anomaly?</strong><br><strong>Answer:</strong> LRU only. FIFO can exhibit the anomaly.</li>
@@ -274,7 +284,7 @@
 <li><strong>[2020] A logical address space has four pages of 2048 words each. How many bits are needed for a logical address?</strong><br><strong>Answer:</strong> 13 bits: 2 page-number bits + 11 offset bits.</li>
 </ol>
 
-<h3>19.9 File systems and file management</h3>
+<h3>19.9 File systems and file management — <strong>HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2023] What does FAT stand for?</strong><br><strong>Answer:</strong> File Allocation Table.</li>
 <li><strong>[2024] Which file operation is also known as File Seek and need not perform actual I/O?</strong><br><strong>Answer:</strong> Repositioning the current file offset.</li>
@@ -283,7 +293,7 @@
 <li><strong>[2021] What is the extension of a Windows batch file?</strong><br><strong>Answer:</strong> .bat.</li>
 </ol>
 
-<h3>19.10 Disk structure and disk scheduling</h3>
+<h3>19.10 Disk structure and disk scheduling — <strong>HIGH PRIORITY</strong></h3>
 <ol>
 <li><strong>[2017] What is the time required to move the read/write head to the required track called?</strong><br><strong>Answer:</strong> Seek time.</li>
 <li><strong>[2021] What is the time spent waiting for the desired sector to rotate under the read/write head called?</strong><br><strong>Answer:</strong> Rotational latency (rotational delay).</li>
