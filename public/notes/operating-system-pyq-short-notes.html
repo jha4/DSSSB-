@@ -1,7 +1,7 @@
 
 <section>
   <p><strong>Exam-focused revision guide</strong> based on the Operating System questions in the uploaded question bank. This note combines PYQ trend analysis, core theory, direct-answer facts, numerical formulas and additional syllabus coverage.</p>
-  <div class="note-callout"><strong>Preparation rule:</strong> Treat PYQ frequency as evidence of recurring concepts, not as a guarantee of what will appear next.</div>
+  <div class="note-callout" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Preparation rule:</strong> Treat PYQ frequency as evidence of recurring concepts, not as a guarantee of what will appear next.</div>
   <h2>1. PYQ analysis and exam trends</h2>
   <h3>Question-bank snapshot</h3>
   <table><thead><tr><th>Measure</th><th>Finding</th></tr></thead><tbody>
@@ -22,7 +22,7 @@
   </tbody></table>
   <h3>What the pattern suggests</h3>
   <ul><li>Numerical questions matter: CPU scheduling, page faults, address bits, TLB and disk-head movement.</li><li>Definitions recur: PCB, swapping, throughput, fragmentation, seek time and FAT.</li><li>Comparisons are common: FIFO/LRU, process/thread, paging/segmentation and FCFS/RR.</li><li>Algorithm properties are tested: starvation, Belady’s anomaly, bounded waiting and safe states.</li><li>Practical OS knowledge appears alongside theory: Linux commands, Unix system calls and Windows APIs.</li></ul>
-  <div class="note-callout"><strong>Exam focus:</strong> PYQ PRIORITY KEY — VERY HIGH: Paging/page replacement, process management, memory management and CPU scheduling. HIGH: Deadlocks, synchronization, file systems and disk management. MEDIUM: System calls, OS structure/types and Linux/Unix/Windows. Use this to prioritize revision, not to skip syllabus areas.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> PYQ PRIORITY KEY — VERY HIGH: Paging/page replacement, process management, memory management and CPU scheduling. HIGH: Deadlocks, synchronization, file systems and disk management. MEDIUM: System calls, OS structure/types and Linux/Unix/Windows. Use this to prioritize revision, not to skip syllabus areas.</div>
 <h2>2. Operating System fundamentals</h2>
   <h3>Definition and objectives</h3>
   <p>An Operating System is system software that acts as an interface between users/applications and computer hardware. It manages resources and provides services to programs.</p>
@@ -35,7 +35,17 @@
   <table><thead><tr><th>Concepts</th><th>Difference</th></tr></thead><tbody><tr><td>Multiprogramming vs multitasking</td><td>Multiprogramming emphasizes CPU utilization; multitasking emphasizes responsive concurrent task execution.</td></tr><tr><td>Multiprocessing vs multitasking</td><td>Multiprocessing uses multiple processing units; multitasking can time-share one CPU.</td></tr><tr><td>Hard vs soft real-time</td><td>Hard deadlines must not be missed; soft deadlines are desirable but occasional misses may be tolerated.</td></tr></tbody></table>
   <h3>Kernel, shell and drivers</h3>
   <ul><li><strong>Kernel:</strong> privileged core of the operating system.</li><li><strong>Shell:</strong> command interpreter/interface.</li><li><strong>Device driver:</strong> software that controls a hardware device.</li><li><strong>System utility:</strong> maintenance and management program.</li></ul>
-  <div class="note-callout"><strong>Exam focus:</strong> MEDIUM PRIORITY — Learn system-call categories, Unix calls and OS architecture. Repeated PYQ themes include sleep/wait-for-time and communication system calls.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> MEDIUM PRIORITY — Learn system-call categories, Unix calls and OS architecture. Repeated PYQ themes include sleep/wait-for-time and communication system calls.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2023] The term “multi-user” in an OS context refers to what?</strong><br><strong>Answer:</strong> An operating system that supports multiple users working on the same computer system.</li>
+<li><strong>[2023] An integrated set of programs that controls computer-system resources and provides an easy-to-use interface is called what?</strong><br><strong>Answer:</strong> Operating System.</li>
+<li><strong>[2026] What is the full form of GUI?</strong><br><strong>Answer:</strong> Graphical User Interface.</li>
+<li><strong>[2018] Which of the following is not a Windows version?</strong><br><strong>Answer:</strong> WINDOWS-96 (as keyed in the workbook).</li>
+</ol>
+</div>
 <h2>3. OS structure and system calls</h2>
   <h3>Kernel architectures</h3>
   <ul><li><strong>Monolithic:</strong> most OS services execute in kernel space. Linux is a modular monolithic kernel.</li><li><strong>Microkernel:</strong> keeps only essential mechanisms in kernel; more services run in user space. MINIX 3 is a common example.</li><li><strong>Hybrid:</strong> combines design approaches; Windows NT is commonly described as hybrid.</li><li><strong>Modular:</strong> supports separately loadable kernel modules.</li></ul>
@@ -48,7 +58,18 @@
   <h3>User mode vs kernel mode</h3>
   <table><thead><tr><th>User mode</th><th>Kernel mode</th></tr></thead><tbody><tr><td>Restricted privileges; applications commonly execute here.</td><td>Privileged execution; kernel controls protected resources.</td></tr><tr><td>Requests services through system calls.</td><td>Can execute privileged instructions.</td></tr></tbody></table>
   <p>A mode switch does not necessarily imply a process/context switch.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Process states, PCB, process vs thread, context switching, queues and swapping. Repeated PYQ: identify a non-process state (3 occurrences).</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Process states, PCB, process vs thread, context switching, queues and swapping. Repeated PYQ: identify a non-process state (3 occurrences).</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2024] Which system-call category includes a “wait for time” operation?</strong><br><strong>Answer:</strong> Process Control.</li>
+<li><strong>[2024] Which category of system call includes attaching or detaching remote devices?</strong><br><strong>Answer:</strong> Communication (workbook answer).</li>
+<li><strong>[2016] What does a successful Unix fork() call return to the child process?</strong><br><strong>Answer:</strong> 0. The parent receives the child PID; failure is indicated by a negative return.</li>
+<li><strong>[2016] What is the return type of the Unix write() system call?</strong><br><strong>Answer:</strong> ssize_t.</li>
+<li><strong>[2016] How many lines does the Unix/Linux head command display by default?</strong><br><strong>Answer:</strong> 10 lines.</li>
+</ol>
+</div>
 <h2>4. Process management and threads</h2>
   <h3>Process vs program</h3>
   <p>A process is a program in execution. A program is passive code; a process is an executing entity with state and allocated resources.</p>
@@ -67,7 +88,19 @@
   <h3>Schedulers</h3>
   <ul><li><strong>Long-term scheduler:</strong> admits jobs into the system/memory.</li><li><strong>Short-term scheduler:</strong> selects the next process for CPU.</li><li><strong>Medium-term scheduler:</strong> suspends/swaps processes out and later brings them back.</li><li><strong>Dispatcher:</strong> transfers CPU control to the selected process.</li></ul>
   <p>A zombie is a terminated process whose exit status has not yet been collected by its parent. A process waiting for I/O is normally blocked, not ready.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — FCFS, SJF/SRTF, Priority and Round Robin; Gantt charts; waiting, turnaround, response time and throughput. Repeated PYQ: identify a non-CPU scheduling algorithm (2 occurrences).</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> VERY HIGH PRIORITY — FCFS, SJF/SRTF, Priority and Round Robin; Gantt charts; waiting, turnaround, response time and throughput. Repeated PYQ: identify a non-CPU scheduling algorithm (2 occurrences).</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2023] A program in execution is called what?</strong><br><strong>Answer:</strong> A process.</li>
+<li><strong>[2021] Which is not a standard process state: New, Ready, Running, Blocked, or Excite?</strong><br><strong>Answer:</strong> Excite.</li>
+<li><strong>[2021] Which data structure maintains information about each process?</strong><br><strong>Answer:</strong> Process Control Block (PCB).</li>
+<li><strong>[2021] Which data structure maintains information about each thread?</strong><br><strong>Answer:</strong> Thread Control Block (TCB).</li>
+<li><strong>[2018] When I/O completes, a process waiting in the Blocked state normally moves to which state?</strong><br><strong>Answer:</strong> Ready.</li>
+<li><strong>[2017] A thread is also known as what?</strong><br><strong>Answer:</strong> A lightweight process.</li>
+</ol>
+</div>
 <h2>5. CPU scheduling</h2>
   <h3>Objectives and formulas</h3>
   <ul><li>Maximize CPU utilization and throughput.</li><li>Minimize turnaround, waiting and response time.</li><li>Provide fairness and avoid starvation.</li></ul>
@@ -77,7 +110,18 @@
   <ul><li>FCFS is simple but a long job can delay short jobs (convoy effect).</li><li>SJF/SRTF can starve long jobs.</li><li>Priority scheduling can starve low-priority jobs; <strong>aging</strong> gradually raises waiting jobs' priority.</li><li>Very small RR quantum causes excessive context switches; very large quantum makes RR approach FCFS.</li><li>RR generally improves interactive response compared with FCFS, but exact performance depends on workload and quantum.</li></ul>
   <h3>Worked FCFS example</h3>
   <p>All arrive at time 0: P1 burst 5, P2 burst 3, P3 burst 1. Order: P1 (0–5), P2 (5–8), P3 (8–9). Waiting times: 0, 5, 8. Average waiting time = (0 + 5 + 8) / 3 = 4.33 time units.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Critical-section requirements, semaphores, wait/signal, bounded waiting and race conditions.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> HIGH PRIORITY — Critical-section requirements, semaphores, wait/signal, bounded waiting and race conditions.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2024] Which CPU scheduling algorithm can cause starvation of low-priority processes unless aging is used?</strong><br><strong>Answer:</strong> Priority Scheduling.</li>
+<li><strong>[2021] Which is not a CPU scheduling algorithm: FCFS, Round Robin, Priority, or C-SCAN?</strong><br><strong>Answer:</strong> C-SCAN. It is a disk-scheduling algorithm.</li>
+<li><strong>[2020] Which scheduling algorithm gives maximum throughput when task run times are known, under the usual single-CPU assumptions?</strong><br><strong>Answer:</strong> Shortest Job First (SJF).</li>
+<li><strong>[2016] What is the system load when 10 processes arrive per minute and average service time is 3 seconds?</strong><br><strong>Answer:</strong> 0.5 (arrival rate × average service time).</li>
+<li><strong>[2020] With 4 units of context-switch time and 6 units of useful running time before blocking, what is the CPU efficiency under the simplified model?</strong><br><strong>Answer:</strong> 6 / (6 + 4) = 0.6, or 60%.</li>
+</ol>
+</div>
 <h2>6. Synchronization and IPC</h2>
   <h3>Race condition and critical section</h3>
   <p>A race condition occurs when concurrent access to shared data makes the result depend on execution order. A critical section is the code region that accesses shared data/resources.</p>
@@ -90,7 +134,16 @@
   <ul><li>Producer–Consumer (bounded buffer).</li><li>Readers–Writers.</li><li>Dining Philosophers.</li></ul>
   <h3>Inter-process communication</h3>
   <p>IPC mechanisms include shared memory, message passing, pipes, named pipes, message queues, sockets and signals. Shared memory can be efficient for large transfers but needs synchronization. Message passing exchanges data through send/receive operations.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Four necessary conditions, prevention vs avoidance, safe/unsafe states and Banker’s algorithm. Practice resource-allocation numericals.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> HIGH PRIORITY — Four necessary conditions, prevention vs avoidance, safe/unsafe states and Banker’s algorithm. Practice resource-allocation numericals.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2025] Which conditions must be satisfied by a correct critical-section solution?</strong><br><strong>Answer:</strong> Mutual exclusion, progress and bounded waiting.</li>
+<li><strong>[2024] Which standard atomic operations are used with a semaphore?</strong><br><strong>Answer:</strong> wait() and signal().</li>
+<li><strong>[2022] What is the key property of semaphore wait() and signal() operations?</strong><br><strong>Answer:</strong> They must execute atomically; wait() acquires/decrements or blocks, while signal() releases/increments and may wake a waiter.</li>
+</ol>
+</div>
 <h2>7. Deadlocks</h2>
   <h3>Definition and four necessary conditions</h3>
   <p>Deadlock is a condition in which a set of processes remains blocked because each waits for a resource/event that another process in the set must release.</p>
@@ -107,7 +160,17 @@
   <p>For n processes, each requiring at most k identical resources, a sufficient number to guarantee no deadlock under the standard assumptions is:</p>
   <p><strong>R = n(k − 1) + 1</strong></p>
   <p>Example: n = 3, k = 2 gives R = 3(1) + 1 = 4 resources.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Internal/external fragmentation, First-Fit/Best-Fit, swapping, logical vs physical addresses and memory protection.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Internal/external fragmentation, First-Fit/Best-Fit, swapping, logical vs physical addresses and memory protection.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2023] Banker's algorithm is an example of which deadlock-handling method?</strong><br><strong>Answer:</strong> Deadlock avoidance.</li>
+<li><strong>[2017] Three processes each require at most two units of an identical resource. What minimum number guarantees no deadlock under the standard assumptions?</strong><br><strong>Answer:</strong> 4, using R = n(k − 1) + 1.</li>
+<li><strong>[2018] Which is not one of the four necessary deadlock conditions: mutual exclusion, hold-and-wait, no preemption, or preemption?</strong><br><strong>Answer:</strong> Preemption. The necessary condition is no preemption.</li>
+<li><strong>[2021] Seven tape drives are shared by processes, each of which may need two drives. What is the maximum number of processes guaranteed deadlock-free?</strong><br><strong>Answer:</strong> 6, using R ≥ n(k − 1) + 1. The workbook key records 3, which appears inconsistent with the stated assumptions; verify the original question before memorizing the keyed value.</li>
+</ol>
+</div>
 <h2>8. Memory management</h2>
   <h3>Address translation</h3>
   <ul><li>Logical address is generated by the CPU; it is also commonly called a virtual address.</li><li>Physical address is the actual address in RAM.</li><li>MMU (Memory Management Unit) performs address translation and protection checks.</li></ul>
@@ -119,7 +182,18 @@
   <p>All variable-partition strategies can leave external fragmentation. First Fit is often fast; Best Fit may leave many tiny holes. Results depend on request sequence.</p>
   <h3>Swapping</h3>
   <p>Swapping transfers a process or its memory pages between RAM and secondary storage. Swap-out moves data out; swap-in brings it back. Swap space is secondary-storage space reserved for this purpose. Modern virtual-memory systems often swap pages rather than an entire process.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Page/frame mapping, page faults, FIFO/LRU/Optimal, Belady’s anomaly, TLB and address-bit numericals. Belady’s anomaly/page replacement is a repeated PYQ theme.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> VERY HIGH PRIORITY — Page/frame mapping, page faults, FIFO/LRU/Optimal, Belady’s anomaly, TLB and address-bit numericals. Belady’s anomaly/page replacement is a repeated PYQ theme.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2013] First-Fit and Best-Fit variable-partition allocation can suffer from which type of fragmentation?</strong><br><strong>Answer:</strong> External fragmentation.</li>
+<li><strong>[2016] What is the purpose of a fence register?</strong><br><strong>Answer:</strong> Memory protection; it establishes a boundary that a process must not cross.</li>
+<li><strong>[2021] A process cannot fit in either of two separate free holes even though their combined size is sufficient. What is this problem called?</strong><br><strong>Answer:</strong> External fragmentation.</li>
+<li><strong>[2021] What is the term for moving a process from main memory to disk?</strong><br><strong>Answer:</strong> Swapping out.</li>
+<li><strong>[2016] Physical memory is divided into fixed-size blocks called what?</strong><br><strong>Answer:</strong> Frames.</li>
+</ol>
+</div>
 <h2>9. Paging, segmentation and virtual memory</h2>
   <h3>Paging</h3>
   <p>Paging divides logical memory into fixed-size pages and physical memory into equal-size frames. A page table maps page numbers to frame numbers. Page-table entries may include valid, protection, reference and dirty bits.</p>
@@ -139,7 +213,18 @@
   <p>Translation Lookaside Buffer (TLB) is a fast cache of recent page-table translations. For a single-level page table, with TLB lookup time tT, memory access time tM and hit ratio h:</p>
   <p><strong>EAT = h(tT + tM) + (1 − h)(tT + 2tM)</strong></p>
   <p>This assumes a TLB lookup on both paths and one memory access for the page-table entry on a miss, followed by one for the data.</p>
-  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — File allocation, FAT, directories, file operations and file seek. Repeated PYQ: repositioning the file pointer without transferring file data.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> HIGH PRIORITY — File allocation, FAT, directories, file operations and file seek. Repeated PYQ: repositioning the file pointer without transferring file data.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2020] Which page-replacement policy may exhibit Belady’s anomaly?</strong><br><strong>Answer:</strong> FIFO.</li>
+<li><strong>[2024] Of LRU and FIFO, which does not suffer from Belady’s anomaly?</strong><br><strong>Answer:</strong> LRU only. FIFO can exhibit the anomaly.</li>
+<li><strong>[2022] Which page-replacement algorithm replaces the page whose next use is farthest in the future?</strong><br><strong>Answer:</strong> Optimal (OPT).</li>
+<li><strong>[2023] What does a page fault mean?</strong><br><strong>Answer:</strong> The process references a page that is not currently resident in physical memory.</li>
+<li><strong>[2020] A logical address space has four pages of 2048 words each. How many bits are needed for a logical address?</strong><br><strong>Answer:</strong> 13 bits: 2 page-number bits + 11 offset bits.</li>
+</ol>
+</div>
 <h2>10. File systems and file management</h2>
   <h3>File attributes and operations</h3>
   <p>Attributes include name, identifier, type, location, size, permissions and timestamps. Common operations are create, open, read, write, append, seek, close and delete.</p>
@@ -155,7 +240,18 @@
   <h3>Linux permissions</h3>
   <table><thead><tr><th>Permission</th><th>Numeric value</th><th>Meaning</th></tr></thead><tbody><tr><td>r</td><td>4</td><td>Read</td></tr><tr><td>w</td><td>2</td><td>Write</td></tr><tr><td>x</td><td>1</td><td>Execute</td></tr></tbody></table>
   <p><code>chmod 755 file</code> means owner = 7 (rwx), group = 5 (r-x), others = 5 (r-x).</p>
-  <div class="note-callout"><strong>Exam focus:</strong> HIGH PRIORITY — Seek time, rotational latency, FCFS, SSTF, SCAN and C-SCAN. Practice total head-movement numericals.</div>
+  <div class="note-callout" style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:16px 0;"><strong>Exam focus:</strong> HIGH PRIORITY — Seek time, rotational latency, FCFS, SSTF, SCAN and C-SCAN. Practice total head-movement numericals.</div>
+
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2023] What does FAT stand for?</strong><br><strong>Answer:</strong> File Allocation Table.</li>
+<li><strong>[2024] Which file operation is also known as File Seek and need not perform actual I/O?</strong><br><strong>Answer:</strong> Repositioning the current file offset.</li>
+<li><strong>[2013] What is a path that begins at the root directory called?</strong><br><strong>Answer:</strong> An absolute path name.</li>
+<li><strong>[2016] How many lines does head display by default?</strong><br><strong>Answer:</strong> 10 lines (also listed under Unix/Linux commands).</li>
+<li><strong>[2021] What is the extension of a Windows batch file?</strong><br><strong>Answer:</strong> .bat.</li>
+</ol>
+</div>
 <h2>11. Disk management and scheduling</h2>
   <h3>Disk terms</h3>
   <ul><li>Platter: circular magnetic disk surface.</li><li>Track: concentric circular path.</li><li>Sector: subdivision of a track.</li><li>Cylinder: tracks at the same radius across platters.</li><li>Seek time: time to move head to the required track.</li><li>Rotational latency: waiting for desired sector to rotate under the head.</li><li>Transfer time: time to transfer data.</li></ul>
@@ -163,10 +259,28 @@
   <h3>Disk scheduling algorithms</h3>
   <table><thead><tr><th>Algorithm</th><th>Rule</th><th>Important point</th></tr></thead><tbody><tr><td>FCFS</td><td>Arrival order</td><td>Fair order, can have large movement.</td></tr><tr><td>SSTF</td><td>Nearest pending cylinder</td><td>Can starve distant requests.</td></tr><tr><td>SCAN</td><td>Moves in one direction servicing requests, then reverses</td><td>Elevator algorithm.</td></tr><tr><td>C-SCAN</td><td>Services in one direction, returns to start end</td><td>More uniform waiting characteristics.</td></tr><tr><td>LOOK</td><td>Like SCAN but reverses at last pending request</td><td>Avoids travelling to physical disk end unnecessarily.</td></tr><tr><td>C-LOOK</td><td>Like C-SCAN but jumps between last and first pending requests</td><td>Circular service among pending requests.</td></tr></tbody></table>
   <p>Total head movement = sum of absolute differences between consecutive cylinder positions.</p>
-  <h2>12. Device and I/O management</h2>
+  
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2017] What is the time required to move the read/write head to the required track called?</strong><br><strong>Answer:</strong> Seek time.</li>
+<li><strong>[2021] What is the time spent waiting for the desired sector to rotate under the read/write head called?</strong><br><strong>Answer:</strong> Rotational latency (rotational delay).</li>
+<li><strong>[2021] Name the main physical organization terms of a disk.</strong><br><strong>Answer:</strong> Cylinders, tracks and sectors.</li>
+<li><strong>[2025] How does FCFS disk scheduling serve requests?</strong><br><strong>Answer:</strong> In the order in which requests arrive.</li>
+</ol>
+</div>
+<h2>12. Device and I/O management</h2>
   <table><thead><tr><th>Technique</th><th>How it works</th></tr></thead><tbody><tr><td>Programmed I/O</td><td>CPU repeatedly checks device status/polls.</td></tr><tr><td>Interrupt-driven I/O</td><td>Device interrupts CPU when service is needed or operation completes.</td></tr><tr><td>DMA</td><td>Direct Memory Access transfers blocks between device and memory with limited CPU involvement.</td></tr></tbody></table>
   <ul><li><strong>Buffering:</strong> temporarily stores data to accommodate speed/size differences between producers and consumers.</li><li><strong>Spooling:</strong> queues complete jobs for a shared device, e.g. printer queue.</li><li><strong>Driver:</strong> software interface for controlling a hardware device.</li></ul>
-  <h2>13. Linux, Unix, Windows and MS-DOS essentials</h2>
+  
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2019] What temporary storage area compensates for speed differences between units transferring data?</strong><br><strong>Answer:</strong> A buffer.</li>
+<li><strong>[2013] Sequential, direct, random and associative are access methods associated with which system?</strong><br><strong>Answer:</strong> The workbook key says memory system. Check the original wording because “access methods” can be discussed in more than one storage context.</li>
+</ol>
+</div>
+<h2>13. Linux, Unix, Windows and MS-DOS essentials</h2>
   <h3>Linux directories</h3>
   <table><thead><tr><th>Path</th><th>Purpose</th></tr></thead><tbody><tr><td>/</td><td>Root directory</td></tr><tr><td>/bin</td><td>Essential command binaries (layout varies on modern merged-/usr systems)</td></tr><tr><td>/etc</td><td>System configuration</td></tr><tr><td>/home</td><td>User home directories</td></tr><tr><td>/root</td><td>Root user's home</td></tr><tr><td>/dev</td><td>Device files</td></tr><tr><td>/var</td><td>Variable data, logs and spools</td></tr><tr><td>/tmp</td><td>Temporary files</td></tr><tr><td>/usr</td><td>Applications, libraries and shared data</td></tr><tr><td>/boot</td><td>Boot files</td></tr><tr><td>/proc</td><td>Virtual process/kernel information</td></tr><tr><td>/sys</td><td>Kernel/device information</td></tr></tbody></table>
   <h3>Common Linux commands</h3>
@@ -184,16 +298,17 @@
   <ul><li><strong>Rate Monotonic Scheduling (RMS):</strong> fixed priority; shorter-period periodic tasks receive higher priority.</li><li><strong>Earliest Deadline First (EDF):</strong> dynamic priority; task with nearest deadline is selected.</li></ul>
   <h3>Other useful concepts</h3>
   <ul><li><strong>Working set:</strong> pages referenced within a recent time window; helps reason about locality and thrashing.</li><li><strong>Copy-on-Write:</strong> parent and child initially share pages; a page is copied when one writes to it.</li><li><strong>Peterson’s algorithm:</strong> two-process software critical-section solution using flags and turn; relies on assumptions about memory ordering.</li><li><strong>Priority inversion:</strong> high-priority task waits for a resource held by a lower-priority task; priority inheritance can help.</li><li><strong>RAID 0:</strong> striping, no redundancy. <strong>RAID 1:</strong> mirroring. <strong>RAID 5:</strong> distributed parity. <strong>RAID 6:</strong> dual parity. <strong>RAID 10:</strong> mirrored stripes.</li><li><strong>Page-table designs:</strong> single-level, multilevel, inverted and hashed page tables.</li></ul>
-  <h2>15. PYQ answer bank — direct facts to memorize</h2>
-  <h3>Process and scheduling</h3>
-  <ul><li>A program in execution is a process.</li><li>PCB stores process state, registers, program counter and scheduling/memory/I/O information.</li><li>Ready means waiting for CPU; blocked means waiting for an event or I/O.</li><li>fork() creates a child; exec() replaces the process image; wait() waits for a child state change.</li><li>Context switching saves and restores execution context.</li><li>Throughput = completed processes per unit time.</li><li>SRTF is preemptive SJF; RR uses a time quantum.</li><li>Priority scheduling can starve low-priority jobs; aging mitigates starvation.</li></ul>
-  <h3>Synchronization and deadlocks</h3>
-  <ul><li>Critical-section requirements: mutual exclusion, progress and bounded waiting.</li><li>Semaphore operations: atomic wait and signal.</li><li>Four deadlock conditions: mutual exclusion, hold-and-wait, no preemption, circular wait.</li><li>Banker's algorithm performs deadlock avoidance by checking safe states.</li><li>Unsafe state is not identical to deadlock.</li></ul>
-  <h3>Memory and paging</h3>
-  <ul><li>Internal fragmentation is waste inside an allocated block; external fragmentation is scattered free holes.</li><li>Compaction can reduce external fragmentation.</li><li>Swapping moves process memory between RAM and backing storage.</li><li>Logical memory uses pages; physical memory uses equal-sized frames.</li><li>Page table maps pages to frames.</li><li>FIFO can exhibit Belady’s anomaly; LRU and Optimal do not.</li><li>Optimal replaces the page whose next use is farthest in the future.</li><li>TLB caches address translations; page faults occur when a referenced page is absent.</li></ul>
-  <h3>Files, disks and OS fundamentals</h3>
-  <ul><li>FAT = File Allocation Table.</li><li>Seek changes file offset; seek time moves a disk head to the required track.</li><li>Rotational latency waits for the sector to rotate under the head.</li><li>SSTF selects the nearest pending disk request; FCFS follows arrival order.</li><li>/etc contains system configuration on Linux.</li><li>chmod changes permissions; grep searches text; head/tail display beginning/end lines.</li><li>DMA reduces CPU involvement in block transfers; spooling queues jobs such as print jobs.</li></ul>
-  <h2>16. Numerical formula sheet</h2>
+  
+<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+<h3>PYQ questions and answers</h3>
+<ol>
+<li><strong>[2023] Which Linux directory contains system configuration files?</strong><br><strong>Answer:</strong> /etc.</li>
+<li><strong>[2023] Which Linux command searches file contents for a pattern?</strong><br><strong>Answer:</strong> grep.</li>
+<li><strong>[2021] Which is an impact printer?</strong><br><strong>Answer:</strong> Dot-matrix printer.</li>
+<li><strong>[2025] In distributed systems, what mechanism is commonly used to maintain consistency across nodes?</strong><br><strong>Answer:</strong> Replication and synchronization (as keyed in the workbook).</li>
+</ol>
+</div>
+<h2>15. Numerical formula sheet</h2>
   <table><thead><tr><th>Topic</th><th>Formula / rule</th></tr></thead><tbody><tr><td>Turnaround time</td><td>CT − AT</td></tr><tr><td>Waiting time</td><td>TAT − BT (single CPU-burst model)</td></tr><tr><td>Response time</td><td>First start − AT</td></tr><tr><td>Throughput</td><td>Completed processes / elapsed time</td></tr><tr><td>CPU utilization</td><td>Busy time / total time × 100%</td></tr><tr><td>Internal fragmentation</td><td>Allocated block size − requested size</td></tr><tr><td>Page offset bits</td><td>log₂(page size in addressable units)</td></tr><tr><td>Page number bits</td><td>Logical address bits − offset bits</td></tr><tr><td>Logical address bits</td><td>Page number bits + offset bits</td></tr><tr><td>Deadlock-safe resource bound</td><td>R = n(k − 1) + 1 (identical resources, standard assumptions)</td></tr><tr><td>Average rotational latency</td><td>Half a disk rotation</td></tr><tr><td>Disk head movement</td><td>Sum of absolute differences between successive cylinder positions</td></tr></tbody></table>
   <h3>Worked TLB example</h3>
   <p>If hit ratio h = 0.8, TLB lookup = 20 ns and memory access = 100 ns, then hit time = 120 ns and miss time = 220 ns under a one-level page-table assumption.</p>
@@ -202,118 +317,13 @@
   <p>Four pages require 2 page-number bits. A page size of 2048 words requires 11 offset bits. Total logical address width = 2 + 11 = <strong>13 bits</strong>.</p>
   <h3>Worked FIFO page replacement example</h3>
   <p>Reference string: 1, 2, 3, 1, 4; three initially empty frames. FIFO sequence: 1 (fault), 2 (fault), 3 (fault), 1 (hit), 4 (fault; replace 1). Total = <strong>4 page faults</strong>.</p>
-  <h2>17. Expected exam focus and final revision order</h2>
+  <h2>16. Expected exam focus and final revision order</h2>
   <p>These are preparation predictions from syllabus breadth and recurring PYQ concepts, not guaranteed future questions.</p>
   <ol><li><strong>First priority:</strong> CPU scheduling numericals; process states/PCB/threads; paging and FIFO/LRU/Optimal; memory allocation and fragmentation; deadlock conditions and Banker's algorithm.</li><li><strong>Second priority:</strong> semaphores/critical section; file allocation/FAT; disk scheduling; system calls; TLB and thrashing.</li><li><strong>Complete coverage:</strong> OS types/architecture; Linux commands and directories; Windows APIs; DMA, buffering, spooling; booting, distributed and real-time OS.</li></ol>
   <p><strong>Practice rather than memorize:</strong> Gantt charts, page-fault strings, TLB effective access time, address-bit calculations, Banker's safety checks and disk-head movement. A changed numerical input changes the answer.</p>
-  <h2>18. Dataset limitations</h2>
+  <h2>17. Dataset limitations</h2>
   <ul><li>Ten OS records have no year.</li><li>Difficulty labels are missing for most questions.</li><li>Some records are duplicated across exam-name variants.</li><li>Some extracted questions have incomplete or ambiguous wording.</li><li>The workbook's OS label is not a detailed syllabus map.</li><li>The 2026 sample has only two questions and is too small for trend claims.</li></ul>
   <p><strong>Bottom line:</strong> Complete process management, scheduling, memory/paging and deadlocks first. Then cover synchronization, files, disks, system calls and Linux. Do not skip the remaining syllabus simply because fewer examples appear in this workbook.</p>
 </section>
 
-<section id="topic-wise-pyq">
-<h2>19. Topic-wise PYQ questions and answers</h2>
-<p>The following PYQs are grouped under the topic they test. The year is shown where available. These are selected examples from the uploaded question bank, not a claim that every one of the 189 OS-tagged records has been reproduced here. Some source answer keys and extracted wording require checking against the original paper.</p>
 
-<h3>19.1 Operating-system fundamentals, types and architecture</h3>
-<ol>
-<li><strong>[2023] The term “multi-user” in an OS context refers to what?</strong><br><strong>Answer:</strong> An operating system that supports multiple users working on the same computer system.</li>
-<li><strong>[2023] An integrated set of programs that controls computer-system resources and provides an easy-to-use interface is called what?</strong><br><strong>Answer:</strong> Operating System.</li>
-<li><strong>[2026] What is the full form of GUI?</strong><br><strong>Answer:</strong> Graphical User Interface.</li>
-<li><strong>[2018] Which of the following is not a Windows version?</strong><br><strong>Answer:</strong> WINDOWS-96 (as keyed in the workbook).</li>
-</ol>
-
-<h3>19.2 System calls, Unix/Linux and commands — <strong>MEDIUM PRIORITY</strong></h3>
-<ol>
-<li><strong>[2024] Which system-call category includes a “wait for time” operation?</strong><br><strong>Answer:</strong> Process Control.</li>
-<li><strong>[2024] Which category of system call includes attaching or detaching remote devices?</strong><br><strong>Answer:</strong> Communication (workbook answer).</li>
-<li><strong>[2016] What does a successful Unix fork() call return to the child process?</strong><br><strong>Answer:</strong> 0. The parent receives the child PID; failure is indicated by a negative return.</li>
-<li><strong>[2016] What is the return type of the Unix write() system call?</strong><br><strong>Answer:</strong> ssize_t.</li>
-<li><strong>[2016] How many lines does the Unix/Linux head command display by default?</strong><br><strong>Answer:</strong> 10 lines.</li>
-</ol>
-
-<h3>19.3 Process management and threads — <strong>VERY HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2023] A program in execution is called what?</strong><br><strong>Answer:</strong> A process.</li>
-<li><strong>[2021] Which is not a standard process state: New, Ready, Running, Blocked, or Excite?</strong><br><strong>Answer:</strong> Excite.</li>
-<li><strong>[2021] Which data structure maintains information about each process?</strong><br><strong>Answer:</strong> Process Control Block (PCB).</li>
-<li><strong>[2021] Which data structure maintains information about each thread?</strong><br><strong>Answer:</strong> Thread Control Block (TCB).</li>
-<li><strong>[2018] When I/O completes, a process waiting in the Blocked state normally moves to which state?</strong><br><strong>Answer:</strong> Ready.</li>
-<li><strong>[2017] A thread is also known as what?</strong><br><strong>Answer:</strong> A lightweight process.</li>
-</ol>
-
-<h3>19.4 CPU scheduling and performance — <strong>VERY HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2024] Which CPU scheduling algorithm can cause starvation of low-priority processes unless aging is used?</strong><br><strong>Answer:</strong> Priority Scheduling.</li>
-<li><strong>[2021] Which is not a CPU scheduling algorithm: FCFS, Round Robin, Priority, or C-SCAN?</strong><br><strong>Answer:</strong> C-SCAN. It is a disk-scheduling algorithm.</li>
-<li><strong>[2020] Which scheduling algorithm gives maximum throughput when task run times are known, under the usual single-CPU assumptions?</strong><br><strong>Answer:</strong> Shortest Job First (SJF).</li>
-<li><strong>[2016] What is the system load when 10 processes arrive per minute and average service time is 3 seconds?</strong><br><strong>Answer:</strong> 0.5 (arrival rate × average service time).</li>
-<li><strong>[2020] With 4 units of context-switch time and 6 units of useful running time before blocking, what is the CPU efficiency under the simplified model?</strong><br><strong>Answer:</strong> 6 / (6 + 4) = 0.6, or 60%.</li>
-</ol>
-
-<h3>19.5 Synchronization and concurrency — <strong>HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2025] Which conditions must be satisfied by a correct critical-section solution?</strong><br><strong>Answer:</strong> Mutual exclusion, progress and bounded waiting.</li>
-<li><strong>[2024] Which standard atomic operations are used with a semaphore?</strong><br><strong>Answer:</strong> wait() and signal().</li>
-<li><strong>[2022] What is the key property of semaphore wait() and signal() operations?</strong><br><strong>Answer:</strong> They must execute atomically; wait() acquires/decrements or blocks, while signal() releases/increments and may wake a waiter.</li>
-</ol>
-
-<h3>19.6 Deadlocks — <strong>HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2023] Banker's algorithm is an example of which deadlock-handling method?</strong><br><strong>Answer:</strong> Deadlock avoidance.</li>
-<li><strong>[2017] Three processes each require at most two units of an identical resource. What minimum number guarantees no deadlock under the standard assumptions?</strong><br><strong>Answer:</strong> 4, using R = n(k − 1) + 1.</li>
-<li><strong>[2018] Which is not one of the four necessary deadlock conditions: mutual exclusion, hold-and-wait, no preemption, or preemption?</strong><br><strong>Answer:</strong> Preemption. The necessary condition is no preemption.</li>
-<li><strong>[2021] Seven tape drives are shared by processes, each of which may need two drives. What is the maximum number of processes guaranteed deadlock-free?</strong><br><strong>Answer:</strong> 6, using R ≥ n(k − 1) + 1. The workbook key records 3, which appears inconsistent with the stated assumptions; verify the original question before memorizing the keyed value.</li>
-</ol>
-
-<h3>19.7 Memory management and allocation — <strong>VERY HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2013] First-Fit and Best-Fit variable-partition allocation can suffer from which type of fragmentation?</strong><br><strong>Answer:</strong> External fragmentation.</li>
-<li><strong>[2016] What is the purpose of a fence register?</strong><br><strong>Answer:</strong> Memory protection; it establishes a boundary that a process must not cross.</li>
-<li><strong>[2021] A process cannot fit in either of two separate free holes even though their combined size is sufficient. What is this problem called?</strong><br><strong>Answer:</strong> External fragmentation.</li>
-<li><strong>[2021] What is the term for moving a process from main memory to disk?</strong><br><strong>Answer:</strong> Swapping out.</li>
-<li><strong>[2016] Physical memory is divided into fixed-size blocks called what?</strong><br><strong>Answer:</strong> Frames.</li>
-</ol>
-
-<h3>19.8 Paging, virtual memory and page replacement — <strong>VERY HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2020] Which page-replacement policy may exhibit Belady’s anomaly?</strong><br><strong>Answer:</strong> FIFO.</li>
-<li><strong>[2024] Of LRU and FIFO, which does not suffer from Belady’s anomaly?</strong><br><strong>Answer:</strong> LRU only. FIFO can exhibit the anomaly.</li>
-<li><strong>[2022] Which page-replacement algorithm replaces the page whose next use is farthest in the future?</strong><br><strong>Answer:</strong> Optimal (OPT).</li>
-<li><strong>[2023] What does a page fault mean?</strong><br><strong>Answer:</strong> The process references a page that is not currently resident in physical memory.</li>
-<li><strong>[2020] A logical address space has four pages of 2048 words each. How many bits are needed for a logical address?</strong><br><strong>Answer:</strong> 13 bits: 2 page-number bits + 11 offset bits.</li>
-</ol>
-
-<h3>19.9 File systems and file management — <strong>HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2023] What does FAT stand for?</strong><br><strong>Answer:</strong> File Allocation Table.</li>
-<li><strong>[2024] Which file operation is also known as File Seek and need not perform actual I/O?</strong><br><strong>Answer:</strong> Repositioning the current file offset.</li>
-<li><strong>[2013] What is a path that begins at the root directory called?</strong><br><strong>Answer:</strong> An absolute path name.</li>
-<li><strong>[2016] How many lines does head display by default?</strong><br><strong>Answer:</strong> 10 lines (also listed under Unix/Linux commands).</li>
-<li><strong>[2021] What is the extension of a Windows batch file?</strong><br><strong>Answer:</strong> .bat.</li>
-</ol>
-
-<h3>19.10 Disk structure and disk scheduling — <strong>HIGH PRIORITY</strong></h3>
-<ol>
-<li><strong>[2017] What is the time required to move the read/write head to the required track called?</strong><br><strong>Answer:</strong> Seek time.</li>
-<li><strong>[2021] What is the time spent waiting for the desired sector to rotate under the read/write head called?</strong><br><strong>Answer:</strong> Rotational latency (rotational delay).</li>
-<li><strong>[2021] Name the main physical organization terms of a disk.</strong><br><strong>Answer:</strong> Cylinders, tracks and sectors.</li>
-<li><strong>[2025] How does FCFS disk scheduling serve requests?</strong><br><strong>Answer:</strong> In the order in which requests arrive.</li>
-</ol>
-
-<h3>19.11 I/O, buffering and storage</h3>
-<ol>
-<li><strong>[2019] What temporary storage area compensates for speed differences between units transferring data?</strong><br><strong>Answer:</strong> A buffer.</li>
-<li><strong>[2013] Sequential, direct, random and associative are access methods associated with which system?</strong><br><strong>Answer:</strong> The workbook key says memory system. Check the original wording because “access methods” can be discussed in more than one storage context.</li>
-</ol>
-
-<h3>19.12 Other OS-linked concepts in the question bank</h3>
-<ol>
-<li><strong>[2023] Which Linux directory contains system configuration files?</strong><br><strong>Answer:</strong> /etc.</li>
-<li><strong>[2023] Which Linux command searches file contents for a pattern?</strong><br><strong>Answer:</strong> grep.</li>
-<li><strong>[2021] Which is an impact printer?</strong><br><strong>Answer:</strong> Dot-matrix printer.</li>
-<li><strong>[2025] In distributed systems, what mechanism is commonly used to maintain consistency across nodes?</strong><br><strong>Answer:</strong> Replication and synchronization (as keyed in the workbook).</li>
-</ol>
-
-<p><strong>Accuracy note:</strong> The question bank contains duplicated variants, OCR/extraction artifacts and some questionable answer keys. I have flagged the tape-drive item rather than silently presenting its source key as correct. For numericals, recompute from the question data instead of memorizing the keyed number.</p>
-</section>
