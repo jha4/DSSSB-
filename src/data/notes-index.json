@@ -119,8 +119,8 @@
     "title": "Data Structures & Algorithms — Complete Notes",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
-    "chapter": "Data Structures & Algorithms",
-    "chapterSlug": "algorithms",
+    "chapter": "Algorithms, Programming & Data Structures",
+    "chapterSlug": "algorithms-programming-data-structures",
     "topic": "Complete Notes & PYQ Analysis",
     "tags": [
       "algorithms",
@@ -155,8 +155,8 @@
     "title": "Programming, OOP, C/C++, Java & Python — Complete Notes",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
-    "chapter": "Programming & OOP",
-    "chapterSlug": "programming",
+    "chapter": "Algorithms, Programming & Data Structures",
+    "chapterSlug": "algorithms-programming-data-structures",
     "topic": "Complete Notes & PYQ Analysis",
     "tags": [
       "programming",
@@ -463,8 +463,8 @@
     "title": "Algorithms, Programming & Data Structures — PYQ and Syllabus Analysis",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
-    "chapter": "Algorithms, Programming & Data Structures Analysis",
-    "chapterSlug": "algorithms-programming-ds-analysis",
+    "chapter": "Algorithms, Programming & Data Structures",
+    "chapterSlug": "algorithms-programming-data-structures",
     "topic": "Syllabus and PYQ Analysis",
     "tags": [
       "algorithms",
