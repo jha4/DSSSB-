@@ -111,7 +111,7 @@
       "PYQ"
     ],
     "date": "2026-11-19",
-    "summary": "Relational model, keys, constraints, SQL, joins, normalization, ACID, indexing, recovery and full Part B PYQs.",
+    "summary": "Expanded DBMS theory plus all 150 workbook records tagged DBMS/DBMS & SQL, grouped after related topics with available full options, answer keys and source explanations; incomplete source fields are explicitly marked.",
     "file": "notes/dbms-sql-short-notes.html"
   },
   {
