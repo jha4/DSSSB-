@@ -1,0 +1,185 @@
+<section><p><strong>DSSSB TGT Computer Science — HTML and Forms</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>HTML and Forms</h2>
+<h3>HTML document structure</h3>
+<p><strong>HTML</strong> (HyperText Markup Language) is a markup language for structuring web content. It is not a programming language. A typical HTML5 document has a doctype, root <code>&lt;html&gt;</code>, metadata in <code>&lt;head&gt;</code> and visible content in <code>&lt;body&gt;</code>.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Sample page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Heading&lt;/h1&gt;
+  &lt;p&gt;A paragraph.&lt;/p&gt;
+  &lt;a href="about.html"&gt;About&lt;/a&gt;
+  &lt;script src="app.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3>Common tags and attributes</h3>
+<table><thead><tr><th>Purpose</th><th>Tag / attribute</th></tr></thead><tbody>
+<tr><td>Headings</td><td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>; h1 is the highest-level/largest default heading, h6 the lowest.</td></tr>
+<tr><td>Paragraph / line break</td><td><code>&lt;p&gt;</code> / <code>&lt;br&gt;</code></td></tr>
+<tr><td>Horizontal thematic line</td><td><code>&lt;hr&gt;</code></td></tr>
+<tr><td>Hyperlink</td><td><code>&lt;a href="URL" target="_blank"&gt;</code>; href specifies destination.</td></tr>
+<tr><td>Image</td><td><code>&lt;img src="photo.jpg" alt="Description"&gt;</code>; alt supplies accessible alternative text.</td></tr>
+<tr><td>Lists</td><td><code>&lt;ol&gt;</code> ordered, <code>&lt;ul&gt;</code> unordered, <code>&lt;li&gt;</code> list item.</td></tr>
+<tr><td>Table</td><td><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>; rowspan/colspan merge cells across rows/columns.</td></tr>
+<tr><td>Script / stylesheet</td><td><code>&lt;script src="app.js"&gt;</code> / <code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td></tr>
+<tr><td>Metadata</td><td><code>&lt;meta&gt;</code> inside head; title element sets the document title.</td></tr>
+<tr><td>Comment</td><td><code>&lt;!-- comment --&gt;</code></td></tr>
+</tbody></table>
+<p>In older HTML, <code>link</code> and <code>vlink</code> body attributes were used for link and visited-link colours. Modern styling should use CSS pseudo-classes such as <code>a:link</code>, <code>a:visited</code>, <code>a:hover</code> and <code>a:focus</code>. The <code>hr</code> element is a void element; do not treat obsolete presentation attributes as modern HTML requirements.</p>
+<h3>Forms and controls</h3>
+<p>A form collects user input. Important elements are <code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code> and <code>&lt;button&gt;</code>.</p>
+<ul><li>Input types include text, password, email, number, date, file, radio, checkbox, submit and reset.</li><li><code>name</code> identifies the submitted field; <code>id</code> identifies an element; <code>value</code> is its value.</li><li><code>action</code> identifies the processing endpoint; <code>method</code> is commonly GET or POST.</li><li>Radio buttons in the same named group normally allow one selection; checkboxes allow multiple independent selections.</li><li>Associate labels with controls using <code>for</code> and matching <code>id</code>.</li></ul>
+<p>There is no universal HTML rule limiting a page to a fixed maximum number of forms. If an old MCQ gives a fixed limit, treat it as a source-specific or legacy claim, not a modern HTML standard.</p>
+<h3>Semantic HTML5, audio and video</h3>
+<p>Semantic elements describe meaning: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>. Media can be embedded using <code>&lt;audio controls&gt;</code> and <code>&lt;video controls&gt;</code>, often with nested <code>&lt;source&gt;</code> elements.</p>
+<div class="note-callout green"><strong>High-yield:</strong> href, target, h1–h6, td, body/head, HTML comments, form controls, br/hr, img alt/src and semantic HTML5 tags.</div>
+<h2>Topic-wise PYQs (24 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #15 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following parameters is used to create a hyperlink in HTML?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Link</li><li><strong>B.</strong> url</li><li><strong>C.</strong> Path</li><li><strong>D.</strong> Href</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Href</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, the `href` attribute (Hypertext Reference) is used within the `&lt;a&gt;` (anchor) tag to specify the URL or path of the linked document or resource. For example, `&lt;a href=&quot;destination.html&quot;&gt;Link&lt;/a&gt;`.<br><br>Why other options are incorrect: &#x27;Link&#x27; is the tag itself, not an attribute. &#x27;url&#x27; and &#x27;Path&#x27; are descriptive terms for the value of the `href` attribute, but not the attribute name itself.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #16 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following opens the linked document in the windows full body among the target values?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> _self</li><li><strong>B.</strong> _top</li><li><strong>C.</strong> _blank</li><li><strong>D.</strong> _parent</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. _top</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, the `target=&quot;_top&quot;` attribute value for an `&lt;a&gt;` tag opens the linked document in the full body of the window, effectively breaking out of any framesets or iframes.<br><br>Why other options are incorrect: `_self` opens the document in the same frame/window (default). `_blank` opens it in a new window or tab. `_parent` opens it in the parent frameset. None of these open the document in the full body of the window, canceling all frames, like `_top` does.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #41 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the given options best describes the truthfulness of the following statements? i) Class is one of the html global attributes which specifies one or more class names for an element (refers to a class in a style sheet). ii) HTML is a markup language used for server-side processing. iii) CSS describes how HTML elements are to be displayed on screen, paper, or in other media.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> i-False, ii-True, iii-True</li><li><strong>B.</strong> i-True, ii-False, iii-True</li><li><strong>C.</strong> i-False, ii-True, iii-False</li><li><strong>D.</strong> i-True, ii-True, iii-True</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. i-True, ii-False, iii-True</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Statement (i) is True: The `class` attribute is a global HTML attribute used to assign one or more class names to an element, primarily for styling with CSS or scripting with JavaScript. Statement (ii) is False: HTML (HyperText Markup Language) is a markup language used for structuring content on the client-side (web browser), not for server-side processing. Server-side processing is handled by languages like Python, PHP, Node.js, etc. Statement (iii) is True: CSS (Cascading Style Sheets) is used to describe how HTML elements are to be displayed on various media, including screen, paper, and other devices.<br><br>Why other options are incorrect: Option 1 is incorrect because statement (i) is True, not False, and statement (ii) is False, not True. Option 3 is incorrect because statement (i) is True, not False, and statement (ii) is False, not True. Option 4 is incorrect because statement (ii) is False.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #57 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which HTML tag is used to embed Java Script scripts in a page?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;script&gt;</li><li><strong>B.</strong> &lt;javascript&gt;</li><li><strong>C.</strong> &lt;js&gt;</li><li><strong>D.</strong> &lt;code&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. &lt;script&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The &lt;script&gt; HTML tag is the standard and correct way to embed client-side scripts, most commonly JavaScript, directly within an HTML document. It can also be used with the src attribute to link an external JavaScript file.<br><br>Why other options are incorrect: Options B, C, and D would represent other HTML tags or invalid syntax for embedding scripts. The `&lt;script&gt;` tag is specifically designed for this purpose in HTML.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #58 · 2024 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>In HTML body tag, which of the following attribute indicates the colour of the hyperlinks after the mouse is clicked on it?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> VLINK</li><li><strong>B.</strong> ALINK</li><li><strong>C.</strong> LINK</li><li><strong>D.</strong> HLINK</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. VLINK</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, the VLINK attribute (Visited Link) in the &lt;body&gt; tag specifies the color of a hyperlink after it has been visited (clicked).<br><br>Why other options are incorrect: ALINK specifies the color of an active link (the moment it is clicked). LINK specifies the color of an unvisited link. HLINK is not a standard HTML &lt;body&gt; attribute for link colors.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #59 · 2024 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is NOT an attribute that included by the HR tag which puts a horizontal line on the page?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> SHADE</li><li><strong>B.</strong> SIZE</li><li><strong>C.</strong> ALIGN</li><li><strong>D.</strong> WIDTH</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. SHADE</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The &lt;HR&gt; tag in HTML is used to draw a horizontal line. Common attributes include SIZE (thickness), ALIGN (alignment), and WIDTH (length). SHADE is not a standard or commonly used attribute for the &lt;HR&gt; tag to control its appearance; the &#x27;noshade&#x27; boolean attribute was used to remove the 3D shading effect.<br><br>Why other options are incorrect: SIZE, ALIGN, and WIDTH are all valid and commonly used attributes for the &lt;HR&gt; tag to control its appearance.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #60 · 2024 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following form is correct to show a &#x27;comments&#x27; in the HTML language?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;-- This is a comment --&gt;</li><li><strong>B.</strong> &lt;-- This is a comment --!&gt;</li><li><strong>C.</strong> &lt;!-- This is a comment --!&gt;</li><li><strong>D.</strong> &lt;!-- This is a comment --&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. &lt;!-- This is a comment --&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The correct syntax for comments in HTML is `&lt;!-- comment content --&gt;`. This syntax ensures that the enclosed text is ignored by the browser and not displayed on the web page.<br><br>Why other options are incorrect: The other options show incorrect syntax for HTML comments, either missing the exclamation mark after the first opening angle bracket or using incorrect closing tags.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #62 · Year not recorded · DSSSB TGT Prep</div>
+<p class="pyq-question"><strong>Which attribute in HTML table tag defines the number of columns in a column group?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> border</li><li><strong>B.</strong> Rowspan</li><li><strong>C.</strong> span</li><li><strong>D.</strong> colspan</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. span</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, the `&lt;colgroup&gt;` tag is used to group columns in a table for formatting. The `span` attribute of the `&lt;colgroup&gt;` tag specifies the number of columns that the column group should span.<br><br>Why other options are incorrect: `border` is a general attribute for table elements. `Rowspan` and `colspan` are attributes used on `&lt;td&gt;` or `&lt;th&gt;` tags to make individual cells span multiple rows or columns, respectively, not on the `&lt;colgroup&gt;` tag to define the number of columns in a group.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #93 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>Which HTML tag is used to embed Java script scripts in a page?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;script&gt;tag</li><li><strong>B.</strong> &lt;embed&gt;tag</li><li><strong>C.</strong> &lt;java&gt;tag</li><li><strong>D.</strong> &lt;enable&gt;tag</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. &lt;script&gt;tag</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The script tag is specifically designed to include JavaScript code within an HTML page. This tag can either directly embed the JavaScript code within the tag itself or it can reference an external file containing the JavaScript code.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #95 · 2021 · DSSSB PGT C.S.</div>
+<p class="pyq-question"><strong>How many forms can we have on a webpage at the maximum?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> 1</li><li><strong>B.</strong> 5</li><li><strong>C.</strong> 10</li><li><strong>D.</strong> No limit</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. No limit</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: There is no maximum limit on the number of form on a webpage.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #97 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>Which of the following HTML element is used to define table data/cell?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;table&gt;</li><li><strong>B.</strong> &lt;td&gt;</li><li><strong>C.</strong> &lt;tr&gt;</li><li><strong>D.</strong> &lt;th&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. &lt;td&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The &lt;table&gt; tag defines an HTML table. An HTML table consists of one &lt;table&gt; element and one or more &lt;tr&gt;, &lt;th&gt; and &lt;td&gt; elements. The &lt;tr&gt; element defines a table row, the &lt;th&gt; element defines a table header and the &lt;td&gt; element defines a table cell or table data.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #98 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>Which of the following can be used to display black color in HTML?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> RGB (0, 0, 0)</li><li><strong>B.</strong> RGB (255, 255, 255)</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. RGB (0, 0, 0)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In RGB color, RGB stands for Red, Green and Blue. In HTML we can use RGB color method to provide the element color. In RGB color method each color lies between the value (0-255). 0 is the lowest value while 255 is the highest value. Therefore to find the black color we write each color value to 0 i.e. RGB (0, 0. 0)</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #99 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>In HTML, a color can be specified in the form of ha1(hue, saturation, lightness), where hue is a degree on the color wheel from 0 to 360. What are the hue values representing red, green, and blue?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> 0: Red, 120: Green, 240: Blue 0: ueeue, 120: nje, 240: veeruee</li><li><strong>B.</strong> 0: Red, 130: Green, 260: Blue 0: ueeue, 130: nje, 260: veeruee</li><li><strong>C.</strong> 100: Red, 200: Green, 300: Blue 100: ueeue, 200: nje, 300: veeruee</li><li><strong>D.</strong> 120: Red, 240: Green, 360: Blue 120: ueeue, 240: nje, 360: veeruee</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. 0: Red, 120: Green, 240: Blue 0: ueeue, 120: nje, 240: veeruee</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In CSS to provide color we can use HSL method where HSL stands for Hue, saturation and lightness. In this method Hue lies between 0 to 360 on the color wheel where 0 is red 120 is green and 240 is Blue.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #100 · 2024 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>Which of the following form is correct to show a ‘comments’ in the HTML language?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt; – – T his is a comment – – &gt;</li><li><strong>B.</strong> &lt; – – T his is a comment – –! &gt;</li><li><strong>C.</strong> &lt; !– – T his is a comment – –! &gt;</li><li><strong>D.</strong> &lt; !– – T his is a comment – – &gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. &lt; !– – T his is a comment – – &gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, to mark the comment we use &#x27;&lt;! - - contents - - &gt;&#x27; syntax. For example– &lt;! - - &lt;h2&gt; This is Heading &lt;/h2&gt; - - &gt;</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #101 · 2024 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>Which of the following is NOT an attribute that included by the HR tag which puts a horizontal line on the page?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> SHADE</li><li><strong>B.</strong> SIZE</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. SHADE</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The &lt;hr&gt; tag is used to create a horizontal line on a webpage. The attributes associated with this tag are; Size, Align, width, No shade. Hence &#x27;Shade&#x27; is not an attribute for the &lt;hr&gt; tag.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #102 · 2024 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>In HTML body tag, which of the following attribute indicates the colour of the hyperlinks after the mouse is clicked on it?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> VLINK</li><li><strong>B.</strong> ALINK</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. VLINK</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The attributes in the HTML &lt;body&gt; tag that indicate the color of hyperlinks after the muse is clicked on them (i.e. after the link has been visited) is VLINK. - VLINK : (Visited Link)– It specifies the color of a link that has already been clicked and visited by the user. - ALINK : (Active Link)– It specifies the color of Link while it is being clicked or activated by the user. - LINK : It specifies the default color of an unvisited Link.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #103 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>To jump from one page to another page, which of the following is used?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;A HREF&gt; .......&lt;/A&gt;</li><li><strong>B.</strong> &lt;link&gt;</li><li><strong>C.</strong> &lt;jump&gt;</li></ol><p class='meta'><em>Source limitation: only 3 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. &lt;A HREF&gt; .......&lt;/A&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: To jump from one page to another page the HTML anchor tag &lt;a href = &quot; &quot; &gt; is used. The &lt;a href = &quot; &quot;&gt; tag defines a hyperlink that links one page to another. The most important attribute of the &lt;a href = &quot; &quot; &gt; tag is the href attribute, which indicates the link&#x27;s destination.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #113 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following parameters is used to create a hyperlink in HTML? Link Path Href</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> The href attribute of &lt;a&gt; gives the link target: &lt;a href=&quot;page.html&quot;&gt;. (There is no &#x27;link&#x27; or &#x27;path&#x27; attribute for this.)</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #130 · 2021 · dssb</div>
+<p class="pyq-question"><strong>How many different levels of heading does HTML support?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> 5</li><li><strong>B.</strong> 7</li><li><strong>C.</strong> 6</li><li><strong>D.</strong> 9</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. 6</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> HTML has six heading levels, &lt;h1&gt; to &lt;h6&gt;.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #139 · 2024 · dssb</div>
+<p class="pyq-question"><strong>In HTML body tag, which of the following attribute indicates the colour of the hyperlinks after the mouse is clicked on it?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> In the &lt;body&gt; tag, VLINK sets the colour of visited links (after they are clicked). LINK is for unvisited links and ALINK for the active link at the moment of clicking. There is no HLINK attribute.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #140 · 2024 · dssb</div>
+<p class="pyq-question"><strong>Which of the following is NOT an attribute that included by the HR tag which puts a horizontal line on the page?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> The &lt;hr&gt; tag&#x27;s attributes are ALIGN, SIZE, WIDTH, COLOR and NOSHADE. There is no &#x27;SHADE&#x27; attribute; the real one is NOSHADE.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #141 · 2024 · dssb</div>
+<p class="pyq-question"><strong>Which of the following tag of HTML language is a container for the tags that contain information about the page?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: C (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> &lt;head&gt; is the container for metadata: tags with information about the page, such as &lt;title&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;style&gt; and &lt;script&gt;. &lt;body&gt; holds the visible content and &lt;html&gt; is the root.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #142 · 2024 · dssb</div>
+<p class="pyq-question"><strong>Which of the following form is correct to show a ‘comments’ in the HTML language?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> An HTML comment is written &lt;!-- comment --&gt;: it opens with &lt;!-- and closes with --&gt;, with no &#x27;!&#x27; at the end.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #144 · 2024 · dssb</div>
+<p class="pyq-question"><strong>Which of the following HTML tag is used to puts a line break in the text?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> &lt;br&gt; inserts a line break. &lt;b&gt; makes text bold; &lt;bl&gt; and &lt;l&gt; are not standard tags.</p>
+</li></ol></section>
