@@ -67,7 +67,7 @@
 <table><thead><tr><th>Representation</th><th>Space</th><th>Best suited to</th></tr></thead><tbody><tr><td>Adjacency matrix</td><td>O(V²)</td><td>Dense graphs and constant-time edge lookup</td></tr><tr><td>Adjacency list</td><td>O(V+E)</td><td>Sparse graphs and iterating neighbours</td></tr></tbody></table>
 <ul><li><strong>BFS:</strong> visits vertices level by level using a queue. With adjacency lists, O(V+E). Finds shortest paths in unweighted graphs.</li><li><strong>DFS:</strong> explores a path deeply before backtracking, using recursion or an explicit stack. With adjacency lists, O(V+E). Useful for connected components, cycle detection and topological ordering.</li><li><strong>Dijkstra:</strong> single-source shortest paths for non-negative edge weights. A common binary-heap implementation is O((V+E) log V); simpler matrix implementation is O(V²).</li><li><strong>Bellman–Ford:</strong> handles negative edge weights and detects reachable negative cycles; O(VE).</li><li><strong>Floyd–Warshall:</strong> all-pairs shortest paths; O(V³) time and O(V²) space.</li><li><strong>Minimum Spanning Tree:</strong> a minimum-weight set of edges connecting every vertex of a connected, undirected, weighted graph without cycles. Prim grows one tree; Kruskal adds lightest safe edges using cycle checks/Disjoint Set Union.</li><li><strong>Topological sort:</strong> linear ordering of vertices in a directed acyclic graph (DAG), where every directed edge goes from earlier to later.</li></ul>
 <table><thead><tr><th>BFS</th><th>DFS</th></tr></thead><tbody><tr><td>Queue</td><td>Stack or recursion</td></tr><tr><td>Level-order exploration</td><td>Depth-first exploration</td></tr><tr><td>Shortest path in unweighted graph</td><td>No general shortest-path guarantee</td></tr></tbody></table>
-<h3>PYQs — Algorithms (all records carrying the Algorithms source label)</h3>
+<h3>PYQs — Algorithms (47 source-tagged records)</h3>
 <!-- PYQ:algorithms|Algorithms -->
 <h2>PART II — DATA STRUCTURES</h2>
 <h2>7. Data-structure fundamentals and ADT</h2>
@@ -128,7 +128,7 @@
 <h2>15. Graph data structures and miscellaneous structures</h2>
 <p>Graphs are non-linear data structures consisting of vertices and edges. Common concepts: path, cycle, connected component, degree, articulation point, bridge, directed acyclic graph and weighted edge. Adjacency lists use O(V+E) space; adjacency matrices use O(V²).</p>
 <p>Other structures worth knowing: <strong>Deque</strong> (insert/delete at both ends), <strong>Priority Queue</strong> (removal by priority), <strong>Disjoint Set Union</strong> (maintains disjoint sets using union/find), <strong>Trie</strong> (prefix tree for strings), and <strong>B-Tree/B+ Tree</strong> (multiway balanced search trees commonly used in storage/indexing). These are enrichment beyond the basic named syllabus unless directly asked in a PYQ.</p>
-<h3>PYQs — Data Structures</h3>
+<h3>PYQs — Data Structures (56 source-tagged records)</h3>
 <!-- PYQ:algorithms|Data Structures -->
 <p>The workbook has a combined source label for these records. It includes core data-structure/algorithm questions and a small number of adjacent or misclassified items. Original wording and source tag are retained.</p>
 <!-- PYQ:algorithms|Data structures & algorithms -->
