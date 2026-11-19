@@ -24,11 +24,12 @@ import {
 
 
 type CompactOsPyqData = {
-  version: number;
   t: string[];
-  q: Array<[number, string, string, string, string[], number, string]>;
-  source: string;
+  e: string[];
+  q: Array<[number, number, number, string, string[], number, string]>;
 };
+
+type CompactOsPyqExplanationData = { explanations: string[] };
 
 type CompactOsPyqQuestion = CompactOsPyqData['q'][number];
 
@@ -40,7 +41,7 @@ const escapePyqHtml = (value: string): string =>
 function renderOsPyqBlock(title: string, rows: CompactOsPyqQuestion[], data: CompactOsPyqData): string {
   const questions = rows.map((row, index) => {
     const year = row[1] || 'Year not recorded';
-    const exam = row[2] || '';
+    const exam = data.e[row[2]] || '';
     const options = row[4].map((option, optionIndex) => {
       const isCorrect = optionIndex === row[5];
       const label = String.fromCharCode(65 + optionIndex);
@@ -163,6 +164,16 @@ export const NoteReaderPage: React.FC = () => {
         const compressed = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
         const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
         const data = JSON.parse(await new Response(stream).text()) as CompactOsPyqData;
+        const explanationResponse = await fetch(`${import.meta.env.BASE_URL}notes/os-pyq-explanations.json.gz.b64`);
+        if (!explanationResponse.ok) throw new Error(`PYQ explanations request failed: ${explanationResponse.status}`);
+        const explanationEncoded = (await explanationResponse.text()).trim();
+        const explanationCompressed = Uint8Array.from(atob(explanationEncoded), (char) => char.charCodeAt(0));
+        const explanationStream = new Blob([explanationCompressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+        const explanationData = JSON.parse(await new Response(explanationStream).text()) as CompactOsPyqExplanationData;
+        if (explanationData.explanations.length !== data.q.length) {
+          throw new Error(`PYQ explanation count mismatch: ${explanationData.explanations.length} vs ${data.q.length}`);
+        }
+        data.q = data.q.map((row, index) => [...row, explanationData.explanations[index]] as CompactOsPyqQuestion);
         const topicSlots = [
           'OS fundamentals and structure',
           'OS structure and system calls',
