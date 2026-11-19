@@ -464,7 +464,7 @@ async function hydratePyqPlaceholders(
   }
 
   return rawHtml.replace(
-    /<!--\\s*PYQ:([a-z-]+)(?:\\|([^>]+?))?\\s*-->/g,
+    /<!--\s*PYQ:([a-z-]+)(?:\|([^>]+?))?\s*-->/g,
     (_marker, key: string, sourceTopic?: string) => {
       const topicFilter = (sourceTopic ?? '').trim();
       const allQuestions = groups.get(key) ?? [];
