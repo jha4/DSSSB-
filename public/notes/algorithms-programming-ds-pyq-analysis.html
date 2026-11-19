@@ -22,11 +22,12 @@
 <p>The workbook Year field is not consistently a bare year; some entries contain a full date and shift. The year above is extracted from that field. Missing values are not inferred.</p>
 <h2>4. Exact repetitions and source quality</h2>
 <ul>
-<li><strong>44 normalized exact-question groups</strong> contain 90 records in total.</li>
-<li>Those groups represent <strong>46 additional occurrences</strong> beyond the first occurrence in each group.</li>
-<li>All 442 selected records have a non-empty Correct Answer field.</li>
-<li>441 records have an Explanation field; one does not.</li>
-<li>363 records have all four option fields; 15 have only two or three populated options; 64 have no option text in the workbook.</li>
+<li><strong>Raw exact duplicates:</strong> 29 repeated-stem groups contain 60 rows in total, or 31 occurrences beyond the first row in each group.</li>
+<li><strong>Case-insensitive and whitespace-normalized comparison:</strong> 36 groups contain 74 rows (38 excess occurrences). This catches formatting-only differences while retaining punctuation.</li>
+<li><strong>Punctuation-stripped candidate comparison:</strong> 49 groups contain 103 rows (54 excess occurrences). This is a broader candidate set, not an exact-duplicate count: stripping punctuation can merge distinct stems, so these groups require manual review before being called repeats.</li>
+<li>All 442 selected records have a non-empty Correct Answer field. The workbook uses both A–D and 1–4 answer-key formats.</li>
+<li>441 records have an Explanation field; one does not (the 2018 Algorithms/Bubble Sort record).</li>
+<li><strong>362</strong> records have all four populated option fields; <strong>16</strong> have two or three populated options; <strong>64</strong> have no option text in the workbook. The 64 optionless records still have an answer-key value, but the corresponding option wording cannot be displayed from this source.</li>
 </ul>
 <p>Examples of repeated stems or near-identical records include Python comment-symbol questions, Bubble Sort worst-case complexity, Quick Sort worst-case complexity, Linked List classification, hashing collision-resolution questions, Binary Search conditions, Java string-concatenation output, Selection Sort pass tracing and Radix Sort pass tracing. Exact duplicate totals are not the same as the number of repeated concepts.</p>
 <p><strong>Important:</strong> Correct Answer values are option identifiers (A–D or 1–4) in the workbook. The notes render the source key and corresponding option text. The key is preserved as supplied; it is not silently replaced with a different answer. Where the workbook omits options or explanation, that absence is disclosed in the question card.</p>
