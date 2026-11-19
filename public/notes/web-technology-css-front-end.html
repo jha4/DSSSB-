@@ -1,0 +1,172 @@
+<section><p><strong>DSSSB TGT Computer Science — CSS, Layout and Front-end Tools</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>CSS, Layout and Front-end Tools</h2>
+<h3>CSS syntax and inclusion methods</h3>
+<p><strong>CSS</strong> means Cascading Style Sheets. It controls the presentation of HTML. A CSS rule contains a selector and declaration block; each declaration is a property–value pair.</p>
+<pre><code>p.notice { color: #234; font-weight: 700; }
+&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+<ul><li><strong>Inline CSS:</strong> <code>style</code> attribute on an element.</li><li><strong>Internal CSS:</strong> rules inside a <code>&lt;style&gt;</code> element.</li><li><strong>External CSS:</strong> separate .css file linked with <code>&lt;link rel="stylesheet" href="..."&gt;</code>; best for reuse and separation of concerns.</li></ul>
+<h3>Selectors and cascade</h3>
+<ul><li>Element: <code>p</code>; class: <code>.card</code>; ID: <code>#header</code>; universal: <code>*</code>; attribute: <code>[type="text"]</code>.</li><li>Combinators: descendant (space), child (<code>&gt;</code>), adjacent sibling (<code>+</code>), general sibling (<code>~</code>).</li><li>Pseudo-classes: <code>:hover</code>, <code>:visited</code>, <code>:focus</code>. Pseudo-elements: <code>::before</code>, <code>::after</code>.</li><li>Cascade resolution depends on origin/importance, specificity and source order. Inline styles normally outrank normal author rules; <code>!important</code> alters priority.</li></ul>
+<h3>Properties that appear in MCQs</h3>
+<table><thead><tr><th>Property / function</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>font-weight</code></td><td>Controls boldness/weight (normal, bold or numeric 100–900).</td></tr>
+<tr><td><code>list-style</code></td><td>Shorthand for list-style-type, list-style-position and list-style-image.</td></tr>
+<tr><td><code>filter: grayscale(100%)</code></td><td>Converts rendered image colours to grayscale.</td></tr>
+<tr><td><code>transition</code></td><td>Animates changes in CSS property values over a specified duration.</td></tr>
+<tr><td><code>margin</code> / <code>padding</code></td><td>Outer spacing / inner spacing around content.</td></tr>
+<tr><td><code>border</code></td><td>Border width, style and colour shorthand.</td></tr>
+<tr><td><code>width</code> / <code>height</code></td><td>Dimensions of the content box or border box depending on box-sizing.</td></tr>
+<tr><td><code>display</code> / <code>position</code></td><td>Layout behaviour / positioning scheme.</td></tr>
+</tbody></table>
+<h3>Colour models</h3>
+<p>CSS accepts named colours, hexadecimal, <code>rgb()</code>, <code>rgba()</code>, <code>hsl()</code> and <code>hsla()</code>. HSL means <strong>Hue</strong> (typically 0–360 degrees), <strong>Saturation</strong> and <strong>Lightness</strong> (percentages). RGB is additive; CMY is subtractive. For normalized RGB values, the simple complement conversion is C=1−R, M=1−G, Y=1−B.</p>
+<h3>Flexbox, Grid and responsive design</h3>
+<ul><li><strong>Flexbox:</strong> one-dimensional layout in a row or column; controls alignment and distribution along main and cross axes.</li><li><strong>CSS Grid:</strong> two-dimensional layout system for rows and columns.</li><li><strong>Responsive design:</strong> adapts layout to screen/viewport using fluid sizing, flexible media and media queries such as <code>@media (max-width: 600px)</code>.</li><li><strong>Box model:</strong> content + padding + border + margin. <code>box-sizing: border-box</code> includes padding and border in declared width/height.</li></ul>
+<h3>Front-end tools, frameworks and preprocessors</h3>
+<ul><li><strong>Framework:</strong> provides reusable conventions/components/utilities. Bootstrap and Tailwind CSS are examples; Tailwind is utility-first.</li><li><strong>Library:</strong> reusable code invoked by the application; React is commonly described as a JavaScript UI library.</li><li><strong>Preprocessor:</strong> Sass/SCSS or Less extends CSS authoring with variables, nesting and related features, then compiles to CSS.</li><li><strong>Font Awesome:</strong> icon library/asset collection. <strong>Reset CSS:</strong> normalises browser default styles. <strong>Chrome DevTools:</strong> browser inspection/debugging tools, not a CSS language.</li><li><strong>Angular:</strong> front-end framework; <strong>jQuery:</strong> JavaScript library; <strong>PHP:</strong> server-side language, not a front-end design tool; <strong>SQL:</strong> database query language.</li></ul>
+<div class="note-callout yellow"><strong>Exam traps:</strong> font-weight is boldness; list-style is shorthand; transition changes values smoothly; HSL is hue/saturation/lightness; Flexbox is one-dimensional and Grid is two-dimensional.</div>
+<h2>Topic-wise PYQs (24 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #9 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which CSS property specifies the degree to which text should be emboldened?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> font-weight</li><li><strong>B.</strong> font-size</li><li><strong>C.</strong> font-family</li><li><strong>D.</strong> font-style</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. font-weight</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The `font-weight` CSS property is used to set the thickness or boldness of characters in text. Common values include `normal`, `bold`, `bolder`, `lighter`, or numeric values (e.g., 100 to 900).<br><br>Why other options are incorrect: `font-size` controls the size of the text. `font-family` specifies the typeface. `font-style` specifies whether the text should be italic, normal, or oblique.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #10 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which CSS property makes it possible to set several list properties at once?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> list-style-type</li><li><strong>B.</strong> list-style</li><li><strong>C.</strong> list-style-position</li><li><strong>D.</strong> list-style-image</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. list-style</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The `list-style` CSS property is a shorthand property that allows you to set all the list style properties in one declaration. It can set `list-style-type`, `list-style-position`, and `list-style-image` simultaneously.<br><br>Why other options are incorrect: Options A (`list-style-type`), C (`list-style-position`), and D (`list-style-image`) are individual CSS properties that control specific aspects of list styling (the marker type, its position, and a custom image for the marker, respectively). They do not allow setting multiple list properties at once; only `list-style` provides that shorthand functionality.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #17 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is the syntax to write an external CSS?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;style rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</li><li><strong>B.</strong> &lt;style href=&quot;style.css&quot;&gt; &lt;/style&gt;</li><li><strong>C.</strong> &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</li><li><strong>D.</strong> &lt;a href=&quot;style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: To link an external CSS file to an HTML document, the `&lt;link&gt;` tag is used within the `&lt;head&gt;` section. The correct syntax is `&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;`, where `href` specifies the path to the CSS file.<br><br>Why other options are incorrect: The `&lt;style&gt;` tag is used for internal CSS, not for linking external files. The `&lt;a&gt;` tag is for creating hyperlinks, not for linking stylesheets. The other options use incorrect tags or attribute combinations.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #19 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>How to change all images to black and white (100% grey)?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> img { filter: graycolor(100%);}</li><li><strong>B.</strong> img { filter: grayscale(100%);}</li><li><strong>C.</strong> img { graycolor(100%);}</li><li><strong>D.</strong> img { filter: &quot;grayscale(100%)&quot;;}</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. img { filter: grayscale(100%);}</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In CSS, the `filter` property is used to apply visual effects to an element. The `grayscale()` function within the `filter` property converts the input image to grayscale. A value of `100%` means a complete conversion to black and white (100% grey), while `0%` would leave the image unchanged. Thus, `img { filter: grayscale(100%);}` is the correct syntax.<br><br>Why other options are incorrect: `img { filter: graycolor(100%);}` is incorrect because `graycolor()` is not a valid CSS filter function. `img { graycolor(100%);}` is incorrect as it lacks the `filter:` property. `img { filter: &quot;grayscale(100%)&quot;;}` is incorrect because the function value for `filter` should not be enclosed in quotes.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #25 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>With reference to CSS, which of the following allows to change property values smoothly over a given duration?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Masking</li><li><strong>B.</strong> Transitions</li><li><strong>C.</strong> Web Fonts</li><li><strong>D.</strong> Text Effects</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Transitions</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: CSS Transitions allow you to define how property changes should occur smoothly over a specified duration. This enables animated effects when an element&#x27;s property value changes, such as on hover, focus, or when a class is added or removed, providing a fluid user experience.<br><br>Why other options are incorrect: Masking in CSS is used to partially or fully hide elements, often with shapes or images, and is not related to smooth property value changes. Web Fonts refer to custom fonts that can be used on a website, which are downloaded by the browser. Text Effects are general styling properties applied to text (e.g., shadows, transformations), but &#x27;Transitions&#x27; specifically handles the smooth change over time.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #27 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is a software application that helps developers to build attractive website layouts and apps with ease?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Database design tools</li><li><strong>B.</strong> Front-end development tools</li><li><strong>C.</strong> Logic programming tools</li><li><strong>D.</strong> Back-end development tools</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Front-end development tools</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Front-end development tools are specifically designed to help developers build the user interface (UI) and user experience (UX) of websites and applications. These tools focus on the visual and interactive aspects that users directly interact with, making it easier to create attractive layouts and responsive designs.<br><br>Why other options are incorrect: Database design tools are used for designing and managing databases, which are typically part of the back-end infrastructure. Logic programming tools are for developing programs based on formal logic, a specialized programming paradigm, not primarily for attractive website layouts. Back-end development tools are used for server-side logic, databases, and APIs, which operate behind the scenes and are not directly involved in creating the visual user interface.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #29 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following can be used for the frontend or user interface while developing a web application?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> JavaScript</li><li><strong>B.</strong> PHP</li><li><strong>C.</strong> Django</li><li><strong>D.</strong> SQL</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. JavaScript</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: JavaScript is a client-side scripting language that runs directly in the user&#x27;s web browser. It is extensively used for developing interactive and dynamic front-end (user interface) components of web applications, handling user input, and manipulating the Document Object Model (DOM).<br><br>Why other options are incorrect: PHP is a server-side scripting language used for back-end web development. Django is a Python-based web framework primarily used for back-end development. SQL (Structured Query Language) is used for managing and querying relational databases, which is typically a back-end function.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #31 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is NOT a front-end design tool?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Angular JS</li><li><strong>B.</strong> PHP</li><li><strong>C.</strong> Chrome Dev Tools</li><li><strong>D.</strong> jQuery</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. PHP</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: PHP (Hypertext Preprocessor) is a server-side scripting language primarily used for back-end web development. It processes requests on the server and generates dynamic web content before sending it to the client&#x27;s browser. It is not a front-end design tool.<br><br>Why other options are incorrect: AngularJS is a JavaScript framework used for building front-end web applications. Chrome Dev Tools are built-in browser tools used by front-end developers for debugging, inspecting, and optimizing web pages. jQuery is a JavaScript library that simplifies client-side scripting and DOM manipulation, making front-end development easier. All three are front-end related tools.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #33 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following front-end tools is one of the most widely used CSS extension languages across the world?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Visual Studio Code</li><li><strong>B.</strong> Git</li><li><strong>C.</strong> TypeScript</li><li><strong>D.</strong> Sass</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Sass</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Sass (Syntactically Awesome Style Sheets) is a powerful and widely used CSS preprocessor. It extends CSS with features like variables, nesting, mixins, functions, and more, making CSS development more efficient and maintainable. It is compiled into standard CSS for browsers.<br><br>Why other options are incorrect: Visual Studio Code is a code editor. Git is a version control system. TypeScript is a superset of JavaScript that adds static typing. None of these are CSS extension languages; they serve different purposes in web development.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #38 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is NOT a front-end technology?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> CSS</li><li><strong>B.</strong> PL/SQL</li><li><strong>C.</strong> HTML</li><li><strong>D.</strong> JavaScript</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. PL/SQL</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: PL/SQL (Procedural Language/Structured Query Language) is a proprietary procedural extension for SQL developed by Oracle. It is primarily used for programming database operations, creating stored procedures, functions, and triggers on the database server, making it a back-end technology.<br><br>Why other options are incorrect: HTML (HyperText Markup Language) is used for structuring content on the web. CSS (Cascading Style Sheets) is used for styling the presentation of web content. JavaScript is a scripting language used for adding interactivity and dynamic behavior to web pages. All three (HTML, CSS, JavaScript) are fundamental front-end technologies used in web development to create the user interface that runs in a web browser.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #44 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Match the column LIST-I with the column LIST-II. LIST-I: a) Front-End Framework b) Front-End Asset c) Front-End Boilerplate d) JavaScript Library. LIST-II: i) React JS ii) Tailwind CSS iii) Font Awesome iv) Reset CSS</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> a-ii, b-i, c-iv, d-iii</li><li><strong>B.</strong> a-ii, b-iii, c-iv, d-i</li><li><strong>C.</strong> a-iii, b-i, c-iv, d-ii</li><li><strong>D.</strong> a-i, b-ii, c-iv, d-iii</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. a-ii, b-iii, c-iv, d-i</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The correct matches are: a) Front-End Framework (ii) - Tailwind CSS is a utility-first CSS framework. b) Front-End Asset (iii) - Font Awesome provides a library of icons, which are assets for web design. c) Front-End Boilerplate (iv) - Reset CSS is a common boilerplate used to remove default browser styling. d) JavaScript Library (i) - React JS is a popular JavaScript library for building user interfaces.<br><br>Why other options are incorrect: The other options contain incorrect pairings. For example, option 1 incorrectly matches Front-End Framework with Tailwind CSS and JavaScript Library with React JS, but then swaps the asset and boilerplate. Option 3 incorrectly matches Front-End Framework with Font Awesome. Option 4 incorrectly matches Front-End Framework with React JS and JavaScript Library with Tailwind CSS, which are incorrect classifications.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #64 · Year not recorded · dsssb</div>
+<p class="pyq-question"><strong>Which colour specification in CSS use three numbers representing the hue (from 0 to 360 degree), saturation percentage and lightness percentage?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Hexadecimal</li><li><strong>B.</strong> RGB</li><li><strong>C.</strong> HSL</li><li><strong>D.</strong> Alpha</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. HSL</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: HSL stands for Hue, Saturation, Lightness. This color model in CSS uses three numbers: hue (a degree on the color wheel from 0 to 360), saturation (a percentage from 0% to 100%), and lightness (a percentage from 0% to 100%). This directly matches the description provided in the question.<br><br>Why other options are incorrect: Hexadecimal color codes use a &#x27;#&#x27; followed by six alphanumeric characters (e.g., #RRGGBB). RGB (Red, Green, Blue) uses three integer values from 0 to 255 for the intensity of red, green, and blue light. Alpha typically refers to the opacity or transparency of a color and is often added as a fourth value to RGB (RGBA) or HSL (HSLA), not a standalone color specification method for hue, saturation, and lightness.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #67 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the purpose of using a CSS framework in front-end development?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To provide a set of pre-designed UI components and styles for faster and consistent development</li><li><strong>B.</strong> To add style and layout to a web page using CSS</li><li><strong>C.</strong> To simplify and extend the capabilities of CSS</li><li><strong>D.</strong> To add interactivity to a web page using JavaScript</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. To provide a set of pre-designed UI components and styles for faster and consistent development</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The primary purpose of using a CSS framework (like Bootstrap or Tailwind CSS) in front-end development is to provide a collection of pre-designed UI components, a grid system, and predefined styles. This significantly accelerates development, ensures design consistency across a project, and often includes responsive design capabilities out-of-the-box, leading to faster and more consistent results.<br><br>Why other options are incorrect: Option 2 describes the general purpose of CSS itself, not specifically a CSS framework. Option 3 is too vague; while frameworks do simplify development, their core purpose is more specific than just &#x27;simplifying and extending capabilities.&#x27; Option 4 describes the role of JavaScript, which is for adding interactivity, not CSS frameworks.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #70 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the purpose of using a CSS pre-processor in front-end development?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To simplify and extend the capabilities of CSS</li><li><strong>B.</strong> To add interactivity to a web page using JavaScript</li><li><strong>C.</strong> To add style and layout to a web page using CSS</li><li><strong>D.</strong> To improve the performance of a web page using optimised code</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. To simplify and extend the capabilities of CSS</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: CSS pre-processors (like Sass, Less, Stylus) extend the capabilities of standard CSS by adding features such as variables, nesting, mixins, functions, and inheritance. This allows developers to write more maintainable, reusable, and organized CSS code, which is then compiled into regular CSS that browsers can understand, thereby simplifying and extending CSS.<br><br>Why other options are incorrect: Option 2 describes the role of JavaScript, which adds interactivity. Option 3 describes the fundamental role of CSS itself, not a pre-processor. Option 4 is a potential *outcome* of using pre-processors (through better organization and smaller file sizes), but their primary purpose is to enhance the *writing* and *management* of CSS, not directly optimize browser performance.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #71 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the difference between a CSS grid and a CSS flexbox in front-end development?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> A CSS grid is used for desktop websites, while a CSS flexbox is used for mobile websites.</li><li><strong>B.</strong> There is no difference between a CSS grid and a CSS flexbox.</li><li><strong>C.</strong> A CSS grid is a one-dimensional layout system for arranging elements in a single line, while a CSS flexbox is a two-dimensional layout system for arranging elements in rows and columns.</li><li><strong>D.</strong> A CSS grid is a two-dimensional layout system for arranging elements in rows and columns, while a CSS flexbox is a one-dimensional layout system for arranging elements in a single line.</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. A CSS grid is a two-dimensional layout system for arranging elements in rows and columns, while a CSS flexbox is a one-dimensional layout system for arranging elements in a single line.</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: CSS Grid Layout is designed for two-dimensional layouts, allowing developers to arrange content in both rows and and columns simultaneously. CSS Flexbox (Flexible Box Layout) is designed for one-dimensional layouts, primarily for arranging items either in a single row or in a single column.<br><br>Why other options are incorrect: Option 1 is incorrect; both CSS Grid and Flexbox are responsive and can be used for layouts on any device, not restricted to desktop or mobile. Option 2 is incorrect as they have fundamental differences in their dimensionality. Option 3 incorrectly swaps the definitions of Grid and Flexbox, misattributing their one-dimensional and two-dimensional capabilities.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #94 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>What is the CMY co-ordinates of a color at (0.2, 1, 0.5) in the RGB space?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> (0.8,1, 0.5)</li><li><strong>B.</strong> (0.8, 0, 0.5)</li><li><strong>C.</strong> (1.2, 0, 1.5)</li><li><strong>D.</strong> (0.2, 0.8, 0.3)</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. (0.8, 0, 0.5)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: CMY is a subtractive color model, while RGB is an additive model CMY values are complements of RGB values. Convert RGB to CMY by subtracting each RGB component from 1 :- Step-1– Calculate the cyan (c) component C= 1 – R C = 1 – 0.2 = 0.8 Step-2– Calculate the magenta (M) component M = 1 – G M = 1 – 1 = 0 Step-3– Calculate the yellow (Y) component Y = 1 – 13 Y = 1 – 0.5 0.5 Hence CMY coordinates are (0.8, 0, 0.5)</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #114 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following is the syntax to write an external CSS?   href=&quot;style.css&quot;  -</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: C (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> External CSS is linked in &lt;head&gt; with &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;. &lt;style&gt; holds internal CSS and has no href.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #118 · 2023 · dssb</div>
+<p class="pyq-question"><strong>With reference to CSS, which Ofthe following allows to change property values smoothly over a given duration? Masking Transitions Web Fonts Text Effects</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> CSS transitions (transition-property, transition-duration…) change property values smoothly over a given duration. Animations use @keyframes.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #119 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following is a software application that helps developers to build attractive website layouts and apps with ease? Database design tools Front-end development tools Logic programming tools Back-end development tools</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Front-end development tools (e.g. Bootstrap, framework CLIs, design-to-code tools) help build attractive website layouts and app UIs easily.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #120 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following can be used for the frontend or user interface while developing a web application? JavaScript Django SQL</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> JavaScript (with HTML/CSS) builds the front end/user interface in the browser. Django is a back-end Python framework and SQL is for databases.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #121 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following is NOT a front-end design tool? Angular JS PHP Chrome Dev Tools jQuery</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> PHP is a server-side (back-end) language. AngularJS, jQuery and Chrome DevTools are front-end tools.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #123 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following front-end tools is one of the most widely used CSS extension languages across the world? Visual Studio Code Git TypeScript Sass</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Sass (Syntactically Awesome Style Sheets) is the most popular CSS extension/preprocessor language. TypeScript extends JavaScript, not CSS.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #135 · 2021 · dssb</div>
+<p class="pyq-question"><strong>Which CSS property determines how much the text should be emblazoned?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Font - Weight</li><li><strong>B.</strong> Font - Size</li><li><strong>C.</strong> Font - Family</li><li><strong>D.</strong> Font - Style</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Font - Weight</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> font-weight sets how bold (&quot;emboldened&quot;) text is: normal, bold, 100–900.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #136 · 2021 · dssb</div>
+<p class="pyq-question"><strong>Which CSS property allows you to set multiple list properties at once?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> List - Style - Type</li><li><strong>B.</strong> List - Style</li><li><strong>C.</strong> List - Style- Position</li><li><strong>D.</strong> List - Style- Image</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. List - Style</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> The shorthand list-style sets list-style-type, -position and -image in one declaration.</p>
+</li></ol></section>
