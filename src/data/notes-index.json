@@ -457,5 +457,25 @@
     "date": "2026-11-19",
     "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 8 topic-wise PYQs.",
     "file": "notes/web-technology-miscellaneous.html"
+  },
+  {
+    "id": "algorithms-programming-ds-pyq-analysis",
+    "title": "Algorithms, Programming & Data Structures — PYQ and Syllabus Analysis",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Algorithms, Programming & Data Structures Analysis",
+    "chapterSlug": "algorithms-programming-ds-analysis",
+    "topic": "Syllabus and PYQ Analysis",
+    "tags": [
+      "algorithms",
+      "programming",
+      "data-structures",
+      "PYQ",
+      "syllabus",
+      "analysis"
+    ],
+    "date": "2026-11-19",
+    "summary": "Analysis of 442 source-tagged workbook records: topic distribution, exact repetitions, year profile, syllabus mapping, gaps and predicted practice areas.",
+    "file": "notes/algorithms-programming-ds-pyq-analysis.html"
   }
 ]
