@@ -1,27 +1,151 @@
 <section>
-<h1>Data Structures and Design &amp; Analysis of Algorithms — Complete Notes</h1>
-<p><strong>Coverage:</strong> Algorithm properties, complexity, searching, sorting, recursion, stack, queue, linked lists, trees, graphs, divide-and-conquer, greedy and dynamic programming.</p>
-<h2>1. Algorithms and problem solving</h2>
-<p>An <strong>algorithm</strong> is a finite, ordered and unambiguous sequence of steps that transforms valid input into output and terminates. It has defined inputs/outputs, definiteness, finiteness and effective steps.</p>
-<ul><li><strong>Pseudocode:</strong> language-independent logic description. <strong>Flowchart:</strong> graphical representation using standard symbols. <strong>Top-down design:</strong> decomposes a problem into smaller modules.</li><li><strong>Correctness:</strong> the algorithm returns the required result for every valid input. Termination and loop invariants are common proof tools.</li></ul>
-<h2>2. Time and space complexity</h2>
-<p><strong>Time complexity</strong> estimates how operation count grows with input size n; <strong>space complexity</strong> estimates memory use. Big-O is an asymptotic upper bound, Big-Ω a lower bound and Big-Θ a tight bound.</p>
-<table><thead><tr><th>Class</th><th>Typical interpretation</th></tr></thead><tbody><tr><td>O(1)</td><td>Constant</td></tr><tr><td>O(log n)</td><td>Logarithmic; often halves search space</td></tr><tr><td>O(n)</td><td>Linear scan</td></tr><tr><td>O(n log n)</td><td>Efficient comparison sorting</td></tr><tr><td>O(n²)</td><td>Nested loops / simple quadratic sorts</td></tr><tr><td>O(2ⁿ), O(n!)</td><td>Exponential / factorial growth</td></tr></tbody></table>
-<p>Best, average and worst cases describe different input conditions. Complexity is not measured execution time; hardware and implementation also matter.</p>
-<h2>3. Searching and sorting</h2>
-<table><thead><tr><th>Algorithm</th><th>Typical time</th><th>Key property</th></tr></thead><tbody><tr><td>Linear search</td><td>O(n)</td><td>Works on unsorted data</td></tr><tr><td>Binary search</td><td>O(log n)</td><td>Requires sorted data</td></tr><tr><td>Bubble sort</td><td>O(n²) average/worst</td><td>Adjacent swaps; optimized best case can be O(n)</td></tr><tr><td>Selection sort</td><td>O(n²)</td><td>Selects minimum repeatedly; few swaps</td></tr><tr><td>Insertion sort</td><td>O(n²) average/worst</td><td>Good on small/nearly sorted data; O(n) best</td></tr><tr><td>Merge sort</td><td>O(n log n)</td><td>Stable; usually O(n) auxiliary space</td></tr><tr><td>Quick sort</td><td>O(n log n) average; O(n²) worst</td><td>Partition-based; pivot choice matters</td></tr></tbody></table>
-<h2>4. Recursion and design paradigms</h2>
-<ul><li><strong>Recursion:</strong> a function solves a problem by calling itself on smaller input. It needs a base case and progress toward that case; calls use a stack.</li><li><strong>Divide and conquer:</strong> divide into subproblems, solve recursively and combine results (merge sort).</li><li><strong>Greedy:</strong> make a locally best choice at each step; correctness requires a greedy-choice property (e.g. Kruskal or Prim for MST).</li><li><strong>Dynamic programming:</strong> stores solutions to overlapping subproblems when optimal substructure exists; uses memoization or tabulation.</li></ul>
-<p>For T(n)=aT(n/b)+f(n), the Master Theorem compares f(n) with n^(log_b a); verify the theorem's conditions before using a case.</p>
-<h2>5. Core data structures</h2>
-<ul><li><strong>Array:</strong> contiguous indexed storage; O(1) random access, but middle insertion/deletion usually shifts elements.</li><li><strong>Linked list:</strong> nodes hold data and links. Singly linked lists point forward; doubly linked lists point both ways; circular lists link tail to head.</li><li><strong>Stack:</strong> LIFO; push, pop and peek. Used for recursion and expression evaluation. <strong>Queue:</strong> FIFO; enqueue and dequeue. Circular queues reuse array space; priority queues remove by priority.</li><li><strong>Tree:</strong> hierarchy. Binary tree has at most two children per node. A BST orders keys so left subtree values are smaller and right subtree values larger under its ordering convention.</li><li><strong>Graph:</strong> vertices and edges; may be directed/undirected and weighted/unweighted. Adjacency matrix uses O(V²) space; adjacency lists are efficient for sparse graphs.</li></ul>
-<h2>6. Graph algorithms</h2>
-<ul><li><strong>BFS:</strong> explores by distance layers using a queue; finds shortest paths in unweighted graphs.</li><li><strong>DFS:</strong> explores deeply using recursion or a stack; useful for components, cycle checks and topological sorting.</li><li><strong>Dijkstra:</strong> single-source shortest paths with non-negative weights. <strong>Bellman–Ford:</strong> permits negative edges and detects reachable negative cycles.</li><li><strong>Minimum spanning tree:</strong> connects all vertices with minimum total edge weight in a connected undirected weighted graph. Kruskal sorts edges; Prim grows a tree from a start vertex.</li></ul>
-<h2>7. Exam traps</h2>
-<ul><li>Binary search requires sorted input. BFS, not ordinary DFS, finds shortest paths in unweighted graphs.</li><li>Quick sort has a quadratic worst case; merge sort remains O(n log n).</li><li>Stack is LIFO; queue is FIFO. Big-O is an upper bound, not automatically the exact or average complexity.</li></ul>
-<h2>Asymptotic notation — formal comparison</h2>
-<table><thead><tr><th>Notation</th><th>Meaning</th><th>Interpretation</th></tr></thead><tbody><tr><td><strong>O(g(n))</strong></td><td>Asymptotic upper bound</td><td>For sufficiently large n, f(n) is at most a constant multiple of g(n).</td></tr><tr><td><strong>Ω(g(n))</strong></td><td>Asymptotic lower bound</td><td>For sufficiently large n, f(n) is at least a positive constant multiple of g(n).</td></tr><tr><td><strong>Θ(g(n))</strong></td><td>Tight asymptotic bound</td><td>Both O(g(n)) and Ω(g(n)) hold; f and g grow at the same asymptotic order.</td></tr></tbody></table>
-<p>For example, <code>3n² + 5n + 7 = Θ(n²)</code>. Constants and lower-order terms are ignored in asymptotic growth. Big-O is not automatically the worst-case running time: first specify the input-size measure and case being analysed, then state the bound.</p>
-<h2>8. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:algorithms -->
+<h1>Algorithms &amp; Data Structures — Complete Exam-Oriented Notes</h1>
+<p><strong>Coverage:</strong> The supplied DSSSB syllabus plus concepts found in the selected PYQs. Each PYQ block is placed after the corresponding theory group. The source workbook's original topic label is preserved in each question's metadata.</p>
+<h2>PART I — DESIGN &amp; ANALYSIS OF ALGORITHMS</h2>
+<h2>1. Problem solving and algorithm fundamentals</h2>
+<p><strong>Algorithm:</strong> A finite, ordered sequence of precise and unambiguous steps that accepts valid input, produces the required output and terminates. It describes the solution logic independently of a particular programming language.</p>
+<h3>Characteristics of an algorithm</h3>
+<ul>
+<li><strong>Input:</strong> zero or more clearly specified input values.</li>
+<li><strong>Output:</strong> at least one result related to the problem.</li>
+<li><strong>Definiteness:</strong> every instruction is clear and unambiguous.</li>
+<li><strong>Finiteness:</strong> execution terminates after a finite number of steps.</li>
+<li><strong>Effectiveness:</strong> each operation is basic enough to be carried out exactly in finite time.</li>
+<li><strong>Generality:</strong> solves a class of valid problem instances, not merely one hard-coded example.</li>
+</ul>
+<h3>Program-design workflow</h3>
+<ol><li>Understand the problem and constraints.</li><li>Identify inputs, outputs and assumptions.</li><li>Break the problem into modules (top-down design).</li><li>Choose suitable data structures and an algorithm.</li><li>Write pseudocode or a flowchart.</li><li>Dry-run with normal, boundary and invalid cases.</li><li>Implement, test, debug and refine.</li></ol>
+<p><strong>Pseudocode</strong> is a language-independent, structured description of logic. It has no single mandatory syntax. A <strong>flowchart</strong> is a graphical representation of control flow.</p>
+<table><thead><tr><th>Flowchart shape</th><th>Meaning</th></tr></thead><tbody><tr><td>Oval</td><td>Start / End</td></tr><tr><td>Rectangle</td><td>Process / assignment</td></tr><tr><td>Parallelogram</td><td>Input / Output</td></tr><tr><td>Diamond</td><td>Decision / condition</td></tr><tr><td>Arrow</td><td>Direction of control flow</td></tr><tr><td>Small circle</td><td>On-page connector</td></tr></tbody></table>
+<p><strong>Top-down design:</strong> starts with the overall problem and repeatedly decomposes it into smaller subproblems. <strong>Modular programming</strong> divides a program into cohesive, manageable modules with defined interfaces.</p>
+<h3>Algorithm versus program</h3>
+<table><thead><tr><th>Algorithm</th><th>Program</th></tr></thead><tbody><tr><td>Abstract solution procedure</td><td>Implementation written in a programming language</td></tr><tr><td>Language independent</td><td>Depends on language syntax and runtime</td></tr><tr><td>Can be represented by prose, pseudocode or flowchart</td><td>Must follow language grammar to compile/execute</td></tr></tbody></table>
+<h3>PYQs — algorithm fundamentals</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>2. Analysis of algorithms and asymptotic notation</h2>
+<p><strong>Analysis of algorithms</strong> estimates how resource requirements grow as input size n grows. It normally counts elementary operations and memory rather than measuring seconds on one particular computer.</p>
+<ul><li><strong>Time complexity:</strong> growth in the number of operations as a function of input size.</li><li><strong>Space complexity:</strong> memory required as input size grows. Auxiliary space is the extra memory used beyond the input representation.</li><li><strong>Best case:</strong> least work among inputs of size n.</li><li><strong>Average case:</strong> expected work under a stated input distribution.</li><li><strong>Worst case:</strong> maximum work over inputs of size n.</li></ul>
+<h3>Asymptotic notations</h3>
+<table><thead><tr><th>Notation</th><th>Meaning</th><th>Formal intuition</th></tr></thead><tbody><tr><td><strong>O(g(n))</strong></td><td>Upper bound</td><td>f(n) is eventually no greater than a constant multiple of g(n).</td></tr><tr><td><strong>Ω(g(n))</strong></td><td>Lower bound</td><td>f(n) is eventually at least a positive constant multiple of g(n).</td></tr><tr><td><strong>Θ(g(n))</strong></td><td>Tight bound</td><td>Both O(g(n)) and Ω(g(n)) hold.</td></tr><tr><td>o(g(n))</td><td>Strict upper bound</td><td>f grows strictly slower than g asymptotically.</td></tr><tr><td>ω(g(n))</td><td>Strict lower bound</td><td>f grows strictly faster than g asymptotically.</td></tr></tbody></table>
+<p>Example: 3n² + 5n + 7 = Θ(n²). Constants and lower-order terms do not affect the asymptotic class. Big-O is not automatically synonymous with worst case: state the case being analysed separately.</p>
+<h3>Common growth order</h3>
+<table><thead><tr><th>Growth</th><th>Typical example</th></tr></thead><tbody><tr><td>O(1)</td><td>Array element access by index</td></tr><tr><td>O(log n)</td><td>Binary Search</td></tr><tr><td>O(n)</td><td>Linear scan</td></tr><tr><td>O(n log n)</td><td>Merge Sort; average Quick Sort</td></tr><tr><td>O(n²)</td><td>Simple nested loops; Bubble/Selection Sort</td></tr><tr><td>O(n³)</td><td>Three nested linear loops; basic matrix multiplication</td></tr><tr><td>O(2ⁿ)</td><td>Some exhaustive subset searches</td></tr><tr><td>O(n!)</td><td>Exhaustive permutations</td></tr></tbody></table>
+<p>For sufficiently large n, a typical increasing order is O(1), O(log n), O(n), O(n log n), O(n²), O(n³), O(2ⁿ), O(n!).</p>
+<h3>Loop-analysis shortcuts</h3>
+<ul><li>A single loop that increments i by 1 up to n: O(n).</li><li>Two nested loops each running n times: O(n²).</li><li>A loop that doubles i each iteration: O(log n).</li><li>Consecutive loops add their costs; retain the dominant term.</li><li>Nested loops multiply iteration counts only when their bounds behave independently as assumed. Read the actual update and bounds carefully.</li></ul>
+<h3>Recurrence relations and Master Theorem</h3>
+<p>Recursive algorithms can be analysed using recurrences. For T(n) = aT(n/b) + f(n), compare f(n) with n<sup>log<sub>b</sub>a</sup>. The basic Master Theorem cases are: (1) f is polynomially smaller → Θ(n<sup>log<sub>b</sub>a</sup>); (2) same order up to logarithmic factors → add one logarithmic factor; (3) f is polynomially larger and the regularity condition holds → Θ(f(n)). Check the theorem's conditions before applying it.</p>
+<h3>PYQs — complexity, recurrence and analysis</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>3. Searching algorithms</h2>
+<h3>Linear Search</h3>
+<p>Checks elements sequentially until the key is found or the collection ends. It works on unsorted data. Best case O(1), average/worst case O(n); iterative auxiliary space O(1).</p>
+<h3>Binary Search</h3>
+<p>Requires sorted data and efficient access to the middle element. Compare the key with the middle value and discard half the remaining search interval each iteration. Time is O(log n); iterative auxiliary space is O(1), while a recursive implementation uses O(log n) call-stack space.</p>
+<table><thead><tr><th>Feature</th><th>Linear</th><th>Binary</th></tr></thead><tbody><tr><td>Sorted input required?</td><td>No</td><td>Yes</td></tr><tr><td>Worst time</td><td>O(n)</td><td>O(log n)</td></tr><tr><td>Access pattern</td><td>Sequential</td><td>Middle/random access</td></tr><tr><td>Suitable linked list?</td><td>Yes</td><td>Usually inefficient; middle access is not O(1)</td></tr></tbody></table>
+<p>For n elements, binary search needs approximately ⌊log₂ n⌋ + 1 comparisons in a worst-case successful search under common counting conventions; exact maximum counts depend on whether the final unsuccessful comparison is included.</p>
+<h3>PYQs — searching</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>4. Sorting algorithms</h2>
+<p><strong>Sorting</strong> arranges records according to a key. A <strong>stable sort</strong> preserves the relative order of equal-key records. An <strong>in-place sort</strong> uses little auxiliary memory, though definitions allow small implementation-specific overhead.</p>
+<table><thead><tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Stable?</th><th>Key idea</th></tr></thead><tbody>
+<tr><td>Bubble</td><td>O(n)*</td><td>O(n²)</td><td>O(n²)</td><td>Yes</td><td>Swap adjacent out-of-order elements</td></tr>
+<tr><td>Selection</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>Usually no</td><td>Select minimum and place it next</td></tr>
+<tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>Yes</td><td>Insert each next item into sorted prefix</td></tr>
+<tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>Yes</td><td>Divide, sort halves, merge</td></tr>
+<tr><td>Quick</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>No</td><td>Partition around pivot</td></tr>
+<tr><td>Heap</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>No</td><td>Repeatedly remove heap root</td></tr>
+<tr><td>Radix</td><td>O(d(n+b))</td><td>O(d(n+b))</td><td>O(d(n+b))</td><td>Usually yes with stable digit sort</td><td>Sort by digits/positions</td></tr>
+</tbody></table>
+<p>*Optimized Bubble Sort with a swap flag has O(n) best case. Standard unoptimized Bubble Sort still performs O(n²) comparisons.</p>
+<ul><li><strong>Bubble:</strong> after each pass, a largest remaining item moves to the end. Worst-case comparisons are n(n−1)/2.</li><li><strong>Selection:</strong> pass i selects the smallest remaining element. It performs O(n²) comparisons but only O(n) swaps.</li><li><strong>Insertion:</strong> maintains a sorted prefix; efficient for small or nearly sorted inputs.</li><li><strong>Merge:</strong> predictable O(n log n), stable, but array implementation generally needs O(n) extra memory.</li><li><strong>Quick:</strong> expected/average O(n log n), worst O(n²) with highly unbalanced partitions. Pivot strategy affects performance.</li><li><strong>Heap:</strong> uses a binary heap; in-place array implementations use O(1) auxiliary space and are not stable.</li><li><strong>Radix:</strong> non-comparison sort; complexity depends on number of digit positions and the stable per-digit method.</li></ul>
+<h3>PYQs — sorting</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>5. Recursion and algorithm design paradigms</h2>
+<p><strong>Recursion</strong> occurs when a function solves a problem by calling itself on a smaller instance. A correct recursive design needs a base case, progress toward the base case and a valid combination of sub-results. Each active call occupies stack space.</p>
+<ul><li><strong>Divide and Conquer:</strong> divide into smaller independent subproblems, solve them recursively and combine results. Examples: Merge Sort, Quick Sort and Binary Search.</li><li><strong>Greedy:</strong> make a locally optimal choice at each step. It is correct only when the problem has the required greedy-choice property and optimal substructure. Examples: Huffman coding, Prim and Kruskal.</li><li><strong>Dynamic Programming:</strong> solve overlapping subproblems once and store results; use memoization (top-down) or tabulation (bottom-up). Common examples: Fibonacci, LCS and 0/1 Knapsack.</li><li><strong>Backtracking:</strong> build a candidate incrementally and abandon a partial candidate when it cannot lead to a valid solution. Examples: N-Queens and Sudoku.</li><li><strong>Branch and Bound:</strong> explores a search tree while using bounds to prune branches that cannot improve the current best solution.</li><li><strong>Randomized algorithms:</strong> use random choices; analyse expected runtime and/or probability of error. Randomized does not mean automatically incorrect.</li></ul>
+<table><thead><tr><th>Technique</th><th>Central idea</th><th>Typical example</th></tr></thead><tbody><tr><td>Divide and Conquer</td><td>Split, solve, combine</td><td>Merge Sort</td></tr><tr><td>Greedy</td><td>Choose best local option</td><td>Huffman, Prim, Kruskal</td></tr><tr><td>Dynamic Programming</td><td>Reuse overlapping subproblem results</td><td>LCS, Knapsack</td></tr><tr><td>Backtracking</td><td>Try and undo invalid partial choices</td><td>N-Queens, Sudoku</td></tr><tr><td>Branch and Bound</td><td>Prune using objective bounds</td><td>Travelling Salesperson optimization</td></tr></tbody></table>
+<h3>PYQs — recursion and design techniques</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>6. Graph algorithms — syllabus-level essentials</h2>
+<p>A <strong>graph</strong> G = (V,E) consists of vertices and edges. It may be directed/undirected, weighted/unweighted, connected/disconnected. Degree counts incident edges; in directed graphs distinguish in-degree and out-degree.</p>
+<table><thead><tr><th>Representation</th><th>Space</th><th>Best suited to</th></tr></thead><tbody><tr><td>Adjacency matrix</td><td>O(V²)</td><td>Dense graphs and constant-time edge lookup</td></tr><tr><td>Adjacency list</td><td>O(V+E)</td><td>Sparse graphs and iterating neighbours</td></tr></tbody></table>
+<ul><li><strong>BFS:</strong> visits vertices level by level using a queue. With adjacency lists, O(V+E). Finds shortest paths in unweighted graphs.</li><li><strong>DFS:</strong> explores a path deeply before backtracking, using recursion or an explicit stack. With adjacency lists, O(V+E). Useful for connected components, cycle detection and topological ordering.</li><li><strong>Dijkstra:</strong> single-source shortest paths for non-negative edge weights. A common binary-heap implementation is O((V+E) log V); simpler matrix implementation is O(V²).</li><li><strong>Bellman–Ford:</strong> handles negative edge weights and detects reachable negative cycles; O(VE).</li><li><strong>Floyd–Warshall:</strong> all-pairs shortest paths; O(V³) time and O(V²) space.</li><li><strong>Minimum Spanning Tree:</strong> a minimum-weight set of edges connecting every vertex of a connected, undirected, weighted graph without cycles. Prim grows one tree; Kruskal adds lightest safe edges using cycle checks/Disjoint Set Union.</li><li><strong>Topological sort:</strong> linear ordering of vertices in a directed acyclic graph (DAG), where every directed edge goes from earlier to later.</li></ul>
+<table><thead><tr><th>BFS</th><th>DFS</th></tr></thead><tbody><tr><td>Queue</td><td>Stack or recursion</td></tr><tr><td>Level-order exploration</td><td>Depth-first exploration</td></tr><tr><td>Shortest path in unweighted graph</td><td>No general shortest-path guarantee</td></tr></tbody></table>
+<h3>PYQs — graph algorithms and algorithmic problem types</h3>
+<!-- PYQ:algorithms|Algorithms -->
+<h2>PART II — DATA STRUCTURES</h2>
+<h2>7. Data-structure fundamentals and ADT</h2>
+<p>A <strong>data structure</strong> organizes data so operations such as access, insertion, deletion and search can be performed efficiently. An <strong>Abstract Data Type (ADT)</strong> specifies the values and permitted operations, not the internal representation.</p>
+<table><thead><tr><th>Classification</th><th>Types / examples</th></tr></thead><tbody><tr><td>Primitive</td><td>Integer, character, Boolean, floating-point</td></tr><tr><td>Non-primitive</td><td>Arrays, lists, stacks, queues, trees, graphs</td></tr><tr><td>Linear</td><td>Array, linked list, stack, queue</td></tr><tr><td>Non-linear</td><td>Tree, graph</td></tr><tr><td>Static-size</td><td>Fixed-size array (in the usual introductory model)</td></tr><tr><td>Dynamic</td><td>Linked structures and dynamically resized collections</td></tr></tbody></table>
+<h2>8. Arrays, multidimensional arrays and sparse matrices</h2>
+<p>An <strong>array</strong> stores same-type elements in contiguous memory and supports O(1) indexed access. Insertion/deletion in the middle or beginning usually requires shifting elements, giving O(n) time. A two-dimensional array is logically a table; a jagged array has rows of different lengths.</p>
+<h3>Address calculation</h3>
+<p>Let BA be the base address, w the bytes per element, and indices be zero-based.</p>
+<div class="formula">1D: LOC(A[i]) = BA + w × i</div>
+<div class="formula">2D row-major A[M][N]: LOC(A[i][j]) = BA + w × (iN + j)</div>
+<div class="formula">2D column-major A[M][N]: LOC(A[i][j]) = BA + w × (jM + i)</div>
+<div class="formula">3D row-major A[L][M][N]: LOC(A[i][j][k]) = BA + w × (iMN + jN + k)</div>
+<p>For non-zero lower bounds, subtract the relevant lower bound from each index before applying the formula. Always verify whether the question uses zero-based or one-based indexing.</p>
+<p><strong>Sparse matrix:</strong> a matrix in which most entries are zero. Store only non-zero values and their row/column positions (e.g. triplet representation) to save memory. A tridiagonal matrix has non-zero entries only on the main diagonal and the diagonals immediately above and below it.</p>
+<h3>PYQs — arrays and sparse matrices</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>9. Linked Lists</h2>
+<p>A <strong>linked list</strong> is a dynamic linear structure made of nodes. A node contains data and one or more links. Nodes need not occupy adjacent memory locations.</p>
+<table><thead><tr><th>Type</th><th>Node links</th><th>Key property</th></tr></thead><tbody><tr><td>Singly linked</td><td>Next pointer</td><td>Forward traversal only</td></tr><tr><td>Doubly linked</td><td>Previous and next pointers</td><td>Forward and backward traversal</td></tr><tr><td>Circular singly</td><td>Last node links to first</td><td>No NULL at the tail in a circular representation</td></tr><tr><td>Circular doubly</td><td>Previous and next links are circular</td><td>Bidirectional circular traversal</td></tr></tbody></table>
+<ul><li>Access/search by position: O(n).</li><li>Insert/delete at head: O(1).</li><li>Insert/delete after a known node: O(1) pointer updates; finding the node may still take O(n).</li><li>Advantages: dynamic size and no shifting of all later elements on insertion/deletion.</li><li>Disadvantages: extra pointer memory, no O(1) random indexing, pointer manipulation and cache-locality overhead.</li></ul>
+<h3>PYQs — linked lists</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>10. Stacks and expression processing</h2>
+<p>A <strong>stack</strong> is a linear ADT that follows <strong>LIFO (Last In, First Out)</strong>. Insertion and deletion occur at the top.</p>
+<table><thead><tr><th>Operation</th><th>Meaning</th><th>Typical time</th></tr></thead><tbody><tr><td>push(x)</td><td>Insert x at top</td><td>O(1)</td></tr><tr><td>pop()</td><td>Remove and return top</td><td>O(1)</td></tr><tr><td>peek/top()</td><td>Read top without removing</td><td>O(1)</td></tr></tbody></table>
+<p><strong>Overflow</strong> occurs when pushing onto a full bounded stack; <strong>underflow</strong> occurs when popping/peeking an empty stack. Linked-list stacks can grow until memory is exhausted.</p>
+<p>Applications: function-call/recursion management, parentheses matching, undo, DFS, backtracking, infix-to-postfix conversion and postfix evaluation.</p>
+<table><thead><tr><th>Notation</th><th>Operator position</th><th>Example</th></tr></thead><tbody><tr><td>Infix</td><td>Between operands</td><td>A + B</td></tr><tr><td>Prefix</td><td>Before operands</td><td>+ A B</td></tr><tr><td>Postfix</td><td>After operands</td><td>A B +</td></tr></tbody></table>
+<p>Postfix evaluation: scan left to right; push operands; when an operator appears, pop the required operands in the correct order, evaluate and push the result. For a binary operator, the first pop is the right operand and the second pop is the left operand.</p>
+<h3>PYQs — stacks and expressions</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>11. Queues and their variants</h2>
+<p>A <strong>queue</strong> is a linear ADT that normally follows <strong>FIFO (First In, First Out)</strong>. Enqueue inserts at the rear; dequeue removes from the front.</p>
+<table><thead><tr><th>Type</th><th>Insertion / deletion</th><th>Use</th></tr></thead><tbody><tr><td>Simple queue</td><td>Rear / front</td><td>Basic FIFO processing</td></tr><tr><td>Circular queue</td><td>Rear / front with wrap-around</td><td>Reuses freed array positions</td></tr><tr><td>Deque</td><td>Both ends</td><td>Double-ended operations</td></tr><tr><td>Priority queue</td><td>Removal by priority</td><td>Scheduling, shortest-path algorithms</td></tr></tbody></table>
+<p>In a circular array of capacity N, the next index is commonly (index + 1) mod N. A queue can be implemented using arrays or linked lists. BFS uses a queue.</p>
+<h3>PYQs — queues</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>12. Trees and binary trees</h2>
+<p>A <strong>tree</strong> is a hierarchical, connected acyclic structure. The root has no parent; a leaf has no children. A node's degree is its number of children. Depth is distance from root; height is the length of the longest downward path to a leaf (some texts count edges, others count nodes—follow the question's convention).</p>
+<ul><li><strong>Binary tree:</strong> each node has at most two children.</li><li><strong>Full/strict binary tree:</strong> every node has either zero or two children.</li><li><strong>Complete binary tree:</strong> all levels except possibly the last are full, and the last level is filled from left to right.</li><li><strong>Perfect binary tree:</strong> every internal node has two children and all leaves are at the same level.</li></ul>
+<p>For a binary tree of height h measured in edges, maximum nodes = 2<sup>h+1</sup> − 1 and minimum nodes = h + 1 for a non-empty tree. If height is counted in levels, formulas shift by one; read the convention carefully.</p>
+<h3>Tree traversals</h3>
+<table><thead><tr><th>Traversal</th><th>Order</th></tr></thead><tbody><tr><td>Preorder</td><td>Root → Left → Right</td></tr><tr><td>Inorder</td><td>Left → Root → Right</td></tr><tr><td>Postorder</td><td>Left → Right → Root</td></tr><tr><td>Level order</td><td>Level by level using a queue</td></tr></tbody></table>
+<h3>Binary Search Tree (BST)</h3>
+<p>For the standard distinct-key BST convention, keys in the left subtree are smaller than the node and keys in the right subtree are larger. Inorder traversal yields ascending order. Search/insert/delete take O(h), where h is tree height: O(log n) when balanced and O(n) in the worst skewed tree.</p>
+<p>Deletion cases: (1) leaf — remove it; (2) one child — link parent to the child; (3) two children — replace with inorder successor (minimum in right subtree) or inorder predecessor (maximum in left subtree), then delete that replacement node.</p>
+<h3>AVL Trees</h3>
+<p>An <strong>AVL tree</strong> is a self-balancing BST. Balance factor = height(left) − height(right). Every node must have balance factor −1, 0 or +1. Rotations restore balance:</p>
+<table><thead><tr><th>Imbalance</th><th>Correction</th></tr></thead><tbody><tr><td>LL</td><td>Single right rotation</td></tr><tr><td>RR</td><td>Single left rotation</td></tr><tr><td>LR</td><td>Left rotation on left child, then right rotation</td></tr><tr><td>RL</td><td>Right rotation on right child, then left rotation</td></tr></tbody></table>
+<h3>PYQs — trees, BST and AVL</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>13. Heaps and priority queues</h2>
+<p>A <strong>binary heap</strong> is a complete binary tree satisfying a heap-order property. In a max heap, each parent is at least as large as its children; in a min heap, each parent is at most as large as its children. It is not necessarily a fully sorted tree.</p>
+<ul><li>For zero-based array indexing: parent(i) = floor((i−1)/2), left(i) = 2i+1, right(i) = 2i+2.</li><li>Peek root: O(1). Insert: O(log n) by sift-up. Remove root: O(log n) by sift-down. Build-heap: O(n).</li><li>Heaps implement priority queues and Heap Sort.</li></ul>
+<h3>PYQs — heaps</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>14. Hashing</h2>
+<p><strong>Hashing</strong> maps a key to a table index using a hash function. A <strong>collision</strong> occurs when two different keys map to the same index. A good hash function distributes keys uniformly.</p>
+<p>Division method: h(k) = k mod m, where m is table size. Example: if m = 9, h(22) = 4.</p>
+<table><thead><tr><th>Collision method</th><th>How it works</th></tr></thead><tbody><tr><td>Separate chaining</td><td>Each table slot stores a list/bucket of colliding keys.</td></tr><tr><td>Linear probing</td><td>Try next slots sequentially: (h(k)+i) mod m.</td></tr><tr><td>Quadratic probing</td><td>Use quadratic offsets, e.g. h(k)+c₁i+c₂i².</td></tr><tr><td>Double hashing</td><td>Use a second hash function to determine the probe step.</td></tr></tbody></table>
+<p>Load factor α = number of stored keys / table capacity. Open addressing performance generally degrades as load factor approaches 1. Deletion in open addressing often requires a special deleted marker to preserve probe chains.</p>
+<h3>PYQs — hashing</h3>
+<!-- PYQ:algorithms|Data Structures -->
+<h2>15. Graph data structures and miscellaneous structures</h2>
+<p>Graphs are non-linear data structures consisting of vertices and edges. Common concepts: path, cycle, connected component, degree, articulation point, bridge, directed acyclic graph and weighted edge. Adjacency lists use O(V+E) space; adjacency matrices use O(V²).</p>
+<p>Other structures worth knowing: <strong>Deque</strong> (insert/delete at both ends), <strong>Priority Queue</strong> (removal by priority), <strong>Disjoint Set Union</strong> (maintains disjoint sets using union/find), <strong>Trie</strong> (prefix tree for strings), and <strong>B-Tree/B+ Tree</strong> (multiway balanced search trees commonly used in storage/indexing). These are enrichment beyond the basic named syllabus unless directly asked in a PYQ.</p>
+<h3>PYQs — cross-tagged Data Structures &amp; Algorithms source category</h3>
+<p>The workbook has a combined source label for these records. It includes core data-structure/algorithm questions and a small number of adjacent or misclassified items. Original wording and source tag are retained.</p>
+<!-- PYQ:algorithms|Data structures & algorithms -->
+<h2>16. Quick revision — complexity and exam traps</h2>
+<table><thead><tr><th>Operation / algorithm</th><th>Typical complexity</th></tr></thead><tbody><tr><td>Array indexed access</td><td>O(1)</td></tr><tr><td>Array insertion/deletion at beginning</td><td>O(n)</td></tr><tr><td>Linked-list search/access by index</td><td>O(n)</td></tr><tr><td>Linked-list insert at head</td><td>O(1)</td></tr><tr><td>Stack push/pop</td><td>O(1)</td></tr><tr><td>Queue enqueue/dequeue</td><td>O(1)</td></tr><tr><td>BST search</td><td>O(h), worst O(n)</td></tr><tr><td>Balanced BST / AVL search</td><td>O(log n)</td></tr><tr><td>Heap insert/delete root</td><td>O(log n)</td></tr><tr><td>Hash lookup</td><td>Expected O(1), worst O(n)</td></tr><tr><td>BFS / DFS with adjacency list</td><td>O(V+E)</td></tr></tbody></table>
+<ul><li>Stack = LIFO; Queue = FIFO.</li><li>Binary Search requires sorted data and efficient middle access.</li><li>BST inorder traversal is sorted order.</li><li>Heap is complete, not globally sorted.</li><li>AVL valid balance factors are −1, 0, +1.</li><li>Quick Sort worst case is O(n²); Merge Sort remains O(n log n).</li><li>BFS finds shortest paths in unweighted graphs; Dijkstra requires non-negative weights.</li><li>Big-O is an upper bound; it is not automatically average-case or worst-case unless specified.</li></ul>
+<h2>17. Expected practice areas — predictions, not PYQs</h2>
+<ul><li>Trace a recursive function and calculate its call-stack space.</li><li>Compute the time complexity of nested loops with doubling/halving counters.</li><li>Perform array address calculations and linked-list pointer updates.</li><li>Trace BST deletion, AVL rotations and heap insertion.</li><li>Resolve a hash collision using linear probing or chaining.</li><li>Compare BFS/DFS and Dijkstra/Prim/Kruskal at the level named in the syllabus.</li></ul>
 </section>
