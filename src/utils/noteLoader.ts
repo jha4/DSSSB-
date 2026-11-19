@@ -310,10 +310,13 @@ export function clearNoteCache(): void {
 interface EmbeddedPyqRecord {
   k: string;
   q: string;
-  a: string;
+  o?: string[];
+  a?: string;
+  x?: string;
   y?: string;
   e?: string;
   s?: string;
+  t?: string;
 }
 
 const PYQ_TITLES: Record<string, string> = {
@@ -333,7 +336,27 @@ const PYQ_TITLES: Record<string, string> = {
   security: 'Security principles, authentication and controls',
   malware: 'Malware, vulnerabilities and cyber attacks',
   cyberlaw: 'Cyber law, privacy, IPR and digital conduct',
-  misc: 'Miscellaneous PYQs',
+  misc: 'Miscellaneous networking PYQs',
+  'os-process': 'OS processes, threads, system calls and synchronization',
+  'os-scheduling': 'CPU scheduling',
+  'os-deadlocks': 'Deadlocks and resource allocation',
+  'os-memory': 'Memory management, paging and virtual memory',
+  'os-file': 'File systems and disk management',
+  'os-linux': 'Linux, Unix and command-line concepts',
+  'os-misc': 'Other Operating System PYQs',
+  'digital-electronics': 'Digital Electronics and Number Systems',
+  'computer-fundamentals': 'Computer Fundamentals and Architecture',
+  dbms: 'Database Management Systems and SQL',
+  algorithms: 'Data Structures and Design & Analysis of Algorithms',
+  'software-engineering': 'Software Engineering',
+  programming: 'Programming, OOP, C/C++, Java and Python',
+  teaching: 'Teaching Methodology and Pedagogy',
+  web: 'Web Technology, Internet Programming and .NET',
+  business: 'Business, Accounting, Economics, E-Commerce and Knowledge Management',
+  graphics: 'Computer Graphics, Multimedia and Mobile Computing',
+  mis: 'MIS, DSS and Expert Systems',
+  mathematics: 'Mathematics, Statistics and Discrete Mathematics',
+  'other-cs': 'Other Computer Science and cross-topic PYQs',
 };
 
 function escapePyqHtml(value: string): string {
@@ -349,6 +372,61 @@ function escapePyqHtml(value: string): string {
   });
 }
 
+function answerLabels(rawAnswer: string): string[] {
+  return rawAnswer
+    .split(/[,;]+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const normalized = part.toUpperCase();
+      if (/^[1-4]$/.test(normalized)) {
+        return String.fromCharCode(64 + Number(normalized));
+      }
+      return normalized;
+    });
+}
+
+function renderPyqQuestion(question: EmbeddedPyqRecord, index: number): string {
+  const options = (question.o ?? []).map((option) => option?.trim() ?? '');
+  const hasOptions = options.some(Boolean);
+  const labels = answerLabels(question.a ?? '');
+  const answerText = labels.length
+    ? labels.map((label) => {
+        const optionIndex = 'ABCD'.indexOf(label);
+        const optionText = optionIndex >= 0 ? options[optionIndex] : '';
+        return optionText ? `${label}. ${escapePyqHtml(optionText)}` : label;
+      }).join('; ')
+    : 'Answer key not supplied in the workbook';
+
+  const optionHtml = hasOptions
+    ? `<ol type="A" class="pyq-options">${options.map((option) =>
+        option
+          ? `<li>${escapePyqHtml(option).replace(/\r?\n/g, '<br>')}</li>`
+          : '<li><em>Option text not supplied in the source</em></li>'
+      ).join('')}</ol>`
+    : '<p class="pyq-source-note"><em>Options are not supplied in this source record.</em></p>';
+
+  const metadata = [
+    question.e ? escapePyqHtml(question.e) : '',
+    question.y ? `Year: ${escapePyqHtml(question.y)}` : '',
+    question.s ? escapePyqHtml(question.s) : '',
+    question.t ? `Source topic: ${escapePyqHtml(question.t)}` : '',
+  ].filter(Boolean).join(' · ');
+
+  const stem = escapePyqHtml(question.q ?? '').replace(/\r?\n/g, '<br>');
+  const explanation = question.x?.trim()
+    ? escapePyqHtml(question.x).replace(/\r?\n/g, '<br>')
+    : '<em>No explanation was supplied in the workbook.</em>';
+
+  return `<li class="pyq-question" style="padding:14px 16px;margin:14px 0;border:1px solid #e4e7eb;border-radius:8px;background:#fff;">
+    <p><strong>Question ${index + 1}.</strong> ${stem}</p>
+    ${optionHtml}
+    <p class="pyq-answer" style="background:#eff8e9;border-left:3px solid #78b65a;padding:9px 12px;margin:10px 0;"><strong>Correct answer:</strong> ${escapePyqHtml(answerText)}${question.a ? ` <small>(source key: ${escapePyqHtml(question.a)})</small>` : ''}</p>
+    <p class="pyq-explanation"><strong>Explanation:</strong> ${explanation}</p>
+    ${metadata ? `<p class="pyq-metadata"><small>${metadata}</small></p>` : ''}
+  </li>`;
+}
+
 async function hydratePyqPlaceholders(
   rawHtml: string,
   signal?: AbortSignal
@@ -356,14 +434,14 @@ async function hydratePyqPlaceholders(
   if (!/<!--\s*PYQ:[a-z-]+\s*-->/.test(rawHtml)) return rawHtml;
 
   const dataResponse = await fetch(
-    resolveNoteUrl('notes/computer-networks-pyq-data.deflate.b64'),
+    resolveNoteUrl('notes/part-b-pyq-data.deflate.b64'),
     { signal, headers: { Accept: 'text/plain' } }
   );
   if (!dataResponse.ok) {
     throw new Error(`PYQ data could not be loaded (HTTP ${dataResponse.status}).`);
   }
 
-  const encoded = (await dataResponse.text()).trim();
+  const encoded = (await dataResponse.text()).replace(/\s+/g, '');
   const compressed = Uint8Array.from(atob(encoded), (character) =>
     character.charCodeAt(0)
   );
@@ -388,14 +466,12 @@ async function hydratePyqPlaceholders(
       const questions = groups.get(key) ?? [];
       if (questions.length === 0) return '';
       const title = PYQ_TITLES[key] ?? 'PYQs';
-      const items = questions.map((question) => {
-        const metadata = [question.y, question.e, question.s]
-          .filter((value): value is string => Boolean(value))
-          .map(escapePyqHtml)
-          .join(' · ');
-        return `<li><strong>${escapePyqHtml(question.q)}</strong><br><strong>Correct answer:</strong> ${escapePyqHtml(question.a)}${metadata ? `<br><small>${metadata}</small>` : ''}</li>`;
-      }).join('');
-      return `<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;"><h3>PYQs — ${escapePyqHtml(title)} (${questions.length})</h3><ol>${items}</ol></div>`;
+      const items = questions.map(renderPyqQuestion).join('');
+      return `<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
+        <h3>PYQs — ${escapePyqHtml(title)} (${questions.length})</h3>
+        <p><small>Full question, available options, answer key and workbook explanation are shown below. Missing source fields are explicitly marked.</small></p>
+        <ol class="pyq-question-list">${items}</ol>
+      </div>`;
     }
   );
 }
