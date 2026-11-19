@@ -16,7 +16,7 @@
       "numericals"
     ],
     "date": "2026-11-18",
-    "summary": "189 Operating System PYQ records with all four options, workbook-marked answers and explanations, detailed topic-wise theory, numerical methods, repeated concepts and exam-priority analysis.",
+    "summary": "Detailed Operating System and Linux theory plus 177 latest Part B workbook records with full available options, keyed answers and source explanations; earlier OS notes retained.",
     "file": "notes/operating-system-pyq-short-notes.html"
   },
   {
@@ -38,7 +38,291 @@
       "networking"
     ],
     "date": "2026-11-18",
-    "summary": "Complete topic-wise notes, detailed syllabus/question-bank analysis and all 261 Computer Networks and Network Security workbook records with keyed answers.",
+    "summary": "Expanded networking and security theory plus 213 latest Part B workbook records with full available options, keyed answers and source explanations.",
     "file": "notes/computer-networks-network-security-short-notes.html"
+  },
+  {
+    "id": "part-b-syllabus-coverage-analysis",
+    "title": "DSSSB Part B Computer Science — Syllabus & PYQ Coverage Analysis",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Part B Coverage Analysis",
+    "chapterSlug": "part-b-coverage-analysis",
+    "topic": "Syllabus and PYQ Analysis",
+    "tags": [
+      "part-b",
+      "syllabus",
+      "PYQ",
+      "analysis"
+    ],
+    "date": "2026-11-19",
+    "summary": "Analysis of all 1,870 Part B records mapped against the 14 Computer Science syllabus units, including source-quality checks and coverage gaps.",
+    "file": "notes/part-b-syllabus-coverage-analysis.html"
+  },
+  {
+    "id": "digital-electronics-number-systems-short-notes",
+    "title": "Digital Electronics, Boolean Logic & Number Systems — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Digital Electronics & Number Systems",
+    "chapterSlug": "digital-electronics",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "digital-electronics",
+      "boolean-logic",
+      "number-systems",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Detailed definitions, number conversions, complements, Boolean laws, gates, K-maps, combinational/sequential circuits and topic-wise Part B PYQs.",
+    "file": "notes/digital-electronics-number-systems-short-notes.html"
+  },
+  {
+    "id": "computer-fundamentals-architecture-short-notes",
+    "title": "Computer Fundamentals, IT Basics & Architecture — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Computer Fundamentals & Architecture",
+    "chapterSlug": "computer-fundamentals",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "computer-fundamentals",
+      "architecture",
+      "IT-basics",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Computer generations, hardware/software, memory hierarchy, CPU, buses, instruction cycle, encoding and full Part B PYQs.",
+    "file": "notes/computer-fundamentals-architecture-short-notes.html"
+  },
+  {
+    "id": "dbms-sql-short-notes",
+    "title": "DBMS & SQL — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Database Management Systems",
+    "chapterSlug": "dbms",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "DBMS",
+      "SQL",
+      "normalization",
+      "transactions",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Relational model, keys, constraints, SQL, joins, normalization, ACID, indexing, recovery and full Part B PYQs.",
+    "file": "notes/dbms-sql-short-notes.html"
+  },
+  {
+    "id": "algorithms-data-structures-short-notes",
+    "title": "Data Structures & Algorithms — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Data Structures & Algorithms",
+    "chapterSlug": "algorithms",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "algorithms",
+      "data-structures",
+      "complexity",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Complexity, searching, sorting, recursion, stacks, queues, lists, trees, graphs, greedy, dynamic programming and full Part B PYQs.",
+    "file": "notes/algorithms-data-structures-short-notes.html"
+  },
+  {
+    "id": "software-engineering-short-notes",
+    "title": "Software Engineering — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Software Engineering",
+    "chapterSlug": "software-engineering",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "software-engineering",
+      "SDLC",
+      "testing",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "SDLC, feasibility, SRS, design tools, cohesion/coupling, testing, process models, maintenance and full Part B PYQs.",
+    "file": "notes/software-engineering-short-notes.html"
+  },
+  {
+    "id": "programming-oop-java-python-short-notes",
+    "title": "Programming, OOP, C/C++, Java & Python — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Programming & OOP",
+    "chapterSlug": "programming",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "programming",
+      "C",
+      "C++",
+      "Java",
+      "Python",
+      "OOP",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Programming foundations, C/C++, pointers, arrays, OOP, Java runtime, Python data structures and full Part B PYQs.",
+    "file": "notes/programming-oop-java-python-short-notes.html"
+  },
+  {
+    "id": "teaching-methodology-pedagogy-short-notes",
+    "title": "Teaching Methodology & Pedagogy — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Teaching Methodology",
+    "chapterSlug": "teaching-methodology",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "teaching-methodology",
+      "pedagogy",
+      "assessment",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Teaching-learning process, learner-centred methods, lesson planning, assessment, inclusion, ICT and Part B PYQs.",
+    "file": "notes/teaching-methodology-pedagogy-short-notes.html"
+  },
+  {
+    "id": "web-technology-internet-dotnet-short-notes",
+    "title": "Web Technology, Internet Programming & .NET — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "XML",
+      "AJAX",
+      "ASP.NET",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Internet architecture, HTML, CSS, JavaScript, XML, AJAX, web services, MVC, ASP.NET/.NET and full Part B PYQs.",
+    "file": "notes/web-technology-internet-dotnet-short-notes.html"
+  },
+  {
+    "id": "business-accounting-ecommerce-km-short-notes",
+    "title": "Business, Accounting, E-Commerce & Knowledge Management — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Business & Knowledge Management",
+    "chapterSlug": "business-km",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "business",
+      "accounting",
+      "economics",
+      "ecommerce",
+      "KM",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Business communication, management, economics, RBI, accounting, e-commerce, EFT/NEFT, EDI, tacit/explicit knowledge and full Part B PYQs.",
+    "file": "notes/business-accounting-ecommerce-km-short-notes.html"
+  },
+  {
+    "id": "graphics-multimedia-mobile-computing-short-notes",
+    "title": "Computer Graphics, Multimedia & Mobile Computing — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Graphics, Multimedia & Mobile Computing",
+    "chapterSlug": "graphics-multimedia",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "graphics",
+      "multimedia",
+      "mobile-computing",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Pixels, displays, colour models, transformations, clipping, sampling, quantization, compression, GSM/GPRS/EDGE/LTE and full Part B PYQs.",
+    "file": "notes/graphics-multimedia-mobile-computing-short-notes.html"
+  },
+  {
+    "id": "mis-dss-expert-systems-short-notes",
+    "title": "MIS, DSS & Expert Systems — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "MIS, DSS & Expert Systems",
+    "chapterSlug": "mis-dss",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "MIS",
+      "DSS",
+      "expert-systems",
+      "OLTP",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "TPS, OAS, MIS, DSS components, expert-system architecture, inference methods, OLTP and batch processing with Part B PYQs.",
+    "file": "notes/mis-dss-expert-systems-short-notes.html"
+  },
+  {
+    "id": "mathematics-statistics-discrete-short-notes",
+    "title": "Mathematics, Statistics & Numerical Techniques — Complete Notes",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Mathematics & Statistics",
+    "chapterSlug": "mathematics-statistics",
+    "topic": "Complete Notes & PYQ Analysis",
+    "tags": [
+      "mathematics",
+      "statistics",
+      "probability",
+      "interpolation",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Sets, relations, matrices, probability, Bayes, descriptive statistics, distributions, numerical errors, root finding and interpolation with Part B PYQs.",
+    "file": "notes/mathematics-statistics-discrete-short-notes.html"
+  },
+  {
+    "id": "other-computer-science-misc-pyq-notes",
+    "title": "Other Computer Science & AI — Supplementary PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Other CS / AI / Miscellaneous",
+    "chapterSlug": "other-cs",
+    "topic": "Supplementary PYQs",
+    "tags": [
+      "AI",
+      "miscellaneous",
+      "PYQ",
+      "cross-topic"
+    ],
+    "date": "2026-11-19",
+    "summary": "Keeps 59 cross-topic and AI-tagged Part B records separate where the source does not map them cleanly to a syllabus chapter.",
+    "file": "notes/other-computer-science-misc-pyq-notes.html"
+  },
+  {
+    "id": "part-a-pyq-syllabus-analysis",
+    "title": "DSSSB Part A — Syllabus & PYQ Analysis",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Part A Syllabus & PYQ Analysis",
+    "chapterSlug": "part-a-analysis",
+    "topic": "Syllabus and PYQ Analysis",
+    "tags": [
+      "part-a",
+      "general-awareness",
+      "reasoning",
+      "english",
+      "hindi",
+      "quantitative",
+      "PYQ"
+    ],
+    "date": "2026-11-19",
+    "summary": "Analysis of 3,409 Part A records across General Awareness, Reasoning, Numerical Ability, English, Hindi, Teaching Methodology and Others, including source limitations.",
+    "file": "notes/part-a-pyq-syllabus-analysis.html"
   }
 ]
