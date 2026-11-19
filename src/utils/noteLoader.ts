@@ -413,7 +413,10 @@ function renderPyqQuestion(question: EmbeddedPyqRecord, index: number): string {
     question.t ? `Source topic: ${escapePyqHtml(question.t)}` : '',
   ].filter(Boolean).join(' · ');
 
-  const stem = escapePyqHtml(question.q ?? '').replace(/\r?\n/g, '<br>');
+  // Strip the one formula-like prefix present in the source workbook's question cell.
+  // The remaining question is rendered as escaped text; no workbook formula is evaluated.
+  const cleanStem = (question.q ?? '').replace(/^\\s*'?\\s*=\\s*HYPERLINK\\(\\s*["'][^"']+["']\\s*\\)\\s*[—–-]\\s*/i, '');
+  const stem = escapePyqHtml(cleanStem).replace(/\\r?\\n/g, '<br>');
   const explanation = question.x?.trim()
     ? escapePyqHtml(question.x).replace(/\r?\n/g, '<br>')
     : '<em>No explanation was supplied in the workbook.</em>';
