@@ -191,23 +191,23 @@
   },
   {
     "id": "web-technology-internet-dotnet-short-notes",
-    "title": "Web Technology, Internet Programming & .NET — Complete Notes",
+    "title": "Web Technology & Internet Fundamentals — PYQ Analysis and Notes",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
     "chapter": "Web Technology & .NET",
     "chapterSlug": "web-technology",
-    "topic": "Complete Notes & PYQ Analysis",
+    "topic": "Internet & Web Architecture",
     "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "XML",
-      "AJAX",
-      "ASP.NET",
-      "PYQ"
+      "web-technology",
+      "internet",
+      "www",
+      "client-server",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
     ],
     "date": "2026-11-19",
-    "summary": "Internet architecture, HTML, CSS, JavaScript, XML, AJAX, web services, MVC, ASP.NET/.NET and full Part B PYQs.",
+    "summary": "Source-based PYQ analysis, year/topic distribution, syllabus mapping, Internet/WWW/client-server theory and all 18 matching PYQs with available options and explanations.",
     "file": "notes/web-technology-internet-dotnet-short-notes.html"
   },
   {
@@ -324,5 +324,138 @@
     "date": "2026-11-19",
     "summary": "Analysis of 3,409 Part A records across General Awareness, Reasoning, Numerical Ability, English, Hindi, Teaching Methodology and Others, including source limitations.",
     "file": "notes/part-a-pyq-syllabus-analysis.html"
+  },
+  {
+    "id": "web-technology-protocols-security",
+    "title": "Web Protocols, URLs, E-mail & Security — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "URLs, Protocols & Security",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "HTTP/HTTPS, URL parts, DNS, e-mail protocols, proxies, web security and 10 topic-wise PYQs.",
+    "file": "notes/web-technology-protocols-security.html"
+  },
+  {
+    "id": "web-technology-html-forms",
+    "title": "HTML & Forms — Complete Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "HTML & Forms",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "HTML document structure, common tags, attributes, forms, semantic HTML5, audio/video and 24 topic-wise PYQs.",
+    "file": "notes/web-technology-html-forms.html"
+  },
+  {
+    "id": "web-technology-css-front-end",
+    "title": "CSS, Layout & Front-end Tools — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "CSS & Front-end Tools",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "CSS syntax, selectors, cascade, properties, colours, Flexbox/Grid, responsive design, frameworks and 24 PYQs.",
+    "file": "notes/web-technology-css-front-end.html"
+  },
+  {
+    "id": "web-technology-javascript-ajax",
+    "title": "JavaScript, DOM, DHTML & AJAX — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "JavaScript, DOM & AJAX",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "JavaScript fundamentals, callbacks, DOM, browser objects, events, form validation, AJAX and 28 PYQs.",
+    "file": "notes/web-technology-javascript-ajax.html"
+  },
+  {
+    "id": "web-technology-xml-dtd",
+    "title": "XML, DTD & XML Parsers — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "XML & DTD",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "XML structure, well-formed vs valid, DTD, XSD, DOM/SAX parsers, XPath/XSLT and 15 PYQs.",
+    "file": "notes/web-technology-xml-dtd.html"
+  },
+  {
+    "id": "web-technology-dotnet-aspnet",
+    "title": ".NET, ASP.NET & Server-side Development — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": ".NET & ASP.NET",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "CLR, JIT, MSIL/CIL, ASP.NET server controls, state, data binding, MVC, ADO.NET and 20 Web-labelled plus 5 .NET-labelled PYQs.",
+    "file": "notes/web-technology-dotnet-aspnet.html"
+  },
+  {
+    "id": "web-technology-miscellaneous",
+    "title": "Miscellaneous Web Concepts — Notes and PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Web Technology & .NET",
+    "chapterSlug": "web-technology",
+    "topic": "Miscellaneous Web Concepts",
+    "tags": [
+      "web-technology",
+      "internet-programming",
+      "PYQ",
+      "DSSSB",
+      "computer-science"
+    ],
+    "date": "2026-11-19",
+    "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 5 topic-wise PYQs.",
+    "file": "notes/web-technology-miscellaneous.html"
   }
 ]
