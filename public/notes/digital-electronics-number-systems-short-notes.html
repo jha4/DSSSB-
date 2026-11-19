@@ -1,0 +1,29 @@
+<section>
+<h1>Digital Electronics, Boolean Logic and Number Systems — Complete Notes</h1>
+<p><strong>Coverage:</strong> Binary, octal, decimal and hexadecimal systems; complements and arithmetic; Boolean algebra; logic gates; K-maps; combinational and sequential circuits.</p>
+<h2>1. Number systems and representation</h2>
+<p>A <strong>number system</strong> represents quantities using symbols and a base (radix). In a positional system, each digit's value depends on its position: the weight of position i is base to the power i.</p>
+<table><thead><tr><th>System</th><th>Base</th><th>Digits</th><th>Use</th></tr></thead><tbody><tr><td>Binary</td><td>2</td><td>0, 1</td><td>Digital representation</td></tr><tr><td>Octal</td><td>8</td><td>0–7</td><td>Compact binary grouping (3 bits)</td></tr><tr><td>Decimal</td><td>10</td><td>0–9</td><td>Human arithmetic</td></tr><tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td><td>Compact binary grouping (4 bits)</td></tr></tbody></table>
+<ul><li>To convert a positional number to decimal, expand each digit by its positional weight and add.</li><li>To convert a decimal integer to another base, repeatedly divide by the target base and read remainders bottom-to-top.</li><li>Binary-to-octal conversion groups bits in threes; binary-to-hexadecimal groups bits in fours.</li><li>A non-positional system does not assign value through positional weights in the same way; Roman numerals are a common example.</li></ul>
+<h2>2. Complements and binary arithmetic</h2>
+<ul><li><strong>1's complement:</strong> invert every bit. <strong>2's complement:</strong> add 1 to the 1's complement; widely used for signed integers and subtraction.</li><li>Binary addition: 0+0=0, 0+1=1, 1+1=10, 1+1+1=11.</li><li>For n-bit 2's-complement values, the range is −2^(n−1) through 2^(n−1)−1. Unsigned n-bit values range from 0 through 2^n−1.</li><li>Signed overflow occurs when adding operands of the same sign produces a result with the opposite sign.</li></ul>
+<h2>3. Boolean algebra and laws</h2>
+<p>Boolean algebra operates on binary variables using OR (+), AND (·) and NOT (complement).</p>
+<table><thead><tr><th>Law</th><th>Identity</th></tr></thead><tbody><tr><td>Identity</td><td>A+0=A; A·1=A</td></tr><tr><td>Domination</td><td>A+1=1; A·0=0</td></tr><tr><td>Idempotent</td><td>A+A=A; A·A=A</td></tr><tr><td>Complement</td><td>A+A'=1; A·A'=0</td></tr><tr><td>Involution</td><td>(A')'=A</td></tr><tr><td>Absorption</td><td>A+AB=A; A(A+B)=A</td></tr></tbody></table>
+<p><strong>De Morgan's theorems:</strong> (A+B)'=A'B' and (AB)'=A'+B'. They are used to transform AND/OR logic into NAND/NOR forms.</p>
+<h2>4. Logic gates</h2>
+<ul><li><strong>AND:</strong> output 1 only when every input is 1. <strong>OR:</strong> output 1 when at least one input is 1. <strong>NOT:</strong> inverts an input.</li><li><strong>NAND:</strong> complement of AND. <strong>NOR:</strong> complement of OR. Each is universal because any Boolean function can be implemented using only NANDs or only NORs.</li><li><strong>XOR:</strong> output 1 when inputs differ. <strong>XNOR:</strong> output 1 when inputs are equal.</li></ul>
+<p>For two inputs: AND is 1 only for 11; OR is 0 only for 00; XOR is 1 for 01 and 10; XNOR is 1 for 00 and 11.</p>
+<h2>5. Canonical forms and K-maps</h2>
+<ul><li><strong>Minterm:</strong> product term containing every variable once; it is 1 for one input combination. <strong>Maxterm:</strong> sum term containing every variable once; it is 0 for one input combination.</li><li><strong>SOP:</strong> sum of products. <strong>POS:</strong> product of sums.</li><li><strong>Karnaugh map:</strong> Gray-code-ordered grid for grouping adjacent 1s (SOP) or 0s (POS). Groups contain 1, 2, 4, 8, ... cells; wrap-around adjacency is allowed.</li><li>Use the largest valid groups to eliminate the most variables. Don't-care cells may be used when they simplify the expression.</li></ul>
+<h2>6. Combinational circuits</h2>
+<ul><li>A <strong>combinational circuit</strong> has no stored state; output depends only on current inputs.</li><li><strong>Half adder:</strong> Sum=A XOR B; Carry=AB. A full adder also accepts carry-in.</li><li><strong>Multiplexer (MUX):</strong> selects one of many inputs for one output. n select lines can select 2^n inputs. A demultiplexer routes one input to one of many outputs.</li><li><strong>Encoder:</strong> maps an active input to a code. <strong>Decoder:</strong> activates an output corresponding to an input code.</li></ul>
+<h2>7. Sequential circuits and flip-flops</h2>
+<p>A <strong>sequential circuit</strong> has memory: output depends on current inputs and previous state. A latch is generally level-sensitive; a flip-flop is edge-triggered.</p>
+<table><thead><tr><th>Flip-flop</th><th>Characteristic</th></tr></thead><tbody><tr><td>SR</td><td>Set/reset controls; one input combination may be invalid</td></tr><tr><td>JK</td><td>J=K=1 toggles</td></tr><tr><td>D</td><td>Next state follows D at active clock edge</td></tr><tr><td>T</td><td>T=1 toggles; T=0 holds</td></tr></tbody></table>
+<ul><li><strong>Register:</strong> group of flip-flops storing a multi-bit value. Shift registers move bits; SISO, SIPO, PISO and PIPO describe serial/parallel input and output.</li><li><strong>Counter:</strong> sequential circuit advancing through a state sequence. Ripple counters propagate clock effects stage-by-stage; synchronous counters share a clock.</li><li><strong>Multivibrator:</strong> astable has no stable state, monostable has one stable state and bistable has two stable states.</li></ul>
+<h2>8. Exam traps</h2>
+<ul><li>NAND and NOR are universal; XOR and XNOR are not universal by themselves.</li><li>A MUX selects; a decoder activates an output; an encoder produces a code.</li><li>Combinational circuits have no memory; sequential circuits do.</li></ul>
+<h2>9. Part B PYQs — full questions, options and explanations</h2>
+<!-- PYQ:digital-electronics -->
+</section>
