@@ -136,10 +136,12 @@
 <table><thead><tr><th>Collision method</th><th>How it works</th></tr></thead><tbody><tr><td>Separate chaining</td><td>Each table slot stores a list/bucket of colliding keys.</td></tr><tr><td>Linear probing</td><td>Try next slots sequentially: (h(k)+i) mod m.</td></tr><tr><td>Quadratic probing</td><td>Use quadratic offsets, e.g. h(k)+c₁i+c₂i².</td></tr><tr><td>Double hashing</td><td>Use a second hash function to determine the probe step.</td></tr></tbody></table>
 <p>Load factor α = number of stored keys / table capacity. Open addressing performance generally degrades as load factor approaches 1. Deletion in open addressing often requires a special deleted marker to preserve probe chains.</p>
 <h3>PYQs — hashing</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>15. Graph data structures and miscellaneous structures</h2>
 <p>Graphs are non-linear data structures consisting of vertices and edges. Common concepts: path, cycle, connected component, degree, articulation point, bridge, directed acyclic graph and weighted edge. Adjacency lists use O(V+E) space; adjacency matrices use O(V²).</p>
 <p>Other structures worth knowing: <strong>Deque</strong> (insert/delete at both ends), <strong>Priority Queue</strong> (removal by priority), <strong>Disjoint Set Union</strong> (maintains disjoint sets using union/find), <strong>Trie</strong> (prefix tree for strings), and <strong>B-Tree/B+ Tree</strong> (multiway balanced search trees commonly used in storage/indexing). These are enrichment beyond the basic named syllabus unless directly asked in a PYQ.</p>
+<h3>PYQs — Data Structures</h3>
+<!-- PYQ:algorithms|Data Structures -->
 <h3>PYQs — cross-tagged Data Structures &amp; Algorithms source category</h3>
 <p>The workbook has a combined source label for these records. It includes core data-structure/algorithm questions and a small number of adjacent or misclassified items. Original wording and source tag are retained.</p>
 <!-- PYQ:algorithms|Data structures & algorithms -->
