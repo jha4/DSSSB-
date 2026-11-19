@@ -1,0 +1,112 @@
+<section><p><strong>DSSSB TGT Computer Science — XML, DTD and XML Parsers</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>XML, DTD and XML Parsers</h2>
+<h3>XML fundamentals</h3>
+<p><strong>XML</strong> (Extensible Markup Language) is a text-based markup format for storing and transporting structured data using user-defined tags. It is case-sensitive and is not primarily a presentation language.</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+  &lt;book id="b1"&gt;
+    &lt;title&gt;Web Technology&lt;/title&gt;
+  &lt;/book&gt;
+&lt;/catalog&gt;</code></pre>
+<ul><li>An XML document has exactly one root element containing the other elements.</li><li>Elements must be properly nested and have matching start/end tags; attribute values must be quoted.</li><li>Names are case-sensitive, cannot contain spaces and cannot start with a digit. Names beginning with the reserved XML prefix should be avoided.</li><li>Comments use <code>&lt;!-- comment --&gt;</code>; the sequence <code>--</code> cannot occur inside a comment.</li><li>Attributes provide metadata; uniqueness constraints depend on declared types/schema rules (for example, DTD ID).</li></ul>
+<h3>Well-formed vs valid XML</h3>
+<p><strong>Well-formed:</strong> follows XML syntax rules. <strong>Valid:</strong> is well-formed and also conforms to a declared DTD or XML Schema.</p>
+<h3>DTD and XML Schema (XSD)</h3>
+<ul><li><strong>DTD</strong> (Document Type Definition) declares allowed elements, attributes, entities and structural relationships. DTD has limited datatype support.</li><li><strong>External DTD:</strong> declared with a DOCTYPE such as <code>&lt;!DOCTYPE catalog SYSTEM "catalog.dtd"&gt;</code>.</li><li><strong>Internal DTD subset:</strong> declarations appear inside square brackets within the DOCTYPE declaration.</li><li><strong>XML Schema / XSD:</strong> XML-based schema language supporting richer data types, namespaces, occurrence limits and constraints.</li></ul>
+<h3>XML parsers</h3>
+<table><thead><tr><th>Parser/model</th><th>How it works</th></tr></thead><tbody><tr><td>DOM</td><td>Loads/builds a tree representation of the document in memory; convenient for random access and modification.</td></tr><tr><td>SAX</td><td>Event-driven, sequential parsing; processes events as data is read and does not require a complete in-memory tree.</td></tr><tr><td>XML processor</td><td>Reads XML and makes its content/structure available to an application.</td></tr></tbody></table>
+<p>DTD element declarations use forms such as <code>&lt;!ELEMENT catalog (book*)&gt;</code>. XML Schema defines element/attribute types and constraints. Namespaces distinguish elements with the same local name from different vocabularies.</p>
+<h3>Additional syllabus coverage</h3>
+<ul><li><strong>XPath:</strong> selects nodes/values in an XML document.</li><li><strong>XSLT:</strong> transforms XML into another format, often HTML or another XML document.</li><li><strong>Web services:</strong> may use XML-based SOAP messages or REST-style HTTP APIs; XML is common in SOAP and configuration/interchange formats.</li></ul>
+<div class="note-callout yellow"><strong>Exam traps:</strong> XML is case-sensitive; one root element; DTD has limited datatypes; XSD supports rich datatypes; DOM builds a tree; SAX is event-driven.</div>
+<h2>Topic-wise PYQs (15 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #6 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>_______ reads XML documents and provides access to their content and structure.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> XML schema</li><li><strong>B.</strong> XML pre-processor</li><li><strong>C.</strong> XML processor</li><li><strong>D.</strong> XML codes</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. XML processor</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: An XML processor (also known as an XML parser) is a software module that reads XML documents and provides access to their content and structure to an application. It checks for well-formedness and optionally validates the document against a schema.<br><br>Why other options are incorrect: An XML schema defines the legal building blocks of an XML document, but it doesn&#x27;t read or process the document itself. An XML pre-processor is not a standard term. XML codes is a vague term and doesn&#x27;t refer to a component that reads documents.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #20 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is NOT an XML Parser?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Shell</li><li><strong>B.</strong> JDOM</li><li><strong>C.</strong> DOM</li><li><strong>D.</strong> SAX</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Shell</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: XML Parsers are software libraries or programs that read XML documents and provide access to their content and structure. DOM (Document Object Model) and SAX (Simple API for XML) are two fundamental types of XML parsers, while JDOM is a Java-specific API that provides a simpler way to work with XML documents than DOM. A &#x27;Shell&#x27; (like Bash, Zsh, etc.) is a command-line interpreter and operating system interface, not an XML parser.<br><br>Why other options are incorrect: &#x27;JDOM&#x27; is a Java-based API for XML processing and acts as an XML parser. &#x27;DOM&#x27; (Document Object Model) is a tree-based XML parser that allows programmatic access to the document&#x27;s structure. &#x27;SAX&#x27; (Simple API for XML) is an event-driven XML parser. All three are legitimate XML parsing technologies.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #21 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>How to write the external DTD?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;!DOCTYPE SYSTEM &quot;file-name&quot;&gt;</li><li><strong>B.</strong> &lt;!DOCTYPE element ROOT &quot;file-name&quot;&gt;</li><li><strong>C.</strong> &lt;!DOCTYPE SYSTEM &quot;file-name&quot; root-element&gt;</li><li><strong>D.</strong> &lt;!DOCTYPE root-element SYSTEM &quot;file-name&quot;&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. &lt;!DOCTYPE root-element SYSTEM &quot;file-name&quot;&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: To declare an external DTD in an XML document, the `DOCTYPE` declaration is used. It specifies the root element of the XML document, followed by the `SYSTEM` keyword, and then the URI (typically a file path or URL) to the external DTD file enclosed in double quotes. The correct syntax is `&lt;!DOCTYPE root-element SYSTEM &quot;file-name&quot;&gt;`.<br><br>Why other options are incorrect: `&lt;!DOCTYPE SYSTEM &quot;file-name&quot;&gt;` is missing the root element name. `&lt;!DOCTYPE element ROOT &quot;file-name&quot;&gt;` uses incorrect keywords and order. `&lt;!DOCTYPE SYSTEM &quot;file-name&quot; root-element&gt;` has the root element in the wrong position.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #28 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is a valid syntax for the XML element in a DTD?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;!ELEMENT element-name category&gt;</li><li><strong>B.</strong> &lt;!ATTLIST element-name attribute-name attribute-type attribute-value&gt;</li><li><strong>C.</strong> &lt;#ELEMENT element-name category&gt;</li><li><strong>D.</strong> &lt;!ENTITY entity-name &quot;entity-value&quot;&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. &lt;!ELEMENT element-name category&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In a Document Type Definition (DTD), `&lt;!ELEMENT element-name category&gt;` is the correct syntax for declaring an XML element. `element-name` is the name of the element, and `category` specifies its content model (e.g., EMPTY, ANY, #PCDATA, or a sequence/choice of child elements).<br><br>Why other options are incorrect: `&lt;!ATTLIST element-name attribute-name attribute-type attribute-value&gt;` is the syntax for declaring an attribute list for an element, not an element itself. `&lt;!ENTITY entity-name &quot;entity-value&quot;&gt;` is the syntax for declaring an entity, not an element. `&lt;!#ELEMENT ...&gt;` is syntactically incorrect; the correct syntax uses `&lt;!ELEMENT ...&gt;`.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #32 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following types of XML parsers is an object that contains all the information of an XML document and is composed like a tree structure?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> DOS</li><li><strong>B.</strong> SAX</li><li><strong>C.</strong> DOM</li><li><strong>D.</strong> SAY</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. DOM</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The Document Object Model (DOM) parser for XML creates an in-memory tree structure of the entire XML document. This object-oriented representation contains all the information of the XML document, allowing developers to navigate, access, and modify elements, attributes, and text content programmatically.<br><br>Why other options are incorrect: SAX (Simple API for XML) is an event-based parser that reads the XML document sequentially and triggers events when it encounters elements, attributes, etc. It does not build an in-memory tree structure. &#x27;DOS&#x27; and &#x27;SAY&#x27; are not standard types of XML parsers.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #40 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the given options best describes the truthfulness of the following statements? i) XML schemas define datatypes for elements and attributes, while DTD doesn&#x27;t support datatypes. ii) DTD are the declarations that define a document type for SGML. iii) In XML, Tag names can begin with a numeric value.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> i-True, ii-False, iii-False</li><li><strong>B.</strong> i-False, ii-True, iii-False</li><li><strong>C.</strong> i-True, ii-True, iii-False</li><li><strong>D.</strong> i-False, ii-False, iii-False</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. i-True, ii-True, iii-False</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Statement (i) is True: XML Schemas (XSD) provide robust data typing capabilities for elements and attributes, allowing for precise validation of data types, whereas DTDs (Document Type Definitions) offer very limited or no explicit support for data types beyond basic character data. Statement (ii) is True: DTDs originated from SGML (Standard Generalized Markup Language) and are used to define the legal structure and content of an XML document. Statement (iii) is False: In XML, tag names (element names) must begin with a letter or an underscore, not a numeric value. They also cannot contain spaces.<br><br>Why other options are incorrect: Option 1 is incorrect because statement (ii) is True, not False. Option 2 is incorrect because statement (i) is True, not False. Option 4 is incorrect because statements (i) and (ii) are True, not False.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #47 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following commands is used to comment multiple lines in an XML file?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> /* This XML file contains a list of custom information */ then // This is a multi-line XML comment</li><li><strong>B.</strong> // then &lt;-- This XML file contains a list of custom information --&gt; then // then &lt;-- This is a multi-line XML comment</li><li><strong>C.</strong> &#x27;--&gt; then &lt;!-- This is a multi-line XML comment (incomplete)</li><li><strong>D.</strong> &lt;!-- This is a multi-line XML comment --&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. &lt;!-- This is a multi-line XML comment --&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In XML, comments are enclosed within `&lt;!--` and `--&gt;`. This syntax allows for both single-line and multi-line comments. Any text placed between these tags will be ignored by an XML parser.<br><br>Why other options are incorrect: Options 1, 2, and 3 use incorrect syntax for XML comments. `/* ... */` and `//` are used for comments in languages like C/C++/Java and JavaScript, respectively, but not in XML. The `--&gt;` at the beginning or an incomplete tag makes the syntax invalid for XML comments.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #61 · 2024 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following rule is needed to be followed while declaring the XML (Extensible Markup Language) elements name?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Name must start with a number</li><li><strong>B.</strong> Name can contain spaces</li><li><strong>C.</strong> Name must not start with the letter xml</li><li><strong>D.</strong> Name cannot contain letter, numbers and other characters</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Name must not start with the letter xml</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: According to XML naming rules, element names (and other names) cannot start with the letters &#x27;xml&#x27; (in any case combination, e.g., XML, Xml, xML, etc.) because these are reserved for XML itself and its related specifications.<br><br>Why other options are incorrect: XML names cannot start with a number and cannot contain spaces. XML names can contain letters, numbers, and other characters (like hyphens, underscores, periods) after the initial character.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #72 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is one common use of XML?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To represent and exchange data between different systems and platforms</li><li><strong>B.</strong> To create dynamic websites</li><li><strong>C.</strong> To store data in a format that is readable by humans only</li><li><strong>D.</strong> To enhance the visual appearance of a webpage</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. To represent and exchange data between different systems and platforms</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Extensible Markup Language (XML) isolates data structures from software dependency layers. This standardized, text-based serialization format enables seamless cross-platform data exchange.<br><br>Why other options are incorrect: XML is designed to store and structure data, not to manage dynamic runtime scripts or configure page visual styles (which use CSS).</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #75 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following are key components of an XML document?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Classes, objects, and functions</li><li><strong>B.</strong> Scripts, styles, and images</li><li><strong>C.</strong> Tags, attributes, and comments</li><li><strong>D.</strong> HTML tags and hyperlinks</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Tags, attributes, and comments</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Extensible Markup Language (XML) structures data patterns using custom tags ($&lt;node&gt;$), configuration attributes ($id=&quot;1&quot;$), and comment fields ($&lt;!-- comment --&gt;$).<br><br>Why other options are incorrect: Option 1 describes Object-Oriented programming languages. Option 2 and 4 represent user-facing browser assets and structural formatting traits exclusive to HTML implementations.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #115 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following is NOT an XML Parser? Shell JDOM DOM</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> XML parsers include DOM, SAX, StAX and JDOM. A shell is a command interpreter, not an XML parser.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #116 · 2023 · dssb</div>
+<p class="pyq-question"><strong>How to write the external DTD? SYSTEM element ROOT SYSTEM &quot;file-name&quot; root-element&gt; root-element SYSTEM</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> An external DTD is referenced as &lt;!DOCTYPE root-element SYSTEM &quot;file-name&quot;&gt;: the root element&#x27;s name comes right after DOCTYPE, then SYSTEM and the file path.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #122 · 2023 · dssb</div>
+<p class="pyq-question"><strong>Which of the following types of XML parsers is an object that contains all the information of an XML document and is composed like a tree stmcture? DOS DOM SAY</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: C (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> A DOM parser loads the entire XML document into memory as a tree of objects. SAX is event-based and streaming, with no tree.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #125 · 2023 · dssb</div>
+<p class="pyq-question"><strong>reads XML documents and provides access to their content and stmcture. XNIL schema XML pre-processor XML processor XNIL codes</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: C (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> An XML processor (parser) reads XML documents and gives applications access to their content and structure.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #143 · 2024 · dssb</div>
+<p class="pyq-question"><strong>Which of the following rule is needed to be followed while declaring the XML (Extensible Markup Language) elements name?</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: C (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> XML element names must not start with the letters &#x27;xml&#x27; (in any case), must start with a letter or underscore, and cannot contain spaces.</p>
+</li></ol></section>
