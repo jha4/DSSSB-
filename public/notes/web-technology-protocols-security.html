@@ -1,1 +1,78 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<section><p><strong>DSSSB TGT Computer Science — URLs, Protocols, E-mail and Web Security</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>URLs, Protocols, E-mail and Web Security</h2>
+<h3>URL and domain names</h3>
+<p><strong>URL</strong> (Uniform Resource Locator) identifies a resource and the method/location used to access it. Example: <code>https://example.com:443/docs/page.html?mode=read#top</code>.</p>
+<ul><li><strong>Scheme:</strong> <code>https</code> — protocol/access scheme.</li><li><strong>Host:</strong> <code>example.com</code> — domain/hostname.</li><li><strong>Port:</strong> <code>443</code> — optional service endpoint port.</li><li><strong>Path:</strong> <code>/docs/page.html</code> — resource path.</li><li><strong>Query:</strong> <code>?mode=read</code> — parameters sent with the request.</li><li><strong>Fragment:</strong> <code>#top</code> — client-side reference within the resource.</li></ul>
+<p><strong>DNS</strong> (Domain Name System) resolves domain names to IP addresses. A domain name is a human-readable name; hosting is the infrastructure that stores/runs the site. They are not the same thing.</p>
+<h3>HTTP and HTTPS</h3>
+<p><strong>HTTP</strong> (Hypertext Transfer Protocol) is an application-layer request/response protocol. It is stateless by default: each request is independent unless state is added through cookies, tokens or server-side sessions.</p>
+<p><strong>HTTPS</strong> is HTTP protected by TLS. TLS provides confidentiality (encryption), integrity and authentication of the server when certificates are correctly validated. SSL is the older predecessor; modern deployments should use TLS.</p>
+<table><thead><tr><th>HTTP method</th><th>Typical purpose</th></tr></thead><tbody><tr><td>GET</td><td>Retrieve a representation/resource.</td></tr><tr><td>POST</td><td>Submit data for processing or resource creation.</td></tr><tr><td>PUT</td><td>Create/replace a resource at a known URI.</td></tr><tr><td>PATCH</td><td>Partially update a resource.</td></tr><tr><td>DELETE</td><td>Request deletion of a resource.</td></tr><tr><td>HEAD</td><td>Retrieve response headers without the response body.</td></tr></tbody></table>
+<table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td>200</td><td>OK</td></tr><tr><td>201</td><td>Created</td></tr><tr><td>301 / 302</td><td>Redirect</td></tr><tr><td>400</td><td>Bad Request</td></tr><tr><td>401</td><td>Authentication required/failed</td></tr><tr><td>403</td><td>Forbidden</td></tr><tr><td>404</td><td>Not Found</td></tr><tr><td>500</td><td>Internal Server Error</td></tr></tbody></table>
+<h3>E-mail protocols and mailto</h3>
+<ul><li><strong>SMTP:</strong> sends/submits and relays email.</li><li><strong>POP3:</strong> retrieves email, traditionally by downloading messages from a server.</li><li><strong>IMAP:</strong> accesses and synchronises messages stored on a mail server.</li><li><strong>mailto:</strong> a URI scheme that opens an email composition action, for example <code>mailto:help@example.com</code>.</li><li><strong>To:</strong> primary recipient; <strong>CC:</strong> visible copy recipient; <strong>BCC:</strong> recipient hidden from other recipients.</li></ul>
+<h3>Proxy servers and security basics</h3>
+<p>A <strong>forward proxy</strong> acts on behalf of clients, for example to filter or cache outbound requests. A <strong>reverse proxy</strong> sits in front of origin servers and may provide TLS termination, load balancing, caching and routing.</p>
+<ul><li><strong>Cookie:</strong> small data stored by a browser and sent with matching requests; often used for session identifiers and preferences.</li><li><strong>Session:</strong> server-side state associated with a client, commonly referenced by a session cookie or token.</li><li><strong>Authentication:</strong> verifies who a user is; <strong>authorisation</strong> determines what that user may do.</li><li><strong>XSS:</strong> injection of untrusted script into pages viewed by users; mitigate with output encoding, safe DOM APIs and content security controls.</li><li><strong>CSRF:</strong> tricks an authenticated browser into making an unwanted request; use anti-CSRF tokens, SameSite cookies and appropriate request checks.</li><li>Use HTTPS, secure cookie attributes, input validation, output encoding, access controls and timely updates. Client-side validation alone is not a security boundary.</li></ul>
+<div class="note-callout yellow"><strong>Exam traps:</strong> HTTP is not encrypted by itself; HTTPS uses TLS. SMTP sends, POP3/IMAP retrieve. BCC hides recipients. A URL contains a scheme and host; a path identifies a resource.</div>
+<h2>Topic-wise PYQs (10 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #1 · Year not recorded · dsssb</div>
+<p class="pyq-question"><strong>Which protocol allows users to securely access web pages using encryption?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> HTTP</li><li><strong>B.</strong> HTTPS</li><li><strong>C.</strong> FTP</li><li><strong>D.</strong> DNS</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. HTTPS</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: HTTPS (Hypertext Transfer Protocol Secure) allows users to access web pages securely by encrypting the communication between the client and web server, typically using TLS.<br><br>Why other options are incorrect: HTTP does not provide encryption by itself. FTP is used for file transfer, while DNS is used to translate domain names into IP addresses.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #11 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is/are (a) part(s) of a U.R.L.?<br>I. Protocol<br>II. Hostname<br>III. Directory and filename</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> II and III</li><li><strong>B.</strong> I and II</li><li><strong>C.</strong> I, II and III</li><li><strong>D.</strong> I and III</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. I, II and III</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: A URL (Uniform Resource Locator) is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A typical URL consists of several parts:<br>I. Protocol: Correct (e.g., `http://`, `https://`, `ftp://`). It specifies how the resource is accessed.<br>II. Hostname: Correct (e.g., `www.example.com`). It identifies the server where the resource is located.<br>III. Directory and filename: Correct (e.g., `/path/to/page.html`). This specifies the exact location of the resource on the server.<br>All three are essential parts of a complete URL.<br><br>Why other options are incorrect: Options A, B, and D are incorrect because they exclude one or more of the valid components of a URL. A complete URL typically includes the protocol, hostname, and the specific path (directory and filename) to the resource.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #51 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>______ gives the location of a resource on the internet.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Domain name</li><li><strong>B.</strong> TCP/IP</li><li><strong>C.</strong> URL</li><li><strong>D.</strong> IP address</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. URL</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: A URL (Uniform Resource Locator) is a specific string of characters that provides the address of a resource on the Internet and the protocol used to access it. It uniquely identifies and gives the location of a resource, such as a web page, image, or file.<br><br>Why other options are incorrect: A Domain Name (A) is part of a URL but doesn&#x27;t give the full location or protocol. TCP/IP (B) is a suite of communication protocols, not a resource locator. An IP address (D) is a numerical label assigned to devices on a network, which can be part of a URL, but a URL provides a more complete and user-friendly way to locate a resource.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #52 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>______ lets users to show their location with websites they trust.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> OLTrust</li><li><strong>B.</strong> Geolocation</li><li><strong>C.</strong> Geotrust</li><li><strong>D.</strong> Loctrust</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Geolocation</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Geolocation is the technology that allows websites and applications to determine a user&#x27;s physical location, typically with their consent, to provide location-based services.<br><br>Why other options are incorrect: OLTrust, Geotrust, and Loctrust are not standard or recognized terms for location-sharing technology. Geotrust is a brand known for SSL certificates, not geolocation services.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #54 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>______ URL is used to send electronic mail.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> EURL</li><li><strong>B.</strong> Email UR</li><li><strong>C.</strong> Mailto</li><li><strong>D.</strong> Eto</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Mailto</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The &#x27;mailto:&#x27; URL scheme is specifically designed to create hyperlinks that, when activated, open the user&#x27;s default email client with a pre-filled recipient address and optionally other email fields.<br><br>Why other options are incorrect: EURL, Email UR, and Eto are not standard or recognized URL schemes for sending electronic mail. &#x27;mailto:&#x27; is the universally accepted standard.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #90 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>______ lets users to show their location with websites they trust.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Geolocation</li><li><strong>B.</strong> Geotrust</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. Geolocation</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Geolocation is the technology that lets users share their location with websites they trust, typically through browser prompts and based on GPS, wifi, or IP address data.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #91 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>______ URL is used to send electronic mail.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Mailto</li><li><strong>B.</strong> Eto</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. Mailto</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: A mailto URL is used to create links that open the user&#x27;s default email client to send an email. For Example– mail to : someone@example.com</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #137 · 2021 · dssb</div>
+<p class="pyq-question"><strong>Which one(s) of the following is/are part(s) of the URL?<br><br>I. Protocol<br><br>II. Hostname<br><br>III. Directory and file name</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> II and ​III</li><li><strong>B.</strong> I and II</li><li><strong>C.</strong> I, II, and​ III</li><li><strong>D.</strong> I and III</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. I, II, and​ III</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> A URL has the protocol (https), the host name (www.example.com) and the path, i.e. directory and file name. Answer: I, II and III.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #89 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>_____ gives the location of a resource on the internet.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> URL</li><li><strong>B.</strong> TCP/IP</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. URL</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: URL stands for Uniform Resource Locator. It locates the resources or websites on the web server &amp; Internet so that user can access by URL any particular website from server later on.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #134 · 2021 · dssb</div>
+<p class="pyq-question"><strong>______ URL is used to send electronic mail.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> EURL</li><li><strong>B.</strong> Email UR</li><li><strong>C.</strong> Mailto</li><li><strong>D.</strong> Eto</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Mailto</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> A mailto: URL (e.g. mailto:someone@example.com) opens an email to that address.</p>
+</li></ol></section>
