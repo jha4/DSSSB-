@@ -1,26 +1,175 @@
-<section>
-<h1>Web Technology, Front-End, Internet Programming and .NET — Complete Notes</h1>
-<p><strong>Coverage:</strong> Internet architecture, browsers and servers, URL/domain/hosting, HTML, CSS, JavaScript, XML, AJAX, web services, MVC and .NET fundamentals.</p>
-<h2>1. Internet and World Wide Web</h2>
-<p>The <strong>Internet</strong> is a global interconnection of networks using the Internet protocol suite. The <strong>World Wide Web</strong> is an information system using linked resources and web protocols over the Internet; the Web is not the entire Internet.</p>
-<ul><li><strong>Client:</strong> requests a resource/service. <strong>Server:</strong> responds and provides resources.</li><li><strong>Browser:</strong> client software retrieving and rendering web content. <strong>Web server:</strong> software/system serving HTTP responses.</li><li><strong>URL:</strong> identifies a resource and may contain scheme, host, port, path, query and fragment. DNS resolves domain names to network addresses.</li><li><strong>Hosting:</strong> infrastructure that makes a site reachable. A proxy server intermediates requests between clients and servers.</li></ul>
-<h2>2. HTML</h2>
-<p><strong>HTML</strong> (HyperText Markup Language) structures web documents. Elements use tags and may have attributes. A typical document contains doctype, html, head and body sections.</p>
-<ul><li>Headings h1–h6, paragraphs p, links a, images img, lists ul/ol/li and tables table/tr/th/td structure content.</li><li>Forms collect input through form, label, input, select, textarea and button. Common input types include text, password, email, number, checkbox, radio and submit.</li><li>Semantic elements such as header, nav, main, section, article, aside and footer describe page roles.</li><li>HTML describes structure; CSS controls presentation; JavaScript adds behaviour.</li></ul>
-<h2>3. CSS and layout</h2>
-<p><strong>CSS</strong> (Cascading Style Sheets) controls visual presentation. The cascade resolves competing declarations using origin, importance, specificity and source order.</p>
-<ul><li><strong>Box model:</strong> content, padding, border and margin. With content-box sizing, declared width excludes padding and border; border-box includes them.</li><li><strong>Selectors:</strong> element, class, ID, attribute, pseudo-class and descendant/child selectors.</li><li><strong>Layout:</strong> normal flow, display, position, Flexbox and Grid. Responsive design adapts layout to viewport/device constraints.</li></ul>
-<h2>4. JavaScript</h2>
-<ul><li>JavaScript is used in browsers and server runtimes. let and const are block-scoped; var is function-scoped. Prefer strict equality (===) when coercion is not intended.</li><li><strong>Function:</strong> reusable callable code. A callback is a function supplied to another function to run later or in response to an event.</li><li><strong>DOM:</strong> object model of the document. Scripts select elements, read/change properties and respond to events.</li><li><strong>Event handling:</strong> listeners respond to click, input, submit and other events. Client-side validation improves usability but must be repeated server-side because client code can be bypassed.</li></ul>
-<h2>5. XML, AJAX and web services</h2>
-<ul><li><strong>XML:</strong> extensible markup language for structured data. It is case-sensitive and must be well-formed with proper nesting and one root element.</li><li><strong>DTD:</strong> defines permitted XML structure and entities; XML Schema (XSD) offers richer typing and constraints.</li><li><strong>AJAX:</strong> browser technique for asynchronous requests and partial page updates; it is not a programming language.</li><li><strong>Web service:</strong> machine-to-machine interface. REST commonly uses HTTP methods and resource-oriented URLs; SOAP uses structured XML messaging and related standards.</li></ul>
-<h2>6. MVC and .NET</h2>
-<ul><li><strong>MVC:</strong> Model represents data/business rules, View presents output, Controller handles input and coordinates actions.</li><li><strong>.NET:</strong> development platform with runtime, libraries and language support. C# is a common .NET language.</li><li><strong>ASP.NET:</strong> framework for web applications and APIs. Older ASP.NET Web Forms used server controls and postbacks; modern ASP.NET Core has a different architecture.</li><li>Java applets are obsolete browser technology; treat applet questions as historical facts, not current web practice.</li></ul>
-<h2>7. Exam traps</h2>
-<ul><li>Internet is infrastructure; WWW is a service on it.</li><li>HTML structures, CSS styles, JavaScript adds behaviour.</li><li>AJAX is a technique, not a language or database. Client-side validation is not a security boundary.</li></ul>
-<h2>Proxy servers, publishing and browser developer tools</h2>
-<ul><li><strong>Proxy server:</strong> an intermediary between a client and another server. A forward proxy acts for clients (for example, policy enforcement, filtering or caching); a reverse proxy sits in front of origin servers and can provide TLS termination, load balancing, caching and request routing.</li><li><strong>Publishing information:</strong> prepare and validate content, select a domain/hosting environment, upload or deploy site files, configure DNS and HTTPS, test links/forms/responsive behaviour, and maintain/refresh the content. A domain name is not the same as web hosting.</li><li><strong>Browser developer tools:</strong> Elements/Inspector examines and edits the DOM/CSS; Console displays logs and JavaScript errors; Network inspects requests, responses, headers and timing; Sources/Debugger supports breakpoints and step-through; Application/Storage inspects cookies, local storage and related browser data.</li><li><strong>Front-end tools:</strong> code editors, browser devtools, validators, package/build tools and version control support authoring and testing. They do not replace accessibility, security and cross-browser testing.</li></ul>
-<p><strong>JavaScript callback:</strong> a function passed to another function to be invoked later, often after an event or asynchronous operation. An event handler is a common callback. Promises and <code>async/await</code> are other ways to structure asynchronous work; they do not make a slow operation synchronous.</p>
-<h2>8. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:web -->
-</section>
+<section><p><strong>DSSSB TGT Computer Science — Internet, WWW and Web Architecture</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>PYQ and syllabus analysis</h2>
+<p>This section is based on the uploaded <strong>dsssb pyq part b.xlsx</strong> and <strong>sylabuss.txt</strong>. The workbook has 1,870 Part B rows in total. The Web Technology labels account for 144 records (107 labelled “Web Technology” and 37 labelled “Web technologies”). Five more records are labelled “.NET / C# / VB”; all five are included in the .NET section as related supplementary PYQs.</p>
+<table><thead><tr><th>Measure</th><th>Result</th></tr></thead><tbody>
+<tr><td>Web Technology + Web technologies records</td><td>144</td></tr>
+<tr><td>Additional .NET / C# / VB records included</td><td>5</td></tr>
+<tr><td>Total records reproduced in these notes</td><td>149</td></tr>
+<tr><td>Unique normalized stems among the 144 Web-labelled records</td><td>129</td></tr>
+<tr><td>Repeated extra records within the 144 Web-labelled records</td><td>15</td></tr>
+<tr><td>Exact repeated stem groups within the Web-labelled records</td><td>11</td></tr>
+<tr><td>Records without a recoverable year</td><td>4</td></tr>
+</tbody></table>
+<p>The 5 .NET-labelled rows include two stems already present in the Web Technology label (ASP.NET server-control syntax and CLR execution engine) and three additional stems (ADO.NET, VB.NET RadioButton and C# constructors). They are included to cover the syllabus's explicit “.NET/ASP.NET basics” wording, not counted as part of the 144 Web-labelled records.</p>
+<h3>Year-wise distribution of 144 Web-labelled records</h3>
+<table><thead><tr><th>Year</th><th>Records</th></tr></thead><tbody>
+<tr><td>2018</td><td>8</td></tr><tr><td>2021</td><td>34</td></tr><tr><td>2022</td><td>1</td></tr><tr><td>2023</td><td>62</td></tr><tr><td>2024</td><td>13</td></tr><tr><td>2025</td><td>22</td></tr><tr><td>Year not recoverable</td><td>4</td></tr></tbody></table>
+<p>2023 is the largest year group, followed by 2021 and 2025. These are counts in this collected workbook, not a guarantee of the number or distribution of questions in a future DSSSB paper.</p>
+<h3>Topic distribution used for these notes</h3>
+<table><thead><tr><th>Topic cluster</th><th>Records</th><th>Share of 144</th></tr></thead><tbody>
+<tr><td>Internet, WWW and Web Architecture</td><td>18</td><td>12.5%</td></tr><tr><td>URLs, Protocols, E-mail and Web Security</td><td>10</td><td>6.9%</td></tr><tr><td>HTML and Forms</td><td>24</td><td>16.7%</td></tr><tr><td>CSS, Layout and Front-end Tools</td><td>24</td><td>16.7%</td></tr><tr><td>JavaScript, DOM, DHTML and AJAX</td><td>28</td><td>19.4%</td></tr><tr><td>XML, DTD and XML Parsers</td><td>15</td><td>10.4%</td></tr><tr><td>.NET, ASP.NET and Server-side Development</td><td>20</td><td>13.9%</td></tr><tr><td>Miscellaneous Web Concepts</td><td>5</td><td>3.5%</td></tr>
+</tbody></table>
+<p>Each of the 144 Web-labelled records is assigned to exactly one topic group. The grouping is editorial and based on the main concept tested; it avoids double-counting cross-topic questions.</p>
+<h3>Repeated question stems</h3>
+<ul>
+<li><strong>3 occurrences:</strong> ______ lets users to show their location with websites they trust.</li><li><strong>3 occurrences:</strong> ______ url is used to send electronic mail.</li><li><strong>3 occurrences:</strong> in html body tag, which of the following attribute indicates the colour of the hyperlinks after the mouse is clicked on it?</li><li><strong>3 occurrences:</strong> which of the following is not an attribute that included by the hr tag which puts a horizontal line on the page?</li><li><strong>2 occurrences:</strong> in dhtml, the letter &#x27;d&#x27; stands for:</li><li><strong>2 occurrences:</strong> what is ajax in asp.net?</li><li><strong>2 occurrences:</strong> which html tag is used to embed java script scripts in a page?</li><li><strong>2 occurrences:</strong> which of the following form is correct to show a ‘comments’ in the html language?</li><li><strong>2 occurrences:</strong> which of the following is/are the open-source software(s)? i. php ii. apache</li><li><strong>2 occurrences:</strong> which of the following rule is needed to be followed while declaring the xml (extensible markup language) elements name?</li><li><strong>2 occurrences:</strong> which of the following statement(s) is/are true about wire framing of website? i. showing which content will appear on which page ii. showing navigator between pages</li>
+</ul>
+<p>Duplicates are retained in the PYQ lists, including repeated exam/shift variants. They are not treated as independent new concepts when assessing topic breadth.</p>
+<h3>Priority based on workbook frequency and syllabus breadth</h3>
+<table><thead><tr><th>Priority</th><th>Topics</th><th>Revision focus</th></tr></thead><tbody>
+<tr><td>Very high</td><td>JavaScript/DOM/AJAX; HTML; CSS/front-end; Internet and web architecture</td><td>Syntax, tag/property identification, browser objects, event handling, URLs, page structure and layout.</td></tr>
+<tr><td>High</td><td>XML/DTD/parsers; .NET/ASP.NET; protocols and web security</td><td>Parser differences, schema/DTD, CLR/JIT, server controls, URL/protocol terminology and secure access.</td></tr>
+<tr><td>Medium</td><td>Web publishing, PHP/Apache, proxy servers, MVC, web services and browser developer tools</td><td>These are explicitly in the syllabus even where the workbook has fewer direct questions.</td></tr>
+</tbody></table>
+<h3>Syllabus coverage checklist from sylabuss.txt</h3>
+<ul>
+<li><strong>Internet basics, browser, server, URL, domain, hosting, client–server:</strong> theory and PYQs included.</li>
+<li><strong>HTML tags, headings, paragraph, list, table, image, link, form, audio/video:</strong> theory and available PYQs included.</li>
+<li><strong>CSS colour, background, border, margin, width/height, font and layout:</strong> theory and PYQs included.</li>
+<li><strong>JavaScript script tag, function, event, callback and validation:</strong> theory and PYQs included.</li>
+<li><strong>XML, DTD, web services and AJAX:</strong> theory and PYQs included; supplementary coverage identifies REST/SOAP and XML schema.</li>
+<li><strong>MVC, proxy server, publishing information, front-end tools and browser developer tools:</strong> added as explicit syllabus theory, with source PYQs placed where available.</li>
+<li><strong>.NET/ASP.NET and applet/basic web application concepts:</strong> theory and .NET-labelled questions included; obsolete applets/ActiveX are identified as legacy technologies.</li>
+</ul>
+<div class="note-callout yellow"><strong>Important scope note:</strong> The uploaded syllabus file is a study guide, not a linked official notification. These notes map to its Web/Front-End/Internet Programming &amp; .NET unit. The additional theory beyond direct workbook PYQs is clearly syllabus-oriented supplementary coverage, not a claim that those exact points appeared in the workbook.</div>
+<h3>Workbook data-quality notes</h3>
+<ul>
+<li>Some older records have options embedded in the question text rather than separate Option A–D cells. These are shown as recorded; missing option text is not invented.</li>
+<li>Some records have only two or three option fields populated, and some have no separate option fields. This is marked beside the affected questions.</li>
+<li>Answers and explanations are transcribed from the workbook's Correct Answer and Explanation fields. Where the answer option text is missing, the keyed letter is shown without fabricating an option.</li>
+<li>Legacy wording such as body colour attributes, applets and ActiveX is preserved as historical PYQ material, while modern practice is explained separately.</li>
+</ul>
+
+<h2>Internet, WWW and Web Architecture</h2>
+<h3>Internet, intranet and the World Wide Web</h3>
+<p><strong>Internet:</strong> a worldwide network of interconnected networks communicating through the TCP/IP protocol suite. It is the underlying infrastructure, not a single website.</p>
+<p><strong>World Wide Web (WWW):</strong> a system of interlinked documents and resources identified by URLs and commonly accessed through HTTP/HTTPS. The Web is one service that uses the Internet; email, file transfer and other services also use the Internet.</p>
+<p><strong>Intranet:</strong> a private network using Internet technologies within an organisation. An <strong>extranet</strong> gives authorised external users limited access to selected organisational resources.</p>
+<h3>Web pages, websites and browsers</h3>
+<ul><li><strong>Web page:</strong> an individual document/resource, usually delivered as HTML.</li><li><strong>Website:</strong> a collection of related pages and resources, usually organised under a domain name.</li><li><strong>Home page:</strong> the main entry page of a website.</li><li><strong>Web browser:</strong> client software that requests, interprets and displays web resources. Examples include Chrome, Firefox, Edge, Safari and Opera.</li><li><strong>Search engine:</strong> a service that crawls/indexes content and helps users retrieve information. It is not a browser or a web server.</li><li><strong>Web server:</strong> server software (and often the host machine) that accepts HTTP requests and returns resources or application responses. Examples include Apache HTTP Server and Nginx.</li></ul>
+<h3>Client–server architecture</h3>
+<p>A browser/client sends a request to a server. The server may return a static file or execute application code, query a database and return a generated response. The browser renders the response. A web application may therefore contain a browser-based front end, an application/API layer and a database layer.</p>
+<h3>Website planning and online communication</h3>
+<ul><li><strong>Wireframe:</strong> a rough structural plan of a page/site showing where content, navigation and controls will appear before final colours, typography and imagery are applied.</li><li><strong>Navigation:</strong> menus, links and information architecture that let users move between pages.</li><li><strong>Browsing/surfing:</strong> moving between web pages and websites through links or navigation.</li><li><strong>Netiquette:</strong> accepted online communication etiquette—be respectful, avoid spam and personal attacks, protect private information and do not use all capitals as shouting.</li><li><strong>Real-time communication:</strong> instant messaging, live chat, voice/video calls and conferencing.</li><li><strong>Emoticons/smileys:</strong> text or pictorial symbols that help convey tone in online messages.</li></ul>
+<h3>Publishing a website</h3>
+<ol><li>Plan content and navigation; create and test HTML/CSS/JavaScript assets.</li><li>Choose a domain name and hosting/server environment.</li><li>Upload/deploy files or publish the application; configure DNS records to point the domain to the service.</li><li>Enable HTTPS, test links/forms and responsive behaviour, check accessibility and performance.</li><li>Monitor, back up and update the website.</li></ol>
+<div class="note-callout green"><strong>Exam focus:</strong> Internet vs WWW; browser vs search engine vs server; web page vs website; client–server flow; wireframe; netiquette; real-time communication.</div>
+<h2>Topic-wise PYQs (18 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #2 · 2021 · DSSSB - Computer Science</div>
+<p class="pyq-question"><strong>A collection of web pages is known as ____.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Website</li><li><strong>B.</strong> Web server</li><li><strong>C.</strong> Web world</li><li><strong>D.</strong> Web tool</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Website</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: A website is a collection of related web pages that are hosted on a web server and can be accessed through the Internet.<br><br>Why other options are incorrect: A web server is a system that hosts and delivers web content. &#x27;Web world&#x27; and &#x27;Web tool&#x27; are not standard terms for a collection of web pages.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #8 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>________ are a database applications&#x27; universal front end that connects to the back end via the internet.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Web browsers</li><li><strong>B.</strong> Web server</li><li><strong>C.</strong> Software programs</li><li><strong>D.</strong> Web application</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Web browsers</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Web browsers are client-side applications that allow users to access and interact with web content, including web-based database applications. They serve as the universal front end, sending requests to a web server (which then communicates with the database backend) and displaying the results to the user, all typically over the internet using protocols like HTTP.<br><br>Why other options are incorrect: A web server is a backend component that serves web pages and handles requests, acting as an intermediary between the browser and the database, not the front end itself. &#x27;Software programs&#x27; is too general. A web application is the server-side logic and content that the browser interacts with, but the browser itself is the &#x27;universal front end&#x27;.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #12 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>A ______ prepares a rough outline of what a website will look like once it is built.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Wireframe</li><li><strong>B.</strong> Web plows</li><li><strong>C.</strong> Wire falls</li><li><strong>D.</strong> Web frames</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Wireframe</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: A wireframe is a low-fidelity, skeletal visual guide that represents the basic structure and layout of a website or application. It outlines the content and functionality on a page, focusing on space allocation and prioritization of content, without considering visual design elements like colors or typography. It serves as a blueprint before detailed design begins.<br><br>Why other options are incorrect: The other options, &#x27;Web plows&#x27;, &#x27;Wire falls&#x27;, and &#x27;Web frames&#x27;, are not standard or recognized terms in web design or user experience (UX) for describing a rough outline of a website. &#x27;Web frames&#x27; might vaguely refer to HTML framesets (an outdated web technology) but not a design blueprint.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #22 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>_____ is the process of visiting different web sites on the internet hosted by various companies, organisations, educational institutions, magazines, individuals, etc.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Webbing</li><li><strong>B.</strong> Searching</li><li><strong>C.</strong> Chatting</li><li><strong>D.</strong> Web surfing</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Web surfing</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: &#x27;Web surfing&#x27; is the common term used to describe the activity of browsing or navigating through various websites on the internet, typically by following hyperlinks from one page to another. It implies a somewhat casual and exploratory interaction with the web, visiting different sites hosted by various entities.<br><br>Why other options are incorrect: &#x27;Webbing&#x27; is not a standard term for this activity. &#x27;Searching&#x27; refers specifically to using search engines to find information, which is a part of web usage but not the general act of visiting sites. &#x27;Chatting&#x27; refers to real-time text-based communication between users.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #50 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following statement(s) is/are true about wire framing of website? I. Showing which content will appear on which page II. Showing navigator between pages</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Only I</li><li><strong>B.</strong> Neither I nor II</li><li><strong>C.</strong> Both I and II</li><li><strong>D.</strong> Only II</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Both I and II</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Both statements are true about wireframing a website. Wireframes are visual guides that represent the skeletal framework of a website. They are used to show which content will appear on which page (I) and to illustrate the navigation scheme and how users will move between pages (II), focusing on layout and functionality rather than visual design.<br><br>Why other options are incorrect: Options A, B, and D are incorrect because wireframing encompasses both aspects: defining content placement on pages and outlining the navigation structure. Omitting either of these aspects would provide an incomplete understanding of wireframing&#x27;s purpose.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #65 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which service is NOT provided by web servers?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Serving web pages</li><li><strong>B.</strong> Resource sharing</li><li><strong>C.</strong> Server side scripting</li><li><strong>D.</strong> Running gateway programs</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Resource sharing</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Web servers are primarily designed to serve web content (like HTML pages, images), execute server-side scripts (e.g., PHP, Python), and run gateway programs (like CGI scripts) to generate dynamic content. Resource sharing, in the context of sharing files, printers, or other network resources among users, is typically a function of a file server or a general-purpose network server, not a dedicated web server.<br><br>Why other options are incorrect: Serving web pages is the fundamental purpose of a web server. Server-side scripting and running gateway programs are common functionalities that enable web servers to deliver dynamic content and interact with other applications or databases. These are all core services provided by web servers.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #73 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is an application of the World Wide Web?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Browsing websites and accessing online services</li><li><strong>B.</strong> Creating software programs</li><li><strong>C.</strong> Storing files on a computer</li><li><strong>D.</strong> Sending emails directly to a mobile phone</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Browsing websites and accessing online services</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The WWW uses the HTTP application protocol to render and traverse multimedia files, web applications, and global online platforms within internet browser client software frameworks.<br><br>Why other options are incorrect: Compiler production, hard disk partition structures, and SMTP mail transports exist independently of standard document rendering layers.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #79 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the primary function of the World Wide Web (WWW)?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To provide cloud storage services</li><li><strong>B.</strong> To connect and access documents and resources over the internet</li><li><strong>C.</strong> To store large databases</li><li><strong>D.</strong> To create mobile applications</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. To connect and access documents and resources over the internet</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The World Wide Web uses the HTTP protocol to transmit hypermedia documents, allowing users to find and navigate shared resources globally via URIs.<br><br>Why other options are incorrect: The WWW is a document sharing space that layers over internet routing channels, rather than a database storage engine, cloud drive, or mobile build suite.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #81 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the primary purpose of using smileys in instant messaging?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To convey formal tone</li><li><strong>B.</strong> To increase font size</li><li><strong>C.</strong> To represent emotions and feelings</li><li><strong>D.</strong> To insert hyperlinks</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. To represent emotions and feelings</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Text communication lacks vocal inflection cues. Emoticons and smileys provide visual context that helps users convey emotion, tone, and intent in text-based chats.<br><br>Why other options are incorrect: Smileys are intended for casual communication, so they do not add formal tone parameters, adjust font sizes, or insert web links.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #82 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is internet etiquette commonly referred to as?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Digital conduct</li><li><strong>B.</strong> Cyber ethics</li><li><strong>C.</strong> Netiquette</li><li><strong>D.</strong> Web manners</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Netiquette</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Netiquette is a blended word representing net etiquette. It defines the social conventions and behavioral rules for polite interaction on online forums and messaging networks.<br><br>Why other options are incorrect: Alternative options like digital conduct describe general conceptual topics rather than the formal term netiquette.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #88 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is an example of real-time communication through an online chat application?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Posting on a blog</li><li><strong>B.</strong> Exchanging messages in a live chat</li><li><strong>C.</strong> Sending an email</li><li><strong>D.</strong> Writing a comment on a social media post</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Exchanging messages in a live chat</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Live chat platforms use persistent network connections to send and deliver messages instantly, enabling real-time communication between users[cite: 4].<br><br>Why other options are incorrect: Emails, blog posts, and social media comments are asynchronous communication tools where delivery and responses do not happen instantly.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #92 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>_____produces a rough outline of what the website will look like when it is done</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Wirefalls</li><li><strong>B.</strong> Wireframes</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B. Wireframes</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Wireframe produces a rough outline of what the website will look like when it is done.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #111 · 2025 · dssb</div>
+<p class="pyq-question"><strong>What is the primary function of a web browser?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To send and receive emails</li><li><strong>B.</strong> To display and navigate web pages</li><li><strong>C.</strong> To create websites</li><li><strong>D.</strong> To store large amounts of data</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. To display and navigate web pages</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> A web browser&#x27;s primary job is to fetch, display and navigate web pages: it renders HTML, CSS and JS and follows links.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #117 · 2023 · dssb</div>
+<p class="pyq-question"><strong>is the process of visiting different web sites on the internet hosted by various companies, organisations, educational institutions, magazines, individuals, etc. Webbing Searching Chatting Web suffmg</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Web surfing (browsing) is moving from website to website on the internet.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #127 · 2023 · dssb</div>
+<p class="pyq-question"><strong>are a database applications&#x27; universal front end that connects to the back end via the internet. Web browsers Web server Software programs Web application</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Web browsers are the universal front end for web-based database applications, reaching the back end over the internet.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #132 · 2021 · dssb</div>
+<p class="pyq-question"><strong>Which of the following statement(s) is/are true about wire framing of website?<br><br>I. Showing which content will appear on which page<br><br>II. Showing navigator between pages</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Only I</li><li><strong>B.</strong> Neither I nor II</li><li><strong>C.</strong> Both I and II</li><li><strong>D.</strong> Only II</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Both I and II</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Both are true. A website wireframe is a skeletal blueprint showing what content goes on each page and how users navigate between pages.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #133 · 2021 · dssb</div>
+<p class="pyq-question"><strong>______ lets users to show their location with websites they trust.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> OLTrust</li><li><strong>B.</strong> Geolocation</li><li><strong>C.</strong> Geotrust</li><li><strong>D.</strong> Loctrust</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Geolocation</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> The HTML5 Geolocation API lets users share their location with sites they trust, only after asking their permission.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #138 · 2021 · dssb</div>
+<p class="pyq-question"><strong>_________ create a rough sketch of what the website will look like when completed.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Wireframes</li><li><strong>B.</strong> Webflows</li><li><strong>C.</strong> Wirefalls</li><li><strong>D.</strong> Webframes</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. Wireframes</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Wireframes are rough skeleton sketches of a website&#x27;s layout, made before the visual design.</p>
+</li></ol></section>
