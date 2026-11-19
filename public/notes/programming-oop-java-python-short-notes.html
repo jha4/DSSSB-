@@ -33,22 +33,22 @@ int main(void) {
 <h3>Control statements and loops</h3>
 <ul><li><code>if / else</code>: conditional branch.</li><li><code>switch</code>: selects a matching case label. Execution can fall through into subsequent cases unless terminated with <code>break</code> or another control transfer.</li><li><code>for</code>: initialization; condition; update; body. Suitable for count-controlled repetition.</li><li><code>while</code>: tests condition before executing the body; may execute zero times.</li><li><code>do-while</code>: executes body before testing condition; executes at least once.</li><li>An infinite loop does not terminate under its current control conditions.</li></ul>
 <h3>PYQs — C fundamentals, operators and control flow</h3>
-<!-- PYQ:programming|C -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
+
 <h2>3. C arrays and strings</h2>
 <p>An <strong>array</strong> is a fixed-size sequence of elements of the same type stored contiguously. C array indexing begins at zero. For <code>int a[5]</code>, valid indices are 0 through 4.</p>
 <ul><li>Array declaration: <code>int marks[10];</code></li><li>Initialization: <code>int a[3] = {10, 20, 30};</code></li><li>Two-dimensional array: <code>int matrix[2][3];</code>; in C, rows are stored contiguously (row-major order).</li><li>Out-of-bounds access is undefined behaviour.</li><li>In most expressions, an array expression converts to a pointer to its first element. The array object is not itself a modifiable pointer variable.</li></ul>
 <p>A C <strong>string</strong> is a character array terminated by the null character <code>'\\0'</code>. Its storage must include space for that terminator. Common functions from <code>string.h</code> include <code>strlen</code>, <code>strcpy</code>, <code>strncpy</code>, <code>strcat</code>, <code>strcmp</code> and <code>strchr</code>; ensure destination buffers are large enough.</p>
 <h3>PYQs — arrays and strings</h3>
-<!-- PYQ:programming|C -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
+
 <h2>4. C functions, scope and storage classes</h2>
 <p>A function has a declaration/prototype, definition and call. A function prototype tells the compiler the function's name, return type and parameter types. C uses <strong>pass by value</strong>: parameter values are copied. To modify a caller's object, pass its address using a pointer.</p>
 <ul><li><strong>Recursion:</strong> a function calls itself; a base case prevents endless calls.</li><li><strong>Scope:</strong> region in which an identifier is visible.</li><li><strong>Lifetime:</strong> period during which an object's storage exists.</li><li><strong>auto:</strong> ordinary block-scope automatic storage duration (default for many local objects).</li><li><strong>register:</strong> historical hint for register storage; it does not guarantee a CPU register.</li><li><strong>static:</strong> static storage duration; a block-scope static object retains its value between calls. At file scope it gives internal linkage.</li><li><strong>extern:</strong> declares an object/function with external linkage in common use.</li></ul>
 <p>Variadic functions accept a variable number of arguments; declarations and macros for them are provided by <code>stdarg.h</code>, using <code>va_list</code>, <code>va_start</code>, <code>va_arg</code> and <code>va_end</code>.</p>
 <h3>PYQs — functions, recursion and storage classes</h3>
-<!-- PYQ:programming|C -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
+
 <h2>5. C pointers and dynamic memory</h2>
 <p>A <strong>pointer</strong> stores the address of an object or function. The address-of operator <code>&amp;</code> obtains an object's address; unary <code>*</code> dereferences a valid pointer to access the pointed-to object.</p>
 <pre><code>int value = 7;
@@ -58,22 +58,22 @@ int *p = &amp;value;
 <table><thead><tr><th>Function</th><th>Purpose</th><th>Initialization</th></tr></thead><tbody><tr><td>malloc(bytes)</td><td>Allocate a block of bytes</td><td>Uninitialized contents</td></tr><tr><td>calloc(count,size)</td><td>Allocate array-like block</td><td>All bits set to zero</td></tr><tr><td>realloc(ptr,size)</td><td>Resize allocated block</td><td>Preserves existing prefix as specified; new portion uninitialized</td></tr><tr><td>free(ptr)</td><td>Release allocated block</td><td>Pointer must be NULL or a valid allocation pointer</td></tr></tbody></table>
 <p>Check allocation results for NULL. Store <code>realloc</code> into a temporary pointer so the original allocation is not lost on failure. Every successful allocation should have a clear ownership/release path.</p>
 <h3>PYQs — pointers and memory</h3>
-<!-- PYQ:programming|C -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
+
 <h2>6. C structures, unions, enums and files</h2>
 <p><strong>Structure</strong> groups multiple named members, potentially of different types; each member has its own storage (subject to padding/alignment). <strong>Union</strong> lets its members share the same storage area; it is generally large enough for its largest member plus alignment requirements. At a time, interpret the member whose value was most recently stored, subject to language rules.</p>
 <ul><li><code>struct</code>: record with separate members.</li><li><code>union</code>: overlapping member storage.</li><li><code>typedef</code>: introduces a type alias.</li><li><code>enum</code>: defines named integer constants.</li></ul>
 <p>File handling uses <code>FILE *</code> and functions such as <code>fopen</code>, <code>fclose</code>, <code>fprintf</code>, <code>fscanf</code>, <code>fgets</code>, <code>fputs</code>, <code>fread</code> and <code>fwrite</code>. Check whether <code>fopen</code> returned NULL. Common modes include <code>r</code>, <code>w</code>, <code>a</code>, and update variants <code>r+</code>, <code>w+</code>, <code>a+</code>; binary variants append <code>b</code>.</p>
 <h3>PYQs — structures, unions and files</h3>
 <!-- PYQ:programming|C -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
 <h2>7. C++ programming essentials</h2>
 <p>C++ supports procedural, object-oriented and generic programming. It retains many C-like constructs and adds classes, references, overloading, templates, exceptions and the Standard Template Library.</p>
 <ul><li><strong>Input:</strong> <code>cin &gt;&gt; value;</code> uses the stream extraction operator <code>&gt;&gt;</code>.</li><li><strong>Output:</strong> <code>cout &lt;&lt; value;</code> uses the stream insertion operator <code>&lt;&lt;</code>.</li><li><strong>Namespace:</strong> named scope that helps organize identifiers and avoid naming conflicts; <code>std</code> contains standard-library names.</li><li><strong>Scope resolution:</strong> <code>::</code> qualifies a name in a namespace or class.</li><li><strong>Reference:</strong> alias for an existing object; must be initialized and cannot be reseated.</li><li><strong>new/delete:</strong> allocate/deallocate objects; prefer standard containers and smart pointers for safe ownership in modern C++.</li></ul>
 <p><strong>Inline function:</strong> an inline declaration permits multiple definitions under the One Definition Rule and is a request/permission related to inlining; the compiler is not required to substitute the body at every call.</p>
 <h3>PYQs — C++ language concepts</h3>
-<!-- PYQ:programming|C++ -->
-<!-- PYQ:programming|C / C++ & programming basics -->
+
+
 <h2>8. Object-Oriented Programming (OOP)</h2>
 <table><thead><tr><th>Principle</th><th>Definition</th><th>Exam cue</th></tr></thead><tbody>
 <tr><td>Encapsulation</td><td>Bundle data and methods; control access to internal state</td><td>Data hiding / controlled access</td></tr>
@@ -84,13 +84,13 @@ int *p = &amp;value;
 <p><strong>Class</strong> is a user-defined type/blueprint; an <strong>object</strong> is an instance. A constructor initializes a new object. A destructor (in C++) performs cleanup when an object's lifetime ends. Access control determines which code can use a member.</p>
 <table><thead><tr><th>Overloading</th><th>Overriding</th></tr></thead><tbody><tr><td>Same function name with different parameter lists in a scope</td><td>Derived class provides a new implementation of inherited virtual method (language rules apply)</td></tr><tr><td>Usually compile-time resolution</td><td>Supports runtime dispatch when virtual/dynamic dispatch is used</td></tr></tbody></table>
 <h3>PYQs — OOP concepts</h3>
-<!-- PYQ:programming|OOP concepts -->
+
 <h2>9. C++ inheritance, polymorphism and class features</h2>
 <ul><li><strong>Single:</strong> one base class.</li><li><strong>Multiple:</strong> more than one direct base class.</li><li><strong>Multilevel:</strong> inheritance chain.</li><li><strong>Hierarchical:</strong> multiple derived classes share a base.</li><li><strong>Hybrid:</strong> combination of inheritance forms.</li><li><strong>Virtual function:</strong> enables runtime dispatch through base pointers/references.</li><li><strong>Pure virtual function:</strong> declared with <code>= 0</code>; a class with an unimplemented pure virtual function is abstract.</li><li><strong>Friend function:</strong> non-member function granted access to private/protected class members.</li><li><strong>Copy constructor:</strong> initializes an object from another object of the same class.</li><li><strong>Templates:</strong> support generic functions/classes parameterized by types or values.</li></ul>
 <p>Common STL containers: <code>vector</code> (dynamic array), <code>list</code> (doubly linked list), <code>deque</code>, <code>stack</code>, <code>queue</code>, <code>priority_queue</code>, <code>set</code>, <code>map</code> and their unordered variants. This is enrichment beyond the narrow C++ wording in the supplied syllabus, but useful for broader preparation.</p>
 <h3>PYQs — C++ OOP and inheritance</h3>
 <!-- PYQ:programming|C++ -->
-<!-- PYQ:programming|OOP concepts -->
+
 <h2>10. Java fundamentals and runtime architecture</h2>
 <p>Java source code is compiled by <code>javac</code> into platform-neutral <strong>bytecode</strong> stored in class files. A <strong>JVM</strong> loads and executes bytecode, interpreting it and/or compiling hot code with a Just-In-Time (JIT) compiler.</p>
 <table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>JDK</td><td>Java Development Kit: compiler and development tools plus runtime components</td></tr><tr><td>JRE</td><td>Java Runtime Environment: JVM and libraries needed to run Java applications (traditional packaging term)</td></tr><tr><td>JVM</td><td>Abstract virtual machine specification and implementation that executes bytecode</td></tr><tr><td>Bytecode</td><td>Intermediate instruction set stored in .class files</td></tr><tr><td>javac</td><td>Java compiler</td></tr><tr><td>javap</td><td>Class-file disassembler / class-file inspection tool</td></tr></tbody></table>
@@ -98,7 +98,7 @@ int *p = &amp;value;
 <h3>Java data types and operators</h3>
 <p>Eight primitive types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code> and <code>boolean</code>. Reference types include classes, arrays, interfaces and enums. Java integer literals can use decimal, hexadecimal (0x), binary (0b) and octal (leading 0) forms.</p>
 <h3>PYQs — Java basics and JVM</h3>
-<!-- PYQ:programming|Java -->
+
 <h2>11. Java OOP, access control and exceptions</h2>
 <ul><li><strong>Class/object:</strong> class defines members; object is an instance.</li><li><strong>Inheritance:</strong> a class can extend one class; Java supports implementing multiple interfaces.</li><li><strong>Interface:</strong> reference type defining a contract; can include abstract, default, static and private methods under modern Java rules.</li><li><strong>Abstract class:</strong> cannot be instantiated directly; can contain abstract and concrete methods.</li><li><strong>Overloading:</strong> same method name with different parameter lists. <strong>Overriding:</strong> subclass redefines inherited instance method subject to access/return/exception rules.</li><li><strong>final class:</strong> cannot be subclassed. <strong>final method:</strong> cannot be overridden. <strong>final variable:</strong> assigned once (for a blank final, exactly once under definite-assignment rules).</li></ul>
 <table><thead><tr><th>Modifier</th><th>Access summary</th></tr></thead><tbody><tr><td>public</td><td>Accessible wherever the containing type/member is accessible</td></tr><tr><td>protected</td><td>Same package and qualifying subclass access</td></tr><tr><td>package-private (no modifier)</td><td>Same package</td></tr><tr><td>private</td><td>Within declaring top-level class/nest access rules</td></tr></tbody></table>
