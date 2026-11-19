@@ -21,7 +21,7 @@
 <h3>Algorithm versus program</h3>
 <table><thead><tr><th>Algorithm</th><th>Program</th></tr></thead><tbody><tr><td>Abstract solution procedure</td><td>Implementation written in a programming language</td></tr><tr><td>Language independent</td><td>Depends on language syntax and runtime</td></tr><tr><td>Can be represented by prose, pseudocode or flowchart</td><td>Must follow language grammar to compile/execute</td></tr></tbody></table>
 <h3>PYQs — algorithm fundamentals</h3>
-<!-- PYQ:algorithms|Algorithms -->
+
 <h2>2. Analysis of algorithms and asymptotic notation</h2>
 <p><strong>Analysis of algorithms</strong> estimates how resource requirements grow as input size n grows. It normally counts elementary operations and memory rather than measuring seconds on one particular computer.</p>
 <ul><li><strong>Time complexity:</strong> growth in the number of operations as a function of input size.</li><li><strong>Space complexity:</strong> memory required as input size grows. Auxiliary space is the extra memory used beyond the input representation.</li><li><strong>Best case:</strong> least work among inputs of size n.</li><li><strong>Average case:</strong> expected work under a stated input distribution.</li><li><strong>Worst case:</strong> maximum work over inputs of size n.</li></ul>
@@ -36,7 +36,7 @@
 <h3>Recurrence relations and Master Theorem</h3>
 <p>Recursive algorithms can be analysed using recurrences. For T(n) = aT(n/b) + f(n), compare f(n) with n<sup>log<sub>b</sub>a</sup>. The basic Master Theorem cases are: (1) f is polynomially smaller → Θ(n<sup>log<sub>b</sub>a</sup>); (2) same order up to logarithmic factors → add one logarithmic factor; (3) f is polynomially larger and the regularity condition holds → Θ(f(n)). Check the theorem's conditions before applying it.</p>
 <h3>PYQs — complexity, recurrence and analysis</h3>
-<!-- PYQ:algorithms|Algorithms -->
+
 <h2>3. Searching algorithms</h2>
 <h3>Linear Search</h3>
 <p>Checks elements sequentially until the key is found or the collection ends. It works on unsorted data. Best case O(1), average/worst case O(n); iterative auxiliary space O(1).</p>
@@ -45,7 +45,7 @@
 <table><thead><tr><th>Feature</th><th>Linear</th><th>Binary</th></tr></thead><tbody><tr><td>Sorted input required?</td><td>No</td><td>Yes</td></tr><tr><td>Worst time</td><td>O(n)</td><td>O(log n)</td></tr><tr><td>Access pattern</td><td>Sequential</td><td>Middle/random access</td></tr><tr><td>Suitable linked list?</td><td>Yes</td><td>Usually inefficient; middle access is not O(1)</td></tr></tbody></table>
 <p>For n elements, binary search needs approximately ⌊log₂ n⌋ + 1 comparisons in a worst-case successful search under common counting conventions; exact maximum counts depend on whether the final unsuccessful comparison is included.</p>
 <h3>PYQs — searching</h3>
-<!-- PYQ:algorithms|Algorithms -->
+
 <h2>4. Sorting algorithms</h2>
 <p><strong>Sorting</strong> arranges records according to a key. A <strong>stable sort</strong> preserves the relative order of equal-key records. An <strong>in-place sort</strong> uses little auxiliary memory, though definitions allow small implementation-specific overhead.</p>
 <table><thead><tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Stable?</th><th>Key idea</th></tr></thead><tbody>
@@ -60,13 +60,13 @@
 <p>*Optimized Bubble Sort with a swap flag has O(n) best case. Standard unoptimized Bubble Sort still performs O(n²) comparisons.</p>
 <ul><li><strong>Bubble:</strong> after each pass, a largest remaining item moves to the end. Worst-case comparisons are n(n−1)/2.</li><li><strong>Selection:</strong> pass i selects the smallest remaining element. It performs O(n²) comparisons but only O(n) swaps.</li><li><strong>Insertion:</strong> maintains a sorted prefix; efficient for small or nearly sorted inputs.</li><li><strong>Merge:</strong> predictable O(n log n), stable, but array implementation generally needs O(n) extra memory.</li><li><strong>Quick:</strong> expected/average O(n log n), worst O(n²) with highly unbalanced partitions. Pivot strategy affects performance.</li><li><strong>Heap:</strong> uses a binary heap; in-place array implementations use O(1) auxiliary space and are not stable.</li><li><strong>Radix:</strong> non-comparison sort; complexity depends on number of digit positions and the stable per-digit method.</li></ul>
 <h3>PYQs — sorting</h3>
-<!-- PYQ:algorithms|Algorithms -->
+
 <h2>5. Recursion and algorithm design paradigms</h2>
 <p><strong>Recursion</strong> occurs when a function solves a problem by calling itself on a smaller instance. A correct recursive design needs a base case, progress toward the base case and a valid combination of sub-results. Each active call occupies stack space.</p>
 <ul><li><strong>Divide and Conquer:</strong> divide into smaller independent subproblems, solve them recursively and combine results. Examples: Merge Sort, Quick Sort and Binary Search.</li><li><strong>Greedy:</strong> make a locally optimal choice at each step. It is correct only when the problem has the required greedy-choice property and optimal substructure. Examples: Huffman coding, Prim and Kruskal.</li><li><strong>Dynamic Programming:</strong> solve overlapping subproblems once and store results; use memoization (top-down) or tabulation (bottom-up). Common examples: Fibonacci, LCS and 0/1 Knapsack.</li><li><strong>Backtracking:</strong> build a candidate incrementally and abandon a partial candidate when it cannot lead to a valid solution. Examples: N-Queens and Sudoku.</li><li><strong>Branch and Bound:</strong> explores a search tree while using bounds to prune branches that cannot improve the current best solution.</li><li><strong>Randomized algorithms:</strong> use random choices; analyse expected runtime and/or probability of error. Randomized does not mean automatically incorrect.</li></ul>
 <table><thead><tr><th>Technique</th><th>Central idea</th><th>Typical example</th></tr></thead><tbody><tr><td>Divide and Conquer</td><td>Split, solve, combine</td><td>Merge Sort</td></tr><tr><td>Greedy</td><td>Choose best local option</td><td>Huffman, Prim, Kruskal</td></tr><tr><td>Dynamic Programming</td><td>Reuse overlapping subproblem results</td><td>LCS, Knapsack</td></tr><tr><td>Backtracking</td><td>Try and undo invalid partial choices</td><td>N-Queens, Sudoku</td></tr><tr><td>Branch and Bound</td><td>Prune using objective bounds</td><td>Travelling Salesperson optimization</td></tr></tbody></table>
 <h3>PYQs — recursion and design techniques</h3>
-<!-- PYQ:algorithms|Algorithms -->
+
 <h2>6. Graph algorithms — syllabus-level essentials</h2>
 <p>A <strong>graph</strong> G = (V,E) consists of vertices and edges. It may be directed/undirected, weighted/unweighted, connected/disconnected. Degree counts incident edges; in directed graphs distinguish in-degree and out-degree.</p>
 <table><thead><tr><th>Representation</th><th>Space</th><th>Best suited to</th></tr></thead><tbody><tr><td>Adjacency matrix</td><td>O(V²)</td><td>Dense graphs and constant-time edge lookup</td></tr><tr><td>Adjacency list</td><td>O(V+E)</td><td>Sparse graphs and iterating neighbours</td></tr></tbody></table>
@@ -89,13 +89,13 @@
 <p>For non-zero lower bounds, subtract the relevant lower bound from each index before applying the formula. Always verify whether the question uses zero-based or one-based indexing.</p>
 <p><strong>Sparse matrix:</strong> a matrix in which most entries are zero. Store only non-zero values and their row/column positions (e.g. triplet representation) to save memory. A tridiagonal matrix has non-zero entries only on the main diagonal and the diagonals immediately above and below it.</p>
 <h3>PYQs — arrays and sparse matrices</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>9. Linked Lists</h2>
 <p>A <strong>linked list</strong> is a dynamic linear structure made of nodes. A node contains data and one or more links. Nodes need not occupy adjacent memory locations.</p>
 <table><thead><tr><th>Type</th><th>Node links</th><th>Key property</th></tr></thead><tbody><tr><td>Singly linked</td><td>Next pointer</td><td>Forward traversal only</td></tr><tr><td>Doubly linked</td><td>Previous and next pointers</td><td>Forward and backward traversal</td></tr><tr><td>Circular singly</td><td>Last node links to first</td><td>No NULL at the tail in a circular representation</td></tr><tr><td>Circular doubly</td><td>Previous and next links are circular</td><td>Bidirectional circular traversal</td></tr></tbody></table>
 <ul><li>Access/search by position: O(n).</li><li>Insert/delete at head: O(1).</li><li>Insert/delete after a known node: O(1) pointer updates; finding the node may still take O(n).</li><li>Advantages: dynamic size and no shifting of all later elements on insertion/deletion.</li><li>Disadvantages: extra pointer memory, no O(1) random indexing, pointer manipulation and cache-locality overhead.</li></ul>
 <h3>PYQs — linked lists</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>10. Stacks and expression processing</h2>
 <p>A <strong>stack</strong> is a linear ADT that follows <strong>LIFO (Last In, First Out)</strong>. Insertion and deletion occur at the top.</p>
 <table><thead><tr><th>Operation</th><th>Meaning</th><th>Typical time</th></tr></thead><tbody><tr><td>push(x)</td><td>Insert x at top</td><td>O(1)</td></tr><tr><td>pop()</td><td>Remove and return top</td><td>O(1)</td></tr><tr><td>peek/top()</td><td>Read top without removing</td><td>O(1)</td></tr></tbody></table>
@@ -104,13 +104,13 @@
 <table><thead><tr><th>Notation</th><th>Operator position</th><th>Example</th></tr></thead><tbody><tr><td>Infix</td><td>Between operands</td><td>A + B</td></tr><tr><td>Prefix</td><td>Before operands</td><td>+ A B</td></tr><tr><td>Postfix</td><td>After operands</td><td>A B +</td></tr></tbody></table>
 <p>Postfix evaluation: scan left to right; push operands; when an operator appears, pop the required operands in the correct order, evaluate and push the result. For a binary operator, the first pop is the right operand and the second pop is the left operand.</p>
 <h3>PYQs — stacks and expressions</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>11. Queues and their variants</h2>
 <p>A <strong>queue</strong> is a linear ADT that normally follows <strong>FIFO (First In, First Out)</strong>. Enqueue inserts at the rear; dequeue removes from the front.</p>
 <table><thead><tr><th>Type</th><th>Insertion / deletion</th><th>Use</th></tr></thead><tbody><tr><td>Simple queue</td><td>Rear / front</td><td>Basic FIFO processing</td></tr><tr><td>Circular queue</td><td>Rear / front with wrap-around</td><td>Reuses freed array positions</td></tr><tr><td>Deque</td><td>Both ends</td><td>Double-ended operations</td></tr><tr><td>Priority queue</td><td>Removal by priority</td><td>Scheduling, shortest-path algorithms</td></tr></tbody></table>
 <p>In a circular array of capacity N, the next index is commonly (index + 1) mod N. A queue can be implemented using arrays or linked lists. BFS uses a queue.</p>
 <h3>PYQs — queues</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>12. Trees and binary trees</h2>
 <p>A <strong>tree</strong> is a hierarchical, connected acyclic structure. The root has no parent; a leaf has no children. A node's degree is its number of children. Depth is distance from root; height is the length of the longest downward path to a leaf (some texts count edges, others count nodes—follow the question's convention).</p>
 <ul><li><strong>Binary tree:</strong> each node has at most two children.</li><li><strong>Full/strict binary tree:</strong> every node has either zero or two children.</li><li><strong>Complete binary tree:</strong> all levels except possibly the last are full, and the last level is filled from left to right.</li><li><strong>Perfect binary tree:</strong> every internal node has two children and all leaves are at the same level.</li></ul>
@@ -124,12 +124,12 @@
 <p>An <strong>AVL tree</strong> is a self-balancing BST. Balance factor = height(left) − height(right). Every node must have balance factor −1, 0 or +1. Rotations restore balance:</p>
 <table><thead><tr><th>Imbalance</th><th>Correction</th></tr></thead><tbody><tr><td>LL</td><td>Single right rotation</td></tr><tr><td>RR</td><td>Single left rotation</td></tr><tr><td>LR</td><td>Left rotation on left child, then right rotation</td></tr><tr><td>RL</td><td>Right rotation on right child, then left rotation</td></tr></tbody></table>
 <h3>PYQs — trees, BST and AVL</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>13. Heaps and priority queues</h2>
 <p>A <strong>binary heap</strong> is a complete binary tree satisfying a heap-order property. In a max heap, each parent is at least as large as its children; in a min heap, each parent is at most as large as its children. It is not necessarily a fully sorted tree.</p>
 <ul><li>For zero-based array indexing: parent(i) = floor((i−1)/2), left(i) = 2i+1, right(i) = 2i+2.</li><li>Peek root: O(1). Insert: O(log n) by sift-up. Remove root: O(log n) by sift-down. Build-heap: O(n).</li><li>Heaps implement priority queues and Heap Sort.</li></ul>
 <h3>PYQs — heaps</h3>
-<!-- PYQ:algorithms|Data Structures -->
+
 <h2>14. Hashing</h2>
 <p><strong>Hashing</strong> maps a key to a table index using a hash function. A <strong>collision</strong> occurs when two different keys map to the same index. A good hash function distributes keys uniformly.</p>
 <p>Division method: h(k) = k mod m, where m is table size. Example: if m = 9, h(22) = 4.</p>
