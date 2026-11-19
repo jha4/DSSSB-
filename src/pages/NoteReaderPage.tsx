@@ -24,9 +24,10 @@ import {
 
 
 type CompactOsPyqData = {
+  version: number;
   t: string[];
-  e: string[];
-  q: Array<[number, number, number, string, string[], number]>;
+  q: Array<[number, string, string, string, string[], number, string]>;
+  source: string;
 };
 
 type CompactOsPyqQuestion = CompactOsPyqData['q'][number];
@@ -37,28 +38,39 @@ const escapePyqHtml = (value: string): string =>
   );
 
 function renderOsPyqBlock(title: string, rows: CompactOsPyqQuestion[], data: CompactOsPyqData): string {
-  const questions = rows.map((row) => {
+  const questions = rows.map((row, index) => {
     const year = row[1] || 'Year not recorded';
-    const exam = data.e[row[2]] || '';
-    const options = row[4].length
-      ? '<ol type="A" style="margin:6px 0 6px 22px;padding-left:18px;">' +
-        row[4].map((option) => '<li style="margin:3px 0;">' + escapePyqHtml(option) + '</li>').join('') +
-        '</ol>'
-      : '';
-    const answerText = row[5] >= 0
-      ? String.fromCharCode(65 + row[5]) + (row[4][row[5]] ? '. ' + escapePyqHtml(row[4][row[5]]) : '')
-      : 'Not supplied';
-    return '<li style="margin:0 0 15px;padding:0 0 12px;border-bottom:1px solid #eadf9d;">' +
-      '<p style="font-size:.86em;color:#625d4c;margin:3px 0 6px;">[' + year + ']' +
-      (exam ? ' · ' + escapePyqHtml(exam) : '') + '</p>' +
-      '<p style="white-space:pre-wrap;margin:5px 0;"><strong>' + escapePyqHtml(row[3]) + '</strong></p>' +
-      options +
-      '<p style="font-weight:600;color:#365b2c;margin:5px 0;">Workbook answer key: ' + answerText + '</p>' +
+    const exam = row[2] || '';
+    const options = row[4].map((option, optionIndex) => {
+      const isCorrect = optionIndex === row[5];
+      const label = String.fromCharCode(65 + optionIndex);
+      return '<li style="margin:4px 0;padding:5px 8px;border-radius:4px;' +
+        (isCorrect ? 'background:#eaf6e6;border-left:3px solid #78b65a;font-weight:600;' : '') +
+        '">' + '<strong>' + label + '.</strong> ' + escapePyqHtml(option) +
+        (isCorrect ? ' <span style="font-size:.82em;color:#365b2c;">✓ Correct option</span>' : '') +
+        '</li>';
+    }).join('');
+    const answerText = row[5] >= 0 && row[5] < row[4].length
+      ? String.fromCharCode(65 + row[5]) + '. ' + escapePyqHtml(row[4][row[5]])
+      : 'No valid answer key supplied';
+    const explanation = row[6]
+      ? escapePyqHtml(row[6])
+      : 'No explanation was supplied in the source workbook. Verify this concept against the theory notes.';
+    return '<li style="margin:0 0 18px;padding:0 0 14px;border-bottom:1px solid #eadf9d;">' +
+      '<p style="font-size:.86em;color:#625d4c;margin:3px 0 6px;">' +
+      (year ? '[' + escapePyqHtml(year) + '] ' : '[Year not recorded] ') +
+      (exam ? '· ' + escapePyqHtml(exam) : '') + '</p>' +
+      '<p style="white-space:pre-wrap;margin:5px 0;"><strong>' + (index + 1) + '. ' + escapePyqHtml(row[3]) + '</strong></p>' +
+      '<ol type="A" style="list-style-type:upper-alpha;margin:7px 0 9px 22px;padding-left:18px;">' +
+      options + '</ol>' +
+      '<p style="font-weight:700;color:#365b2c;margin:7px 0 5px;">Correct answer (workbook key): ' + answerText + '</p>' +
+      '<div style="background:#f7fbf4;border-left:3px solid #78b65a;padding:9px 12px;margin:7px 0 0;border-radius:4px;">' +
+      '<strong>Explanation:</strong><p style="white-space:pre-wrap;margin:5px 0 0;">' + explanation + '</p></div>' +
       '</li>';
   }).join('');
   return '<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 24px;">' +
     '<h3>' + title + ' — ' + rows.length + ' questions</h3>' +
-    '<p style="font-size:.88em;color:#625d4c;margin:4px 0 10px;">Questions are reproduced from the workbook. Repeated records are retained; answer keys are shown as supplied and have not all been independently verified.</p>' +
+    '<p style="font-size:.88em;color:#625d4c;margin:4px 0 10px;">All available options are shown. The green option is the workbook-marked answer; the explanation is reproduced from the workbook. Repeated question records are retained. Verify questionable source keys before memorizing them.</p>' +
     '<ol style="padding-left:22px;">' + questions + '</ol></div>';
 }
 
