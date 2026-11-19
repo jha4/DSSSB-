@@ -164,6 +164,17 @@
   <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Exam trap:</strong> Copyright, patent and trademark are different IPR protections. Software piracy is unauthorized copying/use. Netiquette means Internet etiquette.</div>
   <!-- PYQ:cyberlaw -->
 
+  
+  <h2>17A. SSL/TLS and secure browsing — additional syllabus detail</h2>
+  <ul>
+    <li><strong>SSL (Secure Sockets Layer):</strong> an older protocol family designed to protect client-server communication. SSL versions are obsolete and should not be used for modern secure configurations.</li>
+    <li><strong>TLS (Transport Layer Security):</strong> the modern successor to SSL. It provides confidentiality through encryption, integrity protection and authentication of the server (and optionally the client). HTTPS is HTTP carried over TLS.</li>
+    <li><strong>Certificate validation:</strong> the browser checks that a certificate chains to a trusted Certificate Authority, matches the requested hostname and is within its validity period. Revocation status may also be checked. A padlock does not prove that a website is honest or free from phishing.</li>
+    <li><strong>TLS handshake:</strong> client and server negotiate protocol parameters; the server proves its identity with a certificate; key agreement establishes shared session keys; protected application data then flows. Exact handshake messages differ by TLS version.</li>
+    <li><strong>Secure browsing:</strong> use HTTPS; verify the domain before entering credentials; keep the browser and operating system updated; do not bypass certificate warnings; avoid suspicious links/attachments; use MFA and unique passwords; sign out of shared devices. A VPN can protect a network path but cannot make a phishing site trustworthy.</li>
+    <li><strong>Firewall types:</strong> packet-filtering firewalls inspect packet headers; stateful firewalls track connection state; application/proxy firewalls inspect application-layer traffic. A firewall does not replace patching, endpoint protection, backups or user awareness.</li>
+    <li><strong>Exam distinction:</strong> SSL is obsolete; TLS is its modern successor. HTTPS is HTTP protected by TLS, not a separate encryption algorithm. A digital certificate binds an identity to a public key; it is not the private key itself.</li>
+  </ul>
   <h2>18. Miscellaneous PYQs</h2>
   <p>One workbook record has an incomplete, context-free stem and cannot be safely mapped to a specific syllabus subtopic. It is retained here with its source answer key, clearly marked for original-paper verification.</p>
   <!-- PYQ:misc -->
