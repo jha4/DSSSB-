@@ -360,7 +360,7 @@
       "computer-science"
     ],
     "date": "2026-11-19",
-    "summary": "HTML document structure, common tags, attributes, forms, semantic HTML5, audio/video and 24 topic-wise PYQs.",
+    "summary": "HTML document structure, common tags, attributes, forms, semantic HTML5, audio/video and 22 topic-wise PYQs.",
     "file": "notes/web-technology-html-forms.html"
   },
   {
@@ -398,7 +398,7 @@
       "computer-science"
     ],
     "date": "2026-11-19",
-    "summary": "JavaScript fundamentals, callbacks, DOM, browser objects, events, form validation, AJAX and 28 PYQs.",
+    "summary": "JavaScript fundamentals, callbacks, DOM, browser objects, events, form validation, AJAX and 31 topic-wise PYQs.",
     "file": "notes/web-technology-javascript-ajax.html"
   },
   {
@@ -436,7 +436,7 @@
       "computer-science"
     ],
     "date": "2026-11-19",
-    "summary": "CLR, JIT, MSIL/CIL, ASP.NET server controls, state, data binding, MVC, ADO.NET and 20 Web-labelled plus 5 .NET-labelled PYQs.",
+    "summary": "CLR, JIT, MSIL/CIL, ASP.NET server controls, state, data binding, MVC, ADO.NET and 16 Web-labelled plus 5 .NET-labelled PYQs.",
     "file": "notes/web-technology-dotnet-aspnet.html"
   },
   {
@@ -455,7 +455,7 @@
       "computer-science"
     ],
     "date": "2026-11-19",
-    "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 5 topic-wise PYQs.",
+    "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 8 topic-wise PYQs.",
     "file": "notes/web-technology-miscellaneous.html"
   }
 ]
