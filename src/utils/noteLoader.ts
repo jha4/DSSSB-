@@ -434,7 +434,7 @@ async function hydratePyqPlaceholders(
   rawHtml: string,
   signal?: AbortSignal
 ): Promise<string> {
-  if (!/<!--\s*PYQ:[a-z-]+\s*-->/.test(rawHtml)) return rawHtml;
+  if (!rawHtml.includes('<!-- PYQ:')) return rawHtml;
 
   const dataResponse = await fetch(
     resolveNoteUrl('notes/part-b-pyq-data.deflate.b64'),
@@ -464,11 +464,16 @@ async function hydratePyqPlaceholders(
   }
 
   return rawHtml.replace(
-    /<!--\s*PYQ:([a-z-]+)\s*-->/g,
-    (_marker, key: string) => {
-      const questions = groups.get(key) ?? [];
+    /<!--\\s*PYQ:([a-z-]+)(?:\\|([^>]+?))?\\s*-->/g,
+    (_marker, key: string, sourceTopic?: string) => {
+      const topicFilter = (sourceTopic ?? '').trim();
+      const allQuestions = groups.get(key) ?? [];
+      const questions = topicFilter
+        ? allQuestions.filter((question) => (question.t ?? '').trim().toLowerCase() === topicFilter.toLowerCase())
+        : allQuestions;
       if (questions.length === 0) return '';
-      const title = PYQ_TITLES[key] ?? 'PYQs';
+      const baseTitle = PYQ_TITLES[key] ?? 'PYQs';
+      const title = topicFilter ? `${baseTitle} — ${topicFilter}` : baseTitle;
       const items = questions.map(renderPyqQuestion).join('');
       return `<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
         <h3>PYQs — ${escapePyqHtml(title)} (${questions.length})</h3>
