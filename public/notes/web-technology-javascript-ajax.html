@@ -1,0 +1,184 @@
+<section><p><strong>DSSSB TGT Computer Science — JavaScript, DOM, DHTML and AJAX</strong>. Theory is followed immediately by the matching workbook PYQs, including the available options, keyed answer and source explanation.</p>
+<h2>JavaScript, DOM, DHTML and AJAX</h2>
+<h3>JavaScript fundamentals</h3>
+<p>JavaScript is a programming language used to add behaviour to web pages and also used in server runtimes. A JavaScript source file commonly uses the <code>.js</code> extension.</p>
+<ul><li>Embed code with <code>&lt;script&gt; ... &lt;/script&gt;</code>; load an external file with <code>&lt;script src="app.js" defer&gt;&lt;/script&gt;</code>.</li><li><code>let</code> and <code>const</code> are block-scoped; <code>var</code> is function-scoped. A const binding cannot be reassigned, though an object it references may be mutated.</li><li>Use <code>===</code> for strict equality when implicit type conversion is not intended.</li><li>Functions are reusable callable blocks. A <strong>callback</strong> is a function passed to another function to be called later, for example after an event or asynchronous operation.</li><li>Arrays are zero-indexed. Common methods include <code>push</code>, <code>pop</code>, <code>slice</code>, <code>splice</code>, <code>map</code>, <code>filter</code> and <code>forEach</code>.</li><li><code>for...in</code> iterates enumerable property keys; <code>for...of</code> iterates values from an iterable.</li></ul>
+<h3>Browser objects and the DOM</h3>
+<ul><li><strong>DOM</strong> (Document Object Model) represents a document as a tree of objects/nodes that scripts can inspect and modify.</li><li><strong>window:</strong> top-level browser window/global object; <strong>document:</strong> current page document; <strong>location:</strong> current URL/navigation; <strong>history:</strong> session history; <strong>navigator:</strong> browser/device information.</li><li>Useful methods: <code>getElementById()</code>, <code>querySelector()</code>, <code>querySelectorAll()</code>, <code>createElement()</code>, <code>append()</code>, <code>remove()</code>, <code>addEventListener()</code>.</li><li><code>document</code> holds the document content/tree; <code>window</code> is the containing browser window.</li><li>Dialogs: <code>alert()</code> displays a message; <code>confirm()</code> asks for confirmation; <code>prompt()</code> requests text input.</li></ul>
+<h3>Events and event handling</h3>
+<table><thead><tr><th>Event</th><th>When it occurs</th></tr></thead><tbody><tr><td><code>click</code></td><td>Element is clicked.</td></tr><tr><td><code>change</code></td><td>Control value is committed/changed.</td></tr><tr><td><code>input</code></td><td>Value changes as user edits.</td></tr><tr><td><code>mouseover</code></td><td>Pointer moves onto an element.</td></tr><tr><td><code>keydown</code></td><td>Keyboard key is pressed.</td></tr><tr><td><code>load</code></td><td>Resource/page has loaded.</td></tr><tr><td><code>submit</code></td><td>Form submission is initiated.</td></tr></tbody></table>
+<p>Register handlers with <code>addEventListener()</code>. An event object provides information about the event. Call <code>event.preventDefault()</code> to stop the browser's default action, such as a normal form submission. Use <code>stopPropagation()</code> to stop further propagation through the event path.</p>
+<h3>Forms, validation and asynchronous requests</h3>
+<ul><li><code>form.submit()</code> submits a form programmatically but bypasses constraint validation and does not dispatch the normal submit event. <code>form.requestSubmit()</code> behaves more like activating a submit button.</li><li>Client-side validation gives immediate feedback but must be repeated on the server because browser code can be bypassed.</li><li>Regular expressions test patterns; a successful regex does not prove an email address exists or is deliverable.</li><li>Promises represent eventual success/failure. <code>async/await</code> is syntax for working with promises.</li><li><strong>AJAX</strong> (Asynchronous JavaScript and XML) is a technique for making asynchronous requests and updating part of a page without a full reload. Modern apps often exchange JSON rather than XML; AJAX is not a programming language.</li></ul>
+<h3>DHTML and jQuery</h3>
+<p><strong>DHTML</strong> means Dynamic HTML: a combination of HTML, CSS, JavaScript and the DOM used to change page content or style dynamically. It is not a separate markup language. jQuery is a JavaScript library; animation methods include <code>slideDown()</code>. The DOM style API can change CSS properties, while <code>window.resizeTo()</code> is a legacy/browser-restricted method for resizing a window.</p>
+<div class="note-callout green"><strong>High-yield:</strong> .js extension, script tag, callback, DOM vs window/document, event names, preventDefault(), prompt(), for...in, AJAX and DHTML.</div>
+<h2>Topic-wise PYQs (28 workbook records)</h2><ol class='pyq-list'><li class="pyq-item">
+<div class="pyq-meta">PYQ #3 · 2022 · DSSSB - Computer Science</div>
+<p class="pyq-question"><strong>JavaScript files have the file extension __________.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> .js</li><li><strong>B.</strong> .javascript</li><li><strong>C.</strong> .jscript</li><li><strong>D.</strong> .jst</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. .js</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: JavaScript source files use the .js file extension. For example, a JavaScript file may be named script.js.<br><br>Why other options are incorrect: .javascript, .jscript, and .jst are not the standard file extensions for JavaScript source files. The standard extension is .js.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #4 · 2018 · DSSSB - Computer Science</div>
+<p class="pyq-question"><strong>In DHTML, the letter &#x27;D&#x27; stands for:</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Distributed</li><li><strong>B.</strong> Dynamic</li><li><strong>C.</strong> Daily</li><li><strong>D.</strong> Different</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. Dynamic</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: DHTML stands for Dynamic HTML (Dynamic HyperText Markup Language). The &#x27;D&#x27; stands for Dynamic, referring to the ability to change web page content or presentation dynamically.<br><br>Why other options are incorrect: Distributed, Daily, and Different are not the meanings of the letter &#x27;D&#x27; in DHTML. The correct answer is Dynamic.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #7 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What will the output of the following code snippet be?<br>&lt;script&gt;<br>document.write(&quot;Hello&quot;)<br>document.write(&quot;\nIndia&quot;)<br>&lt;/script&gt;</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Hello</li><li><strong>B.</strong> HelloIndia</li><li><strong>C.</strong> India</li><li><strong>D.</strong> Hello India</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Hello India</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In HTML, the `document.write()` method writes content to the document. While `\n` (newline character) typically creates a new line in plain text environments, in HTML, whitespace characters (including newlines) are generally collapsed into a single space unless explicitly styled (e.g., using `&lt;pre&gt;` tags or CSS `white-space` property). Therefore, &#x27;Hello&#x27; will be written, followed by a space, and then &#x27;India&#x27;. The output will appear as &#x27;Hello India&#x27;.<br><br>Why other options are incorrect: Option 1 (&#x27;Hello&#x27;) is incorrect because &#x27;India&#x27; is also written. Option 2 (&#x27;HelloIndia&#x27;) is incorrect because the `\n` character usually results in a space in HTML rendering. Option 3 (&#x27;India&#x27;) is incorrect because &#x27;Hello&#x27; is written first.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #18 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following methods is used to slide down an element?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> slideDown()</li><li><strong>B.</strong> moveBelow()</li><li><strong>C.</strong> moveDown()</li><li><strong>D.</strong> slideBelow()</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. slideDown()</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript libraries like jQuery, `slideDown()` is a commonly used method to animate the height of an element, making it gradually appear by &#x27;sliding down&#x27; from a hidden state.<br><br>Why other options are incorrect: The options &#x27;moveBelow()&#x27;, &#x27;moveDown()&#x27;, and &#x27;slideBelow()&#x27; are not standard or recognized methods for this specific animation effect in popular JavaScript libraries like jQuery.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #39 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Match the column JavaScript-Events with the column Descriptions. JavaScript-Events: a) onchange b) onmouseover c) onkeydown d) onload. Descriptions: i) The browser has finished loading the page. ii) An HTML element has been changed. iii) The user moves the mouse over an HTML element. iv) The user pushes a keyboard key.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> a-ii, b-iv, c-iii, d-i</li><li><strong>B.</strong> a-iii, b-ii, c-iv, d-i</li><li><strong>C.</strong> a-ii, b-iii, c-iv, d-i</li><li><strong>D.</strong> a-iv, b-iii, c-i, d-ii</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. a-ii, b-iii, c-iv, d-i</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The correct matches are: a) `onchange` (ii) - An HTML element has been changed (e.g., input field value). b) `onmouseover` (iii) - The user moves the mouse over an HTML element. c) `onkeydown` (iv) - The user pushes a keyboard key. d) `onload` (i) - The browser has finished loading the page and all its resources.<br><br>Why other options are incorrect: The other options contain incorrect pairings. For example, option 1 incorrectly matches `onmouseover` with &#x27;The user pushes a keyboard key&#x27; and `onkeydown` with &#x27;The user moves the mouse over an HTML element&#x27;. Option 2 incorrectly matches `onmouseover` with &#x27;An HTML element has been changed&#x27;. Option 4 incorrectly matches `onchange` with &#x27;The user pushes a keyboard key&#x27; and `onload` with &#x27;An HTML element has been changed&#x27;.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #48 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is/are the purpose(s) of JavaScript events? i) To provide a dynamic interface to a webpage. ii) To provide a static interface to a webpage.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Only (ii)</li><li><strong>B.</strong> Both (i) and (ii)</li><li><strong>C.</strong> Only (i)</li><li><strong>D.</strong> Neither (i) nor (ii)</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Only (i)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: JavaScript events are mechanisms that allow web pages to respond to user actions (like clicks, key presses, mouse movements) or browser events (like page load, image load). This interactivity is precisely what makes a webpage dynamic, allowing content or behavior to change in response to user input or other triggers.<br><br>Why other options are incorrect: Option ii) &#x27;To provide a static interface to a webpage&#x27; is incorrect. A static interface implies no interactivity or change in response to user actions, which is the opposite of what JavaScript events enable. Therefore, options including (ii) or excluding (i) are incorrect.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #55 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>In java script a ______ function can be defined as a function passed into another function as a parameter.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> call front</li><li><strong>B.</strong> roll back</li><li><strong>C.</strong> roll front</li><li><strong>D.</strong> call back</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. call back</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript, a callback function is a function that is passed as an argument to another function and is executed after the outer function has completed some operation. This is a fundamental pattern for asynchronous programming and event handling in JavaScript.<br><br>Why other options are incorrect: &#x27;Call front,&#x27; &#x27;roll back,&#x27; and &#x27;roll front&#x27; are not standard terms used in JavaScript to describe a function passed as a parameter to another function. &#x27;Roll back&#x27; is typically associated with database transactions or version control.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #56 · 2021 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is AJAX in ASP.NET?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Associated java script and XML</li><li><strong>B.</strong> Asynchronous java script and HTML</li><li><strong>C.</strong> Associated java script and HTML</li><li><strong>D.</strong> Asynchronous java script and XML</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Asynchronous java script and XML</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: AJAX is an acronym that stands for Asynchronous JavaScript and XML. It is a set of web development techniques that allows web applications to send and retrieve data from a server asynchronously (in the background) without interfering with the display and behavior of the existing page.<br><br>Why other options are incorrect: The other options (Associated java script and XML, Asynchronous java script and HTML, Associated java script and HTML) are incorrect expansions of the AJAX acronym. While HTML is often involved in AJAX applications, &#x27;XML&#x27; is part of the original acronym, representing the data format often used, though JSON is now more common.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #69 · 2023 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>While working on a JavaScript project, in your JavaScript application, which function would you use to send messages to users requesting for text input?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Display()</li><li><strong>B.</strong> Alert()</li><li><strong>C.</strong> Prompt()</li><li><strong>D.</strong> Get input()</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. Prompt()</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript, the `prompt()` function displays a dialog box that asks the user for input, typically with an optional message and an input field. It returns the user&#x27;s input as a string, making it suitable for requesting text input from users.<br><br>Why other options are incorrect: `Alert()` displays a message box with an &#x27;OK&#x27; button but does not allow for text input. `Display()` and `Get input()` are not standard built-in JavaScript functions for the purpose of requesting text input from users via a dialog box.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #74 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which method is used to loop through all the enumerable properties of an object in JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> for...in</li><li><strong>B.</strong> Object.values()</li><li><strong>C.</strong> forEach()</li><li><strong>D.</strong> Object.keys()</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. for...in</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The JavaScript `for...in` block is specifically designed to loop over an object&#x27;s enumerable property keys, allowing developers to inspect dynamic dictionary objects.<br><br>Why other options are incorrect: `Object.values()` and `Object.keys()` return static arrays containing an object&#x27;s immediate data properties rather than looping natively. `forEach()` is a built-in method exclusive to Array prototypes.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #77 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following is used to include JavaScript code within an HTML document?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &lt;javascript&gt;</li><li><strong>B.</strong> &lt;js&gt;</li><li><strong>C.</strong> &lt;script&gt;</li><li><strong>D.</strong> &lt;java&gt;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. &lt;script&gt;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: HTML specifications define the `&lt;script&gt;` tag as the container for scripting instructions. It allows browsers to parse and run code blocks asynchronously or synchronously.<br><br>Why other options are incorrect: Tags like `&lt;javascript&gt;`, `&lt;js&gt;`, and `&lt;java&gt;` are completely invalid elements that browser HTML parsers do not recognize for scripting contexts.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #78 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>How does one prevent a form from submitting when using JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> form.submit()</li><li><strong>B.</strong> event.stopPropagation()</li><li><strong>C.</strong> event.preventDefault()</li><li><strong>D.</strong> return false;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. event.preventDefault()</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Calling `event.preventDefault()` inside an event listener intercepts the standard submit action, allowing developers to execute custom asynchronous validation routines instead.<br><br>Why other options are incorrect: `form.submit()` actively forces form submission, while `event.stopPropagation()` stops event bubbling without halting the form&#x27;s default action.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #80 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the output of the following JavaScript code?<br>const obj = { name: &quot;Alice&quot; };<br>Object.defineProperty(obj, &quot;age&quot;, {<br>  value: 25,<br>  writable: false,<br>});<br>obj.age = 30;<br>console.log(obj.age);</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> undefined</li><li><strong>B.</strong> 30</li><li><strong>C.</strong> Error: Cannot modify property</li><li><strong>D.</strong> 25</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. 25</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Because the `writable` descriptor configuration flag is explicitly set to false, assignment modifications fail silently in non-strict execution modes, leaving the value at 25.<br><br>Why other options are incorrect: The change operation fails silently without crashing execution loops, unless explicit ECMA strict modules (`&quot;use strict&quot;`) are active.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #83 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following statements about the DOM (Document Object Model) in JavaScript is true regarding its interaction with HTML and JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> The DOM only allows reading the HTML document but does not permit any changes or updates.</li><li><strong>B.</strong> The DOM allows JavaScript to directly modify the structure of the HTML document by manipulating its elements, attributes and content.</li><li><strong>C.</strong> The DOM is a static representation of the page and does not update dynamically when changes occur in the document.</li><li><strong>D.</strong> The DOM can only interact with text-based HTML documents and cannot modify styles or events.</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. The DOM allows JavaScript to directly modify the structure of the HTML document by manipulating its elements, attributes and content.</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The DOM transforms a web document into an interactive node tree. JavaScript can manipulate this tree to add, modify, or delete elements and attributes dynamically at runtime[cite: 4].<br><br>Why other options are incorrect: The DOM is a dynamic live framework that handles interactive elements, layout styles, and event listeners rather than acting as a static, read-only document presentation view.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #84 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What is the main purpose of client-side scripting in JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> To execute code on the server</li><li><strong>B.</strong> To store data on the server</li><li><strong>C.</strong> To run code on the user&#x27;s web browser</li><li><strong>D.</strong> To interact with the database directly</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. To run code on the user&#x27;s web browser</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: Client-side scripting executes code locally on the user&#x27;s device, enabling interactive user interfaces, local input validation, and dynamic updates to the document object model[cite: 4].<br><br>Why other options are incorrect: Server-side engines process data transactions and manage direct database connections, whereas client-side code runs entirely within the local browser sandbox environment.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #85 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>What will be the output of the following JavaScript code? const email = &quot;example@domain&quot;; const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; console.log(regex.test(email));</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Error: Invalid regex</li><li><strong>B.</strong> undefined</li><li><strong>C.</strong> FALSE</li><li><strong>D.</strong> TRUE</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. FALSE</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: The regular expression expects a standard email format that includes a top-level domain suffix (like `.com`). Because the input string &quot;example@domain&quot; lacks this suffix, the `test()` method evaluates to false[cite: 4].<br><br>Why other options are incorrect: The regular expression is syntactically valid, so it runs successfully and returns a boolean result without throwing execution errors.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #86 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which method is used to submit a form using JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> form.send()</li><li><strong>B.</strong> form.submitForm()</li><li><strong>C.</strong> form.submit()</li><li><strong>D.</strong> form.post()</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. form.submit()</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In the standard browser DOM API, calling `form.submit()` triggers the target form&#x27;s element transmission routine directly[cite: 4].<br><br>Why other options are incorrect: Alternative method names like `send()`, `submitForm()`, or `post()` do not exist within standard browser HTMLFormElement interface models[cite: 4].</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #87 · 2025 · DSSSB TGT Computer Science</div>
+<p class="pyq-question"><strong>Which of the following statements is true about JavaScript arrays?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> JavaScript arrays can store elements of multiple data types.</li><li><strong>B.</strong> JavaScript arrays are of fixed size.</li><li><strong>C.</strong> JavaScript arrays cannot be modified once created.</li><li><strong>D.</strong> JavaScript arrays can store elements of only one data type.</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. JavaScript arrays can store elements of multiple data types.</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: JavaScript arrays are dynamic objects. A single array can hold strings, numbers, objects, and boolean elements simultaneously without strict element type rules[cite: 4].<br><br>Why other options are incorrect: Propositions stating that JavaScript arrays have fixed dimensions or enforce uniform data types misinterpret dynamically typed execution environments[cite: 4].</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #96 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>In DHTML, the letter &#x27;D&#x27; stands for:</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Distributed</li><li><strong>B.</strong> Dynamic</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B. Dynamic</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In DHTML, D stands for Dynamic DHTML is not a distinct language but rather a collection of web technologies used to create dynamic &amp; interactive web the capabilies of static HTML.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #104 · 2021 · DSSSB TGT C.S.</div>
+<p class="pyq-question"><strong>In JavaScript a ____________ function can be defined as a function passed into another function as a parameter.</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Call front</li><li><strong>B.</strong> Call back</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B. Call back</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript a call back function is a function that is passed into another function as a parameter and is then invoked inside the outer function to complete some kind of action. Callback functions are commonly used in asynchronous operations, event handling and higher order functions.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #106 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>In JavaScript, the ______ is the master container for all content you view in the web browser,</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Document Object</li><li><strong>B.</strong> Window Object</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: B. Window Object</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript, the window object is the master container for all content you view in the web browser. The window object represent the browser window itself and serves as the global object for all JavaScript code running in hat window.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #107 · 2018 · DSSSB PGT C.S. (Male)</div>
+<p class="pyq-question"><strong>Which object holds the real content of the page in JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Document</li><li><strong>B.</strong> Alert</li></ol><p class='meta'><em>Source limitation: only 2 option field(s) were populated in the workbook for this record.</em></p>
+<p class="pyq-answer"><strong>Correct answer: A. Document</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> Core Concept: In JavaScript, the Document Object Model (DOM) holds the real content of the page. More specifically, the &#x27;document&#x27; object represents the entire HTML document and server as the entry point for interacting with the page&#x27;s content, structure and style.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #108 · 2025 · dssb</div>
+<p class="pyq-question"><strong>Which of the following DHTML methods is used to change the style of an HTML element using CSS dynamically ?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> document.getElementById(&quot;element&quot;).setCSS()</li><li><strong>B.</strong> element.style.backgroundColor = &quot;red&quot;</li><li><strong>C.</strong> document.createElement(&quot;style&quot;)</li><li><strong>D.</strong> window.addEventListener(&quot;resize&quot;)</li></ol>
+<p class="pyq-answer"><strong>Correct answer: B. element.style.backgroundColor = &quot;red&quot;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> DHTML changes style through an element&#x27;s style object, as in element.style.backgroundColor = &quot;red&quot;.<br>setCSS() doesn&#x27;t exist. Creating a &lt;style&gt; element or adding a resize listener doesn&#x27;t style the element directly.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #109 · 2025 · dssb</div>
+<p class="pyq-question"><strong>What is the output of the following JavaScript code?<br><br>let x = 10<br><br>(x &gt; 5) console.log(&quot;Greater&quot;);<br><br>} else {<br><br>console.log(&quot;Smaller&quot;);<br><br>}</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> &quot;undefined&quot;</li><li><strong>B.</strong> Error</li><li><strong>C.</strong> &quot;Smaller&quot;</li><li><strong>D.</strong> &quot;Greater&quot;</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. &quot;Greater&quot;</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> The transcription has lost the start of the code. It should read let x = 10; if (x &gt; 5) { console.log(&quot;Greater&quot;); } else { … }.<br>x = 10 is greater than 5, so it prints Greater.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #110 · 2025 · dssb</div>
+<p class="pyq-question"><strong>Which of the following DHTML methods is used to control the browser window size, such as resizing it dynamically via JavaScript?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> document.resizeWindow()</li><li><strong>B.</strong> window.changeSize()</li><li><strong>C.</strong> window.resizeTo()</li><li><strong>D.</strong> window.setSize()</li></ol>
+<p class="pyq-answer"><strong>Correct answer: C. window.resizeTo()</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> window.resizeTo(w, h) resizes the browser window, and resizeBy changes it by an amount. Modern browsers allow this only for windows opened with window.open().<br>The other methods don&#x27;t exist.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #112 · 2025 · dssb</div>
+<p class="pyq-question"><strong>Which advantage of AJAX helps in reducing bandwidth consumption?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> AJAX sends and retrieves only small amounts of data from the server.</li><li><strong>B.</strong> AJAX uses less JavaScript.</li><li><strong>C.</strong> AJAX increases data transfer.</li><li><strong>D.</strong> AJAX only loads images on the page.</li></ol>
+<p class="pyq-answer"><strong>Correct answer: A. AJAX sends and retrieves only small amounts of data from the server.</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> AJAX exchanges only the data needed (often small JSON or XML) and updates part of the page instead of reloading the whole page. This saves bandwidth.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #126 · 2023 · dssb</div>
+<p class="pyq-question"><strong>What will the output of the following code snippet be?  document.write (&quot;Hello&quot;) document.write (&quot;\nlndia&quot;)  Hello Hellolndia India Hello India</strong></p>
+<p class='meta'><em>Options were not stored in separate option columns; any option text embedded in the question is retained above. No missing options have been invented.</em></p>
+<p class="pyq-answer"><strong>Correct answer: D (answer key as recorded; option text not separately available)</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> document.write outputs into HTML, where &#x27;\n&#x27; becomes ordinary whitespace. The page therefore shows &#x27;Hello India&#x27; on one line, with a space.</p>
+</li><li class="pyq-item">
+<div class="pyq-meta">PYQ #128 · 2021 · dssb</div>
+<p class="pyq-question"><strong>What is AJAX in ASP.NET?</strong></p>
+<ol class='options' type='A'><li><strong>A.</strong> Associated java script and XML</li><li><strong>B.</strong> Asynchronous java script and HTML</li><li><strong>C.</strong> Associated java script and HTML</li><li><strong>D.</strong> Asynchronous java script and XML</li></ol>
+<p class="pyq-answer"><strong>Correct answer: D. Asynchronous java script and XML</strong></p>
+<p class="pyq-explanation"><strong>Explanation (workbook):</strong> AJAX stands for Asynchronous JavaScript And XML. In ASP.NET (e.g. UpdatePanel) it updates part of a page without a full postback.</p>
+</li></ol></section>
