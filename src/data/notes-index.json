@@ -134,7 +134,7 @@
       "hashing",
       "PYQ"
     ],
-    "summary": "Detailed topic-by-topic theory for arrays, linked lists, stacks, queues, trees, BST/AVL, heaps, graphs and hashing, with all available Data Structures PYQs placed after their related topics.",
+    "summary": "84 workbook records assigned to Data Structures (56 source-labelled Data Structures plus 28 mixed DSA records), organised after detailed theory for arrays, linked lists, stacks, queues, trees, BST/AVL, heaps, graphs and hashing. All available options, source keys and explanations are retained.",
     "file": "notes/data-structures-complete-notes.html"
   },
   {
@@ -156,7 +156,7 @@
       "dynamic-programming",
       "PYQ"
     ],
-    "summary": "Expanded algorithm fundamentals, complexity, recurrences, searching, sorting, recursion, divide and conquer, greedy, dynamic programming and graph algorithms, with topic-wise PYQs.",
+    "summary": "70 workbook records assigned to Algorithms (47 source-labelled Algorithms plus 23 mixed DSA records), organised after detailed theory for fundamentals, complexity, searching, sorting, recursion, divide and conquer, greedy, dynamic programming and graph algorithms. All available options, source keys and explanations are retained.",
     "file": "notes/design-analysis-algorithms-complete-notes.html"
   },
   {
