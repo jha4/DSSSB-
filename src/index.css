@@ -21,6 +21,42 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Scrollable "On This Page" outline */
+.toc-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+  scrollbar-gutter: stable;
+}
+
+.toc-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+}
+
+.toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.dark .toc-scrollbar {
+  scrollbar-color: #475569 transparent;
+}
+
+.dark .toc-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark .toc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
 /* Static HTML Note Reading Styles */
 .note-html-body {
   color: #1e293b;
