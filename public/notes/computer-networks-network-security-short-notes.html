@@ -17,7 +17,7 @@
   </ul>
   <p><strong>Study rule:</strong> Learn the complete syllabus, not only the topics represented in this workbook. PYQ frequency is a revision aid, not a guarantee of what will appear next.</p>
 
-  <h2>2. Network fundamentals, architecture and topologies</h2>
+  <h2>1. Network fundamentals, architecture and topologies</h2>
   <h3>Core definitions</h3>
   <ul><li><strong>Computer network:</strong> interconnected devices that exchange data and share resources using communication links and protocols.</li><li><strong>Protocol:</strong> agreed rules for message format, meaning, timing, sequencing and error handling.</li><li><strong>Node:</strong> any connected endpoint or intermediate device. <strong>Host:</strong> an end system that sends or receives data.</li><li><strong>Client-server:</strong> clients request services from a server. <strong>Peer-to-peer:</strong> peers can act as both clients and servers; no dedicated central server is inherently required.</li><li><strong>Internet:</strong> a global network of interconnected networks using the TCP/IP protocol suite. ARPANET was an important precursor.</li></ul>
   <h3>Network types</h3>
@@ -28,7 +28,7 @@
   <p><strong>PYQ focus:</strong> Network types, topology identification, client-server versus peer-to-peer, protocol definitions and mesh-link calculations.</p>
   <!-- PYQ:fundamentals -->
 
-  <h2>3. OSI model and layered architecture</h2>
+  <h2>2. OSI model and layered architecture</h2>
   <p>The OSI reference model has <strong>7 layers</strong>. Encapsulation adds layer-specific control information as data moves down the stack; decapsulation removes it at the receiver.</p>
   <table><thead><tr><th>Layer</th><th>Name</th><th>Core function / examples</th></tr></thead><tbody>
   <tr><td>7</td><td>Application</td><td>Network services to applications; HTTP, FTP, SMTP, DNS.</td></tr>
@@ -45,7 +45,7 @@
   <p><strong>PYQ focus:</strong> OSI layer responsibilities, dialogue control, bit-stream transmission, TCP/IP layer mapping and protocol-layer identification.</p>
   <!-- PYQ:osi -->
 
-  <h2>4. Transmission media, signals and switching</h2>
+  <h2>3. Transmission media, signals and switching</h2>
   <h3>Guided media</h3>
   <ul><li><strong>Twisted pair:</strong> two insulated copper wires twisted to reduce interference; UTP/STP; common Ethernet medium. RJ-45 is commonly used with Ethernet twisted-pair cabling.</li><li><strong>Coaxial cable:</strong> central conductor, insulation, metallic shield and outer jacket; better shielding than ordinary UTP.</li><li><strong>Optical fibre:</strong> transmits light through a core and cladding using total internal reflection; high bandwidth, long distance and immunity to electromagnetic interference. Single-mode supports long distances; multimode is common for shorter links.</li></ul>
   <h3>Unguided media</h3>
@@ -60,7 +60,7 @@
   <p><strong>PYQ focus:</strong> Guided versus unguided media, simplex/half-duplex/full-duplex, multiplexing, signal parameters, propagation and transmission calculations.</p>
   <!-- PYQ:media -->
 
-  <h2>5. Data Link layer, MAC and error/flow control</h2>
+  <h2>4. Data Link layer, MAC and error/flow control</h2>
   <h3>Framing and MAC</h3>
   <ul><li>Data Link layer frames network-layer packets and uses link-layer addressing (MAC address in Ethernet/Wi-Fi).</li><li><strong>CSMA:</strong> station senses the medium before transmitting. <strong>CSMA/CD:</strong> detects collisions; classic shared, half-duplex Ethernet. <strong>CSMA/CA:</strong> attempts to avoid collisions; used by Wi-Fi.</li><li><strong>ALOHA:</strong> random access. Slotted ALOHA restricts transmission starts to slot boundaries. Token passing grants controlled access to the token holder.</li><li>Ethernet MAC addresses are 48 bits in conventional IEEE 802 networks.</li></ul>
   <h3>Error detection and correction</h3>
@@ -72,13 +72,13 @@
   <p><strong>PYQ focus:</strong> CSMA/CD, collision handling, ARQ, framing, error detection, flow control and retransmission methods.</p>
   <!-- PYQ:datalink -->
 
-  <h2>6. Network devices, Ethernet and WLAN</h2>
+  <h2>5. Network devices, Ethernet and WLAN</h2>
   <table><thead><tr><th>Device</th><th>Typical layer</th><th>Function</th></tr></thead><tbody><tr><td>Repeater / hub</td><td>Physical (L1)</td><td>Regenerates signals / repeats bits; hub sends to all ports.</td></tr><tr><td>Bridge / switch</td><td>Data Link (L2)</td><td>Learns MAC addresses and forwards frames; each switch port is its own collision domain.</td></tr><tr><td>Router</td><td>Network (L3)</td><td>Forwards IP packets between networks using routing table.</td></tr><tr><td>Gateway</td><td>Can operate across layers</td><td>Connects dissimilar systems/protocols; meaning depends on context.</td></tr><tr><td>Modem</td><td>Physical/link functions</td><td>Modulates/demodulates signals for a transmission system.</td></tr></tbody></table>
   <ul><li><strong>Ethernet:</strong> IEEE 802.3. Classic Ethernet uses CSMA/CD only in shared half-duplex settings; modern switched full-duplex Ethernet has no collisions.</li><li><strong>Wi-Fi:</strong> IEEE 802.11 family. 802.11i specifies WLAN security mechanisms associated with WPA2; WPA3 is a later Wi-Fi security generation.</li><li><strong>NIC:</strong> Network Interface Card/controller connects a host to a network. <strong>SSID:</strong> wireless network name; up to 32 octets.</li></ul>
   <p><strong>PYQ focus:</strong> Repeater, hub, switch, router and gateway functions; identify the layer at which each device primarily operates.</p>
   <!-- PYQ:devices -->
 
-  <h2>7. IP addressing, IPv4/IPv6 and subnetting</h2>
+  <h2>6. IP addressing, IPv4/IPv6 and subnetting</h2>
   <h3>IPv4</h3>
   <ul><li>IPv4 address = <strong>32 bits</strong>, conventionally dotted decimal (four octets).</li><li>IPv4 header minimum = <strong>20 bytes</strong>; maximum header = 60 bytes. Total datagram length field is 16 bits, so maximum packet size is 65,535 bytes.</li><li>Private ranges: 10.0.0.0/8; 172.16.0.0/12; 192.168.0.0/16. Loopback: 127.0.0.0/8; link-local: 169.254.0.0/16.</li><li>Classful addressing is historical; modern networks use CIDR/prefix notation.</li></ul>
   <h3>IPv6</h3>
@@ -89,13 +89,13 @@
   <p><strong>PYQ focus:</strong> IPv4 classes and header fields, subnet masks, host counts, MAC/IP mapping and address resolution.</p>
   <!-- PYQ:ip -->
 
-  <h2>8. Routing and network-layer protocols</h2>
+  <h2>7. Routing and network-layer protocols</h2>
   <ul><li><strong>Routing:</strong> selecting a path for packets; forwarding sends a packet to the selected next hop.</li><li><strong>Static routing:</strong> manually configured. <strong>Dynamic routing:</strong> routers exchange information and adapt to topology changes.</li><li><strong>Distance vector:</strong> shares route distance with neighbours; RIP is a classic example. Count-to-infinity is a known problem; split horizon/poison reverse and bounded metrics help mitigate it.</li><li><strong>Link state:</strong> routers distribute link-state information and compute shortest paths; OSPF uses Dijkstra's algorithm.</li><li><strong>BGP:</strong> path-vector inter-domain routing protocol used between autonomous systems.</li><li><strong>ARP:</strong> IPv4 address-to-MAC resolution on a local link. <strong>ICMP:</strong> network diagnostics/error reporting (e.g. ping uses ICMP Echo).</li><li><strong>NAT:</strong> translates address information, commonly private IPv4 to public IPv4. <strong>IPsec:</strong> security at IP layer.</li></ul>
   <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Trap:</strong> RIP = distance vector; OSPF = link state; BGP = path vector. Count-to-infinity is associated with distance-vector routing.</div>
   <p><strong>PYQ focus:</strong> Network-layer services, routing, ICMP, datagram versus virtual-circuit networks and mobile-IP terms.</p>
   <!-- PYQ:routing -->
 
-  <h2>9. Transport layer, TCP/UDP and ports</h2>
+  <h2>8. Transport layer, TCP/UDP and ports</h2>
   <table><thead><tr><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>Connection-oriented byte stream</td><td>Connectionless datagrams</td></tr><tr><td>Reliable, ordered delivery using sequence numbers, ACKs and retransmission</td><td>No built-in delivery/order guarantee</td></tr><tr><td>Flow and congestion control</td><td>Low overhead; application handles reliability if needed</td></tr><tr><td>Web, email, file transfer and many reliable services</td><td>DNS queries, streaming/real-time and latency-sensitive uses (depending on application)</td></tr></tbody></table>
   <p><strong>TCP three-way handshake:</strong> SYN → SYN-ACK → ACK. TCP connection termination commonly uses FIN/ACK exchanges. UDP has no handshake.</p>
   <h3>Common port numbers</h3>
@@ -104,37 +104,37 @@
   <p><strong>PYQ focus:</strong> TCP versus UDP, connection setup and termination, TCP flags, congestion control, flow control, ports and reliability.</p>
   <!-- PYQ:transport -->
 
-  <h2>10. Application protocols and Internet services</h2>
+  <h2>9. Application protocols and Internet services</h2>
   <ul><li><strong>HTTP:</strong> web request/response protocol. HTTPS = HTTP protected by TLS. HTTP is stateless at protocol level; cookies/tokens can maintain application sessions.</li><li><strong>FTP:</strong> file transfer; traditional control connection uses TCP 21 and active-mode data commonly TCP 20. FTPS adds TLS; SFTP is file transfer over SSH and is not FTP with TLS.</li><li><strong>SMTP:</strong> sends/relays email. <strong>POP3:</strong> retrieves mail (often download-oriented). <strong>IMAP:</strong> accesses/synchronizes mail on server.</li><li><strong>DNS:</strong> resolves names to records such as A/AAAA, MX and CNAME; normally port 53 UDP, with TCP also used.</li><li><strong>DHCP:</strong> automatically leases IP configuration; DORA = Discover, Offer, Request, Acknowledge. <strong>BOOTP:</strong> older boot configuration protocol; DHCP extends its capabilities.</li><li><strong>SNMP:</strong> network monitoring/management; manager/agent and MIB concepts. <strong>TFTP:</strong> simple file transfer using UDP port 69.</li><li><strong>URL:</strong> Uniform Resource Locator. <strong>ISP:</strong> Internet Service Provider. <strong>VoIP:</strong> Voice over IP.</li></ul>
   <p><strong>Email direction:</strong> SMTP sends; POP3/IMAP retrieve. <strong>Web:</strong> HTTP/HTTPS. <strong>Name resolution:</strong> DNS. <strong>Dynamic configuration:</strong> DHCP.</p>
   <p><strong>PYQ focus:</strong> Match application protocols to their services, including file transfer, email, name resolution, configuration and multimedia.</p>
   <!-- PYQ:application -->
 
-  <h2>11. Wireless, mobile and ad hoc networks</h2>
+  <h2>10. Wireless, mobile and ad hoc networks</h2>
   <ul><li><strong>WLAN:</strong> wireless local area network, commonly Wi-Fi (IEEE 802.11).</li><li><strong>WPAN:</strong> short-range personal network, e.g. Bluetooth (IEEE 802.15.1 historical association).</li><li><strong>GSM:</strong> Global System for Mobile Communications; cellular standard family. <strong>GPRS:</strong> packet-data service associated with GSM.</li><li><strong>CDMA:</strong> Code Division Multiple Access; users share spectrum using codes.</li><li><strong>MANET:</strong> Mobile Ad Hoc Network; infrastructure-less, self-organizing mobile nodes.</li><li><strong>WDM:</strong> wavelength division multiplexing in fibre; WDMA is wavelength-division multiple access.</li></ul>
   <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Trap:</strong> WLAN is a network category; IEEE 802.11 is the Wi-Fi family. WDM is multiplexing, not the same term as WDMA.</div>
   <p><strong>PYQ focus:</strong> Wi-Fi, GSM, GPRS, CDMA/TDMA, mobile networking, wireless access and multiplexing terminology.</p>
   <!-- PYQ:wireless -->
 
-  <h2>12. Internet governance, standards and organizations</h2>
+  <h2>11. Internet governance, standards and organizations</h2>
   <ul><li><strong>IETF:</strong> Internet Engineering Task Force; develops Internet standards and publishes RFCs.</li><li><strong>RFC:</strong> Request for Comments; documents Internet protocols, practices and standards.</li><li><strong>ICANN:</strong> coordinates the global DNS and unique Internet identifiers in collaboration with other organizations.</li><li><strong>IANA:</strong> coordinates global IP address allocation functions, protocol parameter registries and DNS root-zone functions under the relevant stewardship arrangements.</li><li><strong>ISP peering:</strong> networks exchange traffic directly by agreement; transit is a paid service providing reachability to other networks.</li></ul>
   <p><strong>PYQ focus:</strong> Internet address-space coordination, domain names, protocol parameters and the roles of Internet organizations.</p>
   <!-- PYQ:governance -->
 
-  <h2>13. Cryptography and encryption algorithms</h2>
+  <h2>12. Cryptography and encryption algorithms</h2>
   <ul><li><strong>Plaintext:</strong> readable input. <strong>Ciphertext:</strong> transformed encrypted output. <strong>Encryption:</strong> plaintext to ciphertext; decryption reverses it with the required key.</li><li><strong>Symmetric cryptography:</strong> same shared secret key encrypts/decrypts; fast for bulk data. Key distribution is a challenge. AES is the modern standard.</li><li><strong>Asymmetric cryptography:</strong> public/private key pair. RSA is a classic public-key algorithm; public-key operations are slower than symmetric bulk encryption.</li><li><strong>Block cipher:</strong> processes fixed-size blocks (AES block size 128 bits). <strong>Stream cipher:</strong> generates a keystream combined with plaintext.</li><li><strong>DES:</strong> 64-bit block, 56-bit effective key; obsolete for secure use. <strong>3DES:</strong> legacy triple DES; deprecated. <strong>IDEA:</strong> 64-bit block and 128-bit key.</li><li><strong>Confusion:</strong> obscures relationship between key and ciphertext. <strong>Diffusion:</strong> spreads plaintext statistics across ciphertext.</li><li><strong>Transposition:</strong> rearranges character positions. <strong>Substitution:</strong> replaces symbols with other symbols.</li></ul>
   <p>For RSA, choose primes p and q; n=pq; φ(n)=(p−1)(q−1); choose e coprime to φ(n); choose d such that ed ≡ 1 (mod φ(n)). Public key (e,n); private key (d,n). Toy exam numbers are not secure in practice.</p>
   <div style="background:#eff8e9;border-left:4px solid #78b65a;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Key facts:</strong> RSA = asymmetric; AES = 128-bit block; DES effective key = 56 bits; IDEA key = 128 bits. Modern systems use authenticated encryption such as AES-GCM or ChaCha20-Poly1305.</div>
   <p><strong>PYQ focus:</strong> Plaintext/ciphertext, symmetric versus asymmetric keys, RSA, AES, DES/3DES and substitution/transposition ciphers.</p>
   <!-- PYQ:crypto -->
 
-  <h2>14. Hashing, certificates and digital signatures</h2>
+  <h2>13. Hashing, certificates and digital signatures</h2>
   <ul><li><strong>Cryptographic hash:</strong> fixed-length digest from arbitrary input; one-way design, collision resistance and avalanche effect are desirable. SHA-256 produces 256 bits. MD5 and SHA-1 are not suitable for collision-resistant security.</li><li><strong>Message authentication code (MAC/HMAC):</strong> keyed integrity/authentication; unlike a plain hash, requires a secret key.</li><li><strong>Digital signature:</strong> signer signs a digest using private key; recipient verifies with the corresponding public key. Provides integrity, origin authentication and supports non-repudiation, subject to key control and legal context.</li><li><strong>Digital certificate:</strong> binds an identity to a public key and is signed by a Certificate Authority (CA). PKI manages keys, certificates, trust and revocation.</li><li><strong>CRL:</strong> Certificate Revocation List. <strong>OCSP:</strong> Online Certificate Status Protocol for checking certificate status.</li></ul>
   <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Common trap:</strong> A signature is created with the sender's private key and verified with the sender's public key. Encryption for confidentiality to a recipient typically uses the recipient's public key.</div>
   <p><strong>PYQ focus:</strong> Hashing, digital signatures, digital certificates, public/private key roles and integrity verification.</p>
   <!-- PYQ:signatures -->
 
-  <h2>15. Security principles, authentication and controls</h2>
+  <h2>14. Security principles, authentication and controls</h2>
   <h3>CIA triad and security services</h3>
   <ul><li><strong>Confidentiality:</strong> prevent unauthorized disclosure.</li><li><strong>Integrity:</strong> prevent/detect unauthorized modification.</li><li><strong>Availability:</strong> ensure authorized access when needed.</li><li><strong>Authentication:</strong> verify identity or message origin. <strong>Authorization:</strong> determine permitted actions. <strong>Accounting/auditing:</strong> record activity.</li><li><strong>Non-repudiation:</strong> provide evidence that a party performed an action; digital signatures can support it.</li></ul>
   <h3>Security controls</h3>
@@ -142,20 +142,20 @@
   <p><strong>PYQ focus:</strong> CIA security goals, authentication, session keys, firewalls, IDS/IPS, SSL/TLS and IPsec.</p>
   <!-- PYQ:security -->
 
-  <h2>16. Malware, vulnerabilities and cyber attacks</h2>
+  <h2>15. Malware, vulnerabilities and cyber attacks</h2>
   <table><thead><tr><th>Threat</th><th>Meaning</th></tr></thead><tbody><tr><td>Virus</td><td>Attaches to a host file/program and runs when host executes.</td></tr><tr><td>Worm</td><td>Self-replicates and spreads independently, often over networks.</td></tr><tr><td>Trojan horse</td><td>Malicious program disguised as legitimate software; does not self-replicate by definition.</td></tr><tr><td>Spyware</td><td>Secretly monitors/collects user information.</td></tr><tr><td>Ransomware</td><td>Locks or encrypts data and demands payment.</td></tr><tr><td>Rootkit</td><td>Hides malicious presence and maintains privileged access.</td></tr></tbody></table>
   <ul><li><strong>Phishing:</strong> deceptive messages/sites to steal credentials or induce actions. <strong>Spear phishing:</strong> targeted phishing.</li><li><strong>Spoofing:</strong> disguising identity/source to appear trusted (email, IP, DNS, caller ID).</li><li><strong>DoS/DDoS:</strong> denial of service; DDoS uses many distributed sources.</li><li><strong>MITM:</strong> attacker positions between communicating parties. <strong>Replay:</strong> reuses captured valid messages. <strong>SQL injection:</strong> untrusted input alters database queries.</li><li><strong>Social engineering:</strong> manipulates people rather than exploiting only technical weaknesses.</li><li><strong>Defense:</strong> patching, MFA, least privilege, backups, segmentation, endpoint protection, secure configuration, monitoring and user awareness.</li></ul>
   <p><strong>PYQ focus:</strong> Malware categories, spoofing, phishing, intrusion detection and common attack terminology.</p>
   <!-- PYQ:malware -->
 
-  <h2>17. Cyber law, privacy, IPR and digital conduct</h2>
+  <h2>16. Cyber law, privacy, IPR and digital conduct</h2>
   <ul><li><strong>Software piracy:</strong> unauthorized copying, distribution or use of software.</li><li><strong>Copyright:</strong> protects original expression (such as software code, text and media); it does not protect an abstract idea itself.</li><li><strong>Patent:</strong> may protect a qualifying invention for a limited statutory term, subject to jurisdiction and eligibility.</li><li><strong>Trademark:</strong> distinguishes goods/services by signs, names or logos.</li><li><strong>Privacy:</strong> concerns collection, use, sharing, retention and protection of personal data. Apply purpose limitation, data minimization, transparency and safeguards.</li><li><strong>India DPDP Act, 2023:</strong> establishes a framework for processing digital personal data. A child is an individual below 18 years under the Act; statutory duties and exemptions must be read with current rules/notifications.</li><li><strong>Netiquette:</strong> responsible and respectful behaviour online. <strong>CAPTCHA:</strong> challenge-response mechanism designed to distinguish humans from automated programs (not a complete security solution).</li><li>Cyber offences may attract civil and criminal consequences under applicable law; exact remedy depends on the offence and statute. Do not treat a generic MCQ's “imprisonment” answer as a complete legal rule.</li></ul>
   <div style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:12px 0;"><strong>Exam trap:</strong> Copyright, patent and trademark are different IPR protections. Software piracy is unauthorized copying/use. Netiquette means Internet etiquette.</div>
   <p><strong>PYQ focus:</strong> Cyber-law remedies, privacy, intellectual-property rights and responsible online behaviour.</p>
   <!-- PYQ:cyberlaw -->
 
   
-  <h2>17A. SSL/TLS and secure browsing — additional syllabus detail</h2>
+  <h2>16A. SSL/TLS and secure browsing — additional syllabus detail</h2>
   <ul>
     <li><strong>SSL (Secure Sockets Layer):</strong> an older protocol family designed to protect client-server communication. SSL versions are obsolete and should not be used for modern secure configurations.</li>
     <li><strong>TLS (Transport Layer Security):</strong> the modern successor to SSL. It provides confidentiality through encryption, integrity protection and authentication of the server (and optionally the client). HTTPS is HTTP carried over TLS.</li>
