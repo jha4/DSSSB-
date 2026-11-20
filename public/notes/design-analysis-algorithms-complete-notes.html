@@ -2,6 +2,8 @@
 <h1>Design &amp; Analysis of Algorithms — Complete DSSSB TGT Computer Science Notes</h1>
 <p><strong>Purpose:</strong> Detailed, exam-oriented notes following the supplied syllabus: algorithm design, pseudocode and flowcharts, complexity, searching, sorting, recursion, divide and conquer, greedy and dynamic programming ideas, graph traversal, shortest paths and minimum spanning trees. Topic-wise PYQs appear directly after the relevant theory.</p>
 <div class="note-callout"><strong>Highlight key:</strong> Yellow marks definitions and core rules. Green marks recurring or directly tested concepts from the supplied workbook. Original question text, available options, workbook answer keys and explanations are retained by the PYQ loader. Missing source fields are explicitly identified.</div>
+<h2>Coverage and workbook records</h2>
+<p><strong>70 records:</strong> 47 labelled “Algorithms” and 23 mixed “Data structures &amp; algorithms” records assigned here by question content. The remaining 28 mixed records are included in the separate Data Structures notes, so the two files together cover all 154 records in these three source groups without duplication.</p>
 <h2>1. Algorithm fundamentals and problem solving</h2>
 <p><strong>Definition:</strong> An <mark>algorithm</mark> is a finite sequence of well-defined, unambiguous and effective steps that transforms valid input into the required output. An algorithm describes the method of solving a problem, independent of a particular programming language.</p>
 <h3>Characteristics of an algorithm</h3>
@@ -61,19 +63,17 @@
 <ul><li><strong>Base case:</strong> Smallest case solved directly.</li><li><strong>Recursive case:</strong> Reduces the problem to one or more smaller subproblems.</li><li><strong>Call stack:</strong> Stores activation records such as parameters, local variables and return addresses.</li><li><strong>Tail recursion:</strong> The recursive call is the final operation in the function; some language implementations can optimise it, but do not assume all runtimes do.</li></ul>
 <p><strong>Divide and conquer</strong> has three stages: divide a problem into smaller subproblems, conquer them recursively, and combine their solutions. Merge sort and quicksort are classic examples; binary search is a decrease-and-conquer style method often grouped with divide-and-conquer in introductory syllabi.</p>
 <p>Not every algorithm that repeatedly processes data is divide and conquer. Dynamic programming stores solutions to overlapping subproblems; greedy algorithms make locally optimal choices; backtracking explores choices and abandons paths that cannot lead to a valid solution.</p>
-<h3>PYQs — Recursion and divide-and-conquer techniques</h3>
 <h2>6. Greedy algorithms</h2>
 <p><strong>Definition:</strong> A greedy algorithm constructs a solution step by step, choosing what appears to be the best local option at each step, without reconsidering earlier choices.</p>
 <ul><li><strong>Greedy-choice property:</strong> A globally optimal solution can be reached by making a locally optimal choice first.</li><li><strong>Optimal substructure:</strong> An optimal solution contains optimal solutions to relevant subproblems.</li><li>Both properties (or a suitable proof) are needed before assuming a greedy method is correct.</li><li>Examples: Kruskal's and Prim's minimum spanning tree algorithms, Dijkstra's shortest-path algorithm for non-negative edge weights, and Huffman coding.</li></ul>
 <p>A greedy choice is not always globally optimal. For example, a naive coin-change strategy can fail for some coin denominations. The algorithm must be justified for the specific problem.</p>
-<h3>PYQs — Greedy strategy and related design concepts</h3>
 
 
 <h2>7. Dynamic programming and backtracking</h2>
 <p><strong>Dynamic programming (DP)</strong> solves problems with overlapping subproblems and optimal substructure by storing subproblem results so they are not recomputed repeatedly.</p>
 <ul><li><strong>Memoization:</strong> Top-down recursion plus a cache of previously computed results.</li><li><strong>Tabulation:</strong> Bottom-up computation in a table, following dependency order.</li><li><strong>Typical problems:</strong> Fibonacci with caching, 0/1 knapsack, longest common subsequence and matrix-chain multiplication.</li><li>DP is not simply recursion: the key is reuse of overlapping subproblem results.</li></ul>
 <p><strong>Backtracking</strong> explores a decision tree of partial solutions. It extends a candidate while it remains feasible and abandons a branch when it violates constraints or cannot produce a valid solution. Examples include N-Queens, subset sum and permutations.</p>
-<h3>PYQs — Dynamic programming, subset sum and backtracking</h3>
+<h3>PYQs — Divide and conquer, greedy, dynamic programming and backtracking</h3>
 <!-- PYQ:algorithms|Algorithms|algo-design -->
 <!-- PYQ:algorithms|Data structures & algorithms|algo-design -->
 
