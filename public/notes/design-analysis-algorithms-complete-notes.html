@@ -62,24 +62,20 @@
 <p><strong>Divide and conquer</strong> has three stages: divide a problem into smaller subproblems, conquer them recursively, and combine their solutions. Merge sort and quicksort are classic examples; binary search is a decrease-and-conquer style method often grouped with divide-and-conquer in introductory syllabi.</p>
 <p>Not every algorithm that repeatedly processes data is divide and conquer. Dynamic programming stores solutions to overlapping subproblems; greedy algorithms make locally optimal choices; backtracking explores choices and abandons paths that cannot lead to a valid solution.</p>
 <h3>PYQs — Recursion and divide-and-conquer techniques</h3>
-<!-- PYQ:algorithms|Algorithms|algo-design -->
-<!-- PYQ:algorithms|Data structures & algorithms|algo-design -->
-
 <h2>6. Greedy algorithms</h2>
 <p><strong>Definition:</strong> A greedy algorithm constructs a solution step by step, choosing what appears to be the best local option at each step, without reconsidering earlier choices.</p>
 <ul><li><strong>Greedy-choice property:</strong> A globally optimal solution can be reached by making a locally optimal choice first.</li><li><strong>Optimal substructure:</strong> An optimal solution contains optimal solutions to relevant subproblems.</li><li>Both properties (or a suitable proof) are needed before assuming a greedy method is correct.</li><li>Examples: Kruskal's and Prim's minimum spanning tree algorithms, Dijkstra's shortest-path algorithm for non-negative edge weights, and Huffman coding.</li></ul>
 <p>A greedy choice is not always globally optimal. For example, a naive coin-change strategy can fail for some coin denominations. The algorithm must be justified for the specific problem.</p>
 <h3>PYQs — Greedy strategy and related design concepts</h3>
-<!-- PYQ:algorithms|Algorithms|algo-greedy -->
-<!-- PYQ:algorithms|Data structures & algorithms|algo-greedy -->
+
 
 <h2>7. Dynamic programming and backtracking</h2>
 <p><strong>Dynamic programming (DP)</strong> solves problems with overlapping subproblems and optimal substructure by storing subproblem results so they are not recomputed repeatedly.</p>
 <ul><li><strong>Memoization:</strong> Top-down recursion plus a cache of previously computed results.</li><li><strong>Tabulation:</strong> Bottom-up computation in a table, following dependency order.</li><li><strong>Typical problems:</strong> Fibonacci with caching, 0/1 knapsack, longest common subsequence and matrix-chain multiplication.</li><li>DP is not simply recursion: the key is reuse of overlapping subproblem results.</li></ul>
 <p><strong>Backtracking</strong> explores a decision tree of partial solutions. It extends a candidate while it remains feasible and abandons a branch when it violates constraints or cannot produce a valid solution. Examples include N-Queens, subset sum and permutations.</p>
 <h3>PYQs — Dynamic programming, subset sum and backtracking</h3>
-<!-- PYQ:algorithms|Algorithms|algo-dp-backtracking -->
-<!-- PYQ:algorithms|Data structures & algorithms|algo-dp-backtracking -->
+<!-- PYQ:algorithms|Algorithms|algo-design -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-design -->
 
 <h2>8. Graph algorithms: traversal, shortest path and MST</h2>
 <h3>Breadth-first and depth-first search</h3>
