@@ -1,0 +1,112 @@
+<section>
+<h1>Data Structures — Complete DSSSB TGT Computer Science Notes</h1>
+<p><strong>Purpose:</strong> Topic-by-topic theory for the Data Structures portion of the supplied DSSSB syllabus. Every PYQ section is placed immediately after the related concept. The original workbook question, available options, source answer key and source explanation are loaded from the Part B dataset.</p>
+<div class="note-callout"><strong>How to read these notes:</strong> Yellow highlights mark definitions and exam facts. Green highlights mark concepts that appear in the supplied PYQ workbook. A missing option, answer key or explanation is identified as missing in the source; it is not invented.</div>
+<h2>Coverage and workbook records</h2>
+<ul><li>Arrays and multidimensional arrays</li><li>Linked lists: singly, doubly and circular</li><li>Stacks and queues</li><li>Trees, binary search trees, AVL trees and heaps</li><li>Graphs and graph representations</li><li>Hashing and collision resolution</li></ul>
+<p><strong>Source record groups:</strong> 56 questions labelled “Data Structures” and relevant records labelled “Data structures &amp; algorithms” are organised below by concept. Any mixed records that cannot be assigned reliably are kept in the final mixed-concepts section.</p>
+
+<h2>1. Arrays</h2>
+<p><strong>Definition:</strong> An <mark>array</mark> is a linear, indexed data structure that stores a fixed number of elements of the same data type in contiguous memory locations. Each element is accessed using an index, usually starting at 0 in C, C++ and Java.</p>
+<h3>How an array works</h3>
+<ul><li><strong>Contiguous storage:</strong> Elements occupy consecutive memory locations. If the base address is known, the address of an element can be calculated directly.</li><li><strong>Address calculation (1-D):</strong> For zero-based indexing, address(A[i]) = base(A) + i × w, where w is the size of each element in bytes.</li><li><strong>Random access:</strong> Accessing A[i] takes O(1) time because the address is computed rather than found by scanning.</li><li><strong>Fixed capacity:</strong> A conventional static array has a fixed size after creation. A dynamic array manages a resizable backing array, usually by allocating a larger block and copying elements when capacity is exhausted.</li><li><strong>Insertion/deletion:</strong> Inserting or deleting near the beginning or middle usually requires shifting elements, so it takes O(n). At the end, append is O(1) amortised for a dynamic array, although an individual resize may take O(n).</li><li><strong>Searching:</strong> Linear search is O(n). Binary search is O(log n) only when the data is sorted and efficient middle-element access is available.</li></ul>
+<h3>Types and memory layout</h3>
+<ul><li><strong>One-dimensional array:</strong> A sequence addressed with one index, such as A[i].</li><li><strong>Two-dimensional array:</strong> A table of rows and columns, accessed as A[i][j]. In C/C++, the first subscript identifies the row and the second identifies the column.</li><li><strong>Jagged array:</strong> A collection of rows that can have different lengths. It is not the same as a rectangular 2-D array.</li><li><strong>Row-major order:</strong> Complete rows are stored consecutively (C/C++ conventional 2-D arrays).</li><li><strong>Column-major order:</strong> Complete columns are stored consecutively (used by some languages and numerical systems).</li></ul>
+<h3>Advantages, limitations and uses</h3>
+<ul><li>Fast indexed access, simple traversal and low per-element overhead.</li><li>Useful for tables, matrices, lookup tables, heaps, sorting and implementing stacks/queues.</li><li>Size changes are expensive in a static array; insertion/deletion in the middle requires shifting; unused capacity in a dynamic array can waste memory.</li></ul>
+<p><strong>Complexity snapshot:</strong> index access O(1); linear search O(n); insertion/deletion at the beginning or middle O(n); traversal O(n); dynamic-array append O(1) amortised.</p>
+<h3>PYQs — Arrays and array representation</h3>
+<!-- PYQ:algorithms|Data Structures|ds-array -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-array -->
+
+<h2>2. Linked Lists</h2>
+<p><strong>Definition:</strong> A <mark>linked list</mark> is a dynamic linear data structure made of nodes. Each node stores data and one or more links (references/pointers) to other nodes. Nodes need not occupy contiguous memory locations.</p>
+<h3>Node structure and types</h3>
+<ul><li><strong>Singly linked list:</strong> Each node contains data and a next pointer. The last node points to NULL. Traversal is forward only.</li><li><strong>Doubly linked list:</strong> Each node contains previous and next pointers. Traversal is possible in both directions, but each node needs extra memory.</li><li><strong>Circular singly linked list:</strong> The last node points back to the first node instead of NULL.</li><li><strong>Circular doubly linked list:</strong> The last node's next points to the first node and the first node's previous points to the last.</li><li><strong>Header/sentinel node:</strong> An optional special node simplifies boundary operations; it may store metadata rather than user data.</li></ul>
+<h3>Operations and complexity</h3>
+<ul><li><strong>Traversal/search:</strong> Start at the head and follow links; O(n) in the worst case.</li><li><strong>Insertion at head:</strong> Set the new node's next to the old head and update head; O(1).</li><li><strong>Deletion at head:</strong> Move head to head.next; O(1).</li><li><strong>Insertion after a known node:</strong> Adjust links; O(1), provided the node reference is already available.</li><li><strong>Deletion:</strong> In a singly linked list, the previous node is generally needed to bypass the target. In a doubly linked list, links can be updated directly when the target node is known.</li><li><strong>Access by position:</strong> O(n), because the list must be traversed; there is no direct index-based random access.</li></ul>
+<h3>Array versus linked list</h3>
+<table><thead><tr><th>Feature</th><th>Array</th><th>Linked list</th></tr></thead><tbody><tr><td>Memory layout</td><td>Contiguous</td><td>Non-contiguous nodes</td></tr><tr><td>Index access</td><td>O(1)</td><td>O(n)</td></tr><tr><td>Insert/delete at head</td><td>O(n) due to shifting</td><td>O(1)</td></tr><tr><td>Extra pointer memory</td><td>Usually none per element</td><td>One or more links per node</td></tr><tr><td>Size</td><td>Fixed or resizable backing store</td><td>Grows/shrinks node by node</td></tr></tbody></table>
+<p><strong>Advantages:</strong> flexible size and efficient insertion/deletion when the relevant node position is known. <strong>Disadvantages:</strong> pointer overhead, sequential access, poorer cache locality and more complex pointer handling. A linked list is not automatically faster than an array; the operation pattern matters.</p>
+<h3>PYQs — Linked lists</h3>
+<!-- PYQ:algorithms|Data Structures|ds-linked -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-linked -->
+
+<h2>3. Stacks</h2>
+<p><strong>Definition:</strong> A <mark>stack</mark> is a linear abstract data type that follows <strong>Last In, First Out (LIFO)</strong>: the most recently inserted item is the first item removed.</p>
+<h3>Core operations</h3>
+<ul><li><strong>push(x):</strong> Insert x at the top.</li><li><strong>pop():</strong> Remove and return the top item.</li><li><strong>peek/top():</strong> Read the top item without removing it.</li><li><strong>isEmpty():</strong> Test whether the stack contains no elements.</li><li><strong>Overflow:</strong> Push attempted on a full fixed-capacity array stack.</li><li><strong>Underflow:</strong> Pop/peek attempted on an empty stack.</li></ul>
+<p>Push, pop and peek are O(1) in a conventional implementation. A stack can be implemented using an array or linked list. In an array implementation, a top index tracks the current top; in a linked-list implementation, insertion and deletion usually occur at the head.</p>
+<h3>Applications</h3>
+<ul><li>Function calls, recursion and call-stack frames.</li><li>Expression conversion and evaluation: infix, prefix and postfix.</li><li>Parenthesis matching, syntax parsing, undo operations and backtracking.</li><li>Depth-first search (DFS) can use an explicit stack; recursive DFS uses the program call stack.</li></ul>
+<h3>Expression notation</h3>
+<ul><li><strong>Infix:</strong> operator between operands, e.g. A + B.</li><li><strong>Prefix (Polish):</strong> operator before operands, e.g. + A B.</li><li><strong>Postfix (Reverse Polish):</strong> operator after operands, e.g. A B +.</li><li>Postfix evaluation scans left to right: push operands; when an operator appears, pop the required operands, apply the operator and push the result. Operand order matters for subtraction and division.</li></ul>
+<h3>PYQs — Stacks and expression processing</h3>
+<!-- PYQ:algorithms|Data Structures|ds-stackqueue -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-stackqueue -->
+
+<h2>4. Queues</h2>
+<p><strong>Definition:</strong> A <mark>queue</mark> is a linear abstract data type that follows <strong>First In, First Out (FIFO)</strong>: the earliest inserted element is removed first.</p>
+<h3>Operations and variants</h3>
+<ul><li><strong>enqueue:</strong> Insert at the rear.</li><li><strong>dequeue:</strong> Remove from the front.</li><li><strong>front/peek:</strong> Read the next element to be removed.</li><li><strong>Simple queue:</strong> Insert at rear and delete at front.</li><li><strong>Circular queue:</strong> Treats the array as circular; indices wrap using modulo capacity, preventing wasted space at the beginning.</li><li><strong>Deque:</strong> Double-ended queue; insertion and deletion are permitted at both ends.</li><li><strong>Priority queue:</strong> Removal is based on priority, not simply arrival order. A heap is a common implementation.</li></ul>
+<p>Enqueue and dequeue can both be O(1) when front/rear pointers are maintained correctly. A naive array queue that does not reuse freed positions may suffer false overflow; a circular queue addresses this.</p>
+<h3>Applications</h3>
+<ul><li>CPU and printer scheduling, buffering, producer-consumer systems and breadth-first search (BFS).</li><li>Message queues and requests waiting for a service.</li><li>In BFS, a queue ensures vertices are processed in non-decreasing distance (number of edges) from the start vertex in an unweighted graph.</li></ul>
+<h3>Stack versus queue</h3>
+<table><thead><tr><th>Stack</th><th>Queue</th></tr></thead><tbody><tr><td>LIFO</td><td>FIFO</td></tr><tr><td>Insertion and deletion at top</td><td>Insertion at rear, deletion at front</td></tr><tr><td>Common use: recursion, expression evaluation, DFS</td><td>Common use: scheduling, buffering, BFS</td></tr></tbody></table>
+<h3>PYQs — Queues and FIFO/LIFO behaviour</h3>
+<!-- PYQ:algorithms|Data Structures|ds-queue-only -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-queue-only -->
+
+<h2>5. Trees, Binary Trees, BST and AVL Trees</h2>
+<p><strong>Definition:</strong> A <mark>tree</mark> is a connected, acyclic hierarchical data structure consisting of nodes and edges. The top node is the root. A node may have children; a node with no children is a leaf.</p>
+<h3>Tree terminology</h3>
+<ul><li><strong>Parent/child:</strong> Direct predecessor/successor in the hierarchy.</li><li><strong>Siblings:</strong> Nodes with the same parent.</li><li><strong>Ancestor/descendant:</strong> Nodes above/below another node along a path.</li><li><strong>Degree of a node:</strong> Number of its children. Degree of a tree is the maximum node degree.</li><li><strong>Depth:</strong> Number of edges from the root to a node.</li><li><strong>Height of a node:</strong> Number of edges on the longest downward path from that node to a leaf. Tree height is the root's height. Some texts count nodes rather than edges; read the convention in the question.</li><li><strong>Subtree:</strong> A node together with all its descendants.</li></ul>
+<h3>Binary tree properties</h3>
+<ul><li>A binary tree has at most two children per node: left and right.</li><li>At level i (root at level 0), the maximum number of nodes is 2<sup>i</sup>.</li><li>A perfect binary tree of height h (edge-count convention) has 2<sup>h+1</sup> − 1 nodes.</li><li>A binary tree with n nodes has n − 1 edges when n is positive and the tree is connected.</li><li>A full/strict binary tree has either zero or two children at every node. A complete binary tree fills levels from left to right, with only the last level possibly incomplete.</li></ul>
+<h3>Binary Search Tree (BST)</h3>
+<p>A <strong>BST</strong> is a binary tree in which, under the usual distinct-key convention, every key in the left subtree is smaller than the node's key and every key in the right subtree is greater. Search, insertion and deletion take O(h), where h is tree height. A balanced BST has O(log n) height; a skewed BST can have O(n) height.</p>
+<h3>Tree traversals</h3>
+<table><thead><tr><th>Traversal</th><th>Order</th><th>Common use</th></tr></thead><tbody><tr><td>Preorder</td><td>Root, Left, Right</td><td>Copy/serialize a tree; prefix expression</td></tr><tr><td>Inorder</td><td>Left, Root, Right</td><td>Visits BST keys in ascending order</td></tr><tr><td>Postorder</td><td>Left, Right, Root</td><td>Delete/free tree; postfix expression</td></tr><tr><td>Level order</td><td>Level by level</td><td>Uses a queue</td></tr></tbody></table>
+<h3>AVL trees and rotations</h3>
+<p>An <strong>AVL tree</strong> is a self-balancing BST. For every node, the balance factor is height(left subtree) − height(right subtree), and it must be −1, 0 or +1. If an insertion or deletion violates this condition, rotations restore balance.</p>
+<ul><li><strong>LL case:</strong> Right rotation at the unbalanced node.</li><li><strong>RR case:</strong> Left rotation.</li><li><strong>LR case:</strong> Left rotation on the left child, then right rotation on the node.</li><li><strong>RL case:</strong> Right rotation on the right child, then left rotation on the node.</li></ul>
+<p>LL and RR are single rotations; LR and RL are double rotations. AVL search/insert/delete are O(log n) because the height remains logarithmic.</p>
+<h3>PYQs — Trees, BST, traversals and AVL</h3>
+<!-- PYQ:algorithms|Data Structures|ds-treeheap -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-treeheap -->
+
+<h2>6. Heaps and Priority Queues</h2>
+<p><strong>Definition:</strong> A <mark>binary heap</mark> is a complete binary tree that satisfies the heap-order property. In a max-heap, each parent is greater than or equal to its children; in a min-heap, each parent is less than or equal to its children. A heap is not a binary search tree.</p>
+<ul><li><strong>Array representation (0-based):</strong> parent(i) = floor((i−1)/2), left(i) = 2i+1, right(i) = 2i+2.</li><li><strong>Insert:</strong> Place the new key at the next available leaf and sift/bubble it upward; O(log n).</li><li><strong>Extract max/min:</strong> Replace the root with the last element and sift downward; O(log n).</li><li><strong>Peek:</strong> Read the root; O(1).</li><li><strong>Build heap:</strong> Bottom-up heap construction is O(n), not O(n log n).</li><li><strong>Heap sort:</strong> Build a heap and repeatedly remove the root; O(n log n) time. Standard in-place heap sort is not stable.</li></ul>
+<p><strong>Important distinction:</strong> A heap guarantees only parent-child ordering, not complete sorting of all elements. Searching for an arbitrary key is generally O(n).</p>
+<h3>PYQs — Heaps and priority queues</h3>
+<!-- PYQ:algorithms|Data Structures|ds-heap-only -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-heap-only -->
+
+<h2>7. Graphs</h2>
+<p><strong>Definition:</strong> A <mark>graph</mark> G = (V, E) consists of a set V of vertices (nodes) and a set E of edges connecting pairs of vertices. Graphs model networks, routes, dependencies and relationships.</p>
+<h3>Types and terminology</h3>
+<ul><li><strong>Undirected graph:</strong> Edges have no direction. <strong>Directed graph (digraph):</strong> Each edge has a direction.</li><li><strong>Weighted graph:</strong> Edges carry values such as cost, distance or time.</li><li><strong>Degree:</strong> In an undirected graph, number of incident edges. In a digraph, distinguish indegree and outdegree.</li><li><strong>Path:</strong> Sequence of vertices connected by edges. <strong>Cycle:</strong> A path that returns to its starting vertex without repeating intermediate vertices (in a simple cycle).</li><li><strong>Connected graph:</strong> Every pair of vertices has a path between them. A directed graph has stronger notions of strong and weak connectivity.</li><li><strong>Tree:</strong> A connected undirected acyclic graph; with n vertices it has n−1 edges.</li><li><strong>Articulation point:</strong> A vertex whose removal (with its incident edges) increases the number of connected components.</li></ul>
+<h3>Graph representations</h3>
+<table><thead><tr><th>Representation</th><th>Space</th><th>Best suited for</th></tr></thead><tbody><tr><td>Adjacency matrix</td><td>O(V²)</td><td>Dense graphs; O(1) edge-existence test</td></tr><tr><td>Adjacency list</td><td>O(V+E)</td><td>Sparse graphs; efficient neighbour traversal</td></tr></tbody></table>
+<h3>Graph traversal</h3>
+<ul><li><strong>BFS:</strong> Breadth-first search explores level by level using a queue. In an adjacency-list representation it takes O(V+E). It finds shortest paths by edge count in an unweighted graph.</li><li><strong>DFS:</strong> Depth-first search explores as far as possible before backtracking; it uses recursion or a stack. With adjacency lists it takes O(V+E). It supports cycle detection, connected components and articulation-point algorithms.</li></ul>
+<h3>PYQs — Graphs and graph representation</h3>
+<!-- PYQ:algorithms|Data Structures|ds-graph -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-graph -->
+
+<h2>8. Hashing</h2>
+<p><strong>Definition:</strong> <mark>Hashing</mark> maps a key to an array/table index using a hash function h(key). A hash table supports expected O(1) insertion, search and deletion when the hash function distributes keys well and the load factor is controlled.</p>
+<ul><li><strong>Collision:</strong> Two different keys map to the same table index.</li><li><strong>Separate chaining:</strong> Each table slot stores a collection (often a linked list) of entries that hash to that slot.</li><li><strong>Open addressing:</strong> All entries are stored in the table itself; on collision, probe another slot.</li><li><strong>Linear probing:</strong> Try h(k), h(k)+1, h(k)+2, … modulo table size. It is simple but can cause primary clustering.</li><li><strong>Quadratic probing:</strong> Probe using quadratic offsets; reduces primary clustering but may not visit every slot for every table size.</li><li><strong>Double hashing:</strong> Use a second hash function to determine the probe step.</li><li><strong>Load factor:</strong> α = number of stored entries / table capacity. High load factors generally increase collisions and probe lengths.</li></ul>
+<p>Hashing is effective for equality lookup, but does not naturally maintain sorted order or support efficient range queries. Deletion in open addressing requires care (often tombstones) so that later searches are not broken.</p>
+<h3>PYQs — Hashing and collision resolution</h3>
+<!-- PYQ:algorithms|Data Structures|ds-hashing -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-hashing -->
+
+<h2>9. Data Structures — Comparison and exam checklist</h2>
+<table><thead><tr><th>Structure</th><th>Access/search</th><th>Insert/delete</th><th>Core rule</th></tr></thead><tbody><tr><td>Array</td><td>Index O(1); search O(n)</td><td>Middle O(n)</td><td>Contiguous indexed storage</td></tr><tr><td>Linked list</td><td>O(n)</td><td>O(1) at known position / head</td><td>Nodes connected by links</td></tr><tr><td>Stack</td><td>Top O(1)</td><td>Push/pop O(1)</td><td>LIFO</td></tr><tr><td>Queue</td><td>Front O(1)</td><td>Enqueue/dequeue O(1)</td><td>FIFO</td></tr><tr><td>Balanced BST</td><td>O(log n)</td><td>O(log n)</td><td>Left key &lt; node &lt; right key</td></tr><tr><td>Heap</td><td>Root O(1)</td><td>Insert/extract O(log n)</td><td>Complete tree + heap order</td></tr><tr><td>Hash table</td><td>Expected O(1)</td><td>Expected O(1)</td><td>Key mapped by hash function</td></tr><tr><td>Graph</td><td>Traversal O(V+E)</td><td>Depends on representation</td><td>Vertices and edges</td></tr></tbody></table>
+<h3>PYQs — Remaining and cross-topic Data Structures records</h3>
+<!-- PYQ:algorithms|Data Structures|ds-misc -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-misc -->
+</section>
