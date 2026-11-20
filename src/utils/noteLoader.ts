@@ -465,23 +465,33 @@ async function hydratePyqPlaceholders(
 
   const classifyDsaQuestion = (question: EmbeddedPyqRecord): string => {
     const q = (question.q ?? '').toLowerCase();
-    if (/linked list|singly|doubly|circular list/.test(q)) return 'ds-linked';
-    if (/stack|queue|postfix|prefix|infix|first element.*inserted|first one.*removed/.test(q)) return 'ds-stackqueue';
-    if (/binary tree|binary search tree|avl|heap|tree traversal|traversal of|post-order|pre order|in order|balancing factor|height of a tree/.test(q)) return 'ds-treeheap';
-    if (/hash|collision|probing/.test(q)) return 'ds-hashing';
-    if (/articulation point|graph|vertices|vertex|path-graph|degree 2/.test(q)) return 'ds-graph';
-    if (/binary search|linear search|search algorithm/.test(q)) return 'algo-searching';
-    if (/sort|sorting|bubble|selection|quick|merge|radix|insertion sort/.test(q)) return 'algo-sorting';
-    if (/complexity|running time|order of growth|asymptotic|big.?o|omega|theta|recurrence|efficiency|best case|worst case/.test(q)) return 'algo-complexity';
-    if (/divide and conquer|greedy|dynamic programming|subset sum|backtracking|huffman|simplex|longest common subsequence|optimisation|optimization/.test(q)) return 'algo-design';
-    if (/flowchart|pseudo.?code|algorithm|definiteness|finiteness|effectiveness/.test(q)) return 'algo-fundamentals';
-    if (/shortest path|minimum spanning|breadth.first|depth.first|graph traversal/.test(q)) return 'algo-graph';
-    if (/array|dimension|first dimension|second dimension|row/.test(q)) return 'ds-array';
-    return 'misc';
+    const sourceTopic = (question.t ?? '').trim().toLowerCase();
+    const pureDs = sourceTopic === 'data structures';
+    const pureAlgo = sourceTopic === 'algorithms';
+
+    if (!pureAlgo) {
+      if (/linked list|singly|doubly|circular list/.test(q)) return 'ds-linked';
+      if (/stack|queue|postfix|prefix|infix|first element.*inserted|first one.*removed/.test(q)) return 'ds-stackqueue';
+      if (/binary tree|binary search tree|avl|heap|tree traversal|traversal of|post-order|pre order|in order|balancing factor|height of a tree/.test(q)) return 'ds-treeheap';
+      if (/hash|collision|probing/.test(q)) return 'ds-hashing';
+      if (/articulation point|graph|vertices|vertex|path-graph|degree 2/.test(q)) return 'ds-graph';
+      if (/array|dimension|first dimension|second dimension|row/.test(q)) return 'ds-array';
+    }
+
+    if (!pureDs) {
+      if (/binary search|linear search|search algorithm/.test(q)) return 'algo-searching';
+      if (/sort|sorting|bubble|selection|quick|merge|radix|insertion sort/.test(q)) return 'algo-sorting';
+      if (/complexity|running time|order of growth|asymptotic|big.?o|omega|theta|recurrence|efficiency|best case|worst case/.test(q)) return 'algo-complexity';
+      if (/divide and conquer|greedy|dynamic programming|subset sum|backtracking|huffman|simplex|longest common subsequence|optimisation|optimization/.test(q)) return 'algo-design';
+      if (/shortest path|minimum spanning|breadth.first|depth.first|graph traversal/.test(q)) return 'algo-graph';
+      if (/flowchart|pseudo.?code|algorithm|definiteness|finiteness|effectiveness/.test(q)) return 'algo-fundamentals';
+    }
+
+    return pureDs ? 'ds-misc' : 'algo-misc';
   };
 
   return rawHtml.replace(
-    /<!--\\s*PYQ:([a-z-]+)(?:\\|([^|>]+))?(?:\\|([a-z-]+))?\\s*-->/g,
+    /<!--\s*PYQ:([a-z-]+)(?:\|([^|>]+))?(?:\|([a-z-]+))?\s*-->/g,
     (_marker, key: string, sourceTopic?: string, topicKey?: string) => {
       const topicFilter = (sourceTopic ?? '').trim();
       const allQuestions = groups.get(key) ?? [];
