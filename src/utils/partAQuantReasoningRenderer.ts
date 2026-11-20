@@ -46,8 +46,8 @@ const theory: Record<string, string> = {
     <div class="key"><b>High priority:</b> difference sequences, alternating operations, multiplication patterns, squares/cubes, wrong-term detection and digit-string counting.</div>
     <p><b>Shortcut:</b> Do not lock onto the first plausible rule. Verify it against every term and all answer options.</p>`,
   'Miscellaneous PYQs': `
-    <p>These records were initially picked up by broad keyword matching, but their actual content belongs to other syllabus areas (speed–distance, ratio/variation, data interpretation, percentage/profit or non-verbal figure series). They are retained here instead of being mislabelled as one of the five requested topics.</p>
-    <div class="key"><b>Study note:</b> These are useful Part A practice records, but they are excluded from the five-topic frequency ranking.</div>`,
+    <p>These records are mappable to other Part A syllabus areas but fall outside the five-topic notes scope. They are kept at the bottom as supplementary cross-topic PYQs, not counted in the five-topic frequency ranking. They are not being presented as genuinely unclassifiable questions.</p>
+    <div class="key"><b>Study note:</b> Their subject areas are identified separately below; use the corresponding full-syllabus notes for deeper theory.</div>`,
 };
 
 const css = `
@@ -68,6 +68,30 @@ h3{font-size:1.05rem;margin:1.1em 0 .4em;color:#263d5a}p{margin:.5em 0}li{margin
 table{border-collapse:collapse;width:100%;margin:10px 0;font-size:.9rem}th,td{border:1px solid #dce3eb;padding:7px 9px;text-align:left}th{background:#eef3f8}.high{background:#e7f4e4}.mid{background:#fff6d4}
 @media(max-width:600px){section{padding:10px 12px 40px}h1{font-size:1.5rem}h2{font-size:1.2rem}}
 </style>`;
+
+const displaySubtopic = (row: PyqRow): string => {
+  if (row[1] !== 'Miscellaneous PYQs') return row[2];
+  const groups: Record<number, string> = {
+    126: 'Non-verbal figure series',
+    171: 'Time, Speed & Distance',
+    273: 'Time, Speed & Distance',
+    268: 'Direct and inverse variation',
+    387: 'Direct and inverse variation',
+    382: 'Ratio & Proportion',
+    488: 'Ratio & Proportion',
+    495: 'Ratio & Proportion',
+    594: 'Ratio & Proportion',
+    816: 'Ratio & Proportion',
+    490: 'Data Interpretation',
+    601: 'Data Interpretation',
+    709: 'Data Interpretation',
+    713: 'Data Interpretation',
+    814: 'Data Interpretation',
+    603: 'Percentage',
+    820: 'Profit & Loss',
+  };
+  return groups[row[0]] ?? 'Other syllabus questions';
+};
 
 const subAdvice = (topic: string): string => ({
   'Number Series': 'Check differences, ratios, alternating operations and special sequences; verify the rule against every term.',
@@ -113,9 +137,9 @@ export function renderPartAQuantReasoningHtml(data: PyqRow[]): string {
   for (const topic of topics) {
     const topicRows = data.filter((r) => r[1] === topic);
     html += `<h2 id="${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}">${esc(topic)} <span class="muted">(${topicRows.length} PYQs)</span></h2>${theory[topic]}`;
-    const subtopics = [...new Set(topicRows.map((r) => r[2]))];
+    const subtopics = [...new Set(topicRows.map(displaySubtopic))];
     for (const sub of subtopics) {
-      const subRows = topicRows.filter((r) => r[2] === sub);
+      const subRows = topicRows.filter((r) => displaySubtopic(r) === sub);
       html += `<div class="subtopic"><h3>${esc(sub)} — ${subRows.length} PYQs</h3><p class="muted">${esc(subAdvice(topic))}</p></div>`;
       subRows.forEach((r, i) => { html += questionCard(r, i + 1); });
     }
