@@ -105,7 +105,7 @@ export function renderPartAQuantReasoningHtml(data: PyqRow[]): string {
   html += '<div class="stats">' + topics.map((t) => `<div class="stat"><b>${count(t)}</b>${esc(t)}</div>`).join('') + '</div>';
   html += '<nav class="nav">' + topics.map((t) => `<a href="#${t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}">${esc(t)}</a>`).join('') + '</nav>';
   html += '<div class="note"><b>How to revise:</b> Read theory and shortcuts first, then open the PYQs immediately below the matching subtopic. Yellow marks priority concepts; green marks workbook-keyed answers; orange marks source limitations or review flags.</div>';
-  html += '<h2 id="frequency-snapshot">PYQ frequency snapshot</h2><p>Counts below are records in the refined 141-record focus/misc set, not guaranteed independent exam appearances. The five requested topics contain 124 records; 19 cross-topic records are retained separately.</p>';
+  html += '<h2 id="frequency-snapshot">PYQ frequency snapshot</h2><p>Counts below are records in the refined 141-record focus/misc set, not guaranteed independent exam appearances. The five requested topics contain 124 records; 17 cross-topic records are retained separately.</p>';
   html += '<table><thead><tr><th>Topic</th><th>Records</th><th>Share</th><th>Priority in this extract</th></tr></thead><tbody>';
   for (const t of topics) { const p = t === 'Number Series' || t === 'Simplification'; html += `<tr class="${p ? 'high' : 'mid'}"><td>${esc(t)}</td><td>${count(t)}</td><td>${pct(t)}%</td><td>${p ? 'High' : t === 'Number System' ? 'Moderate' : 'Targeted'}</td></tr>`; }
   html += '</tbody></table><p class="muted">Descriptive workbook frequency only; not an official DSSSB weightage or prediction guarantee.</p>';
