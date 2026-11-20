@@ -140,6 +140,17 @@
   <h3>Security controls</h3>
   <ul><li><strong>Firewall:</strong> enforces traffic policy using packet, stateful or application-layer inspection.</li><li><strong>IDS:</strong> detects suspicious activity and alerts. <strong>IPS:</strong> can actively block/prevent detected traffic.</li><li><strong>Antivirus/endpoint protection:</strong> detects, blocks or removes malware; signatures, heuristics and behaviour analysis are common.</li><li><strong>VPN:</strong> creates protected connectivity over an untrusted network; VPN alone does not guarantee a trustworthy endpoint.</li><li><strong>TLS:</strong> protects application transport (e.g. HTTPS). <strong>IPsec:</strong> protects IP traffic; AH provides integrity/authentication but no encryption; ESP can provide confidentiality and integrity/authentication.</li><li><strong>IPsec modes:</strong> Transport protects payload; Tunnel encapsulates/protects the entire original IP packet inside a new packet.</li><li><strong>WLAN security:</strong> use WPA2-AES or WPA3; avoid WEP and obsolete TKIP.</li></ul>
   <p><strong>PYQ focus:</strong> CIA security goals, authentication, session keys, firewalls, IDS/IPS, SSL/TLS and IPsec.</p>
+<h3>SSL/TLS and secure browsing</h3>
+  <ul>
+    <li><strong>SSL (Secure Sockets Layer):</strong> an older protocol family designed to protect client-server communication. SSL versions are obsolete and should not be used for modern secure configurations.</li>
+    <li><strong>TLS (Transport Layer Security):</strong> the modern successor to SSL. It provides confidentiality through encryption, integrity protection and authentication of the server (and optionally the client). HTTPS is HTTP carried over TLS.</li>
+    <li><strong>Certificate validation:</strong> the browser checks that a certificate chains to a trusted Certificate Authority, matches the requested hostname and is within its validity period. Revocation status may also be checked. A padlock does not prove that a website is honest or free from phishing.</li>
+    <li><strong>TLS handshake:</strong> client and server negotiate protocol parameters; the server proves its identity with a certificate; key agreement establishes shared session keys; protected application data then flows. Exact handshake messages differ by TLS version.</li>
+    <li><strong>Secure browsing:</strong> use HTTPS; verify the domain before entering credentials; keep the browser and operating system updated; do not bypass certificate warnings; avoid suspicious links/attachments; use MFA and unique passwords; sign out of shared devices. A VPN can protect a network path but cannot make a phishing site trustworthy.</li>
+    <li><strong>Firewall types:</strong> packet-filtering firewalls inspect packet headers; stateful firewalls track connection state; application/proxy firewalls inspect application-layer traffic. A firewall does not replace patching, endpoint protection, backups or user awareness.</li>
+    <li><strong>Exam distinction:</strong> SSL is obsolete; TLS is its modern successor. HTTPS is HTTP protected by TLS, not a separate encryption algorithm. A digital certificate binds an identity to a public key; it is not the private key itself.</li>
+  </ul>
+  <p><strong>PYQ focus:</strong> CIA security goals, authentication, session keys, firewalls, IDS/IPS, SSL/TLS and IPsec.</p>
   <!-- PYQ:security -->
 
   <h2>15. Malware, vulnerabilities and cyber attacks</h2>
@@ -155,16 +166,6 @@
   <!-- PYQ:cyberlaw -->
 
   
-  <h2>16A. SSL/TLS and secure browsing — additional syllabus detail</h2>
-  <ul>
-    <li><strong>SSL (Secure Sockets Layer):</strong> an older protocol family designed to protect client-server communication. SSL versions are obsolete and should not be used for modern secure configurations.</li>
-    <li><strong>TLS (Transport Layer Security):</strong> the modern successor to SSL. It provides confidentiality through encryption, integrity protection and authentication of the server (and optionally the client). HTTPS is HTTP carried over TLS.</li>
-    <li><strong>Certificate validation:</strong> the browser checks that a certificate chains to a trusted Certificate Authority, matches the requested hostname and is within its validity period. Revocation status may also be checked. A padlock does not prove that a website is honest or free from phishing.</li>
-    <li><strong>TLS handshake:</strong> client and server negotiate protocol parameters; the server proves its identity with a certificate; key agreement establishes shared session keys; protected application data then flows. Exact handshake messages differ by TLS version.</li>
-    <li><strong>Secure browsing:</strong> use HTTPS; verify the domain before entering credentials; keep the browser and operating system updated; do not bypass certificate warnings; avoid suspicious links/attachments; use MFA and unique passwords; sign out of shared devices. A VPN can protect a network path but cannot make a phishing site trustworthy.</li>
-    <li><strong>Firewall types:</strong> packet-filtering firewalls inspect packet headers; stateful firewalls track connection state; application/proxy firewalls inspect application-layer traffic. A firewall does not replace patching, endpoint protection, backups or user awareness.</li>
-    <li><strong>Exam distinction:</strong> SSL is obsolete; TLS is its modern successor. HTTPS is HTTP protected by TLS, not a separate encryption algorithm. A digital certificate binds an identity to a public key; it is not the private key itself.</li>
-  </ul>
   <h2>17. Miscellaneous PYQs</h2>
   <p>Questions with incomplete wording, cross-topic content or insufficient context for reliable topic assignment are retained here. The original source wording, available options, answer key and explanation are preserved. Check the original paper where OCR or transcription errors make a question unclear.</p>
   <!-- PYQ:misc -->
