@@ -42,6 +42,8 @@
 <h3>Expression notation</h3>
 <ul><li><strong>Infix:</strong> operator between operands, e.g. A + B.</li><li><strong>Prefix (Polish):</strong> operator before operands, e.g. + A B.</li><li><strong>Postfix (Reverse Polish):</strong> operator after operands, e.g. A B +.</li><li>Postfix evaluation scans left to right: push operands; when an operator appears, pop the required operands, apply the operator and push the result. Operand order matters for subtraction and division.</li></ul>
 <h3>PYQs — Stacks and expression processing</h3>
+<!-- PYQ:algorithms|Data Structures|ds-stack -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-stack -->
 <h2>4. Queues</h2>
 <p><strong>Definition:</strong> A <mark>queue</mark> is a linear abstract data type that follows <strong>First In, First Out (FIFO)</strong>: the earliest inserted element is removed first.</p>
 <h3>Operations and variants</h3>
@@ -52,8 +54,8 @@
 <h3>Stack versus queue</h3>
 <table><thead><tr><th>Stack</th><th>Queue</th></tr></thead><tbody><tr><td>LIFO</td><td>FIFO</td></tr><tr><td>Insertion and deletion at top</td><td>Insertion at rear, deletion at front</td></tr><tr><td>Common use: recursion, expression evaluation, DFS</td><td>Common use: scheduling, buffering, BFS</td></tr></tbody></table>
 <h3>PYQs — Queues and FIFO/LIFO behaviour</h3>
-<!-- PYQ:algorithms|Data Structures|ds-stack -->
-<!-- PYQ:algorithms|Data structures & algorithms|ds-stack -->
+<!-- PYQ:algorithms|Data Structures|ds-queue -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-queue -->
 
 <h2>5. Trees, Binary Trees, BST and AVL Trees</h2>
 <p><strong>Definition:</strong> A <mark>tree</mark> is a connected, acyclic hierarchical data structure consisting of nodes and edges. The top node is the root. A node may have children; a node with no children is a leaf.</p>
@@ -70,6 +72,8 @@
 <ul><li><strong>LL case:</strong> Right rotation at the unbalanced node.</li><li><strong>RR case:</strong> Left rotation.</li><li><strong>LR case:</strong> Left rotation on the left child, then right rotation on the node.</li><li><strong>RL case:</strong> Right rotation on the right child, then left rotation on the node.</li></ul>
 <p>LL and RR are single rotations; LR and RL are double rotations. AVL search/insert/delete are O(log n) because the height remains logarithmic.</p>
 <h3>PYQs — Trees, BST, traversals and AVL</h3>
+<!-- PYQ:algorithms|Data Structures|ds-tree -->
+<!-- PYQ:algorithms|Data structures & algorithms|ds-tree -->
 <h2>6. Heaps and Priority Queues</h2>
 <p><strong>Definition:</strong> A <mark>binary heap</mark> is a complete binary tree that satisfies the heap-order property. In a max-heap, each parent is greater than or equal to its children; in a min-heap, each parent is less than or equal to its children. A heap is not a binary search tree.</p>
 <ul><li><strong>Array representation (0-based):</strong> parent(i) = floor((i−1)/2), left(i) = 2i+1, right(i) = 2i+2.</li><li><strong>Insert:</strong> Place the new key at the next available leaf and sift/bubble it upward; O(log n).</li><li><strong>Extract max/min:</strong> Replace the root with the last element and sift downward; O(log n).</li><li><strong>Peek:</strong> Read the root; O(1).</li><li><strong>Build heap:</strong> Bottom-up heap construction is O(n), not O(n log n).</li><li><strong>Heap sort:</strong> Build a heap and repeatedly remove the root; O(n log n) time. Standard in-place heap sort is not stable.</li></ul>
