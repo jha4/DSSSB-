@@ -471,8 +471,10 @@ async function hydratePyqPlaceholders(
 
     if (!pureAlgo) {
       if (/linked list|singly|doubly|circular list/.test(q)) return 'ds-linked';
-      if (/stack|queue|postfix|prefix|infix|first element.*inserted|first one.*removed/.test(q)) return 'ds-stackqueue';
-      if (/binary tree|binary search tree|avl|heap|tree traversal|traversal of|post-order|pre order|in order|balancing factor|height of a tree/.test(q)) return 'ds-treeheap';
+      if (/queue|first element.*inserted|first one.*removed/.test(q)) return 'ds-queue';
+      if (/stack|postfix|prefix|infix|recursive calls|function call/.test(q)) return 'ds-stack';
+      if (/heap/.test(q)) return 'ds-heap';
+      if (/binary tree|binary search tree|avl|tree traversal|traversal of|post-order|pre order|in order|balancing factor|height of a tree/.test(q)) return 'ds-tree';
       if (/hash|collision|probing/.test(q)) return 'ds-hashing';
       if (/articulation point|graph|vertices|vertex|path-graph|degree 2/.test(q)) return 'ds-graph';
       if (/array|dimension|first dimension|second dimension|row/.test(q)) return 'ds-array';
