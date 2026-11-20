@@ -115,22 +115,49 @@
     "file": "notes/dbms-sql-short-notes.html"
   },
   {
-    "id": "algorithms-data-structures-short-notes",
-    "title": "Data Structures & Algorithms — Complete Notes",
+    "id": "data-structures-complete-notes",
+    "title": "Data Structures — Complete Notes & Topic-wise PYQs",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
-    "chapter": "Algorithms, Programming & Data Structures",
+    "chapter": "Algorithms & Data Structures",
     "chapterSlug": "algorithms-programming-data-structures",
-    "topic": "Complete Notes & PYQ Analysis",
+    "topic": "Complete Notes & Topic-wise PYQs",
+    "date": "2026-11-20",
     "tags": [
-      "algorithms",
       "data-structures",
-      "complexity",
+      "arrays",
+      "linked-lists",
+      "stacks",
+      "queues",
+      "trees",
+      "graphs",
+      "hashing",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "Complexity, searching, sorting, recursion, stacks, queues, lists, trees, graphs, greedy, dynamic programming and full Part B PYQs.",
-    "file": "notes/algorithms-data-structures-short-notes.html"
+    "summary": "Detailed topic-by-topic theory for arrays, linked lists, stacks, queues, trees, BST/AVL, heaps, graphs and hashing, with all available Data Structures PYQs placed after their related topics.",
+    "file": "notes/data-structures-complete-notes.html"
+  },
+  {
+    "id": "design-analysis-algorithms-complete-notes",
+    "title": "Design & Analysis of Algorithms — Complete Notes & Topic-wise PYQs",
+    "subject": "Computer Science",
+    "subjectSlug": "computer-science",
+    "chapter": "Algorithms & Data Structures",
+    "chapterSlug": "algorithms-programming-data-structures",
+    "topic": "Complete Notes & Topic-wise PYQs",
+    "date": "2026-11-20",
+    "tags": [
+      "algorithms",
+      "complexity",
+      "searching",
+      "sorting",
+      "recursion",
+      "greedy",
+      "dynamic-programming",
+      "PYQ"
+    ],
+    "summary": "Expanded algorithm fundamentals, complexity, recurrences, searching, sorting, recursion, divide and conquer, greedy, dynamic programming and graph algorithms, with topic-wise PYQs.",
+    "file": "notes/design-analysis-algorithms-complete-notes.html"
   },
   {
     "id": "software-engineering-short-notes",
@@ -457,25 +484,5 @@
     "date": "2026-11-19",
     "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 8 topic-wise PYQs.",
     "file": "notes/web-technology-miscellaneous.html"
-  },
-  {
-    "id": "algorithms-programming-ds-pyq-analysis",
-    "title": "Algorithms, Programming & Data Structures — PYQ and Syllabus Analysis",
-    "subject": "Computer Science",
-    "subjectSlug": "computer-science",
-    "chapter": "Algorithms, Programming & Data Structures",
-    "chapterSlug": "algorithms-programming-data-structures",
-    "topic": "Syllabus and PYQ Analysis",
-    "tags": [
-      "algorithms",
-      "programming",
-      "data-structures",
-      "PYQ",
-      "syllabus",
-      "analysis"
-    ],
-    "date": "2026-11-19",
-    "summary": "Analysis of 442 source-tagged workbook records: topic distribution, exact repetitions, year profile, syllabus mapping, gaps and predicted practice areas.",
-    "file": "notes/algorithms-programming-ds-pyq-analysis.html"
   }
 ]
