@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useStudyVault } from '../context/StudyVaultContext';
 import { formatShortDate } from '../utils/formatters';
+import { renderPartAQuantReasoningHtml } from '../utils/partAQuantReasoningRenderer';
 import {
   fetchNoteHtml,
   getAdjacentNotes,
@@ -217,6 +218,43 @@ export const NoteReaderPage: React.FC = () => {
     };
 
     void loadCompletePyqs();
+    return () => {
+      cancelled = true;
+    };
+  }, [note?.id, loadedNote?.html]);
+
+  useEffect(() => {
+    if (note?.id !== 'dsssb-part-a-quant-reasoning-short-notes' || !loadedNote?.html) {
+      return;
+    }
+
+    let cancelled = false;
+    const loadPartAData = async () => {
+      try {
+        const chunkPaths = [1, 2, 3, 4].map(
+          (part) => `${import.meta.env.BASE_URL}notes/part-a-quant-reasoning-pyq-data.part-${part}.b64`
+        );
+        const responses = await Promise.all(chunkPaths.map((path) => fetch(path)));
+        const failed = responses.find((response) => !response.ok);
+        if (failed) throw new Error(`Part A PYQ data request failed: ${failed.status}`);
+        const encoded = (await Promise.all(responses.map((response) => response.text()))).join('').trim();
+        const compressed = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
+        const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+        const data = JSON.parse(await new Response(stream).text()) as Parameters<typeof renderPartAQuantReasoningHtml>[0];
+        const html = renderPartAQuantReasoningHtml(data);
+        if (!cancelled) setEnhancedHtml(html);
+      } catch (error) {
+        console.error('Unable to load DSSSB Part A PYQ notes', error);
+        if (!cancelled) {
+          setEnhancedHtml(
+            loadedNote.html +
+              '<p style="background:#fff0e7;border-left:4px solid #d78a57;padding:10px 14px;">The complete Part A PYQ data could not be loaded. Refresh the page to retry.</p>'
+          );
+        }
+      }
+    };
+
+    void loadPartAData();
     return () => {
       cancelled = true;
     };
