@@ -484,5 +484,27 @@
     "date": "2026-11-19",
     "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 8 topic-wise PYQs.",
     "file": "notes/web-technology-miscellaneous.html"
+  },
+  {
+    "id": "dsssb-part-a-quant-reasoning-short-notes",
+    "title": "DSSSB Part A — Quantitative Aptitude & Reasoning Short Notes",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Quantitative Aptitude & Reasoning",
+    "chapterSlug": "quantitative-aptitude-reasoning",
+    "topic": "Short Notes & Topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "number-system",
+      "simplification",
+      "hcf-lcm",
+      "alphabet-series",
+      "number-series",
+      "PYQ",
+      "revision"
+    ],
+    "date": "2026-11-20",
+    "summary": "Syllabus-aligned short notes with 122 PYQs across Number System, Simplification, HCF & LCM, Alphabet/Letter Series and Number Series, plus 17 cross-topic records and source-based frequency analysis.",
+    "file": "notes/dsssb-part-a-quant-reasoning-short-notes.html"
   }
 ]
