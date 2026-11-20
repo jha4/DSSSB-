@@ -1,0 +1,101 @@
+<section>
+<h1>Design &amp; Analysis of Algorithms — Complete DSSSB TGT Computer Science Notes</h1>
+<p><strong>Purpose:</strong> Detailed, exam-oriented notes following the supplied syllabus: algorithm design, pseudocode and flowcharts, complexity, searching, sorting, recursion, divide and conquer, greedy and dynamic programming ideas, graph traversal, shortest paths and minimum spanning trees. Topic-wise PYQs appear directly after the relevant theory.</p>
+<div class="note-callout"><strong>Highlight key:</strong> Yellow marks definitions and core rules. Green marks recurring or directly tested concepts from the supplied workbook. Original question text, available options, workbook answer keys and explanations are retained by the PYQ loader. Missing source fields are explicitly identified.</div>
+<h2>1. Algorithm fundamentals and problem solving</h2>
+<p><strong>Definition:</strong> An <mark>algorithm</mark> is a finite sequence of well-defined, unambiguous and effective steps that transforms valid input into the required output. An algorithm describes the method of solving a problem, independent of a particular programming language.</p>
+<h3>Characteristics of an algorithm</h3>
+<ul><li><strong>Input:</strong> Zero or more clearly specified values.</li><li><strong>Output:</strong> At least one result.</li><li><strong>Definiteness:</strong> Every step must be precise and unambiguous.</li><li><strong>Finiteness:</strong> It must terminate after a finite number of steps.</li><li><strong>Effectiveness:</strong> Each operation must be basic enough to be carried out exactly in finite time.</li><li><strong>Generality:</strong> It should solve all valid instances of the intended problem class.</li></ul>
+<h3>Problem-solving and program-design steps</h3>
+<ol><li>Understand the problem, constraints and expected behaviour.</li><li>Identify inputs, outputs, assumptions and edge cases.</li><li>Choose an appropriate strategy and data structure.</li><li>Break the solution into modules (top-down design).</li><li>Represent the logic using pseudocode or a flowchart.</li><li>Dry-run with normal, boundary and invalid inputs.</li><li>Implement, test, debug, analyse and refine.</li></ol>
+<p><strong>Pseudocode</strong> is a structured, language-independent way to express an algorithm. It resembles programming constructs but does not require the syntax of a particular language. A <strong>flowchart</strong> is a graphical representation of an algorithm or process.</p>
+<table><thead><tr><th>Flowchart symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>Oval</td><td>Start / End (terminal)</td></tr><tr><td>Rectangle</td><td>Processing / assignment</td></tr><tr><td>Parallelogram</td><td>Input / Output</td></tr><tr><td>Diamond</td><td>Decision / condition</td></tr><tr><td>Arrow</td><td>Flow line / direction</td></tr><tr><td>Small circle</td><td>Connector</td></tr></tbody></table>
+<p><strong>Top-down design</strong> decomposes a large problem into smaller subproblems. <strong>Modular programming</strong> organises a program into cohesive modules with clear interfaces. A good module has high cohesion (related tasks within it) and low coupling (limited dependency on other modules).</p>
+<h3>Algorithm versus program</h3>
+<table><thead><tr><th>Algorithm</th><th>Program</th></tr></thead><tbody><tr><td>Abstract solution procedure</td><td>Implementation in a programming language</td></tr><tr><td>Language independent</td><td>Must follow language syntax and semantics</td></tr><tr><td>Can be written as prose, pseudocode or flowchart</td><td>Can be compiled/interpreted and executed</td></tr></tbody></table>
+<h3>PYQs — Algorithm fundamentals, pseudocode and flowcharts</h3>
+<!-- PYQ:algorithms|Algorithms|algo-fundamentals -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-fundamentals -->
+
+<h2>2. Analysis of algorithms and complexity</h2>
+<p><strong>Definition:</strong> <mark>Algorithm analysis</mark> estimates the resources an algorithm needs as input size n grows. It focuses on growth rates rather than the execution time measured on one particular computer.</p>
+<ul><li><strong>Time complexity:</strong> Growth in the number of elementary operations as a function of input size.</li><li><strong>Space complexity:</strong> Growth in memory requirement. Auxiliary space is extra memory used beyond the input representation.</li><li><strong>Best case:</strong> Minimum work over inputs of size n.</li><li><strong>Average case:</strong> Expected work under an explicitly assumed input distribution.</li><li><strong>Worst case:</strong> Maximum work over inputs of size n.</li></ul>
+<h3>Asymptotic notations</h3>
+<table><thead><tr><th>Notation</th><th>Meaning</th><th>Exam interpretation</th></tr></thead><tbody><tr><td><strong>O(g(n))</strong></td><td>Asymptotic upper bound</td><td>f(n) does not grow faster than a constant multiple of g(n), eventually</td></tr><tr><td><strong>Ω(g(n))</strong></td><td>Asymptotic lower bound</td><td>f(n) grows at least as fast as a positive constant multiple of g(n), eventually</td></tr><tr><td><strong>Θ(g(n))</strong></td><td>Tight bound</td><td>Both O(g(n)) and Ω(g(n)) hold</td></tr><tr><td>o(g(n))</td><td>Strict upper bound</td><td>f grows strictly slower than g</td></tr><tr><td>ω(g(n))</td><td>Strict lower bound</td><td>f grows strictly faster than g</td></tr></tbody></table>
+<p>Example: 3n² + 5n + 7 = Θ(n²). Constants and lower-order terms are ignored for asymptotic classification. Big-O is not itself a synonym for worst case: first identify which case is being analysed, then state its bound.</p>
+<h3>Order of common growth rates</h3>
+<table><thead><tr><th>Growth (increasing)</th><th>Typical example</th></tr></thead><tbody><tr><td>O(1)</td><td>Array index access</td></tr><tr><td>O(log n)</td><td>Binary search</td></tr><tr><td>O(n)</td><td>Linear scan</td></tr><tr><td>O(n log n)</td><td>Merge sort; average quicksort</td></tr><tr><td>O(n²)</td><td>Two nested loops; bubble/selection sort</td></tr><tr><td>O(n³)</td><td>Three nested linear loops</td></tr><tr><td>O(2ⁿ)</td><td>Exhaustive subset search</td></tr><tr><td>O(n!)</td><td>Exhaustive permutations</td></tr></tbody></table>
+<h3>Loop-counting rules</h3>
+<ul><li>A loop that advances by 1 up to n generally performs O(n) iterations.</li><li>Two independent nested loops of n iterations each generally perform O(n²) work.</li><li>A loop that doubles or halves its control variable each iteration generally performs O(log n) iterations.</li><li>Consecutive loops add their costs; retain the dominant term.</li><li>Nested loop bounds must be read carefully; not every pair of nested loops is O(n²).</li></ul>
+<h3>Recurrence relations and Master Theorem</h3>
+<p>Recursive algorithms are often described by a recurrence. For T(n) = aT(n/b) + f(n), compare f(n) with n<sup>log<sub>b</sub>a</sup>:</p>
+<ul><li><strong>Case 1:</strong> If f(n) is polynomially smaller, T(n) = Θ(n<sup>log<sub>b</sub>a</sup>).</li><li><strong>Case 2:</strong> If f(n) has the same order up to a logarithmic factor, an additional logarithmic factor appears. In the common form f(n)=Θ(n<sup>log<sub>b</sub>a</sup> log<sup>k</sup>n), T(n)=Θ(n<sup>log<sub>b</sub>a</sup> log<sup>k+1</sup>n).</li><li><strong>Case 3:</strong> If f(n) is polynomially larger and the regularity condition holds, T(n)=Θ(f(n)).</li></ul>
+<p>Always check the theorem's conditions; it does not apply to every recurrence.</p>
+<h3>PYQs — Complexity, asymptotic notation and recurrences</h3>
+<!-- PYQ:algorithms|Algorithms|algo-complexity -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-complexity -->
+
+<h2>3. Searching algorithms</h2>
+<h3>Linear (sequential) search</h3>
+<p>Linear search compares the key with elements one by one, from the beginning, until it is found or the collection ends. It works on sorted and unsorted data.</p>
+<ul><li>Best case: O(1), when the first element matches.</li><li>Average and worst case: O(n), because a linear number of elements may be inspected.</li><li>Iterative auxiliary space: O(1).</li></ul>
+<h3>Binary search</h3>
+<p>Binary search repeatedly compares the target with the middle element of the current interval and discards the half that cannot contain the target. It requires sorted data and efficient access to the middle element; this is why it is natural for arrays but generally inefficient for linked lists.</p>
+<ul><li>Time complexity: O(log n) in best/average/worst asymptotic analysis; best case is O(1) when the first middle comparison succeeds.</li><li>Iterative auxiliary space: O(1). Recursive implementation uses O(log n) call-stack space.</li><li>Maintain a correct search interval and ensure the loop makes progress; use a safe midpoint expression such as low + (high − low) / 2.</li></ul>
+<table><thead><tr><th>Feature</th><th>Linear search</th><th>Binary search</th></tr></thead><tbody><tr><td>Sorted data required</td><td>No</td><td>Yes</td></tr><tr><td>Worst time</td><td>O(n)</td><td>O(log n)</td></tr><tr><td>Access method</td><td>Sequential</td><td>Middle/random access</td></tr><tr><td>Linked list suitability</td><td>Works</td><td>Usually poor due to non-constant middle access</td></tr></tbody></table>
+<h3>PYQs — Linear and binary searching</h3>
+<!-- PYQ:algorithms|Algorithms|algo-searching -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-searching -->
+
+<h2>4. Sorting algorithms</h2>
+<p><strong>Sorting</strong> arranges records in ascending or descending order according to a key. A <strong>stable sort</strong> preserves the relative order of records with equal keys. An <strong>in-place sort</strong> uses only a small amount of additional memory (implementation details may vary).</p>
+<table><thead><tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Stable?</th><th>Core operation</th></tr></thead><tbody><tr><td>Bubble</td><td>O(n) with early-exit flag</td><td>O(n²)</td><td>O(n²)</td><td>Yes (standard version)</td><td>Swap adjacent out-of-order elements</td></tr><tr><td>Selection</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>No (standard version)</td><td>Select minimum/maximum for each position</td></tr><tr><td>Insertion</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>Yes</td><td>Insert each item into sorted prefix</td></tr><tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>Yes (standard merge)</td><td>Divide, sort halves, merge</td></tr><tr><td>Quick</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>No (typical in-place version)</td><td>Partition around pivot</td></tr><tr><td>Heap</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>No</td><td>Repeatedly extract heap root</td></tr><tr><td>Radix</td><td>O(d(n+b))</td><td>O(d(n+b))</td><td>O(d(n+b))</td><td>Yes when stable digit sort is used</td><td>Sort by digits/positions</td></tr></tbody></table>
+<h3>How the main sorts work</h3>
+<ul><li><strong>Bubble sort:</strong> Repeatedly compare adjacent elements and swap if out of order. After each complete pass, the largest remaining item reaches its final position at the end. With an early-exit flag, an already sorted input can finish in O(n).</li><li><strong>Selection sort:</strong> Find the smallest item in the unsorted suffix and swap it into the next position. It performs O(n²) comparisons even when input is already sorted; swaps are O(n).</li><li><strong>Insertion sort:</strong> Maintain a sorted prefix and insert the next element into its correct position. Efficient for small or nearly sorted data; stable in the standard implementation.</li><li><strong>Merge sort:</strong> Divide the array into halves, recursively sort each half, then merge. Time O(n log n); array implementation typically needs O(n) auxiliary space.</li><li><strong>Quick sort:</strong> Choose a pivot, partition values around it, then recursively sort partitions. Good average performance, but poor pivot choices can produce O(n²) worst case.</li><li><strong>Radix sort:</strong> Sort keys digit by digit (least-significant-digit or most-significant-digit approach). It is not comparison-based; stable sorting at each digit is essential for the usual LSD method.</li></ul>
+<h3>PYQs — Bubble, selection, merge, quick and radix sort</h3>
+<!-- PYQ:algorithms|Algorithms|algo-sorting -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-sorting -->
+
+<h2>5. Recursion and divide and conquer</h2>
+<p><strong>Recursion</strong> occurs when a function solves a problem by calling itself on a smaller instance. Every correct recursive solution needs a base case and progress toward that base case; otherwise it may recurse indefinitely or overflow the call stack.</p>
+<ul><li><strong>Base case:</strong> Smallest case solved directly.</li><li><strong>Recursive case:</strong> Reduces the problem to one or more smaller subproblems.</li><li><strong>Call stack:</strong> Stores activation records such as parameters, local variables and return addresses.</li><li><strong>Tail recursion:</strong> The recursive call is the final operation in the function; some language implementations can optimise it, but do not assume all runtimes do.</li></ul>
+<p><strong>Divide and conquer</strong> has three stages: divide a problem into smaller subproblems, conquer them recursively, and combine their solutions. Merge sort and quicksort are classic examples; binary search is a decrease-and-conquer style method often grouped with divide-and-conquer in introductory syllabi.</p>
+<p>Not every algorithm that repeatedly processes data is divide and conquer. Dynamic programming stores solutions to overlapping subproblems; greedy algorithms make locally optimal choices; backtracking explores choices and abandons paths that cannot lead to a valid solution.</p>
+<h3>PYQs — Recursion and divide-and-conquer techniques</h3>
+<!-- PYQ:algorithms|Algorithms|algo-design -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-design -->
+
+<h2>6. Greedy algorithms</h2>
+<p><strong>Definition:</strong> A greedy algorithm constructs a solution step by step, choosing what appears to be the best local option at each step, without reconsidering earlier choices.</p>
+<ul><li><strong>Greedy-choice property:</strong> A globally optimal solution can be reached by making a locally optimal choice first.</li><li><strong>Optimal substructure:</strong> An optimal solution contains optimal solutions to relevant subproblems.</li><li>Both properties (or a suitable proof) are needed before assuming a greedy method is correct.</li><li>Examples: Kruskal's and Prim's minimum spanning tree algorithms, Dijkstra's shortest-path algorithm for non-negative edge weights, and Huffman coding.</li></ul>
+<p>A greedy choice is not always globally optimal. For example, a naive coin-change strategy can fail for some coin denominations. The algorithm must be justified for the specific problem.</p>
+<h3>PYQs — Greedy strategy and related design concepts</h3>
+<!-- PYQ:algorithms|Algorithms|algo-greedy -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-greedy -->
+
+<h2>7. Dynamic programming and backtracking</h2>
+<p><strong>Dynamic programming (DP)</strong> solves problems with overlapping subproblems and optimal substructure by storing subproblem results so they are not recomputed repeatedly.</p>
+<ul><li><strong>Memoization:</strong> Top-down recursion plus a cache of previously computed results.</li><li><strong>Tabulation:</strong> Bottom-up computation in a table, following dependency order.</li><li><strong>Typical problems:</strong> Fibonacci with caching, 0/1 knapsack, longest common subsequence and matrix-chain multiplication.</li><li>DP is not simply recursion: the key is reuse of overlapping subproblem results.</li></ul>
+<p><strong>Backtracking</strong> explores a decision tree of partial solutions. It extends a candidate while it remains feasible and abandons a branch when it violates constraints or cannot produce a valid solution. Examples include N-Queens, subset sum and permutations.</p>
+<h3>PYQs — Dynamic programming, subset sum and backtracking</h3>
+<!-- PYQ:algorithms|Algorithms|algo-dp-backtracking -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-dp-backtracking -->
+
+<h2>8. Graph algorithms: traversal, shortest path and MST</h2>
+<h3>Breadth-first and depth-first search</h3>
+<ul><li><strong>BFS:</strong> Uses a queue; explores vertices in layers. In an unweighted graph, it finds shortest paths measured by number of edges. Adjacency-list complexity is O(V+E).</li><li><strong>DFS:</strong> Uses recursion or an explicit stack; explores deeply before backtracking. Adjacency-list complexity is O(V+E). Useful for cycle detection, connected components and articulation points.</li></ul>
+<h3>Shortest-path algorithms</h3>
+<ul><li><strong>Dijkstra:</strong> Single-source shortest paths when edge weights are non-negative. A priority queue implementation commonly runs in O((V+E) log V) with adjacency lists and a binary heap.</li><li><strong>Bellman–Ford:</strong> Handles negative edge weights and can detect a reachable negative-weight cycle; O(VE).</li><li><strong>Floyd–Warshall:</strong> All-pairs shortest paths; O(V³) time and O(V²) space in its standard form. It can handle negative edges but not negative cycles in a meaningful shortest-path result.</li></ul>
+<h3>Minimum spanning tree (MST)</h3>
+<p>A <strong>spanning tree</strong> of a connected, undirected graph connects all vertices without cycles and contains V−1 edges. A <strong>minimum spanning tree</strong> has the minimum possible total edge weight.</p>
+<ul><li><strong>Kruskal:</strong> Sort edges by weight and add the next lightest edge that does not form a cycle; disjoint-set union helps detect cycles.</li><li><strong>Prim:</strong> Grow one tree by repeatedly adding the minimum-weight edge crossing from the current tree to an unvisited vertex.</li><li>An MST is not the same as a shortest-path tree: MST minimises total weight of the selected connecting edges, while shortest-path algorithms minimise distance from a source.</li></ul>
+<h3>PYQs — Graph traversal and graph algorithm concepts</h3>
+<!-- PYQ:algorithms|Algorithms|algo-graph -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-graph -->
+
+<h2>9. Algorithm exam checklist and quick comparisons</h2>
+<ul><li>Binary search requires sorted data; linked lists do not provide constant-time middle access.</li><li>Bubble, selection and insertion sort have O(n²) worst-case time; merge sort has O(n log n) worst-case time.</li><li>Standard quicksort has O(n log n) average and O(n²) worst-case time.</li><li>Big-O is an upper bound, Ω a lower bound and Θ a tight bound.</li><li>Stack = LIFO; queue = FIFO; BFS uses a queue; DFS uses a stack/recursion.</li><li>Greedy chooses locally; DP stores overlapping subproblem results; backtracking explores and prunes choices.</li><li>MST connects all vertices with minimum total edge weight; shortest path minimises route cost from a source.</li></ul>
+<h3>PYQs — Remaining algorithm and mixed syllabus records</h3>
+<!-- PYQ:algorithms|Algorithms|algo-misc -->
+<!-- PYQ:algorithms|Data structures & algorithms|algo-misc -->
+</section>
