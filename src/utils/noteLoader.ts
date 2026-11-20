@@ -463,20 +463,40 @@ async function hydratePyqPlaceholders(
     groups.set(record.k, group);
   }
 
+  const classifyDsaQuestion = (question: EmbeddedPyqRecord): string => {
+    const q = (question.q ?? '').toLowerCase();
+    if (/linked list|singly|doubly|circular list/.test(q)) return 'ds-linked';
+    if (/stack|queue|postfix|prefix|infix|first element.*inserted|first one.*removed/.test(q)) return 'ds-stackqueue';
+    if (/binary tree|binary search tree|avl|heap|tree traversal|traversal of|post-order|pre order|in order|balancing factor|height of a tree/.test(q)) return 'ds-treeheap';
+    if (/hash|collision|probing/.test(q)) return 'ds-hashing';
+    if (/articulation point|graph|vertices|vertex|path-graph|degree 2/.test(q)) return 'ds-graph';
+    if (/binary search|linear search|search algorithm/.test(q)) return 'algo-searching';
+    if (/sort|sorting|bubble|selection|quick|merge|radix|insertion sort/.test(q)) return 'algo-sorting';
+    if (/complexity|running time|order of growth|asymptotic|big.?o|omega|theta|recurrence|efficiency|best case|worst case/.test(q)) return 'algo-complexity';
+    if (/divide and conquer|greedy|dynamic programming|subset sum|backtracking|huffman|simplex|longest common subsequence|optimisation|optimization/.test(q)) return 'algo-design';
+    if (/flowchart|pseudo.?code|algorithm|definiteness|finiteness|effectiveness/.test(q)) return 'algo-fundamentals';
+    if (/shortest path|minimum spanning|breadth.first|depth.first|graph traversal/.test(q)) return 'algo-graph';
+    if (/array|dimension|first dimension|second dimension|row/.test(q)) return 'ds-array';
+    return 'misc';
+  };
+
   return rawHtml.replace(
-    /<!--\s*PYQ:([a-z-]+)(?:\|([^>]+?))?\s*-->/g,
-    (_marker, key: string, sourceTopic?: string) => {
+    /<!--\\s*PYQ:([a-z-]+)(?:\\|([^|>]+))?(?:\\|([a-z-]+))?\\s*-->/g,
+    (_marker, key: string, sourceTopic?: string, topicKey?: string) => {
       const topicFilter = (sourceTopic ?? '').trim();
       const allQuestions = groups.get(key) ?? [];
-      const questions = topicFilter
+      let questions = topicFilter
         ? allQuestions.filter((question) => (question.t ?? '').trim().toLowerCase() === topicFilter.toLowerCase())
         : allQuestions;
+      if (topicKey) {
+        questions = questions.filter((question) => classifyDsaQuestion(question) === topicKey);
+      }
       if (questions.length === 0) return '';
       const baseTitle = PYQ_TITLES[key] ?? 'PYQs';
-      const title = topicFilter ? `${baseTitle} — ${topicFilter}` : baseTitle;
+      const title = [topicFilter, topicKey ? topicKey.replace(/^(ds|algo)-/, '').replace(/-/g, ' ') : ''].filter(Boolean).join(' — ');
       const items = questions.map(renderPyqQuestion).join('');
       return `<div class="topic-pyq-highlight" style="background:#fff9db;border-left:4px solid #e6c84f;border-radius:6px;padding:12px 16px;margin:18px 0 22px;">
-        <h3>PYQs — ${escapePyqHtml(title)} (${questions.length})</h3>
+        <h3>PYQs — ${escapePyqHtml(title || baseTitle)} (${questions.length})</h3>
         <p><small>Full question, available options, answer key and workbook explanation are shown below. Missing source fields are explicitly marked.</small></p>
         <ol class="pyq-question-list">${items}</ol>
       </div>`;
