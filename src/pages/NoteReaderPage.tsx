@@ -241,6 +241,13 @@ export const NoteReaderPage: React.FC = () => {
         const compressed = Uint8Array.from(atob(encoded), (char) => char.charCodeAt(0));
         const stream = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
         const data = JSON.parse(await new Response(stream).text()) as Parameters<typeof renderPartAQuantReasoningHtml>[0];
+        const supplementResponse = await fetch(`${import.meta.env.BASE_URL}notes/part-a-quant-reasoning-pyq-supplement.b64`);
+        if (!supplementResponse.ok) throw new Error(`Part A PYQ supplement request failed: ${supplementResponse.status}`);
+        const supplementEncoded = (await supplementResponse.text()).trim();
+        const supplementCompressed = Uint8Array.from(atob(supplementEncoded), (char) => char.charCodeAt(0));
+        const supplementStream = new Blob([supplementCompressed]).stream().pipeThrough(new DecompressionStream('gzip'));
+        const supplementData = JSON.parse(await new Response(supplementStream).text()) as typeof data;
+        data.push(...supplementData);
         const html = renderPartAQuantReasoningHtml(data);
         if (!cancelled) setEnhancedHtml(html);
       } catch (error) {
