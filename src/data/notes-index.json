@@ -26,7 +26,7 @@
     "subjectSlug": "computer-science",
     "chapter": "Computer Networks & Network Security",
     "chapterSlug": "computer-networks-network-security",
-    "topic": "Complete Notes & PYQ Analysis",
+    "topic": "Complete Topic-wise Notes & PYQs",
     "tags": [
       "computer-networks",
       "network-security",
@@ -37,7 +37,7 @@
       "cryptography",
       "networking"
     ],
-    "date": "2026-11-18",
+    "date": "2026-11-20",
     "summary": "Syllabus-aligned networking and security theory with 213 Part B workbook records placed after their related topics. Includes full available options, all source answer keys and explanations; 192 records contain all four option texts.",
     "file": "notes/computer-networks-network-security-short-notes.html"
   },
