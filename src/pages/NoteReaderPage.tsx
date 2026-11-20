@@ -384,7 +384,7 @@ export const NoteReaderPage: React.FC = () => {
           {mobileTocOpen && (
             <nav
               aria-label="Mobile note outline"
-              className="mt-1.5 space-y-1 rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900"
+              className="toc-scrollbar mt-1.5 max-h-[45vh] space-y-1 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white p-3 pr-2 dark:border-slate-800 dark:bg-slate-900"
             >
               {headings.map((h) => (
                 <button
@@ -650,7 +650,10 @@ export const NoteReaderPage: React.FC = () => {
               <h2 className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">
                 On This Page
               </h2>
-              <nav aria-label="Note outline" className="mt-2.5 space-y-1">
+              <nav
+                aria-label="Note outline"
+                className="toc-scrollbar mt-2.5 max-h-[min(65vh,36rem)] space-y-1 overflow-y-auto overscroll-contain pr-2"
+              >
                 {headings.map((h) => (
                   <button
                     key={h.id}
