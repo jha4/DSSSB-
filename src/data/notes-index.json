@@ -173,8 +173,8 @@
       "testing",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "SDLC, feasibility, SRS, design tools, cohesion/coupling, testing, process models, maintenance and full Part B PYQs.",
+    "date": "2026-11-23",
+    "summary": "Expanded SDLC, feasibility, SRS, DFD/flowcharts, design principles, process models, testing, quality, reliability, maintenance, configuration management and project planning. Topic-wise PYQs: 94 source records / 79 distinct question texts, with available options, workbook keys and explanations.",
     "file": "notes/software-engineering-short-notes.html"
   },
   {
@@ -271,8 +271,8 @@
       "mobile-computing",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "Pixels, displays, colour models, transformations, clipping, sampling, quantization, compression, GSM/GPRS/EDGE/LTE and full Part B PYQs.",
+    "date": "2026-11-23",
+    "summary": "Expanded graphics, multimedia and mobile-computing theory, including GSM architecture, HLR/VLR, Mobile IP, handover, TDMA/FDMA/CDMA, generations, mobile OS, mobile agents and haptics. All relevant graphics/multimedia/mobile PYQs are grouped by topic; 16 distinct Mobile Computing questions were identified.",
     "file": "notes/graphics-multimedia-mobile-computing-short-notes.html"
   },
   {
@@ -290,8 +290,8 @@
       "OLTP",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "TPS, OAS, MIS, DSS components, expert-system architecture, inference methods, OLTP and batch processing with Part B PYQs.",
+    "date": "2026-11-23",
+    "summary": "Expanded information systems, TPS/OAS/MIS/DSS/ESS, MIS components and information quality, strategic/tactical/operational information, DSS architecture and analysis, expert systems, OLTP/batch processing and knowledge management. Topic-wise PYQs: 20 records / 17 distinct MIS-related question texts.",
     "file": "notes/mis-dss-expert-systems-short-notes.html"
   },
   {
