@@ -224,7 +224,7 @@ export const NoteReaderPage: React.FC = () => {
   }, [note?.id, loadedNote?.html]);
 
   useEffect(() => {
-    if (note?.id !== 'dsssb-part-a-quant-reasoning-short-notes' || !loadedNote?.html) {
+    if (!note?.id?.startsWith('dsssb-part-a-') || !note.id.endsWith('-chapter-notes') || !loadedNote?.html) {
       return;
     }
 
@@ -248,7 +248,16 @@ export const NoteReaderPage: React.FC = () => {
         const supplementStream = new Blob([supplementCompressed]).stream().pipeThrough(new DecompressionStream('gzip'));
         const supplementData = JSON.parse(await new Response(supplementStream).text()) as typeof data;
         data.push(...supplementData);
-        const html = renderPartAQuantReasoningHtml(data);
+        const topicById: Record<string, string> = {
+          'dsssb-part-a-number-system-chapter-notes': 'Number System',
+          'dsssb-part-a-simplification-chapter-notes': 'Simplification',
+          'dsssb-part-a-hcf-lcm-chapter-notes': 'HCF & LCM',
+          'dsssb-part-a-alphabet-series-chapter-notes': 'Alphabet / Letter Series',
+          'dsssb-part-a-number-series-chapter-notes': 'Number Series',
+        };
+        const selectedTopic = topicById[note.id];
+        if (!selectedTopic) throw new Error(`Unknown Part A chapter: ${note.id}`);
+        const html = renderPartAQuantReasoningHtml(data, selectedTopic);
         if (!cancelled) setEnhancedHtml(html);
       } catch (error) {
         console.error('Unable to load DSSSB Part A PYQ notes', error);
