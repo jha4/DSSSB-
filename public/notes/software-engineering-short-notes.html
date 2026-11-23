@@ -1,22 +1,175 @@
 <section>
-<h1>Software Engineering — Complete Notes</h1>
-<p><strong>Coverage:</strong> SDLC, feasibility, requirements, SRS, design models, DFD, testing, verification/validation, maintenance, software quality and project management.</p>
-<h2>1. Software engineering and SDLC</h2>
-<p><strong>Software engineering</strong> applies systematic, disciplined and measurable methods to software development, operation and maintenance. It aims to deliver software that meets requirements within quality, time and cost constraints.</p>
-<table><thead><tr><th>SDLC phase</th><th>Main work / deliverable</th></tr></thead><tbody><tr><td>Planning and feasibility</td><td>Scope, schedule, cost, risks and feasibility decision</td></tr><tr><td>Requirements</td><td>Elicitation, analysis, specification and validation</td></tr><tr><td>Design</td><td>Architecture, modules, data and interface design</td></tr><tr><td>Implementation</td><td>Coding and unit-level checks</td></tr><tr><td>Testing</td><td>Find defects and verify required behaviour</td></tr><tr><td>Deployment</td><td>Release, installation, migration and training</td></tr><tr><td>Maintenance</td><td>Correct, adapt, improve and prevent faults</td></tr></tbody></table>
-<h2>2. Feasibility and requirements</h2>
-<ul><li><strong>Technical feasibility:</strong> technology and skills exist. <strong>Economic:</strong> benefits justify costs. <strong>Operational:</strong> solution fits the organization. <strong>Schedule:</strong> delivery is realistic. <strong>Legal:</strong> requirements comply with laws and contracts.</li><li><strong>Functional requirement:</strong> what the system must do. <strong>Non-functional requirement:</strong> quality or constraint such as performance, security, usability, reliability or availability.</li><li><strong>SRS (Software Requirements Specification):</strong> agreed, testable description of requirements, interfaces, constraints and quality attributes. It should be clear, complete, consistent, traceable and verifiable.</li></ul>
-<h2>3. Analysis and design tools</h2>
-<ul><li><strong>DFD:</strong> models movement of data between processes, data stores and external entities. It does not primarily describe control flow.</li><li><strong>Flowchart:</strong> shows sequence and branching of logic. <strong>Decision table:</strong> tabulates condition combinations and actions. <strong>Decision tree:</strong> branches on conditions. <strong>Structure chart:</strong> shows module hierarchy and calling relationships.</li><li><strong>Modularity:</strong> divides a system into manageable components. <strong>Cohesion:</strong> how strongly a module's tasks belong together; higher is generally better. <strong>Coupling:</strong> dependency between modules; lower is generally better.</li></ul>
-<h2>4. Verification, validation and testing</h2>
-<p><strong>Verification:</strong> are we building the product right? It checks work products against specifications. <strong>Validation:</strong> are we building the right product? It checks whether the delivered system meets user needs.</p>
-<table><thead><tr><th>Test level/type</th><th>Purpose</th></tr></thead><tbody><tr><td>Unit</td><td>Tests an individual function/module</td></tr><tr><td>Integration</td><td>Tests interactions between components</td></tr><tr><td>System</td><td>Tests the complete integrated system</td></tr><tr><td>Acceptance</td><td>Checks acceptance criteria with users/customer</td></tr><tr><td>Regression</td><td>Checks changes have not broken existing behaviour</td></tr><tr><td>Black-box</td><td>Tests externally visible input/output behaviour</td></tr><tr><td>White-box</td><td>Tests internal logic, paths and structure</td></tr></tbody></table>
+<h1>Software Engineering — Complete Notes, Syllabus Mapping and Topic-wise PYQs</h1>
+<p><strong>PYQ analysis:</strong> The supplied workbook contains 94 Software Engineering records representing 79 distinct question texts. Repeated patterns include the Linear Sequential/Waterfall model, SQA, white-box testing, cohesion, coupling, PERT and reliability metrics. The note retains source records and places each question after the related theory.</p>
+<p><strong>Syllabus coverage:</strong> SDLC, feasibility, requirements and SRS, DFD and design tools, modularity, coupling/cohesion, verification/validation, testing, maintenance, documentation, software quality, project planning, risk and process models.</p>
+
+<h2>1. Software engineering: meaning, need and characteristics</h2>
+<p><strong>Software engineering</strong> is the systematic, disciplined and measurable application of engineering principles to the development, operation, testing and maintenance of software. Its objective is to produce reliable, maintainable and usable software within agreed cost and time limits.</p>
+<ul>
+<li><strong>Software product:</strong> programs, data structures and associated documentation/configuration information.</li>
+<li><strong>Software process:</strong> the organized activities used to specify, design, build, test, deliver and maintain a software product.</li>
+<li><strong>Software crisis:</strong> difficulties such as late delivery, cost overruns, unreliable products, poor maintainability and failure to satisfy user requirements.</li>
+<li><strong>Good software attributes:</strong> correctness, reliability, usability, efficiency, security, maintainability, portability and reusability.</li>
+</ul>
+<p>Software engineering manages complexity through requirements discipline, modular design, reviews, testing, configuration control, documentation and project planning.</p>
+
+<h2>2. SDLC and software process activities</h2>
+<p><strong>Software Development Life Cycle (SDLC)</strong> is the structured sequence of activities through which software is planned, specified, designed, implemented, verified, deployed and maintained. The exact names and order of phases can vary by process model.</p>
+<table><thead><tr><th>Phase</th><th>Main activities</th><th>Typical deliverable</th></tr></thead><tbody>
+<tr><td>Planning and feasibility</td><td>Define problem, scope, objectives, cost, schedule and risks</td><td>Project plan / feasibility report</td></tr>
+<tr><td>Requirements analysis</td><td>Collect, analyse, prioritize and validate stakeholder needs</td><td>SRS</td></tr>
+<tr><td>Design</td><td>Choose architecture; design modules, data, interfaces and algorithms</td><td>Architecture and detailed design</td></tr>
+<tr><td>Implementation</td><td>Translate design into source code and perform code-level checks</td><td>Program modules</td></tr>
+<tr><td>Testing</td><td>Detect defects and verify required behaviour</td><td>Test cases and test reports</td></tr>
+<tr><td>Deployment</td><td>Install, configure, migrate data, release and train users</td><td>Operational release</td></tr>
+<tr><td>Maintenance</td><td>Correct faults, adapt to change and improve the product</td><td>Updated versions and fixes</td></tr>
+</tbody></table>
+<p><strong>Umbrella activities</strong> continue across the lifecycle: project tracking, risk management, software quality assurance, technical reviews, measurement, configuration management and documentation.</p>
+<div class="exam-facts"><strong>Exam distinction:</strong> SDLC describes the lifecycle activities; a process model describes how those activities are organized and iterated.</div>
+<!-- PYQ:software-engineering||se-project -->
+
+<h2>3. Feasibility study and requirements engineering</h2>
+<p>A <strong>feasibility study</strong> determines whether a proposed system is practical and worth undertaking before major development effort is committed. A common memory aid is TELOS.</p>
+<table><thead><tr><th>Feasibility</th><th>Question asked</th></tr></thead><tbody>
+<tr><td>Technical</td><td>Are technology, infrastructure and skills available?</td></tr>
+<tr><td>Economic</td><td>Do expected benefits justify development and operating costs?</td></tr>
+<tr><td>Legal</td><td>Does the solution comply with laws, licences, contracts and regulations?</td></tr>
+<tr><td>Operational</td><td>Will the system work in the organization and be accepted by users?</td></tr>
+<tr><td>Schedule</td><td>Can the system be delivered within the required time?</td></tr>
+</tbody></table>
+<p><strong>Requirements engineering</strong> is the process of discovering, analysing, documenting, validating and managing stakeholder needs. Typical steps are elicitation, analysis/negotiation, specification, validation and change management.</p>
+<ul>
+<li><strong>Functional requirement:</strong> states a service or behaviour the system must provide, such as calculating salary or generating an invoice.</li>
+<li><strong>Non-functional requirement:</strong> states a quality attribute or constraint, such as response time, availability, security, usability, portability or capacity.</li>
+<li><strong>Constraint:</strong> a restriction on design or implementation, such as a required platform, standard or technology.</li>
+</ul>
+<p><strong>SRS (Software Requirements Specification)</strong> is the formal document describing what the system must do, its interfaces, constraints and quality requirements. It is a basis for design, estimation, testing, acceptance and change control.</p>
+<p>A good SRS is correct, complete, unambiguous, consistent, verifiable/testable, feasible, traceable, modifiable and prioritized. Requirements traceability links each requirement to its source, design elements, implementation and test cases.</p>
+<!-- PYQ:software-engineering||se-requirements -->
+
+<h2>4. Analysis and design tools: DFD, flowchart and structured design</h2>
+<table><thead><tr><th>Tool</th><th>Purpose / exam distinction</th></tr></thead><tbody>
+<tr><td>Data Flow Diagram (DFD)</td><td>Shows how data moves between external entities, processes and data stores; it is not primarily a control-flow chart.</td></tr>
+<tr><td>Flowchart</td><td>Shows the sequence of operations and decision branches in an algorithm or process.</td></tr>
+<tr><td>Decision table</td><td>Lists combinations of conditions and the action for each combination; useful for complex business rules.</td></tr>
+<tr><td>Decision tree</td><td>Represents decisions and possible outcomes as branches.</td></tr>
+<tr><td>Structure chart</td><td>Shows hierarchical decomposition into modules and their calling relationships.</td></tr>
+<tr><td>Pseudocode</td><td>Language-independent, structured description of algorithm steps.</td></tr>
+</tbody></table>
+<p><strong>Common DFD symbols:</strong> an external entity is commonly shown as a rectangle; a process as a circle or rounded rectangle; a data store as two parallel lines or an open-ended rectangle; and a data flow as a labelled arrow. Notation can vary between conventions.</p>
+<ul>
+<li><strong>Context diagram:</strong> the highest-level view, representing the whole system as one process and showing its interaction with external entities.</li>
+<li><strong>Level-0 DFD:</strong> decomposes the system into its major processes. Some examination material uses “context diagram” and “level-0 DFD” inconsistently; follow the convention specified in the question.</li>
+<li><strong>Balancing:</strong> inputs and outputs crossing a parent process boundary should be preserved when that process is decomposed into a lower-level DFD.</li>
+</ul>
+<p><strong>Flowchart symbols:</strong> oval/terminator = start or end; rectangle = process; parallelogram = input/output; diamond = decision; arrow = flow line; connector = continuation. A flowchart is useful for visualizing control logic, while a DFD focuses on data movement.</p>
+<h3>Modularity, cohesion and coupling</h3>
+<p><strong>Modularity</strong> divides a large system into smaller components with clear responsibilities and interfaces. It makes development, testing, replacement and maintenance easier.</p>
+<p><strong>Cohesion</strong> measures how closely the responsibilities inside one module are related. Higher cohesion is generally desirable. Common order from weakest to strongest is: coincidental, logical, temporal, procedural, communicational, sequential and functional cohesion.</p>
+<p><strong>Coupling</strong> measures dependency between modules. Lower coupling is generally desirable. Common order from strongest/worst to weakest/best is: content, common, external, control, stamp and data coupling. Exact naming/order can vary slightly across textbooks.</p>
+<p><strong>Design principle:</strong> aim for high cohesion within modules and low coupling between modules. Avoid modules that directly depend on another module's internal implementation.</p>
+<ul>
+<li><strong>Abstraction:</strong> focuses on essential features while hiding unnecessary detail.</li>
+<li><strong>Information hiding:</strong> keeps internal decisions/data private behind a defined interface.</li>
+<li><strong>Top-down design:</strong> starts with the whole problem and repeatedly decomposes it into smaller modules.</li>
+<li><strong>Design pattern:</strong> a reusable, named solution structure for a recurring design problem; it is not a ready-made complete program.</li>
+<li><strong>Reverse engineering:</strong> analyses an existing system or code to recover higher-level design, structure or requirements.</li>
+<li><strong>CASE tools:</strong> Computer-Aided Software Engineering tools support activities such as modelling, design, coding, testing, documentation and maintenance.</li>
+</ul>
+<!-- PYQ:software-engineering||se-design -->
+
 <h2>5. Software process models</h2>
-<ul><li><strong>Waterfall:</strong> sequential phases; most suitable when requirements are stable and well understood.</li><li><strong>Prototyping:</strong> builds an early model to clarify requirements and obtain feedback; distinguish throwaway and evolutionary prototypes.</li><li><strong>Spiral:</strong> iterative, risk-driven cycles; each loop includes objectives, risk analysis, development/verification and planning.</li><li><strong>Agile:</strong> iterative delivery, frequent feedback, collaboration and adaptation. Scrum is a framework; Agile is broader than Scrum.</li></ul>
-<h2>6. Maintenance, quality and project management</h2>
-<ul><li><strong>Corrective maintenance:</strong> fixes defects. <strong>Adaptive:</strong> responds to environment changes. <strong>Perfective:</strong> improves performance/functionality. <strong>Preventive:</strong> reduces future maintenance risk.</li><li><strong>Quality assurance:</strong> process-oriented prevention and confidence. <strong>Quality control:</strong> product-oriented inspection/testing.</li><li><strong>Project planning:</strong> estimates effort, cost, schedule, people and dependencies. Risk management identifies, analyzes, responds to and monitors uncertainty.</li></ul>
-<h2>7. Exam traps</h2>
-<ul><li>DFD models data movement; flowchart models procedural control flow.</li><li>Verification is conformance to specification; validation is fitness for user needs.</li><li>High cohesion and low coupling are desirable. Spiral is risk-driven; Waterfall is sequential.</li></ul>
-<h2>8. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:software-engineering -->
+<table><thead><tr><th>Model</th><th>Core idea</th><th>Best fit / limitation</th></tr></thead><tbody>
+<tr><td>Waterfall / Linear Sequential</td><td>Phases proceed largely in sequence; each phase produces outputs for the next.</td><td>Stable, well-understood requirements. Changes late in the process are costly; working software and feedback arrive late.</td></tr>
+<tr><td>V-Model</td><td>Development phases are paired with corresponding test levels.</td><td>Emphasizes early test planning and traceability; less flexible for changing requirements.</td></tr>
+<tr><td>Prototyping</td><td>Build an early model to clarify requirements and obtain user feedback.</td><td>Useful when requirements are unclear. A throwaway prototype is discarded; an evolutionary prototype is refined.</td></tr>
+<tr><td>RAD</td><td>Rapid Application Development uses time-boxing, prototyping, reusable components and user participation.</td><td>Suitable for modular systems with active user involvement; depends on skilled teams and rapid feedback.</td></tr>
+<tr><td>Incremental</td><td>Delivers the system in a sequence of usable increments.</td><td>Early value and feedback; requires a sound overall architecture and prioritization.</td></tr>
+<tr><td>Iterative</td><td>Repeatedly revises and improves a solution through cycles.</td><td>Useful when learning and refinement are expected; iteration alone does not define a particular release strategy.</td></tr>
+<tr><td>Spiral</td><td>Risk-driven cycles involving objectives, risk analysis, development/validation and planning.</td><td>Useful for large, complex or high-risk projects; risk analysis adds cost and expertise requirements.</td></tr>
+<tr><td>Agile</td><td>Short iterations, frequent delivery, collaboration, customer feedback and adaptation.</td><td>Useful when requirements evolve. Agile is a family of approaches, not one single model.</td></tr>
+</tbody></table>
+<p><strong>RAD phases commonly tested:</strong> business modelling, data modelling, process modelling, application generation and testing/turnover. The exact phase labels may vary by RAD description.</p>
+<p><strong>Scrum basics:</strong> a lightweight Agile framework. Accountabilities are Product Owner, Scrum Master and Developers. Work is organized in Sprints; common artifacts are Product Backlog, Sprint Backlog and Increment. Agile is broader than Scrum.</p>
+<div class="exam-facts"><strong>Repeated PYQ cues:</strong> Linear Sequential = Waterfall; Spiral = risk-driven; RAD = rapid/high-speed development; evolving requirements generally conflict with a rigid linear model.</div>
+<!-- PYQ:software-engineering||se-models -->
+
+<h2>6. Software testing and test design</h2>
+<p><strong>Software testing</strong> executes or evaluates software to find defects and provide evidence about quality and conformance. Testing can reveal defects; it cannot prove that a non-trivial program is completely defect-free.</p>
+<table><thead><tr><th>Testing level</th><th>What is tested?</th></tr></thead><tbody>
+<tr><td>Unit testing</td><td>One function, class or module, usually by the developer.</td></tr>
+<tr><td>Integration testing</td><td>Interfaces and interactions between combined modules.</td></tr>
+<tr><td>System testing</td><td>The complete integrated system against system requirements.</td></tr>
+<tr><td>Acceptance testing</td><td>Whether the system meets agreed acceptance criteria and user/business needs.</td></tr>
+</tbody></table>
+<table><thead><tr><th>Approach</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Black-box testing</td><td>Tests external behaviour using inputs and expected outputs without relying on internal code structure; also called functional/specification-based testing in many exam contexts.</td></tr>
+<tr><td>White-box testing</td><td>Tests internal program structure, statements, branches, paths and conditions; also called structural or glass-box testing.</td></tr>
+<tr><td>Grey-box testing</td><td>Tests with partial knowledge of internal design or implementation.</td></tr>
+</tbody></table>
+<ul>
+<li><strong>Equivalence partitioning:</strong> divides input values into classes expected to behave similarly; select representative values from each class.</li>
+<li><strong>Boundary Value Analysis (BVA):</strong> focuses on values at and near input limits, because defects often occur at boundaries. For a valid range 1–4000, useful boundary tests include 0, 1, 2, 3999, 4000 and 4001, subject to the specification.</li>
+<li><strong>Decision-table testing:</strong> tests combinations of conditions and their corresponding actions.</li>
+<li><strong>Statement coverage:</strong> percentage of executable statements run. <strong>Branch coverage:</strong> percentage of decision outcomes exercised. Branch coverage is generally stronger than statement coverage.</li>
+<li><strong>Regression testing:</strong> reruns relevant tests after a change to detect unintended effects.</li>
+<li><strong>Recovery testing:</strong> checks whether the system can recover after failures, crashes or interrupted operations.</li>
+<li><strong>Stress testing:</strong> evaluates behaviour under extreme or beyond-normal workloads. <strong>Performance testing:</strong> measures response time, throughput and resource use.</li>
+<li><strong>Security testing:</strong> checks confidentiality, integrity, authentication, authorization and resistance to attacks.</li>
+</ul>
+<!-- PYQ:software-engineering||se-testing -->
+
+<h2>7. Verification, validation and quality assurance</h2>
+<p><strong>Verification</strong> asks, “Are we building the product right?” It checks whether work products conform to specifications, often through reviews, inspections, walkthroughs and static analysis.</p>
+<p><strong>Validation</strong> asks, “Are we building the right product?” It checks whether the implemented system satisfies user needs and intended use, commonly through execution-based testing and acceptance activities.</p>
+<ul>
+<li><strong>Quality Assurance (QA):</strong> process-oriented and preventive; establishes standards, methods, audits and process improvement to provide confidence that quality requirements will be met.</li>
+<li><strong>Quality Control (QC):</strong> product-oriented; detects defects through inspection, measurement and testing.</li>
+<li><strong>SQA:</strong> Software Quality Assurance; planned activities that ensure software processes and products conform to requirements and standards.</li>
+<li><strong>Software metrics:</strong> quantitative measures of product, process or project attributes. Direct measures include size, execution time and defect count; indirect measures include maintainability, functionality or quality indicators.</li>
+</ul>
+<p><strong>Reliability:</strong> probability that software operates without failure for a specified time in a specified environment. <strong>MTTF</strong> is Mean Time To Failure; <strong>MTTR</strong> is Mean Time To Repair/Restore; <strong>ROCOF</strong> is Rate of Occurrence of Failures. For a repairable system under a simple steady-state assumption, availability is approximately MTTF / (MTTF + MTTR).</p>
+<!-- PYQ:software-engineering||se-quality -->
+
+<h2>8. Software maintenance and configuration management</h2>
+<table><thead><tr><th>Maintenance type</th><th>Purpose</th><th>Example</th></tr></thead><tbody>
+<tr><td>Corrective</td><td>Fix faults discovered after delivery.</td><td>Correct a calculation bug.</td></tr>
+<tr><td>Adaptive</td><td>Keep software usable in a changed environment.</td><td>Update for a new operating system or regulation.</td></tr>
+<tr><td>Perfective</td><td>Improve performance, usability or functionality.</td><td>Add a requested report or optimize a slow query.</td></tr>
+<tr><td>Preventive</td><td>Reduce future faults and maintenance effort.</td><td>Refactor fragile code and improve tests.</td></tr>
+</tbody></table>
+<p><strong>Software configuration management (SCM)</strong> identifies configuration items, controls and records changes, maintains versions and baselines, and supports configuration audits. It prevents uncontrolled modifications and helps reproduce a release.</p>
+<p><strong>Patch:</strong> a small update intended to fix a defect, close a vulnerability or make a limited change. A software update may include a broader set of fixes or improvements. <strong>Documentation</strong> includes requirements, design, code comments where useful, test records, user manuals and maintenance information.</p>
+<!-- PYQ:software-engineering||se-maintenance -->
+
+<h2>9. Software project planning and risk management</h2>
+<p><strong>Software project management</strong> plans and controls scope, effort, cost, schedule, people, quality, communication and risk. Estimation is uncertain and should be revised as information improves.</p>
+<ul>
+<li><strong>Work Breakdown Structure (WBS):</strong> decomposes project scope into manageable deliverables and work packages.</li>
+<li><strong>Gantt chart:</strong> bar chart showing activities against calendar time, duration and progress.</li>
+<li><strong>PERT chart:</strong> network representation of activities/events and dependencies; useful when activity durations are uncertain.</li>
+<li><strong>PERT three-time estimate:</strong> expected duration = (Optimistic + 4 × Most likely + Pessimistic) / 6. This is an estimate, not a guaranteed completion time.</li>
+<li><strong>Critical path:</strong> longest-duration path through a project network; a delay on a critical activity can delay the project unless schedule recovery is possible.</li>
+<li><strong>Risk management:</strong> identify risks, estimate probability and impact, prioritize, plan responses and monitor them. Common responses include avoidance, mitigation, transfer and acceptance.</li>
+<li><strong>Estimation methods:</strong> expert judgement, analogy, decomposition, size-based estimation and algorithmic models such as COCOMO. A technique estimates effort/cost; it is not itself a scheduling chart.</li>
+</ul>
+<!-- PYQ:software-engineering||se-project -->
+
+<h2>10. Miscellaneous and cross-topic Software Engineering PYQs</h2>
+<p>Questions retained here are tagged as Software Engineering in the workbook but do not fit the principal syllabus clusters above, or require checking against another subject area. They are not discarded.</p>
+<!-- PYQ:software-engineering||se-misc -->
+
+<h2>11. Final revision checklist</h2>
+<ul>
+<li>Waterfall = Linear Sequential; Spiral = risk-driven; RAD = rapid development; Agile = iterative and feedback-oriented.</li>
+<li>DFD represents data movement; flowchart represents procedural control flow.</li>
+<li>SRS documents requirements; functional requirements describe services; non-functional requirements describe quality constraints.</li>
+<li>High cohesion and low coupling are desirable.</li>
+<li>Verification = conformance to specification; validation = fitness for user needs.</li>
+<li>Black-box tests behaviour; white-box tests internal structure.</li>
+<li>Corrective, adaptive, perfective and preventive are the four commonly tested maintenance categories.</li>
+<li>PERT handles uncertain activity durations; Gantt shows a schedule timeline.</li>
+<li>MTTF = Mean Time To Failure; ROCOF = Rate of Occurrence of Failures.</li>
+</ul>
+<p><strong>PYQ source note:</strong> Questions, available options, source answer keys, years and explanations are loaded from the supplied Part B workbook. Missing source options are not invented. Where duplicate records occur across shifts or source sections, they are retained as separate records; verify conflicting or malformed source keys before memorizing them.</p>
 </section>
