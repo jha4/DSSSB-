@@ -463,6 +463,17 @@ async function hydratePyqPlaceholders(
     groups.set(record.k, group);
   }
 
+    const classifyDigitalQuestion = (question: EmbeddedPyqRecord): string => {
+      const text = (question.q ?? '').toLowerCase();
+      if (/k-?map|minimi[sz]e|simplif(y|ied).*boolean|boolean function.*distributive|distributive law|order \\(degree\\)|degree.*function/.test(text)) return 'digital-kmap';
+      if (/flip.?flop|multivibrator|counter|ripple counter|sequential circuit|shift register|complement output of the last stage|stores? one bit|stores? .*information|number of times.*event|event.*number of times/.test(text)) return 'digital-sequential';
+      if (/multiplexer|demultiplexer|encoder|decoder|full adder|half adder|binary adder|addition and subtraction|combinational circuit|advantage of use of multiplexers|cascaded arrangement/.test(text)) return 'digital-combinational';
+      if (/gray code|one bit changes|bcd adder/.test(text)) return 'digital-codes';
+      if (/figure of merit|integrated circuits with complexities|logic family|rtl.*ecl|msi|ecl|propagation delay|integrated circuit/.test(text)) return 'digital-ic';
+      if (/electric power|resistors? of|linearity error|controlled electronic switch|semiconductor/.test(text)) return 'digital-misc';
+      return 'digital-gates';
+    };
+
   const classifyDsaQuestion = (question: EmbeddedPyqRecord): string => {
     const q = (question.q ?? '').toLowerCase();
     const sourceTopic = (question.t ?? '').trim().toLowerCase();
@@ -480,16 +491,7 @@ async function hydratePyqPlaceholders(
       if (/array|dimension|first dimension|second dimension|row/.test(q)) return 'ds-array';
     }
 
-    const classifyDigitalQuestion = (question: EmbeddedPyqRecord): string => {
-      const text = (question.q ?? '').toLowerCase();
-      if (/k-?map|minimi[sz]e|simplif(y|ied).*boolean|boolean function.*distributive|order \\(degree\\)|degree.*function/.test(text)) return 'digital-kmap';
-      if (/flip.?flop|multivibrator|counter|ripple counter|sequential circuit|shift register|complement output of the last stage|stores? one bit|stores? .*information/.test(text)) return 'digital-sequential';
-      if (/multiplexer|demultiplexer|encoder|decoder|full adder|half adder|binary adder|addition and subtraction|combinational circuit|advantage of use of multiplexers|cascaded arrangement/.test(text)) return 'digital-combinational';
-      if (/gray code|one bit changes|bcd adder/.test(text)) return 'digital-codes';
-      if (/figure of merit|integrated circuits with complexities|logic family|rtl.*ecl|msi|ecl|propagation delay|integrated circuit/.test(text)) return 'digital-ic';
-      if (/electric power|resistors? of|linearity error|controlled electronic switch|semiconductor/.test(text)) return 'digital-misc';
-      return 'digital-gates';
-    };
+
 
     if (!pureDs) {
       if (/binary search|linear search|search algorithm/.test(q)) return 'algo-searching';
