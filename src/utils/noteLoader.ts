@@ -524,12 +524,12 @@ async function hydratePyqPlaceholders(
   const classifyGraphicsMobileQuestion = (question: EmbeddedPyqRecord): string => {
     const text = questionText(question);
     // Exclude the single unrelated Linux command question mis-tagged as Graphics & multimedia.
-    if (/\\bgrep\\b|specified file and display those lines containing the pattern/.test(text)) return 'graphics-exclude';
+    if (/\bgrep\b|specified file and display those lines containing the pattern/.test(text)) return 'graphics-exclude';
 
-    if (/mobile computing|mobile ip|mobile node|gsm|gprs|edge|\\blte\\b|\\bcdma\\b|\\bbts\\b|\\bhlr\\b|\\bvlr\\b|\\bcoa\\b|home agent|foreign agent|care.?of address|tunnel endpoint|handover|handoff|tdma|fdma|time division multiple access|frequency division multiple access|mobile agent|mobile operating system|haptic|cellular network|cellular system|mobile station|macro.?mobility|micro.?mobility|ad hoc mobility|manet|iot adoption|internet of things|wireless configuration|device configuration|wi.?fi|circuit.?switched system|packet.?switched system/.test(text)) {
-      if (/gsm|gprs|edge|\\blte\\b|\\bcdma\\b|cellular generation|ascending order|data speed/.test(text)) return 'mobile-generations';
-      if (/\\bbts\\b|\\bhlr\\b|\\bvlr\\b|base transceiver|home location register|visitor location register|mobile station|mobile switching|base station controller/.test(text)) return 'mobile-architecture';
-      if (/mobile ip|mobile node|\\bcoa\\b|care.?of address|home agent|foreign agent|tunnel endpoint|tunnelling|tunneling/.test(text)) return 'mobile-ip';
+    if (/mobile computing|mobile ip|mobile node|gsm|gprs|edge|\blte\b|\bcdma\b|\bbts\b|\bhlr\b|\bvlr\b|\bcoa\b|home agent|foreign agent|care.?of address|tunnel endpoint|handover|handoff|tdma|fdma|time division multiple access|frequency division multiple access|mobile agent|mobile operating system|haptic|cellular network|cellular system|mobile station|macro.?mobility|micro.?mobility|ad hoc mobility|manet|iot adoption|internet of things|wireless configuration|device configuration|wi.?fi|circuit.?switched system|packet.?switched system/.test(text)) {
+      if (/gsm|gprs|edge|\blte\b|\bcdma\b|cellular generation|ascending order|data speed/.test(text)) return 'mobile-generations';
+      if (/\bbts\b|\bhlr\b|\bvlr\b|base transceiver|home location register|visitor location register|mobile station|mobile switching|base station controller/.test(text)) return 'mobile-architecture';
+      if (/mobile ip|mobile node|\bcoa\b|care.?of address|home agent|foreign agent|tunnel endpoint|tunnelling|tunneling/.test(text)) return 'mobile-ip';
       if (/handover|handoff|macro.?mobility|micro.?mobility|ad hoc mobility|manet|satellite network/.test(text)) return 'mobile-mobility';
       if (/tdma|fdma|time division multiple access|frequency division multiple access|code division|channel sharing/.test(text)) return 'mobile-access';
       if (/mobile operating system|android|ios|mobile agent/.test(text)) return 'mobile-platforms';
@@ -538,9 +538,9 @@ async function hydratePyqPlaceholders(
 
     if (/sampling|quantization|nyquist|digitiz|digitis|sampled amplitude/.test(text)) return 'multimedia-digitization';
     if (/compression|mpeg|macroblock|bit rate|codec|lossless|lossy/.test(text)) return 'multimedia-compression';
-    if (/audio|video|streaming|mp3|mpeg audio|synchroniz|frame rate|authoring|multimedia communication|multimedia application|virtual reality|\\bvr\\b|animation/.test(text)) return 'multimedia-audio-video';
-    if (/png|jpeg|jpg|bmp|tiff|gif|image format|photoshop|clone stamp|scanner|brightness|contrast|colour depth|color depth|high color|palette image|\\bimage\\b/.test(text)) return 'graphics-images';
-    if (/rgb|cmy|colour model|color model|\\bcmyk\\b/.test(text)) return 'graphics-colour';
+    if (/audio|video|streaming|mp3|mpeg audio|synchroniz|frame rate|authoring|multimedia communication|multimedia application|virtual reality|\bvr\b|animation/.test(text)) return 'multimedia-audio-video';
+    if (/png|jpeg|jpg|bmp|tiff|gif|image format|photoshop|clone stamp|scanner|brightness|contrast|colour depth|color depth|high color|palette image|\bimage\b/.test(text)) return 'graphics-images';
+    if (/rgb|cmy|colour model|color model|\bcmyk\b/.test(text)) return 'graphics-colour';
     if (/clipping|liang.?barsky|cohen.?sutherland|region code/.test(text)) return 'graphics-clipping';
     if (/bezier|b.spline|spline|control points|interpolation methods/.test(text)) return 'graphics-curves';
     if (/solid model|solid modeling|surface model|surface modelling|surface modeling|z.buffer|visible surface|lighting|light source|rendering algorithm/.test(text)) return 'graphics-modelling';
