@@ -79,7 +79,7 @@
   },
   {
     "id": "computer-fundamentals-architecture-short-notes",
-    "title": "Computer Fundamentals, IT Basics & Architecture — Complete Notes",
+    "title": "Computer Fundamentals & Computer Architecture — Complete Topic-wise Notes & PYQs",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
     "chapter": "Computer Fundamentals & Architecture",
@@ -91,8 +91,8 @@
       "IT-basics",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "Computer generations, hardware/software, memory hierarchy, CPU, buses, instruction cycle, encoding and full Part B PYQs.",
+    "date": "2026-11-23",
+    "summary": "Expanded syllabus-aligned fundamentals and architecture notes. Includes all 177 workbook records from Computer Organization, Computer organisation and IT fundamentals & applications: 154 distinct question texts, 23 repeated records retained, 118 with all four source options, and 59 with missing option text explicitly marked. PYQs are placed immediately after the relevant theory topics with workbook answer keys and explanations.",
     "file": "notes/computer-fundamentals-architecture-short-notes.html"
   },
   {
