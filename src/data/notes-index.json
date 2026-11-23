@@ -61,7 +61,7 @@
   },
   {
     "id": "digital-electronics-number-systems-short-notes",
-    "title": "Digital Electronics, Boolean Logic & Number Systems — Complete Notes",
+    "title": "Digital Electronics & Boolean Logic — Complete Topic-wise Notes & PYQs",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
     "chapter": "Digital Electronics & Number Systems",
@@ -73,8 +73,8 @@
       "number-systems",
       "PYQ"
     ],
-    "date": "2026-11-19",
-    "summary": "Detailed definitions, number conversions, complements, Boolean laws, gates, K-maps, combinational/sequential circuits and topic-wise Part B PYQs.",
+    "date": "2026-11-23",
+    "summary": "Expanded syllabus-aligned theory for number systems, complements, Boolean algebra, gates, K-maps, combinational/sequential circuits and ICs. All 60 Digital Electronics Part B workbook records are placed immediately after related topics, with available options, workbook answer keys and explanations; source gaps are marked.",
     "file": "notes/digital-electronics-number-systems-short-notes.html"
   },
   {
