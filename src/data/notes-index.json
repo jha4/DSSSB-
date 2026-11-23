@@ -239,23 +239,26 @@
   },
   {
     "id": "business-accounting-ecommerce-km-short-notes",
-    "title": "Business, Accounting, E-Commerce & Knowledge Management — Complete Notes",
+    "title": "Business, Accounting, E-Commerce, Knowledge Management & Numerical Techniques — Complete Topic-wise Notes & PYQs",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
-    "chapter": "Business & Knowledge Management",
-    "chapterSlug": "business-km",
-    "topic": "Complete Notes & PYQ Analysis",
+    "chapter": "Business, E-Commerce & Numerical Techniques",
+    "chapterSlug": "business-ecommerce-km-numerical",
+    "topic": "Complete Notes & Topic-wise PYQs",
     "tags": [
       "business",
       "accounting",
       "economics",
       "ecommerce",
       "KM",
-      "PYQ"
+      "PYQ",
+      "numerical-techniques",
+      "statistics",
+      "DSSSB"
     ],
-    "date": "2026-11-19",
-    "summary": "Business communication, management, economics, RBI, accounting, e-commerce, EFT/NEFT, EDI, tacit/explicit knowledge and full Part B PYQs.",
-    "file": "notes/business-accounting-ecommerce-km-short-notes.html"
+    "date": "2026-11-23",
+    "summary": "Detailed syllabus-aligned theory with 93 relevant Part B workbook PYQ records placed immediately after related topics: 41 Business & Accounting, 5 E-Commerce, 18 Knowledge Management/information-systems and 29 Mathematics/Statistics/Numerical Techniques. Preserves source wording, available options, workbook answer keys and explanations; embedded older option text is reproduced without guessing A–D boundaries.",
+    "file": "notes/business-ecommerce-km-numerical-techniques.html"
   },
   {
     "id": "graphics-multimedia-mobile-computing-short-notes",
