@@ -1,29 +1,108 @@
 <section>
-<h1>Digital Electronics, Boolean Logic and Number Systems — Complete Notes</h1>
-<p><strong>Coverage:</strong> Binary, octal, decimal and hexadecimal systems; complements and arithmetic; Boolean algebra; logic gates; K-maps; combinational and sequential circuits.</p>
-<h2>1. Number systems and representation</h2>
-<p>A <strong>number system</strong> represents quantities using symbols and a base (radix). In a positional system, each digit's value depends on its position: the weight of position i is base to the power i.</p>
-<table><thead><tr><th>System</th><th>Base</th><th>Digits</th><th>Use</th></tr></thead><tbody><tr><td>Binary</td><td>2</td><td>0, 1</td><td>Digital representation</td></tr><tr><td>Octal</td><td>8</td><td>0–7</td><td>Compact binary grouping (3 bits)</td></tr><tr><td>Decimal</td><td>10</td><td>0–9</td><td>Human arithmetic</td></tr><tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td><td>Compact binary grouping (4 bits)</td></tr></tbody></table>
-<ul><li>To convert a positional number to decimal, expand each digit by its positional weight and add.</li><li>To convert a decimal integer to another base, repeatedly divide by the target base and read remainders bottom-to-top.</li><li>Binary-to-octal conversion groups bits in threes; binary-to-hexadecimal groups bits in fours.</li><li>A non-positional system does not assign value through positional weights in the same way; Roman numerals are a common example.</li></ul>
-<h2>2. Complements and binary arithmetic</h2>
-<ul><li><strong>1's complement:</strong> invert every bit. <strong>2's complement:</strong> add 1 to the 1's complement; widely used for signed integers and subtraction.</li><li>Binary addition: 0+0=0, 0+1=1, 1+1=10, 1+1+1=11.</li><li>For n-bit 2's-complement values, the range is −2^(n−1) through 2^(n−1)−1. Unsigned n-bit values range from 0 through 2^n−1.</li><li>Signed overflow occurs when adding operands of the same sign produces a result with the opposite sign.</li></ul>
-<h2>3. Boolean algebra and laws</h2>
-<p>Boolean algebra operates on binary variables using OR (+), AND (·) and NOT (complement).</p>
-<table><thead><tr><th>Law</th><th>Identity</th></tr></thead><tbody><tr><td>Identity</td><td>A+0=A; A·1=A</td></tr><tr><td>Domination</td><td>A+1=1; A·0=0</td></tr><tr><td>Idempotent</td><td>A+A=A; A·A=A</td></tr><tr><td>Complement</td><td>A+A'=1; A·A'=0</td></tr><tr><td>Involution</td><td>(A')'=A</td></tr><tr><td>Absorption</td><td>A+AB=A; A(A+B)=A</td></tr></tbody></table>
-<p><strong>De Morgan's theorems:</strong> (A+B)'=A'B' and (AB)'=A'+B'. They are used to transform AND/OR logic into NAND/NOR forms.</p>
-<h2>4. Logic gates</h2>
-<ul><li><strong>AND:</strong> output 1 only when every input is 1. <strong>OR:</strong> output 1 when at least one input is 1. <strong>NOT:</strong> inverts an input.</li><li><strong>NAND:</strong> complement of AND. <strong>NOR:</strong> complement of OR. Each is universal because any Boolean function can be implemented using only NANDs or only NORs.</li><li><strong>XOR:</strong> output 1 when inputs differ. <strong>XNOR:</strong> output 1 when inputs are equal.</li></ul>
-<p>For two inputs: AND is 1 only for 11; OR is 0 only for 00; XOR is 1 for 01 and 10; XNOR is 1 for 00 and 11.</p>
-<h2>5. Canonical forms and K-maps</h2>
-<ul><li><strong>Minterm:</strong> product term containing every variable once; it is 1 for one input combination. <strong>Maxterm:</strong> sum term containing every variable once; it is 0 for one input combination.</li><li><strong>SOP:</strong> sum of products. <strong>POS:</strong> product of sums.</li><li><strong>Karnaugh map:</strong> Gray-code-ordered grid for grouping adjacent 1s (SOP) or 0s (POS). Groups contain 1, 2, 4, 8, ... cells; wrap-around adjacency is allowed.</li><li>Use the largest valid groups to eliminate the most variables. Don't-care cells may be used when they simplify the expression.</li></ul>
-<h2>6. Combinational circuits</h2>
-<ul><li>A <strong>combinational circuit</strong> has no stored state; output depends only on current inputs.</li><li><strong>Half adder:</strong> Sum=A XOR B; Carry=AB. A full adder also accepts carry-in.</li><li><strong>Multiplexer (MUX):</strong> selects one of many inputs for one output. n select lines can select 2^n inputs. A demultiplexer routes one input to one of many outputs.</li><li><strong>Encoder:</strong> maps an active input to a code. <strong>Decoder:</strong> activates an output corresponding to an input code.</li></ul>
-<h2>7. Sequential circuits and flip-flops</h2>
-<p>A <strong>sequential circuit</strong> has memory: output depends on current inputs and previous state. A latch is generally level-sensitive; a flip-flop is edge-triggered.</p>
-<table><thead><tr><th>Flip-flop</th><th>Characteristic</th></tr></thead><tbody><tr><td>SR</td><td>Set/reset controls; one input combination may be invalid</td></tr><tr><td>JK</td><td>J=K=1 toggles</td></tr><tr><td>D</td><td>Next state follows D at active clock edge</td></tr><tr><td>T</td><td>T=1 toggles; T=0 holds</td></tr></tbody></table>
-<ul><li><strong>Register:</strong> group of flip-flops storing a multi-bit value. Shift registers move bits; SISO, SIPO, PISO and PIPO describe serial/parallel input and output.</li><li><strong>Counter:</strong> sequential circuit advancing through a state sequence. Ripple counters propagate clock effects stage-by-stage; synchronous counters share a clock.</li><li><strong>Multivibrator:</strong> astable has no stable state, monostable has one stable state and bistable has two stable states.</li></ul>
-<h2>8. Exam traps</h2>
-<ul><li>NAND and NOR are universal; XOR and XNOR are not universal by themselves.</li><li>A MUX selects; a decoder activates an output; an encoder produces a code.</li><li>Combinational circuits have no memory; sequential circuits do.</li></ul>
-<h2>9. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:digital-electronics -->
-</section>
+<style>
+.digital-notes h1{font-size:1.65rem;line-height:1.25}.digital-notes h2{font-size:1.25rem;margin:28px 0 9px;padding-bottom:6px;border-bottom:1px solid #d8dee9}.digital-notes h3{font-size:1.02rem;margin:17px 0 7px}.digital-notes table{width:100%;border-collapse:collapse;margin:10px 0 16px}.digital-notes th,.digital-notes td{border:1px solid #d8dee9;padding:7px 9px;text-align:left;vertical-align:top}.digital-notes th{background:#f1f5f9}.digital-notes li{margin:5px 0}.digital-notes .callout{background:#fff8df;border-left:4px solid #d5a62a;padding:10px 13px;margin:12px 0;border-radius:5px}.digital-notes .high{background:#edf7ed;border-left:4px solid #57934f;padding:10px 13px;margin:12px 0;border-radius:5px}
+</style>
+<div class="digital-notes">
+<h1>Digital Electronics &amp; Boolean Logic — Complete DSSSB TGT Computer Science Notes</h1>
+<p><b>Syllabus coverage:</b> Number systems, complements and conversions; binary arithmetic; Boolean algebra and De Morgan's theorem; logic gates and truth tables; K-map simplification; minterms/maxterms; combinational circuits (MUX, decoder, encoder); flip-flops, multivibrators, counters and registers.</p>
+<div class="high"><b>PYQ analysis:</b> 60 workbook records tagged Digital Electronics are grouped immediately after their related theory. The workbook contains 57 records with all four options, 3 with incomplete option fields, 2 with blank explanations and 6 with no recorded year. The displayed answer is the workbook key; missing source fields are not invented.</div>
+
+<h2>1. Number systems, complements and digital codes</h2>
+<p>A <b>number system</b> represents values using symbols and a radix (base). In positional notation, each digit is multiplied by a power of the base determined by its position.</p>
+<table><tr><th>System</th><th>Base</th><th>Symbols</th><th>Binary grouping</th></tr><tr><td>Binary</td><td>2</td><td>0, 1</td><td>—</td></tr><tr><td>Octal</td><td>8</td><td>0–7</td><td>3 bits</td></tr><tr><td>Decimal</td><td>10</td><td>0–9</td><td>—</td></tr><tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td><td>4 bits</td></tr></table>
+<ul>
+<li><b>Base to decimal:</b> expand using positional weights. (1011)₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 11₁₀.</li>
+<li><b>Decimal integer to another base:</b> repeatedly divide by target base and read remainders from bottom to top. 13₁₀ = 1101₂.</li>
+<li><b>Binary to octal:</b> group bits in threes from the binary point outward. 110101₂ = 65₈.</li>
+<li><b>Binary to hexadecimal:</b> group bits in fours. 11101101₂ = ED₁₆.</li>
+<li><b>Fractions:</b> repeatedly multiply the fractional part by the target base and read integer parts in order.</li>
+<li><b>1's complement:</b> invert every bit. <b>2's complement:</b> invert every bit and add 1.</li>
+<li><b>Subtraction:</b> A − B = A + (2's complement of B); discard final carry in fixed-width arithmetic.</li>
+<li><b>Unsigned n-bit range:</b> 0 to 2ⁿ−1. <b>Two's-complement n-bit range:</b> −2ⁿ⁻¹ to 2ⁿ⁻¹−1.</li>
+<li><b>Signed overflow:</b> occurs when two same-sign operands produce a result with the opposite sign.</li>
+</ul>
+<h3>BCD and Gray code</h3>
+<ul>
+<li><b>8421 BCD:</b> each decimal digit is encoded separately using four bits. Valid digit codes are 0000–1001; 1010–1111 are invalid.</li>
+<li><b>BCD addition:</b> add 0110 (decimal 6) if the 4-bit digit sum exceeds 1001 or produces a carry.</li>
+<li><b>Gray code:</b> adjacent code words differ in exactly one bit. Binary→Gray: copy the MSB; each next Gray bit is XOR of adjacent binary bits. Gray→binary: copy the MSB, then cumulatively XOR the previous binary bit with the current Gray bit.</li>
+<li><b>Excess-3:</b> add 3 to each decimal digit and encode the result in four-bit binary; it is non-weighted and self-complementing.</li>
+</ul>
+<div class="callout"><b>Exam trap:</b> BCD encodes each decimal digit separately. Decimal 59 in BCD is 0101 1001, not its ordinary binary representation 0011 1011.</div>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-codes -->
+
+<h2>2. Boolean algebra and logic gates</h2>
+<p><b>Boolean algebra</b> is the mathematical system used to analyse and simplify digital logic. Variables take only 0 or 1. Its basic operations are OR (+), AND (·) and NOT (complement).</p>
+<table><tr><th>Law</th><th>Identity</th></tr><tr><td>Identity</td><td>A+0=A; A·1=A</td></tr><tr><td>Domination</td><td>A+1=1; A·0=0</td></tr><tr><td>Idempotent</td><td>A+A=A; A·A=A</td></tr><tr><td>Complement</td><td>A+A'=1; A·A'=0</td></tr><tr><td>Involution</td><td>(A')'=A</td></tr><tr><td>Commutative</td><td>A+B=B+A; AB=BA</td></tr><tr><td>Associative</td><td>(A+B)+C=A+(B+C); (AB)C=A(BC)</td></tr><tr><td>Distributive</td><td>A(B+C)=AB+AC; A+BC=(A+B)(A+C)</td></tr><tr><td>Absorption</td><td>A+AB=A; A(A+B)=A</td></tr></table>
+<p><b>De Morgan's theorems:</b> (A+B)'=A'B' and (AB)'=A'+B'. Complement of a sum becomes product of complements; complement of a product becomes sum of complements. <b>Duality:</b> interchange + with · and 0 with 1.</p>
+<h3>Truth table of two-input gates</h3>
+<table><tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th><th>XNOR</th></tr><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr></table>
+<ul>
+<li><b>AND:</b> output 1 only when every input is 1; Y=AB.</li><li><b>OR:</b> output 1 when at least one input is 1; Y=A+B.</li><li><b>NOT:</b> inverts its input; Y=A'.</li><li><b>NAND:</b> complement of AND; output 0 only when all inputs are 1; Y=(AB)'.</li><li><b>NOR:</b> complement of OR; output 1 only when all inputs are 0; Y=(A+B)'.</li><li><b>XOR:</b> output 1 when inputs differ; Y=A⊕B. <b>XNOR:</b> output 1 when inputs are equal; Y=(A⊕B)'.</li><li><b>Buffer:</b> output equals input; used for signal restoration/drive.</li>
+</ul>
+<h3>Universal gates: NAND and NOR</h3>
+<p>A <b>universal gate</b> can implement NOT, AND, OR and therefore any Boolean function using that gate type alone.</p>
+<table><tr><th>Function</th><th>NAND-only implementation</th><th>NOR-only implementation</th></tr><tr><td>NOT</td><td>A NAND A = A'</td><td>A NOR A = A'</td></tr><tr><td>AND</td><td>(A NAND B) NAND itself</td><td>(A NOR A) NOR (B NOR B)</td></tr><tr><td>OR</td><td>(A NAND A) NAND (B NAND B)</td><td>(A NOR B) NOR itself</td></tr></table>
+<div class="high"><b>High-yield facts:</b> NAND and NOR are universal. XOR=1 for unequal inputs; XNOR=1 for equal inputs. A⊕A=0; A NAND A=A'; A NOR A=A'.</div>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-gates -->
+
+<h2>3. Canonical forms and K-map simplification</h2>
+<ul>
+<li><b>Literal:</b> a variable or its complement. <b>Product term:</b> AND of literals. <b>Sum term:</b> OR of literals.</li>
+<li><b>Minterm:</b> an AND term containing every variable once; it is 1 for exactly one input combination. A 0-valued variable is complemented.</li>
+<li><b>Maxterm:</b> an OR term containing every variable once; it is 0 for exactly one combination. A 0-valued variable is uncomplemented.</li>
+<li><b>Canonical SOP:</b> sum of minterms for which F=1, written Σm. <b>Canonical POS:</b> product of maxterms for which F=0, written ΠM.</li>
+<li><b>Degree/order:</b> number of distinct variables in a product term. A'B'C'D' has degree 4.</li>
+</ul>
+<p>A <b>Karnaugh map (K-map)</b> is a Gray-code-ordered grid used to simplify Boolean expressions by grouping adjacent cells. An n-variable map contains 2ⁿ cells: 4 for two variables, 8 for three, 16 for four.</p>
+<ul><li>For SOP, group 1s; for POS, group 0s.</li><li>Groups contain powers of two cells: 1, 2, 4, 8, 16. Wrap-around adjacency is allowed, including opposite edges and corners.</li><li>Use the largest possible groups and cover every required cell. Overlapping groups are allowed when useful.</li><li>Variables that change within a group are eliminated; variables that remain constant form the simplified term.</li><li>Don't-care cells may be included if they simplify the result, or ignored.</li></ul>
+<div class="callout"><b>Worked pattern:</b> F(A,B,C)=Σm(0,2,5,7). Pair m0 with m2 to obtain A'C'; pair m5 with m7 to obtain AC. Therefore F=A'C'+AC.</div>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-kmap -->
+
+<h2>4. Combinational and arithmetic circuits</h2>
+<p>A <b>combinational circuit</b> has outputs determined only by present input values. It has no stored state or memory.</p>
+<table><tr><th>Circuit</th><th>Inputs</th><th>Sum</th><th>Carry</th></tr><tr><td>Half adder</td><td>A, B</td><td>S=A⊕B</td><td>C=AB</td></tr><tr><td>Full adder</td><td>A, B, Cin</td><td>S=A⊕B⊕Cin</td><td>Cout=AB+ACin+BCin</td></tr></table>
+<p>A half adder adds two bits but has no carry-in. A full adder adds two data bits plus carry-in. An n-bit ripple adder commonly uses n full-adder stages (the least significant stage may be a half adder when Cin=0).</p>
+<p><b>Adder-subtractor:</b> XOR gates conditionally complement B. With mode M=0, B is unchanged and the circuit adds. With M=1, B is complemented and Cin=1, so it computes A+B'+1=A−B.</p>
+<ul>
+<li><b>Multiplexer (MUX):</b> data selector routing one of many input lines to one output. n select lines select 2ⁿ inputs; an 8:1 MUX needs 3 select lines.</li>
+<li><b>Demultiplexer:</b> routes one input to one of many outputs using select lines.</li>
+<li><b>Encoder:</b> converts one active input among 2ⁿ lines into an n-bit code. A priority encoder resolves multiple active inputs by priority.</li>
+<li><b>Decoder:</b> converts n input bits into up to 2ⁿ output lines, activating the output associated with the input code.</li>
+<li><b>Comparator:</b> indicates A&gt;B, A=B or A&lt;B. <b>Parity generator/checker:</b> uses XOR logic.</li>
+<li><b>BCD adder:</b> corrects a digit by adding 0110 if the binary sum exceeds 1001 or produces a carry.</li>
+</ul>
+<div class="callout"><b>Do not confuse:</b> MUX selects; DEMUX distributes. Encoder produces a code; decoder activates an output. Counters and shift registers are sequential circuits.</div>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-combinational -->
+
+<h2>5. Sequential circuits: flip-flops, counters and registers</h2>
+<p>A <b>sequential circuit</b> has memory; its output depends on current inputs and previously stored state. A <b>latch</b> is generally level-sensitive, while a <b>flip-flop</b> is generally edge-triggered. One flip-flop stores one bit.</p>
+<table><tr><th>Flip-flop</th><th>Behaviour</th></tr><tr><td>SR</td><td>Set, reset or hold; one input combination is invalid in the basic active-high NOR implementation.</td></tr><tr><td>JK</td><td>00 hold; 01 reset; 10 set; 11 toggle. If J=K=1 it toggles.</td></tr><tr><td>D</td><td>Next state follows D at the active clock edge.</td></tr><tr><td>T</td><td>T=0 holds; T=1 toggles at the active clock edge.</td></tr></table>
+<ul>
+<li><b>Register:</b> group of flip-flops storing a multi-bit word; n bits typically require n flip-flops.</li>
+<li><b>Shift register:</b> moves bits left or right. SISO=serial-in serial-out; SIPO=serial-in parallel-out; PISO=parallel-in serial-out; PIPO=parallel-in parallel-out.</li>
+<li><b>Counter:</b> advances through states on clock pulses/events. n flip-flops provide 2ⁿ states, normally 0 through 2ⁿ−1. MOD-N has N states.</li>
+<li><b>Ripple/asynchronous counter:</b> only the first flip-flop receives the external clock; following stages are clocked by preceding outputs, so delays accumulate.</li>
+<li><b>Synchronous counter:</b> all flip-flops receive a common clock.</li>
+<li><b>Ring counter:</b> last output feeds first input directly. <b>Johnson/twisted-ring counter:</b> complemented last-stage output feeds first input; n stages can produce up to 2n states.</li>
+<li><b>Up/down counter:</b> counts increasing/decreasing. <b>Decade counter:</b> MOD-10, normally 0 to 9. Cascaded independent MOD-6 and MOD-8 counters give MOD-48.</li>
+</ul>
+<h3>Multivibrators</h3>
+<table><tr><th>Type</th><th>Stable states</th><th>Operation</th></tr><tr><td>Astable</td><td>0 stable; 2 quasi-stable</td><td>Free-running oscillator; no external trigger required.</td></tr><tr><td>Monostable</td><td>1 stable; 1 quasi-stable</td><td>One-shot pulse after a trigger.</td></tr><tr><td>Bistable</td><td>2 stable</td><td>Stores one bit; a flip-flop is bistable.</td></tr></table>
+<div class="high"><b>High-yield:</b> T=1 toggles; T=0 holds. Astable has no stable state; monostable has one; bistable has two. Johnson counter uses complemented feedback.</div>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-sequential -->
+
+<h2>6. Integrated circuits and logic families</h2>
+<p>An <b>integrated circuit (IC)</b> is a miniaturized electronic circuit fabricated on a semiconductor substrate. Integration categories include SSI, MSI, LSI and VLSI; exact gate ranges vary by textbook. The supplied PYQ uses 30–300 equivalent gates for MSI.</p>
+<ul><li><b>RTL:</b> Resistor-Transistor Logic. <b>DTL:</b> Diode-Transistor Logic. <b>TTL:</b> Transistor-Transistor Logic.</li><li><b>ECL:</b> Emitter-Coupled Logic; non-saturating bipolar logic, very fast and relatively high power.</li><li><b>CMOS:</b> Complementary MOS; low static power and high input impedance.</li><li><b>Propagation delay:</b> time between input transition and corresponding output response. tPLH is low-to-high; tPHL is high-to-low.</li><li><b>Power-delay product:</b> power dissipation × propagation delay. Lower PDP generally indicates a better speed-power trade-off.</li><li><b>Fan-in:</b> number of gate inputs. <b>Fan-out:</b> number of standard gate inputs an output can drive. <b>Noise margin:</b> tolerance to noise without changing logic interpretation.</li></ul>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-ic -->
+
+<h2>7. Miscellaneous and adjacent electronics PYQs</h2>
+<p>These records are tagged Digital Electronics in the workbook but concern adjacent electrical/electronics basics or are not cleanly mapped to a core syllabus heading. They are retained for completeness.</p>
+<!-- PYQ:digital-electronics|Digital Electronics|digital-misc -->
+
+<h2>8. Rapid revision</h2>
+<table><tr><th>Concept</th><th>Remember</th></tr><tr><td>Number bases</td><td>Binary 2; octal 8; decimal 10; hexadecimal 16.</td></tr><tr><td>2's complement</td><td>Invert bits and add 1.</td></tr><tr><td>Gray code</td><td>Only one bit changes between successive values.</td></tr><tr><td>Universal gates</td><td>NAND and NOR.</td></tr><tr><td>XOR/XNOR</td><td>XOR=different; XNOR=equal.</td></tr><tr><td>De Morgan</td><td>(A+B)'=A'B'; (AB)'=A'+B'.</td></tr><tr><td>Minterm/maxterm</td><td>Minterm is 1 at one row; maxterm is 0 at one row.</td></tr><tr><td>K-map</td><td>Groups of 1,2,4,8…; wrap-around allowed.</td></tr><tr><td>MUX</td><td>n select lines choose 2ⁿ inputs.</td></tr><tr><td>Half adder</td><td>Sum=A⊕B; Carry=AB.</td></tr><tr><td>Full adder</td><td>Sum=A⊕B⊕Cin; Cout=AB+ACin+BCin.</td></tr><tr><td>Flip-flop</td><td>Stores one bit.</td></tr><tr><td>Ripple counter</td><td>n FFs give 2ⁿ states.</td></tr><tr><td>Johnson counter</td><td>Complemented last output feeds first input.</td></tr><tr><td>Astable/monostable/bistable</td><td>0/1/2 stable states.</td></tr><tr><td>IC figure of merit</td><td>Power × propagation delay.</td></tr></table>
+<h2>9. PYQ source-quality notes</h2>
+<ul><li>All 60 rows with Topic containing “Digital Electronics” are retained.</li><li>57 records have all four option texts. Three records have missing option fields; gaps are explicitly marked by the PYQ renderer.</li><li>58 records have source explanations. Two are blank; no explanation is fabricated.</li><li>Six records have no year recorded and remain included with their other source metadata.</li><li>The displayed correct answer is the workbook key. Numeric keys 1–4 are normalized to A–D. Some workbook explanations contain formatting or transcription defects; verify doubtful keys against the original figure and a standard reference before memorising.</li></ul>
+</div></section>
