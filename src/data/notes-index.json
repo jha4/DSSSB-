@@ -1,12 +1,12 @@
 [
   {
     "id": "operating-system-pyq-short-notes",
-    "title": "Operating System – Complete Short Notes & PYQ Analysis",
+    "title": "Operating Systems & Linux — Complete Topic-wise Notes & PYQs",
     "subject": "Computer Science",
     "subjectSlug": "computer-science",
     "chapter": "Operating System",
     "chapterSlug": "operating-system",
-    "topic": "Complete Notes & PYQ Analysis",
+    "topic": "Complete Topic-wise Notes & PYQs",
     "tags": [
       "operating-system",
       "PYQ",
@@ -15,8 +15,8 @@
       "revision",
       "numericals"
     ],
-    "date": "2026-11-18",
-    "summary": "Detailed Operating System and Linux theory plus 177 latest Part B workbook records with full available options, keyed answers and source explanations; earlier OS notes retained.",
+    "date": "2026-11-23",
+    "summary": "Syllabus-aligned OS and Linux theory with 177 Part B workbook records placed after related topics. All records retain source answer keys and explanations; 132 contain all four option texts, with missing source options left unfilled.",
     "file": "notes/operating-system-pyq-short-notes.html"
   },
   {
