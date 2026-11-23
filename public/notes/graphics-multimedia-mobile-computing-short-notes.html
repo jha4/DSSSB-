@@ -1,25 +1,196 @@
 <section>
-<h1>Computer Graphics, Multimedia and Mobile Computing — Complete Notes</h1>
-<p><strong>Coverage:</strong> Display concepts, raster/vector graphics, colour models, 2D transformations, clipping, multimedia sampling/compression and mobile technologies.</p>
+<h1>Computer Graphics, Multimedia and Mobile Computing — Complete Notes & Topic-wise PYQs</h1>
+<p><strong>Mobile PYQ analysis:</strong> The workbook contains 16 distinct questions tagged Mobile Computing. They test GSM/BTS, HLR/VLR, Mobile IP, Care-of Address, Home/Foreign Agents, handover, TDMA, CDMA, mobile operating systems, mobile-agent concepts and relative data-speed ordering. The broader graphics/multimedia PYQs are retained in their own groups.</p>
+<p><strong>Syllabus coverage:</strong> CRT, pixels, resolution, aspect ratio, refresh/persistence, RGB/CMY, 2D transformations, clipping, curves/surfaces/solid modelling, multimedia sampling/quantization/compression/file formats, GSM, GPRS, EDGE, LTE, CDMA, mobile architecture, mobile OS, haptic technology and wireless/mobile applications.</p>
+
 <h2>1. Computer graphics fundamentals</h2>
-<ul><li><strong>Pixel:</strong> smallest addressable picture element in a raster image/display. <strong>Resolution:</strong> number of pixels, often width × height. <strong>Aspect ratio:</strong> ratio of width to height.</li><li><strong>Refresh rate:</strong> screen refreshes per second (Hz). <strong>Persistence:</strong> time a phosphor/display element continues emitting light after excitation; classic CRT terminology.</li><li><strong>Raster graphics:</strong> image represented as a grid of pixels; scaling can reveal pixelation. <strong>Vector graphics:</strong> image represented using geometric primitives and paths; scales cleanly but may require rasterization.</li><li><strong>CRT:</strong> electron beam excites phosphor on a screen. Modern displays commonly use LCD/LED or OLED technologies.</li></ul>
+<ul>
+<li><strong>Computer graphics:</strong> creation, storage, manipulation and display of visual information using computers.</li>
+<li><strong>Pixel:</strong> the smallest addressable picture element in a raster image or display. A pixel stores a colour/intensity value.</li>
+<li><strong>Resolution:</strong> number of pixels used to represent an image or display, commonly width × height (for example, 1920 × 1080). More pixels can represent finer detail, but resolution alone does not determine physical sharpness.</li>
+<li><strong>Aspect ratio:</strong> ratio of width to height. A 16:9 display is wider than a 4:3 display relative to its height.</li>
+<li><strong>Refresh rate:</strong> number of times a display refreshes per second, measured in hertz (Hz). A 60 Hz display refreshes 60 times per second.</li>
+<li><strong>Persistence:</strong> in classic CRT terminology, the time phosphor emission continues after the electron beam stops exciting it. Too little persistence can cause flicker; excessive persistence can cause smearing.</li>
+<li><strong>Raster graphics:</strong> represent images as pixels; enlargement may produce pixelation. <strong>Vector graphics:</strong> represent shapes mathematically using paths and geometric primitives; they scale cleanly before rasterization.</li>
+</ul>
+<h3>Display devices</h3>
+<p><strong>CRT (Cathode Ray Tube):</strong> an electron gun produces a beam that is focused and deflected to strike phosphor on the screen. The phosphor emits light. A raster-scan CRT traces lines across the screen; a random-scan/vector display draws selected lines directly. Modern displays commonly use LCD/LED-backlit LCD or OLED technology rather than CRT.</p>
+<!-- PYQ:graphics||graphics-core -->
+
 <h2>2. Colour models</h2>
-<ul><li><strong>RGB:</strong> additive colour model used by displays; red, green and blue light combine. Full intensity of all three gives white in the ideal additive model.</li><li><strong>CMY/CMYK:</strong> subtractive model used in printing; cyan, magenta and yellow inks absorb components of light, with black often added for practical printing.</li></ul>
-<h2>3. 2D transformations</h2>
-<p>Using homogeneous coordinates, translation, scaling and rotation can be represented by matrices and combined through multiplication. Order matters: transformations are generally not commutative.</p>
-<ul><li><strong>Translation:</strong> shifts coordinates by (tx, ty).</li><li><strong>Scaling:</strong> multiplies coordinates by scale factors (sx, sy); unequal factors distort proportions.</li><li><strong>Rotation:</strong> rotates about an origin or pivot; in standard Cartesian coordinates a positive angle is counter-clockwise.</li><li><strong>Reflection:</strong> mirrors across an axis/line. <strong>Shear:</strong> slants a shape by shifting one coordinate in proportion to another.</li></ul>
-<h2>4. Viewing, clipping and modelling</h2>
-<ul><li><strong>Viewing pipeline:</strong> transforms objects from model/world coordinates to viewing/device coordinates and maps them to a viewport.</li><li><strong>Clipping:</strong> removes portions outside a viewing region. Cohen–Sutherland and Liang–Barsky are line-clipping algorithms.</li><li><strong>Curves:</strong> Bezier curves are controlled by control points; B-splines provide piecewise polynomial representations.</li><li><strong>Modelling:</strong> represents objects using wireframe, surface or solid models.</li></ul>
-<h2>5. Multimedia: image, audio and video</h2>
-<ul><li><strong>Sampling:</strong> measures a continuous signal at discrete time intervals. Higher sampling rate captures higher frequencies; Nyquist requires sampling frequency greater than twice the highest signal frequency for ideal band-limited reconstruction.</li><li><strong>Quantization:</strong> maps sample amplitudes to finite discrete levels. Bit depth b permits 2^b levels.</li><li><strong>Compression:</strong> lossless preserves exact data; lossy discards information to reduce size. JPEG is commonly lossy; PNG is lossless; MPEG standards cover audio/video compression families.</li><li><strong>Frame rate:</strong> frames per second. Bit rate depends on resolution, frame rate, colour depth and compression.</li></ul>
-<h2>6. Mobile computing and wireless generations</h2>
-<table><thead><tr><th>Technology</th><th>Exam-level association</th></tr></thead><tbody><tr><td>GSM</td><td>2G digital cellular standard</td></tr><tr><td>GPRS</td><td>Packet-data enhancement associated with GSM (2.5G)</td></tr><tr><td>EDGE</td><td>Enhanced Data rates for GSM Evolution (often 2.75G)</td></tr><tr><td>CDMA</td><td>Multiple users share spectrum using codes</td></tr><tr><td>LTE</td><td>4G mobile broadband technology family</td></tr></tbody></table>
-<p>Mobile systems include user equipment, radio access network and core network. Haptic technology provides tactile feedback such as vibration or force feedback.</p>
-<h2>7. Exam traps</h2>
-<ul><li>RGB is additive; CMY is subtractive.</li><li>Sampling is time discretization; quantization is amplitude discretization.</li><li>Resolution counts pixels; refresh rate is measured in hertz.</li><li>GPRS and EDGE enhance GSM; LTE is associated with 4G broadband.</li></ul>
-<h2>Curves, surfaces and solid modelling</h2>
-<ul><li><strong>Curves:</strong> represent smooth paths or boundaries. Parametric forms express coordinates as functions of a parameter; Bezier curves are controlled by control points and have the endpoint/tangent behaviour determined by their control polygon.</li><li><strong>Surfaces:</strong> extend curve concepts to two parameters and describe 3D object boundaries. Common introductory representations include polygon meshes and parametric surfaces such as Bezier or spline surfaces.</li><li><strong>Solid modelling:</strong> represents a complete 3D object, not only its visible surface. Boundary representation (B-rep) stores faces, edges and vertices; constructive solid geometry (CSG) combines primitives using union, intersection and difference; a spatial-occupancy model such as voxels represents volume cells.</li><li><strong>Viewing pipeline:</strong> object/model coordinates are transformed to world coordinates, then camera/view coordinates, projection coordinates and finally viewport/device coordinates. Clipping removes portions outside the viewing region before rasterization.</li></ul>
-<p><strong>Exam distinction:</strong> wireframe shows edges only; surface modelling describes the exterior; solid modelling also represents the object's interior/volume. Translation, scaling and rotation are geometric transformations, while clipping determines which parts are visible in the viewing region.</p>
-<h2>8. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:graphics -->
+<table><thead><tr><th>Model</th><th>Type</th><th>Use / key fact</th></tr></thead><tbody>
+<tr><td>RGB (Red, Green, Blue)</td><td>Additive</td><td>Displays emit red, green and blue light. Combining full intensities ideally produces white; absence of light produces black.</td></tr>
+<tr><td>CMY (Cyan, Magenta, Yellow)</td><td>Subtractive</td><td>Printing inks absorb components of incident light. Combining ideal cyan, magenta and yellow absorbs most light; practical printing often adds black (CMYK).</td></tr>
+</tbody></table>
+<p><strong>Exam cue:</strong> RGB is used for light-emitting screens; CMY/CMYK is associated with printing and pigments/inks. Additive mixing adds light; subtractive mixing removes light.</p>
+<!-- PYQ:graphics||graphics-core -->
+
+<h2>3. 2D geometric transformations</h2>
+<p>Transformations change an object's position, size or orientation. Homogeneous coordinates allow translation, scaling and rotation to be represented using matrices. Matrix multiplication order matters because transformations are generally non-commutative.</p>
+<ul>
+<li><strong>Translation:</strong> moves every point by a displacement (tx, ty): x' = x + tx and y' = y + ty.</li>
+<li><strong>Scaling:</strong> changes size: x' = sx × x and y' = sy × y. Equal scale factors preserve proportions; unequal factors distort them.</li>
+<li><strong>Rotation:</strong> turns an object around an origin or pivot. In standard Cartesian coordinates, a positive angle is counter-clockwise.</li>
+<li><strong>Reflection:</strong> produces a mirror image across an axis or line.</li>
+<li><strong>Shearing:</strong> slants an object by shifting one coordinate in proportion to another.</li>
+</ul>
+<p>To rotate about a point other than the origin, translate the pivot to the origin, rotate, then translate back. This order is important.</p>
+<!-- PYQ:graphics||graphics-core -->
+
+<h2>4. Viewing pipeline, clipping, curves and 3D modelling</h2>
+<p><strong>Viewing pipeline:</strong> transforms object/model coordinates into world coordinates, then viewing/camera coordinates, projection coordinates and finally viewport/device coordinates. Clipping removes parts outside the viewing region before rasterization.</p>
+<ul>
+<li><strong>Clipping:</strong> discards portions of primitives outside a defined viewing window. Line-clipping algorithms include Cohen–Sutherland and Liang–Barsky. Polygon clipping is a related operation for polygon boundaries.</li>
+<li><strong>Curves:</strong> represent smooth paths or boundaries. Bezier curves are controlled by control points; B-splines use piecewise polynomial segments and provide local control.</li>
+<li><strong>Surface modelling:</strong> represents the exterior of 3D objects using surfaces, meshes or parametric patches.</li>
+<li><strong>Solid modelling:</strong> represents a complete 3D volume. Boundary Representation (B-rep) stores faces, edges and vertices; Constructive Solid Geometry (CSG) combines primitives using union, intersection and difference; voxel models divide space into volume cells.</li>
+<li><strong>Wireframe model:</strong> displays vertices and edges only. It does not explicitly represent filled surfaces or the object's interior.</li>
+</ul>
+<p><strong>Important distinction:</strong> clipping determines what lies inside the viewing region; a geometric transformation changes object coordinates. A curve is one-dimensional, a surface is two-dimensional, and a solid represents volume.</p>
+<!-- PYQ:graphics||graphics-core -->
+
+<h2>5. Multimedia fundamentals: image, audio and video</h2>
+<p><strong>Multimedia</strong> combines two or more media types such as text, graphics, images, audio, video and animation in a computer-controlled presentation or application.</p>
+<ul>
+<li><strong>Sampling:</strong> converts a continuous-time signal into discrete-time samples by measuring it at regular intervals. Sampling frequency is measured in samples per second (Hz).</li>
+<li><strong>Nyquist sampling principle:</strong> for ideal reconstruction of a band-limited signal, sampling frequency must be greater than twice the highest signal frequency. Practical systems also use anti-aliasing filters.</li>
+<li><strong>Quantization:</strong> maps each sampled amplitude to one of a finite number of levels. With b bits per sample, there are 2^b possible quantization levels.</li>
+<li><strong>Bit depth:</strong> number of bits used for each sample or pixel component; greater bit depth permits more representable levels/colours.</li>
+<li><strong>Frame rate:</strong> number of video frames displayed per second (fps). Bit rate is the amount of encoded data per second.</li>
+<li><strong>Lossless compression:</strong> permits exact reconstruction of original data. <strong>Lossy compression:</strong> discards some information to obtain higher compression, often acceptable for image/audio/video.</li>
+</ul>
+<table><thead><tr><th>Format / standard</th><th>Typical association</th></tr></thead><tbody>
+<tr><td>PNG</td><td>Lossless raster image format; supports transparency.</td></tr>
+<tr><td>JPEG/JPG</td><td>Common lossy photographic image compression.</td></tr>
+<tr><td>BMP</td><td>Bitmap image format; often larger when uncompressed.</td></tr>
+<tr><td>TIFF</td><td>Flexible image container used in scanning, publishing and imaging workflows.</td></tr>
+<tr><td>GIF</td><td>Indexed-colour format that supports simple animation.</td></tr>
+<tr><td>MPEG</td><td>Family of standards for compressed digital audio/video; not one single file extension.</td></tr>
+</tbody></table>
+<!-- PYQ:graphics||graphics-multimedia -->
+
+<h2>6. Mobile computing: definition and architecture</h2>
+<p><strong>Mobile computing</strong> is the use of portable computing devices and wireless communication to access data, applications and services while users or devices move between locations. It combines mobile hardware, wireless networks, mobile software and applications.</p>
+<p><strong>Three basic dimensions:</strong> mobile communication (wireless exchange), mobile hardware (portable devices and radio interfaces) and mobile software (operating systems, middleware and applications).</p>
+<table><thead><tr><th>Layer / component</th><th>Role</th></tr></thead><tbody>
+<tr><td>Mobile device / User Equipment (UE)</td><td>Phone, tablet or other terminal containing radio hardware, processor, memory, operating system and applications.</td></tr>
+<tr><td>Radio access network</td><td>Connects the device over radio to the operator network; in GSM this includes BTS and BSC.</td></tr>
+<tr><td>Core network</td><td>Handles switching/routing, subscriber services, mobility, authentication and connection to other networks.</td></tr>
+<tr><td>Application/service layer</td><td>Provides messaging, browsing, voice/video, location-based and enterprise services.</td></tr>
+</tbody></table>
+<p>Wireless links may use cellular radio, Wi-Fi, Bluetooth, satellite or other radio technologies. A mobile device can change its point of attachment while sessions and services are maintained through mobility-management mechanisms.</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>7. GSM architecture and subscriber registers</h2>
+<p><strong>GSM (Global System for Mobile Communications)</strong> is a widely deployed digital cellular standard associated with 2G. It uses SIM-based subscriber identity and a cellular network architecture.</p>
+<ul>
+<li><strong>MS / Mobile Station:</strong> the mobile equipment and SIM used by the subscriber.</li>
+<li><strong>BTS (Base Transceiver Station):</strong> radio equipment that communicates with mobile stations in a cell.</li>
+<li><strong>BSC (Base Station Controller):</strong> controls multiple BTSs and radio resources such as channel allocation and handover within its area.</li>
+<li><strong>MSC (Mobile Switching Centre):</strong> performs call switching and mobility-related control for a service area.</li>
+<li><strong>HLR (Home Location Register):</strong> central subscriber database containing permanent subscription/service information and current location-related routing information.</li>
+<li><strong>VLR (Visitor Location Register):</strong> temporary database for subscribers currently in an MSC area; it reduces repeated queries to the HLR.</li>
+<li><strong>AuC (Authentication Centre):</strong> supports subscriber authentication and security data.</li>
+<li><strong>EIR (Equipment Identity Register):</strong> stores equipment identity status information, such as permitted or barred device identities.</li>
+<li><strong>GMSC (Gateway MSC):</strong> gateway for routing calls between the mobile network and external telephone networks.</li>
+</ul>
+<p><strong>BTS vs BSC:</strong> BTS provides the radio link to devices; BSC manages a group of BTSs. <strong>HLR vs VLR:</strong> HLR stores home subscriber information; VLR stores temporary visitor-area information. VLR and the network cooperate to update the HLR when a subscriber's location area changes.</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>8. Mobile IP, Home Agent, Foreign Agent and Care-of Address</h2>
+<p><strong>Mobile IP</strong> allows a mobile node to move between networks while remaining reachable through a stable home address. It separates the device's permanent home identity from its current point of attachment.</p>
+<ul>
+<li><strong>Mobile Node (MN):</strong> device that changes its point of attachment between networks.</li>
+<li><strong>Home Network:</strong> network associated with the mobile node's permanent home address.</li>
+<li><strong>Home Agent (HA):</strong> router on the home network that maintains the mobile node's current care-of information and forwards/tunnels packets toward the current location.</li>
+<li><strong>Foreign Agent (FA):</strong> in Mobile IPv4, a router in the visited network that can assist a visiting mobile node with registration and packet delivery.</li>
+<li><strong>Care-of Address (CoA):</strong> address representing the mobile node's current point of attachment or tunnel endpoint. It may be associated with a Foreign Agent or be a co-located address obtained by the mobile node.</li>
+<li><strong>Tunnelling:</strong> encapsulates packets so that they can be delivered from the home network toward the current care-of address.</li>
+</ul>
+<p><strong>Basic flow:</strong> the mobile node discovers a visited network, obtains or learns a CoA, registers the CoA with its Home Agent, and receives forwarded packets through a tunnel. The exact process differs between Mobile IPv4 and Mobile IPv6; Mobile IPv6 does not require a Foreign Agent in the same way as Mobile IPv4.</p>
+<div class="exam-facts"><strong>Memory cue:</strong> HA = home-network anchor; FA = router in the foreign/visited network (Mobile IPv4); CoA = current reachable endpoint/tunnel destination.</div>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>9. Mobility management and handover</h2>
+<p><strong>Handover (handoff)</strong> is the transfer of an ongoing call or data session from one radio channel, cell, base station or network to another as the user moves or radio conditions change.</p>
+<ul>
+<li><strong>Intra-cell handover:</strong> channel/resource changes within the same cell.</li>
+<li><strong>Inter-cell handover:</strong> connection moves between cells; it may remain under the same controller or cross controller boundaries.</li>
+<li><strong>Inter-system handover:</strong> transfer between different radio access systems or network technologies, for example between satellite and terrestrial cellular systems.</li>
+<li><strong>Hard handover:</strong> break-before-make; old connection is released before the new one is fully established. Commonly associated with GSM-style handover.</li>
+<li><strong>Soft handover:</strong> make-before-break; device may maintain links with more than one base station temporarily. Associated with CDMA systems.</li>
+<li><strong>Macro-mobility:</strong> movement between larger network domains or administrative areas.</li>
+<li><strong>Micro-mobility:</strong> movement within a local domain, managed to reduce frequent global registration.</li>
+<li><strong>Ad hoc mobility:</strong> movement in a mobile ad hoc network (MANET), where topology changes as nodes move and links appear/disappear.</li>
+</ul>
+<p>Mobility management includes <strong>location management</strong> (finding where a device is) and <strong>handover management</strong> (maintaining service while changing attachment points).</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>10. Multiple access and radio channel sharing</h2>
+<table><thead><tr><th>Technique</th><th>How users share the medium</th><th>Key cue</th></tr></thead><tbody>
+<tr><td>FDMA</td><td>Different users receive different frequency bands.</td><td>Frequency division.</td></tr>
+<tr><td>TDMA</td><td>Users share a frequency channel but transmit in different time slots.</td><td>Time slots.</td></tr>
+<tr><td>CDMA</td><td>Users share time and frequency resources using different spreading codes.</td><td>Code division / spread spectrum.</td></tr>
+<tr><td>OFDMA</td><td>Users are assigned groups of orthogonal subcarriers and time-frequency resource blocks.</td><td>Orthogonal subcarriers; used in LTE downlink.</td></tr>
+</tbody></table>
+<p><strong>Exam distinction:</strong> if the question says users share one frequency channel by dividing it into time slots, the answer is TDMA. If users are distinguished by codes, it is CDMA.</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>11. Cellular generations and mobile data technologies</h2>
+<table><thead><tr><th>Technology</th><th>Generation / role</th><th>Important fact</th></tr></thead><tbody>
+<tr><td>1G</td><td>First-generation cellular</td><td>Primarily analog voice systems.</td></tr>
+<tr><td>GSM</td><td>2G digital cellular</td><td>Digital voice, SIM identity and circuit-switched services.</td></tr>
+<tr><td>GPRS</td><td>Packet-data enhancement for GSM, often called 2.5G</td><td>Introduced packet-switched data services over GSM infrastructure.</td></tr>
+<tr><td>EDGE</td><td>Enhanced GSM data, often called 2.75G</td><td>Improved data rates using enhanced modulation/coding.</td></tr>
+<tr><td>3G / UMTS</td><td>Third-generation mobile broadband</td><td>Higher data capability and multimedia services; WCDMA is associated with UMTS radio access.</td></tr>
+<tr><td>LTE</td><td>4G mobile broadband technology family</td><td>Packet-based high-speed radio access; LTE-Advanced meets formal IMT-Advanced 4G criteria.</td></tr>
+<tr><td>5G NR</td><td>Fifth-generation radio</td><td>Designed for enhanced mobile broadband, low-latency services and massive machine-type connectivity.</td></tr>
+</tbody></table>
+<p><strong>Relative data-speed ordering in common exam questions:</strong> GSM &lt; GPRS &lt; EDGE &lt; LTE. This is a relative technology progression, not a guarantee of a particular real-world speed; actual throughput depends on spectrum, network configuration, device capability, signal quality and load.</p>
+<p><strong>CDMA</strong> is a multiple-access technique and also appears in cellular system families. Do not confuse the access technique itself with a single fixed generation label: IS-95 is associated with 2G, while CDMA2000 evolved into 3G.</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>12. Mobile operating systems, apps and mobile agents</h2>
+<p><strong>Mobile operating system</strong> manages a portable device's processor, memory, files, processes, display, sensors, power, radio interfaces, permissions and application lifecycle.</p>
+<ul>
+<li><strong>Android:</strong> mobile operating system based on the Linux kernel, with an application framework and runtime environment.</li>
+<li><strong>iOS:</strong> Apple's mobile operating system for iPhone devices.</li>
+<li>Other examples that may appear in older questions include Symbian, Windows Phone/Windows Mobile and BlackBerry OS. Their market status has changed; identify them as historical/mobile OS examples rather than current leading platforms.</li>
+<li><strong>Native app:</strong> built for a specific operating system/platform and can use platform APIs directly.</li>
+<li><strong>Mobile web app:</strong> runs through a browser and is delivered using web technologies.</li>
+<li><strong>Hybrid app:</strong> combines web technologies with a native wrapper/runtime.</li>
+</ul>
+<p><strong>Mobile agent:</strong> a software agent capable of moving between execution environments or hosts to perform tasks. A mobile agent may follow a predefined route or choose its route dynamically; this differs from a stationary agent that remains on one host.</p>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>13. Limitations, IoT challenges and haptic technology</h2>
+<ul>
+<li><strong>Limited battery:</strong> radio communication, screen use and processing consume energy; power management is essential.</li>
+<li><strong>Bandwidth and coverage:</strong> wireless capacity varies with location, interference, spectrum and network congestion.</li>
+<li><strong>Variable connectivity:</strong> mobility can cause disconnections, latency changes and handover interruptions.</li>
+<li><strong>Security and privacy:</strong> devices may be lost or stolen and communicate over shared radio channels; authentication, encryption, secure updates and permissions matter.</li>
+<li><strong>Device constraints:</strong> small screens, limited input methods, thermal limits and varying hardware/software capabilities.</li>
+<li><strong>Transmission interference:</strong> radio signals can be affected by obstacles, fading, competing transmissions and environmental noise.</li>
+<li><strong>IoT adoption challenges:</strong> interoperability, security, privacy, power, connectivity, scalability, standards and device lifecycle management.</li>
+<li><strong>Haptic technology:</strong> provides tactile feedback to users through vibration, force feedback or other touch sensations. A phone vibration alert is a simple haptic output.</li>
+</ul>
+<!-- PYQ:graphics||graphics-mobile -->
+
+<h2>14. Miscellaneous graphics, multimedia and mobile PYQs</h2>
+<p>Questions tagged to this combined workbook area but not safely classified into the main graphics, multimedia or mobile concepts are retained here instead of being dropped.</p>
+<!-- PYQ:graphics||graphics-misc -->
+
+<h2>15. Final revision checklist</h2>
+<ul>
+<li>Pixel = smallest addressable raster element; resolution = pixel dimensions; aspect ratio = width:height; refresh rate is measured in Hz.</li>
+<li>RGB is additive; CMY/CMYK is subtractive.</li>
+<li>Sampling discretizes time; quantization discretizes amplitude.</li>
+<li>GSM = 2G; GPRS = packet data enhancement; EDGE = enhanced GSM data; LTE = 4G technology family.</li>
+<li>BTS provides radio access; BSC controls BTSs; HLR stores home subscriber data; VLR stores temporary visitor-area data.</li>
+<li>Mobile IP: HA anchors the home network; FA assists in Mobile IPv4; CoA identifies the current endpoint.</li>
+<li>TDMA divides time slots; FDMA divides frequencies; CDMA separates users by codes.</li>
+<li>Handover maintains a session while changing cell, base station or system.</li>
+<li>Haptic technology gives tactile feedback; mobile agents can migrate between hosts.</li>
+</ul>
+<p><strong>PYQ source note:</strong> The mobile, graphics and multimedia questions are loaded from the supplied Part B workbook. Full available options, workbook answer keys and explanations are retained; missing source options are not invented. Repeated records remain visible when present in the source.</p>
 </section>
