@@ -272,7 +272,7 @@
       "PYQ"
     ],
     "date": "2026-11-23",
-    "summary": "Expanded graphics, multimedia and mobile-computing theory, including GSM architecture, HLR/VLR, Mobile IP, handover, TDMA/FDMA/CDMA, generations, mobile OS, mobile agents and haptics. All relevant graphics/multimedia/mobile PYQs are grouped by topic; 16 distinct Mobile Computing questions were identified.",
+    "summary": "Expanded syllabus-aligned theory for computer graphics, multimedia and mobile computing. The workbook has 80 tagged records (46 Computer Graphics, 18 Graphics & multimedia, 16 Mobile Computing), representing 76 normalized question texts; one unrelated Linux grep record is excluded from display. PYQs are grouped by display, image, colour, transformations, clipping, curves/modelling, multimedia, GSM/mobile architecture, Mobile IP, mobility, access methods and cellular generations. Source options, answer keys and explanations are retained where available.",
     "file": "notes/graphics-multimedia-mobile-computing-short-notes.html"
   },
   {
