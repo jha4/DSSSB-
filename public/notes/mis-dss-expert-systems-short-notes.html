@@ -1,28 +1,145 @@
 <section>
-<h1>MIS, DSS and Expert Systems — Complete Notes</h1>
-<p><strong>Coverage:</strong> Information systems, transaction processing, office automation, MIS, decision support, expert-system architecture, OLTP and batch processing.</p>
-<h2>1. Information systems overview</h2>
-<p>An <strong>information system</strong> combines people, processes, data and technology to collect, process, store and distribute information for operations and decisions.</p>
-<table><thead><tr><th>System</th><th>Main purpose</th><th>Typical output</th></tr></thead><tbody><tr><td>TPS</td><td>Records routine, high-volume transactions</td><td>Receipts, orders, payroll entries</td></tr><tr><td>OAS</td><td>Supports office communication/productivity</td><td>Documents, email, schedules</td></tr><tr><td>MIS</td><td>Produces structured information for management</td><td>Periodic summaries and exception reports</td></tr><tr><td>DSS</td><td>Supports analysis of semi-structured decisions</td><td>What-if analysis and alternatives</td></tr><tr><td>Expert system</td><td>Applies encoded domain expertise</td><td>Advice, diagnosis or recommendations</td></tr></tbody></table>
-<h2>2. Management Information Systems</h2>
-<p><strong>MIS</strong> is an organized system providing timely, relevant and accurate information to support planning, control and decisions. It commonly transforms operational data from transaction systems into management reports.</p>
-<ul><li><strong>Input:</strong> transaction and operational data. <strong>Processing:</strong> validation, aggregation and analysis. <strong>Output:</strong> reports, dashboards and alerts. <strong>Feedback/control:</strong> helps monitor performance and correct deviations.</li><li>MIS is effective for routine, structured information needs; it does not replace managerial judgement.</li></ul>
-<h2>3. Decision Support Systems</h2>
-<p>A <strong>DSS</strong> is an interactive system that helps decision-makers analyze alternatives, especially for semi-structured or unstructured problems.</p>
-<ul><li><strong>Data management subsystem:</strong> database and DBMS for relevant data.</li><li><strong>Model management subsystem:</strong> analytical models, simulation, forecasting and optimization.</li><li><strong>User interface/dialog subsystem:</strong> lets users interact with data and models.</li><li>Some frameworks include a knowledge-based component; exact component lists vary by textbook.</li></ul>
-<p><strong>What-if analysis</strong> changes assumptions to see consequences. <strong>Sensitivity analysis</strong> measures how results change when assumptions vary. DSS supports decisions; it does not necessarily make the final decision.</p>
-<h2>4. Expert systems</h2>
-<p>An <strong>expert system</strong> emulates aspects of human expert reasoning in a limited domain using explicit knowledge representation and an inference procedure.</p>
-<ul><li><strong>Knowledge base:</strong> facts, rules and domain knowledge.</li><li><strong>Inference engine:</strong> applies rules to facts. Forward chaining starts from facts; backward chaining starts from a goal/hypothesis.</li><li><strong>User interface:</strong> supports interaction. An explanation facility may describe how a conclusion was reached. A knowledge engineer helps capture domain expertise.</li></ul>
-<p>Expert systems are domain-specific and depend on the quality/completeness of encoded knowledge; they do not possess general human understanding.</p>
-<h2>5. OLTP and batch processing</h2>
-<ul><li><strong>OLTP:</strong> Online Transaction Processing; handles many short, concurrent transactions with emphasis on consistency and response time.</li><li><strong>Batch processing:</strong> collects jobs/transactions and processes them together at scheduled times or in groups; useful for payroll, billing and bulk operations.</li><li>OLTP is interactive and transaction-oriented; batch processing is job/group-oriented. Both can coexist.</li></ul>
-<h2>6. Exam traps</h2>
-<ul><li>TPS records transactions; MIS summarizes information; DSS supports analysis; expert systems encode specialist rules.</li><li>DSS supports semi-structured decisions; it does not guarantee an optimal decision.</li><li>Inference engine applies rules; knowledge base stores domain knowledge.</li></ul>
-<h2>DSS architecture and model base</h2>
-<p>A Decision Support System (DSS) assists a person or group with semi-structured or unstructured decisions. It supports judgement; it does not replace the decision-maker or guarantee a correct decision.</p>
-<table><thead><tr><th>Component</th><th>Role</th><th>Examples</th></tr></thead><tbody><tr><td>User interface / dialog subsystem</td><td>Lets users enter assumptions, run analyses and inspect results</td><td>Dashboards, forms, scenario controls</td></tr><tr><td>Database / data-management subsystem</td><td>Stores and retrieves internal/external data</td><td>Sales, inventory, market data</td></tr><tr><td>Model base / model-management subsystem</td><td>Stores and executes analytical models</td><td>Forecasting, optimization, simulation, what-if analysis</td></tr><tr><td>Knowledge base (where included)</td><td>Stores rules or expertise to guide analysis</td><td>Business rules, constraints, recommendations</td></tr></tbody></table>
-<p><strong>What-if analysis</strong> changes input assumptions to observe outcome changes; <strong>sensitivity analysis</strong> studies how output responds to changes in selected inputs; <strong>goal-seeking</strong> works backward from a target output to find required input values. The model base is distinct from the database: one stores analytical procedures/models, the other stores data.</p>
-<h2>7. Part B PYQs — full questions, options and explanations</h2>
-<!-- PYQ:mis -->
+<h1>MIS, DSS and Expert Systems — Complete Notes, Syllabus Mapping and Topic-wise PYQs</h1>
+<p><strong>PYQ analysis:</strong> The supplied workbook contains 20 directly relevant MIS/OAS/DSS/TPS/OLTP/Expert System records representing 17 distinct question texts. Repeatedly tested areas include MIS definition/components, information quality and levels, OAS, DSS purpose, TPS, OLTP and expert-system characteristics.</p>
+<p><strong>Syllabus coverage:</strong> Transaction Processing System, Office Automation System, MIS, DSS, expert systems, MIS components and reporting, semi-structured decisions, knowledge base, inference engine, knowledge engineer, OLTP and batch processing.</p>
+
+<h2>1. Information systems: meaning and components</h2>
+<p><strong>Information system (IS)</strong> is an organized combination of people, procedures, data and technology that collects, processes, stores and distributes information to support operations, coordination, control and decision-making.</p>
+<p><strong>Data</strong> are raw facts; <strong>information</strong> is data processed and organized so it has meaning for a user and purpose. <strong>Knowledge</strong> is interpreted information combined with experience, rules or understanding that can guide action.</p>
+<table><thead><tr><th>Component</th><th>Function</th></tr></thead><tbody>
+<tr><td>People</td><td>Users, managers, analysts, operators and IT staff who develop or use the system.</td></tr>
+<tr><td>Hardware</td><td>Computers, servers, devices, storage and network equipment.</td></tr>
+<tr><td>Software</td><td>Operating systems, DBMS, applications and supporting programs.</td></tr>
+<tr><td>Data</td><td>Facts and records processed into useful information.</td></tr>
+<tr><td>Procedures</td><td>Rules and methods for collecting, processing, securing and using information.</td></tr>
+<tr><td>Networks / telecommunications</td><td>Connect systems and enable data exchange; often treated as part of the technology resources.</td></tr>
+</tbody></table>
+<p>An information system is not merely a computer or software package. People, procedures and organizational context are essential components.</p>
+<!-- PYQ:mis||mis-core -->
+
+<h2>2. Major types of organizational information systems</h2>
+<table><thead><tr><th>System</th><th>Primary users / purpose</th><th>Typical examples and outputs</th></tr></thead><tbody>
+<tr><td>TPS — Transaction Processing System</td><td>Operational level; records routine, repetitive transactions accurately and efficiently.</td><td>Sales, billing, payroll, order entry, railway reservations, bank transactions.</td></tr>
+<tr><td>OAS — Office Automation System</td><td>Office workers and professionals; supports communication and routine office productivity.</td><td>Word processing, spreadsheets, email, electronic filing, calendars, document sharing and messaging.</td></tr>
+<tr><td>MIS — Management Information System</td><td>Middle-level management; converts operational data into structured reports for monitoring, planning and control.</td><td>Periodic sales reports, inventory summaries, budget variance and exception reports.</td></tr>
+<tr><td>DSS — Decision Support System</td><td>Managers/analysts; supports analysis of semi-structured or unstructured decisions.</td><td>Forecasting, what-if analysis, scenario comparison and resource allocation models.</td></tr>
+<tr><td>ESS/EIS — Executive Support/Information System</td><td>Senior executives; provides summarized internal and external information for strategic decisions.</td><td>Dashboards, trends, key performance indicators and strategic summaries.</td></tr>
+<tr><td>Expert System</td><td>Users needing specialist advice in a narrow domain; applies encoded expert knowledge and inference rules.</td><td>Diagnosis, troubleshooting, configuration advice and rule-based recommendations.</td></tr>
+</tbody></table>
+<p><strong>Quick distinction:</strong> TPS records transactions; OAS supports office work; MIS produces management reports; DSS supports analytical decisions; ESS supports senior strategic monitoring; an expert system applies specialist knowledge to a domain problem.</p>
+<!-- PYQ:mis||mis-tps-oltp -->
+<!-- PYQ:mis||mis-oas -->
+
+<h2>3. Management Information System (MIS)</h2>
+<p><strong>Management Information System</strong> is a planned and integrated system for collecting, processing, storing and disseminating information required by managers to perform planning, organizing, directing, coordinating and controlling functions.</p>
+<h3>How MIS works</h3>
+<ol>
+<li><strong>Input:</strong> collects internal data from TPS and operational departments, and external data such as market, economic or competitor information.</li>
+<li><strong>Processing:</strong> validates, classifies, summarizes, compares and analyzes the data.</li>
+<li><strong>Storage:</strong> maintains organized records and historical information in databases or data stores.</li>
+<li><strong>Output:</strong> produces routine, summary, exception and ad hoc reports, dashboards or alerts.</li>
+<li><strong>Feedback and control:</strong> managers compare actual performance with plans/standards and initiate corrective action.</li>
+</ol>
+<p><strong>Internal information:</strong> sales, inventory, production, finance and personnel records. <strong>External information:</strong> market trends, competitors, regulations, suppliers and economic indicators. MIS combines relevant sources to support managerial work.</p>
+<p><strong>Common MIS examples:</strong> railway reservation information, electronic banking operations, logistics management, inventory reporting and sales performance systems. Whether a system is called MIS or TPS depends on the function being discussed: the transaction-capture part is TPS; management reporting and analysis built on those records is MIS.</p>
+<h3>Levels of management information</h3>
+<table><thead><tr><th>Level</th><th>Time horizon / nature</th><th>Typical decision</th></tr></thead><tbody>
+<tr><td>Strategic</td><td>Long-term; broad, future-oriented and often unstructured.</td><td>Set organizational objectives, policy and long-term direction.</td></tr>
+<tr><td>Tactical</td><td>Medium-term; supports departmental plans and resource allocation.</td><td>Prepare budgets, staffing plans and quarterly targets.</td></tr>
+<tr><td>Operational</td><td>Short-term/day-to-day; detailed and routine.</td><td>Schedule shifts, process orders and monitor daily stock.</td></tr>
+</tbody></table>
+<h3>Information quality</h3>
+<ul>
+<li><strong>Intrinsic quality:</strong> information is accurate, objective, believable and reputable.</li>
+<li><strong>Contextual quality:</strong> information is relevant, timely, complete and appropriate to the task.</li>
+<li><strong>Representational quality:</strong> information is clear, interpretable, consistently formatted and compatible with how it is used.</li>
+<li><strong>Accessibility quality:</strong> information is obtainable when needed, while access remains appropriately controlled and secure.</li>
+</ul>
+<p><strong>Exam cue:</strong> interpretability, format, coherence and compatibility are representational-quality characteristics. Relevance is contextual; accuracy is intrinsic; ease of access is accessibility.</p>
+<!-- PYQ:mis||mis-core -->
+
+<h2>4. Decision Support System (DSS)</h2>
+<p><strong>Decision Support System</strong> is an interactive computer-based system that helps a decision-maker analyze data and models to evaluate alternatives, especially for semi-structured and unstructured problems. It supports human judgement; it does not automatically replace the manager or guarantee the best decision.</p>
+<table><thead><tr><th>Component</th><th>Function</th><th>Example</th></tr></thead><tbody>
+<tr><td>User interface / dialog subsystem</td><td>Allows the user to enter data/assumptions, run models and view results.</td><td>Dashboard, forms, charts and scenario controls.</td></tr>
+<tr><td>Database / data-management subsystem</td><td>Stores and retrieves internal and external data.</td><td>Sales, inventory, costs and market information.</td></tr>
+<tr><td>Model base / model-management subsystem</td><td>Stores and executes analytical models.</td><td>Forecasting, simulation, optimization and statistical models.</td></tr>
+<tr><td>Knowledge base (where included)</td><td>Stores rules, constraints or domain knowledge used to guide analysis.</td><td>Business rules and decision guidelines.</td></tr>
+</tbody></table>
+<p>Some textbooks present the three core DSS subsystems as database, model base and user interface; other frameworks include a knowledge-based subsystem. Match the component list to the wording of the question.</p>
+<ul>
+<li><strong>What-if analysis:</strong> changes one or more assumptions and observes the effect on outcomes.</li>
+<li><strong>Sensitivity analysis:</strong> studies how changes in selected inputs affect a result.</li>
+<li><strong>Goal-seeking:</strong> starts with a desired result and works backward to determine the input needed to reach it.</li>
+<li><strong>Simulation:</strong> models the behaviour of a system under different conditions or scenarios.</li>
+<li><strong>Optimization:</strong> searches for the best solution under stated objectives and constraints.</li>
+</ul>
+<p><strong>MIS vs DSS:</strong> MIS generally provides routine, structured reports; DSS provides interactive analysis and models for less structured decisions. Both may use the same underlying organizational data.</p>
+<!-- PYQ:mis||mis-dss -->
+
+<h2>5. Expert systems</h2>
+<p><strong>Expert system</strong> is an AI-based program that emulates the decision-making ability of a human specialist within a limited domain. It represents domain knowledge explicitly and applies an inference mechanism to facts supplied by a user or other system.</p>
+<table><thead><tr><th>Component</th><th>Role</th></tr></thead><tbody>
+<tr><td>Knowledge base</td><td>Stores domain facts, rules, heuristics and relationships.</td></tr>
+<tr><td>Inference engine</td><td>Applies logical rules to known facts to derive conclusions or recommendations.</td></tr>
+<tr><td>User interface</td><td>Collects user inputs and presents advice, questions and results.</td></tr>
+<tr><td>Explanation facility</td><td>Explains why the system asked a question or reached a conclusion.</td></tr>
+<tr><td>Knowledge acquisition module</td><td>Helps capture, encode and update specialist knowledge.</td></tr>
+</tbody></table>
+<p><strong>Knowledge engineer:</strong> person who works with domain experts to elicit, structure, encode and maintain knowledge in the system. The domain expert supplies specialist knowledge; the knowledge engineer helps represent it in a usable form.</p>
+<ul>
+<li><strong>Forward chaining:</strong> data-driven reasoning; starts from known facts and applies rules to derive new facts or conclusions.</li>
+<li><strong>Backward chaining:</strong> goal-driven reasoning; starts with a hypothesis or goal and works backward to determine which facts/rules would support it.</li>
+<li><strong>Narrow domain:</strong> expert systems are specialized; they do not have general human-level understanding.</li>
+<li><strong>Advantages:</strong> consistent advice, availability, preservation of scarce expertise and explanation of rule-based conclusions.</li>
+<li><strong>Limitations:</strong> knowledge acquisition is difficult, rules can become outdated, exceptions may be missed and outputs depend on knowledge quality.</li>
+</ul>
+<p><strong>Do not confuse:</strong> an expert system's inference engine applies rules in its knowledge base. An MIS typically analyzes operational/external data to produce management information; those are different system roles.</p>
+<!-- PYQ:mis||mis-expert-km -->
+
+<h2>6. OLTP and batch processing</h2>
+<p><strong>OLTP (Online Transaction Processing)</strong> processes operational transactions as they occur, usually through many short, concurrent interactions. It emphasizes fast response, transaction integrity, consistency, availability and an up-to-date operational database.</p>
+<ul>
+<li>Examples: ATM withdrawals, ticket booking, point-of-sale purchases, order entry and bank transfers.</li>
+<li>Typical properties: high transaction volume, short transactions, concurrent users, frequent insert/update/delete operations and strong consistency requirements.</li>
+<li>ACID properties are commonly associated with reliable database transactions: Atomicity, Consistency, Isolation and Durability.</li>
+</ul>
+<p><strong>Batch processing</strong> collects a set of transactions or jobs and processes them together at a scheduled time or when a batch is ready. Examples include payroll, periodic billing and bulk report generation.</p>
+<table><thead><tr><th>OLTP</th><th>Batch processing</th></tr></thead><tbody>
+<tr><td>Processes transactions individually/as they arrive.</td><td>Processes accumulated records in groups.</td></tr>
+<tr><td>Interactive and response-time oriented.</td><td>Often scheduled and throughput oriented.</td></tr>
+<tr><td>Operational data is updated promptly.</td><td>Output may be delayed until the batch runs.</td></tr>
+<tr><td>Example: live ticket booking.</td><td>Example: end-of-month billing run.</td></tr>
+</tbody></table>
+<p><strong>OLTP vs OLAP:</strong> OLTP supports day-to-day transaction processing; OLAP (Online Analytical Processing) supports multidimensional analysis of large amounts of historical or summarized data for decision-making. A data warehouse is commonly used for analytical workloads, not as a replacement for the live transaction system.</p>
+<!-- PYQ:mis||mis-tps-oltp -->
+
+<h2>7. Knowledge Management and Knowledge Management Systems</h2>
+<p><strong>Knowledge Management (KM)</strong> is the systematic process of identifying, creating/acquiring, organizing, storing, sharing and applying knowledge within an organization.</p>
+<ul>
+<li><strong>Tacit knowledge:</strong> personal, experience-based know-how that is difficult to write down fully, such as judgement developed through practice.</li>
+<li><strong>Explicit knowledge:</strong> knowledge that has been documented and can be stored or transferred, such as manuals, policies, reports and databases.</li>
+<li><strong>KMS (Knowledge Management System):</strong> technology and processes that support knowledge capture, classification, storage, search, sharing, reuse and learning.</li>
+<li><strong>Knowledge lifecycle:</strong> creation/acquisition → codification/organization → storage → distribution/sharing → application → review and updating.</li>
+</ul>
+<p>KM is broader than storing documents: it also concerns people, culture, processes and reuse of organizational learning. Expert systems can encode explicit specialist rules, while tacit expertise must first be elicited and represented.</p>
+<!-- PYQ:mis||mis-expert-km -->
+
+<h2>8. Miscellaneous MIS-related PYQs</h2>
+<p>Records tagged as MIS-related in the source but not safely assigned to a specific core category are retained here. This avoids silently dropping a question because of inconsistent source labels.</p>
+<!-- PYQ:mis||mis-misc -->
+
+<h2>9. Final comparison and revision table</h2>
+<table><thead><tr><th>Question clue</th><th>Likely system / concept</th></tr></thead><tbody>
+<tr><td>Routine sales, payroll, ticket or bank transaction</td><td>TPS / OLTP</td></tr>
+<tr><td>Word processing, email, electronic filing, office communication</td><td>OAS</td></tr>
+<tr><td>Periodic summaries, exception reports, management monitoring</td><td>MIS</td></tr>
+<tr><td>What-if, sensitivity, simulation, alternatives, semi-structured decision</td><td>DSS</td></tr>
+<tr><td>Senior executive dashboard and long-term strategic monitoring</td><td>ESS / EIS</td></tr>
+<tr><td>Knowledge base, inference engine, narrow specialist domain</td><td>Expert system</td></tr>
+<tr><td>Facts, rules and heuristics</td><td>Knowledge base</td></tr>
+<tr><td>Applies rules to facts</td><td>Inference engine</td></tr>
+<tr><td>Processes accumulated jobs together</td><td>Batch processing</td></tr>
+</tbody></table>
+<p><strong>PYQ source note:</strong> Questions, available options, source answer keys, years and explanations are loaded from the supplied Part B workbook. Missing options are not invented. The source answer key is reproduced for traceability; the workbook contains at least one conflicting Office Automation answer record, so verify flagged items rather than assuming every source key is error-free.</p>
 </section>
