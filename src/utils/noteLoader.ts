@@ -424,7 +424,7 @@ function renderPyqQuestion(question: EmbeddedPyqRecord, index: number): string {
   return `<li class="pyq-question" style="padding:14px 16px;margin:14px 0;border:1px solid #e4e7eb;border-radius:8px;background:#fff;">
     <p><strong>Question ${index + 1}.</strong> ${stem}</p>
     ${optionHtml}
-    <p class="pyq-answer" style="background:#eff8e9;border-left:3px solid #78b65a;padding:9px 12px;margin:10px 0;"><strong>Correct answer:</strong> ${escapePyqHtml(answerText)}${question.a ? ` <small>(source key: ${escapePyqHtml(question.a)})</small>` : ''}</p>
+    <p class="pyq-answer" style="background:#eff8e9;border-left:3px solid #78b65a;padding:9px 12px;margin:10px 0;"><strong>Answer key (workbook):</strong> ${escapePyqHtml(answerText)}${question.a ? ` <small>(source key: ${escapePyqHtml(question.a)})</small>` : ''}</p>
     <p class="pyq-explanation"><strong>Explanation:</strong> ${explanation}</p>
     ${metadata ? `<p class="pyq-metadata"><small>${metadata}</small></p>` : ''}
   </li>`;
@@ -512,12 +512,12 @@ async function hydratePyqPlaceholders(
   const classifySoftwareEngineeringQuestion = (question: EmbeddedPyqRecord): string => {
     const text = questionText(question);
     if (/waterfall|linear sequential|linear-sequential|spiral|prototype|rapid application development|\brad\b|agile|incremental release|prescriptive model|process model/.test(text)) return 'se-models';
+    if (/\bsrs\b|software requirements specification|requirement analysis|requirements analysis|feasibility|functional requirement|non.?functional requirement/.test(text)) return 'se-requirements';
     if (/black.?box|white.?box|boundary value|equivalence partition|recovery testing|stress testing|regression testing|integration testing|acceptance testing|unit testing|system test|test case|testing/.test(text)) return 'se-testing';
     if (/software quality|quality assurance|\bsqa\b|reliability|\bmttf\b|\bmttr\b|\brocof\b|software metric|time behaviour|resource behaviour/.test(text)) return 'se-quality';
     if (/maintenance|software patch|software update|configuration management|identify.*control.*audit.*modification/.test(text)) return 'se-maintenance';
-    if (/pert chart|gantt chart|project management|project estimation|estimation technique|resource allocation|project planning|task list|schedule|cocomo|cost estimation|umbrella activities|framework activities/.test(text)) return 'se-project';
-    if (/\bsrs\b|software requirements specification|requirement analysis|requirements analysis|feasibility|functional requirement|non.?functional requirement/.test(text)) return 'se-requirements';
-    if (/\bdfd\b|data flow diagram|flowchart|decision table|decision tree|structure chart|cohesion|coupling|modular|module|top.?down design|reverse engineering|design pattern|architecture design|program links/.test(text)) return 'se-design';
+    if (/pert chart|gantt chart|project management|project estimation|estimation technique|resource allocation|project planning|task list|schedule|cocomo|cost estimation|umbrella activities|framework activities|well understood application|experienced.*team/.test(text)) return 'se-project';
+    if (/\bdfd\b|data flow diagram|flowchart|decision table|decision tree|structure chart|cohesion|coupling|modular|module|top.?down design|reverse engineering|design pattern|architecture design|program links|structured partitioning/.test(text)) return 'se-design';
     return 'se-misc';
   };
 
