@@ -15,7 +15,7 @@
 </ul>
 <h3>Display devices</h3>
 <p><strong>CRT (Cathode Ray Tube):</strong> an electron gun produces a beam that is focused and deflected to strike phosphor on the screen. The phosphor emits light. A raster-scan CRT traces lines across the screen; a random-scan/vector display draws selected lines directly. Modern displays commonly use LCD/LED-backlit LCD or OLED technology rather than CRT.</p>
-<!-- PYQ:graphics||graphics-core -->
+<!-- PYQ:graphics||graphics-display -->
 
 <h2>2. Colour models</h2>
 <table><thead><tr><th>Model</th><th>Type</th><th>Use / key fact</th></tr></thead><tbody>
@@ -23,7 +23,7 @@
 <tr><td>CMY (Cyan, Magenta, Yellow)</td><td>Subtractive</td><td>Printing inks absorb components of incident light. Combining ideal cyan, magenta and yellow absorbs most light; practical printing often adds black (CMYK).</td></tr>
 </tbody></table>
 <p><strong>Exam cue:</strong> RGB is used for light-emitting screens; CMY/CMYK is associated with printing and pigments/inks. Additive mixing adds light; subtractive mixing removes light.</p>
-<!-- PYQ:graphics||graphics-core -->
+<!-- PYQ:graphics||graphics-colour -->
 
 <h2>3. 2D geometric transformations</h2>
 <p>Transformations change an object's position, size or orientation. Homogeneous coordinates allow translation, scaling and rotation to be represented using matrices. Matrix multiplication order matters because transformations are generally non-commutative.</p>
@@ -35,7 +35,7 @@
 <li><strong>Shearing:</strong> slants an object by shifting one coordinate in proportion to another.</li>
 </ul>
 <p>To rotate about a point other than the origin, translate the pivot to the origin, rotate, then translate back. This order is important.</p>
-<!-- PYQ:graphics||graphics-core -->
+<!-- PYQ:graphics||graphics-transform -->
 
 <h2>4. Viewing pipeline, clipping, curves and 3D modelling</h2>
 <p><strong>Viewing pipeline:</strong> transforms object/model coordinates into world coordinates, then viewing/camera coordinates, projection coordinates and finally viewport/device coordinates. Clipping removes parts outside the viewing region before rasterization.</p>
@@ -47,7 +47,9 @@
 <li><strong>Wireframe model:</strong> displays vertices and edges only. It does not explicitly represent filled surfaces or the object's interior.</li>
 </ul>
 <p><strong>Important distinction:</strong> clipping determines what lies inside the viewing region; a geometric transformation changes object coordinates. A curve is one-dimensional, a surface is two-dimensional, and a solid represents volume.</p>
-<!-- PYQ:graphics||graphics-core -->
+<!-- PYQ:graphics||graphics-clipping -->
+<!-- PYQ:graphics||graphics-curves -->
+<!-- PYQ:graphics||graphics-modelling -->
 
 <h2>5. Multimedia fundamentals: image, audio and video</h2>
 <p><strong>Multimedia</strong> combines two or more media types such as text, graphics, images, audio, video and animation in a computer-controlled presentation or application.</p>
@@ -67,7 +69,7 @@
 <tr><td>GIF</td><td>Indexed-colour format that supports simple animation.</td></tr>
 <tr><td>MPEG</td><td>Family of standards for compressed digital audio/video; not one single file extension.</td></tr>
 </tbody></table>
-<!-- PYQ:graphics||graphics-multimedia -->
+<!-- PYQ:graphics||multimedia-digitization -->
 
 <h2>6. Mobile computing: definition and architecture</h2>
 <p><strong>Mobile computing</strong> is the use of portable computing devices and wireless communication to access data, applications and services while users or devices move between locations. It combines mobile hardware, wireless networks, mobile software and applications.</p>
@@ -79,7 +81,7 @@
 <tr><td>Application/service layer</td><td>Provides messaging, browsing, voice/video, location-based and enterprise services.</td></tr>
 </tbody></table>
 <p>Wireless links may use cellular radio, Wi-Fi, Bluetooth, satellite or other radio technologies. A mobile device can change its point of attachment while sessions and services are maintained through mobility-management mechanisms.</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-architecture -->
 
 <h2>7. GSM architecture and subscriber registers</h2>
 <p><strong>GSM (Global System for Mobile Communications)</strong> is a widely deployed digital cellular standard associated with 2G. It uses SIM-based subscriber identity and a cellular network architecture.</p>
@@ -95,7 +97,7 @@
 <li><strong>GMSC (Gateway MSC):</strong> gateway for routing calls between the mobile network and external telephone networks.</li>
 </ul>
 <p><strong>BTS vs BSC:</strong> BTS provides the radio link to devices; BSC manages a group of BTSs. <strong>HLR vs VLR:</strong> HLR stores home subscriber information; VLR stores temporary visitor-area information. VLR and the network cooperate to update the HLR when a subscriber's location area changes.</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-architecture -->
 
 <h2>8. Mobile IP, Home Agent, Foreign Agent and Care-of Address</h2>
 <p><strong>Mobile IP</strong> allows a mobile node to move between networks while remaining reachable through a stable home address. It separates the device's permanent home identity from its current point of attachment.</p>
@@ -109,7 +111,7 @@
 </ul>
 <p><strong>Basic flow:</strong> the mobile node discovers a visited network, obtains or learns a CoA, registers the CoA with its Home Agent, and receives forwarded packets through a tunnel. The exact process differs between Mobile IPv4 and Mobile IPv6; Mobile IPv6 does not require a Foreign Agent in the same way as Mobile IPv4.</p>
 <div class="exam-facts"><strong>Memory cue:</strong> HA = home-network anchor; FA = router in the foreign/visited network (Mobile IPv4); CoA = current reachable endpoint/tunnel destination.</div>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-ip -->
 
 <h2>9. Mobility management and handover</h2>
 <p><strong>Handover (handoff)</strong> is the transfer of an ongoing call or data session from one radio channel, cell, base station or network to another as the user moves or radio conditions change.</p>
@@ -124,7 +126,7 @@
 <li><strong>Ad hoc mobility:</strong> movement in a mobile ad hoc network (MANET), where topology changes as nodes move and links appear/disappear.</li>
 </ul>
 <p>Mobility management includes <strong>location management</strong> (finding where a device is) and <strong>handover management</strong> (maintaining service while changing attachment points).</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-mobility -->
 
 <h2>10. Multiple access and radio channel sharing</h2>
 <table><thead><tr><th>Technique</th><th>How users share the medium</th><th>Key cue</th></tr></thead><tbody>
@@ -134,7 +136,7 @@
 <tr><td>OFDMA</td><td>Users are assigned groups of orthogonal subcarriers and time-frequency resource blocks.</td><td>Orthogonal subcarriers; used in LTE downlink.</td></tr>
 </tbody></table>
 <p><strong>Exam distinction:</strong> if the question says users share one frequency channel by dividing it into time slots, the answer is TDMA. If users are distinguished by codes, it is CDMA.</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-access -->
 
 <h2>11. Cellular generations and mobile data technologies</h2>
 <table><thead><tr><th>Technology</th><th>Generation / role</th><th>Important fact</th></tr></thead><tbody>
@@ -148,7 +150,7 @@
 </tbody></table>
 <p><strong>Relative data-speed ordering in common exam questions:</strong> GSM &lt; GPRS &lt; EDGE &lt; LTE. This is a relative technology progression, not a guarantee of a particular real-world speed; actual throughput depends on spectrum, network configuration, device capability, signal quality and load.</p>
 <p><strong>CDMA</strong> is a multiple-access technique and also appears in cellular system families. Do not confuse the access technique itself with a single fixed generation label: IS-95 is associated with 2G, while CDMA2000 evolved into 3G.</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-generations -->
 
 <h2>12. Mobile operating systems, apps and mobile agents</h2>
 <p><strong>Mobile operating system</strong> manages a portable device's processor, memory, files, processes, display, sensors, power, radio interfaces, permissions and application lifecycle.</p>
@@ -161,7 +163,7 @@
 <li><strong>Hybrid app:</strong> combines web technologies with a native wrapper/runtime.</li>
 </ul>
 <p><strong>Mobile agent:</strong> a software agent capable of moving between execution environments or hosts to perform tasks. A mobile agent may follow a predefined route or choose its route dynamically; this differs from a stationary agent that remains on one host.</p>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-platforms -->
 
 <h2>13. Limitations, IoT challenges and haptic technology</h2>
 <ul>
@@ -174,13 +176,56 @@
 <li><strong>IoT adoption challenges:</strong> interoperability, security, privacy, power, connectivity, scalability, standards and device lifecycle management.</li>
 <li><strong>Haptic technology:</strong> provides tactile feedback to users through vibration, force feedback or other touch sensations. A phone vibration alert is a simple haptic output.</li>
 </ul>
-<!-- PYQ:graphics||graphics-mobile -->
+<!-- PYQ:graphics||mobile-applications -->
 
 <h2>14. Miscellaneous graphics, multimedia and mobile PYQs</h2>
 <p>Questions tagged to this combined workbook area but not safely classified into the main graphics, multimedia or mobile concepts are retained here instead of being dropped.</p>
 <!-- PYQ:graphics||graphics-misc -->
 
-<h2>15. Final revision checklist</h2>
+<h2>15. Rasterization and Line/Circle Drawing Concepts</h2>
+<p><strong>Rasterization (scan conversion)</strong> converts geometric primitives such as lines, circles and polygons into a set of discrete pixels on a raster display. A line ideal in mathematics is continuous; the display must choose a finite sequence of pixels that best approximates it.</p>
+<ul>
+<li><strong>DDA (Digital Differential Analyzer):</strong> calculates incremental x/y changes using the line slope and rounds coordinates to the nearest pixel. It is simple but uses floating-point operations and rounding.</li>
+<li><strong>Bresenham line algorithm:</strong> uses an integer decision parameter to choose the next pixel. It is efficient because it avoids repeated floating-point calculations.</li>
+<li><strong>Midpoint circle algorithm:</strong> uses a decision function to select pixels near the ideal circle and exploits eight-way symmetry to calculate one octant and reflect the points.</li>
+<li><strong>Anti-aliasing:</strong> reduces jagged edges by smoothing pixel coverage/intensity; it does not change the underlying geometric object.</li>
+</ul>
+<p><strong>Do not mix the tasks:</strong> DDA and Bresenham are line rasterization methods; Cohen–Sutherland and Liang–Barsky are line clipping methods.</p>
+<h2>16. Projection and 3D Viewing Basics</h2>
+<ul>
+<li><strong>Parallel projection:</strong> projection rays remain parallel. It preserves relative parallelism and is useful in engineering drawings. Orthographic projection uses projection directions perpendicular to the view plane; oblique projection uses an angled direction.</li>
+<li><strong>Perspective projection:</strong> projection rays converge at a centre of projection. Distant objects appear smaller, creating depth realism.</li>
+<li><strong>Viewing transformation:</strong> positions the camera/view reference frame and maps world geometry into the view coordinate system.</li>
+<li><strong>Projection transformation:</strong> maps 3D view coordinates onto a 2D projection plane.</li>
+<li><strong>Viewport transformation:</strong> maps normalized device coordinates to actual display coordinates.</li>
+</ul>
+<h2>17. Animation and Virtual Reality</h2>
+<p><strong>Computer animation</strong> creates an illusion of movement by displaying a sequence of frames. Each frame may be generated by changing object transformations, camera position, lighting, material, shape or simulation state. The frame rate determines how frequently frames are displayed; motion blur and interpolation can improve perceived continuity.</p>
+<ul>
+<li><strong>Keyframe animation:</strong> animator defines important poses/time points; intermediate frames are generated by interpolation (tweening).</li>
+<li><strong>Path animation:</strong> object position/orientation is controlled along a predefined path.</li>
+<li><strong>Motion capture:</strong> records movement of a real performer and maps it to a digital character/object.</li>
+<li><strong>Virtual Reality:</strong> interactive computer-generated environment, often using a head-mounted display, motion tracking and spatial audio.</li>
+<li><strong>Augmented Reality:</strong> overlays digital objects/information onto a view of the real world. It is distinct from fully immersive VR.</li>
+</ul>
+<h2>18. Mobile Wireless Technologies and Network Types</h2>
+<ul>
+<li><strong>Cellular network:</strong> divides a geographic region into cells, each served by radio access equipment. Frequency reuse increases capacity while requiring interference management.</li>
+<li><strong>Wi-Fi:</strong> wireless local-area networking, commonly based on IEEE 802.11 standards; it is not the same as cellular GSM/LTE.</li>
+<li><strong>Bluetooth:</strong> short-range wireless personal-area connectivity for peripherals and device-to-device links.</li>
+<li><strong>Satellite mobile communication:</strong> uses satellites for coverage over wide or remote areas; propagation delay and handover between satellite/terrestrial systems may matter.</li>
+<li><strong>Fixed wireless:</strong> wireless access where the subscriber equipment is generally installed at a fixed location. Mobile wireless supports movement while connected.</li>
+</ul>
+<h2>19. Mobile Computing Security and Quality of Service</h2>
+<ul>
+<li><strong>Authentication:</strong> verifies the identity of a subscriber/device.</li>
+<li><strong>Confidentiality:</strong> prevents unauthorized parties from reading data, usually through encryption.</li>
+<li><strong>Integrity:</strong> detects unauthorized alteration of data.</li>
+<li><strong>Availability:</strong> keeps services accessible despite faults or attacks.</li>
+<li><strong>Quality of Service (QoS):</strong> describes service performance such as throughput, delay, jitter, packet loss and availability.</li>
+<li><strong>Roaming:</strong> allows a subscriber to use services outside the home operator's coverage area through agreements and network authentication/routing.</li>
+</ul>
+<h2>20. Formula Sheet and Last-Minute Revision</h2>
 <ul>
 <li>Pixel = smallest addressable raster element; resolution = pixel dimensions; aspect ratio = width:height; refresh rate is measured in Hz.</li>
 <li>RGB is additive; CMY/CMYK is subtractive.</li>
