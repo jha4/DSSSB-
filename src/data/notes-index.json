@@ -353,6 +353,111 @@
     "file": "notes/part-a-pyq-syllabus-analysis.html"
   },
   {
+    "id": "dsssb-part-a-number-system-chapter-notes",
+    "title": "Number System — DSSSB Part A Complete Notes & PYQs",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Number System",
+    "chapterSlug": "number-system",
+    "topic": "Concepts, formulas, worked examples & topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "number-system",
+      "PYQ",
+      "DSSSB",
+      "formulas",
+      "worked-examples",
+      "revision"
+    ],
+    "date": "2026-11-23",
+    "summary": "Expanded chapter theory, formulas, worked examples, shortcuts and 24 workbook PYQs. Number types, prime factorisation, divisibility, remainders, decimal expansions and unit-digit cycles. Source-derived questions are distinguished from teaching examples.",
+    "file": "notes/dsssb-part-a-number-system-chapter-notes.html"
+  },
+  {
+    "id": "dsssb-part-a-simplification-chapter-notes",
+    "title": "Simplification — DSSSB Part A Complete Notes & PYQs",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Simplification",
+    "chapterSlug": "simplification",
+    "topic": "Concepts, formulas, worked examples & topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "simplification",
+      "PYQ",
+      "DSSSB",
+      "formulas",
+      "worked-examples",
+      "revision"
+    ],
+    "date": "2026-11-23",
+    "summary": "Expanded chapter theory, formulas, worked examples, shortcuts and 30 workbook PYQs. BODMAS, fractions, decimals, exponents, surds, signs and accurate calculation methods. Source-derived questions are distinguished from teaching examples.",
+    "file": "notes/dsssb-part-a-simplification-chapter-notes.html"
+  },
+  {
+    "id": "dsssb-part-a-hcf-lcm-chapter-notes",
+    "title": "HCF & LCM — DSSSB Part A Complete Notes & PYQs",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "HCF & LCM",
+    "chapterSlug": "hcf-lcm",
+    "topic": "Concepts, formulas, worked examples & topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "hcf-lcm",
+      "PYQ",
+      "DSSSB",
+      "formulas",
+      "worked-examples",
+      "revision"
+    ],
+    "date": "2026-11-23",
+    "summary": "Expanded chapter theory, formulas, worked examples, shortcuts and 11 workbook PYQs. Prime-factor method, Euclidean algorithm, common remainders, event cycles and core identities. Source-derived questions are distinguished from teaching examples.",
+    "file": "notes/dsssb-part-a-hcf-lcm-chapter-notes.html"
+  },
+  {
+    "id": "dsssb-part-a-alphabet-series-chapter-notes",
+    "title": "Alphabet / Letter Series — DSSSB Part A Complete Notes & PYQs",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Alphabet / Letter Series",
+    "chapterSlug": "alphabet-series",
+    "topic": "Concepts, formulas, worked examples & topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "alphabet-series",
+      "PYQ",
+      "DSSSB",
+      "formulas",
+      "worked-examples",
+      "revision"
+    ],
+    "date": "2026-11-23",
+    "summary": "Expanded chapter theory, formulas, worked examples, shortcuts and 11 workbook PYQs. Alphabet positions, reverse positions, cyclic shifts, multi-column patterns and dictionary order. Source-derived questions are distinguished from teaching examples.",
+    "file": "notes/dsssb-part-a-alphabet-series-chapter-notes.html"
+  },
+  {
+    "id": "dsssb-part-a-number-series-chapter-notes",
+    "title": "Number Series — DSSSB Part A Complete Notes & PYQs",
+    "subject": "Part A – General Paper",
+    "subjectSlug": "general-paper",
+    "chapter": "Number Series",
+    "chapterSlug": "number-series",
+    "topic": "Concepts, formulas, worked examples & topic-wise PYQs",
+    "tags": [
+      "part-a",
+      "number-series",
+      "PYQ",
+      "DSSSB",
+      "formulas",
+      "worked-examples",
+      "revision"
+    ],
+    "date": "2026-11-23",
+    "summary": "Expanded chapter theory, formulas, worked examples, shortcuts and 48 workbook PYQs. Difference and ratio patterns, alternating series, special sequences, missing terms and wrong-term detection. Source-derived questions are distinguished from teaching examples.",
+    "file": "notes/dsssb-part-a-number-series-chapter-notes.html"
+  },
+  {
     "id": "web-technology-protocols-security",
     "title": "Web Protocols, URLs, E-mail & Security — Notes and PYQs",
     "subject": "Computer Science",
@@ -484,27 +589,5 @@
     "date": "2026-11-19",
     "summary": "PHP, Apache, CGI, website visibility, ActiveX legacy concepts and 8 topic-wise PYQs.",
     "file": "notes/web-technology-miscellaneous.html"
-  },
-  {
-    "id": "dsssb-part-a-quant-reasoning-short-notes",
-    "title": "DSSSB Part A — Quantitative Aptitude & Reasoning Short Notes",
-    "subject": "Part A – General Paper",
-    "subjectSlug": "general-paper",
-    "chapter": "Quantitative Aptitude & Reasoning",
-    "chapterSlug": "quantitative-aptitude-reasoning",
-    "topic": "Short Notes & Topic-wise PYQs",
-    "tags": [
-      "part-a",
-      "number-system",
-      "simplification",
-      "hcf-lcm",
-      "alphabet-series",
-      "number-series",
-      "PYQ",
-      "revision"
-    ],
-    "date": "2026-11-20",
-    "summary": "Syllabus-aligned short notes with 124 PYQs across Number System, Simplification, HCF & LCM, Alphabet/Letter Series and Number Series, plus 17 cross-topic records and source-based frequency analysis (141 records total).",
-    "file": "notes/dsssb-part-a-quant-reasoning-short-notes.html"
   }
 ]
