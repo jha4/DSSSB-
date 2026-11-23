@@ -465,7 +465,7 @@ async function hydratePyqPlaceholders(
 
     const classifyDigitalQuestion = (question: EmbeddedPyqRecord): string => {
       const text = (question.q ?? '').toLowerCase();
-      if (/k-?map|minimi[sz]e|simplif(y|ied).*boolean|boolean function.*distributive|distributive law|order \\(degree\\)|degree.*function/.test(text)) return 'digital-kmap';
+      if (/k-?map|minimi[sz]e|simplif(y|ied).*boolean|boolean function.*distributive|distributive law|order \(degree\)|degree.*function/.test(text)) return 'digital-kmap';
       if (/flip.?flop|multivibrator|counter|ripple counter|sequential circuit|shift register|complement output of the last stage|stores? one bit|stores? .*information|number of times.*event|event.*number of times/.test(text)) return 'digital-sequential';
       if (/multiplexer|demultiplexer|encoder|decoder|full adder|half adder|binary adder|addition and subtraction|combinational circuit|advantage of use of multiplexers|cascaded arrangement/.test(text)) return 'digital-combinational';
       if (/gray code|one bit changes|bcd adder/.test(text)) return 'digital-codes';
