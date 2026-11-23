@@ -505,8 +505,42 @@ async function hydratePyqPlaceholders(
     return pureDs ? 'ds-misc' : 'algo-misc';
   };
 
+
+  const questionText = (question: EmbeddedPyqRecord): string =>
+    ((question.q ?? '') + ' ' + (question.o ?? []).join(' ')).toLowerCase();
+
+  const classifySoftwareEngineeringQuestion = (question: EmbeddedPyqRecord): string => {
+    const text = questionText(question);
+    if (/waterfall|linear sequential|linear-sequential|spiral|prototype|rapid application development|\brad\b|agile|incremental release|prescriptive model|process model/.test(text)) return 'se-models';
+    if (/black.?box|white.?box|boundary value|equivalence partition|recovery testing|stress testing|regression testing|integration testing|acceptance testing|unit testing|system test|test case|testing/.test(text)) return 'se-testing';
+    if (/software quality|quality assurance|\bsqa\b|reliability|\bmttf\b|\bmttr\b|\brocof\b|software metric|time behaviour|resource behaviour/.test(text)) return 'se-quality';
+    if (/maintenance|software patch|software update|configuration management|identify.*control.*audit.*modification/.test(text)) return 'se-maintenance';
+    if (/pert chart|gantt chart|project management|project estimation|estimation technique|resource allocation|project planning|task list|schedule|cocomo|cost estimation|umbrella activities|framework activities/.test(text)) return 'se-project';
+    if (/\bsrs\b|software requirements specification|requirement analysis|requirements analysis|feasibility|functional requirement|non.?functional requirement/.test(text)) return 'se-requirements';
+    if (/\bdfd\b|data flow diagram|flowchart|decision table|decision tree|structure chart|cohesion|coupling|modular|module|top.?down design|reverse engineering|design pattern|architecture design|program links/.test(text)) return 'se-design';
+    return 'se-misc';
+  };
+
+  const classifyGraphicsMobileQuestion = (question: EmbeddedPyqRecord): string => {
+    const text = questionText(question);
+    if (/mobile computing|mobile ip|mobile node|gsm|gprs|edge|\blte\b|\bcdma\b|\bbts\b|\bhlr\b|\bvlr\b|home agent|foreign agent|care.?of address|handover|handoff|tdma|fdma|mobile agent|mobile operating system|haptic|cellular network|mobile station/.test(text)) return 'graphics-mobile';
+    if (/sampling|quantization|compression|mpeg|audio|video|multimedia|frame rate|bit rate|png|jpeg|bmp|tiff|image format|sound|animation/.test(text)) return 'graphics-multimedia';
+    if (/pixel|resolution|aspect ratio|crt|refresh rate|persistence|rgb|cmy|colour model|color model|translation|scaling|rotation|clipping|liang.?barsky|cohen.?sutherland|dda|bresenham|curve|surface model|solid model|viewing pipeline|graphics|photoshop|plotter|display/.test(text)) return 'graphics-core';
+    return 'graphics-misc';
+  };
+
+  const classifyMisQuestion = (question: EmbeddedPyqRecord): string => {
+    const text = questionText(question);
+    if (/office automation|\boas\b|word processing|electronic filing|electronic mail|message switching|annual budgeting/.test(text)) return 'mis-oas';
+    if (/decision support|\bdss\b|what.?if analysis|sensitivity analysis|model base/.test(text)) return 'mis-dss';
+    if (/expert system|knowledge base|inference engine|knowledge engineer|forward chaining|backward chaining|knowledge management|tacit knowledge|explicit knowledge|\bkms\b/.test(text)) return 'mis-expert-km';
+    if (/transaction processing|\btps\b|\boltp\b|batch processing|online transaction/.test(text)) return 'mis-tps-oltp';
+    if (/management information system|\bmis\b|information quality|strategic information|tactical information|operational information|information system|external database/.test(text)) return 'mis-core';
+    return 'mis-misc';
+  };
+
   return rawHtml.replace(
-    /<!--\s*PYQ:([a-z-]+)(?:\|([^|>]+))?(?:\|([a-z-]+))?\s*-->/g,
+    /<!--\s*PYQ:([a-z-]+)(?:\|([^|>]*))?(?:\|([a-z-]+))?\s*-->/g,
     (_marker, key: string, sourceTopic?: string, topicKey?: string) => {
       const topicFilter = (sourceTopic ?? '').trim();
       const allQuestions = groups.get(key) ?? [];
@@ -515,6 +549,12 @@ async function hydratePyqPlaceholders(
         : allQuestions;
       if (key === 'digital-electronics' && topicKey) {
         questions = questions.filter((question) => classifyDigitalQuestion(question) === topicKey);
+      } else if (key === 'software-engineering' && topicKey) {
+        questions = questions.filter((question) => classifySoftwareEngineeringQuestion(question) === topicKey);
+      } else if (key === 'graphics' && topicKey) {
+        questions = questions.filter((question) => classifyGraphicsMobileQuestion(question) === topicKey);
+      } else if (key === 'mis' && topicKey) {
+        questions = questions.filter((question) => classifyMisQuestion(question) === topicKey);
       } else if (topicKey) {
         questions = questions.filter((question) => classifyDsaQuestion(question) === topicKey);
       }
