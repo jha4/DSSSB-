@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business, E-Commerce, Knowledge Management & Numerical Techniques | DSSSB TGT CS</title>
+<meta name="description" content="DSSSB TGT Computer Science syllabus-aligned notes with topic-wise Part B previous-year questions, answer keys and explanations.">
+<style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#5d687b;--line:#dfe5ef;--accent:#3659a8;--soft:#edf2ff;--green:#eaf7ef;--warn:#fff1df}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.68 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:#111d36;color:#fff;padding:34px 20px 28px}.hero{max-width:1100px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b8c8f0;font-weight:700}h1{font-size:clamp(26px,4vw,40px);line-height:1.15;margin:9px 0 12px}header p{color:#d7e0f4;max-width:850px;margin:0}
+main{max-width:1100px;margin:22px auto;padding:0 16px 60px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}.stat strong{display:block;font-size:25px;color:var(--accent)}.stat span{font-size:12px;color:var(--muted)}
+.toolbar{position:sticky;top:0;z-index:5;background:rgba(245,247,251,.96);backdrop-filter:blur(10px);padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}input[type=search]{flex:1;min-width:220px;padding:11px 13px;border:1px solid #cbd4e2;border-radius:9px;background:white;font:inherit}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{padding:9px 11px;border-radius:8px;background:var(--soft);color:#25427e;text-decoration:none;font-weight:650;font-size:13px}
+.notice{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);padding:13px 16px;border-radius:10px;margin:16px 0;color:#42506a;font-size:13px}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:22px;margin:22px 0;box-shadow:0 4px 16px rgba(23,32,51,.035)}h2{font-size:25px;margin:0 0 17px;padding-bottom:12px;border-bottom:2px solid var(--line)}h3{font-size:19px;margin:24px 0 10px;color:#243d73}h4{font-size:14px;margin:20px 0 10px;color:#52617a;text-transform:uppercase;letter-spacing:.06em}p{margin:9px 0}ul,ol{padding-left:23px}li{margin:5px 0}b{color:#1d315c}.topic{padding-bottom:12px;border-bottom:1px solid #edf0f5}.topic:last-child{border-bottom:0}
+.pyq{border:1px solid var(--line);border-radius:11px;margin:11px 0;padding:14px;background:#fcfdff}.pyq-top{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;font-size:11px;color:#6c7890;font-weight:700;margin-bottom:8px}.question{font-weight:650;white-space:normal}.options{margin:9px 0 8px;padding-left:28px}.options li{padding-left:4px}.answer{margin-top:9px;border-top:1px dashed #d7deea;padding-top:8px}.answer summary{cursor:pointer;color:#31559d;font-weight:700;font-size:13px}.answer-key{background:var(--green);padding:8px 10px;border-radius:7px}.flag{display:inline-block;background:var(--warn);padding:1px 7px;border-radius:5px;font-size:11px;color:#8a4a00}.source-note{font-size:12px;color:#6b7280;font-style:italic;background:#f1f3f7;padding:8px;border-radius:7px}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:20px}.hidden-by-search{display:none!important}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.chapter{padding:15px}.pyq-top{justify-content:flex-start}}
+@media print{body{background:white}.toolbar{position:static}.chapter{break-inside:auto;box-shadow:none}.answer{display:block}.answer>summary{display:none}.answer>*{display:block!important}}
+</style></head>
+<body>
+<header><div class="hero"><div class="eyebrow">DSSSB TGT Computer Science · Part B</div><h1>Business, E-Commerce, Knowledge Management & Numerical Techniques</h1><p>Detailed syllabus-aligned revision notes with previous-year questions placed immediately after the relevant theory. Workbook wording, answer keys and explanations are preserved wherever supplied.</p></div></header>
+<main>
+<div class="stats">
+<div class="stat"><strong>93</strong><span>Relevant workbook PYQ records included</span></div>
+<div class="stat"><strong>41</strong><span>Business & Accounting</span></div>
+<div class="stat"><strong>5 + 18</strong><span>E-Commerce + Knowledge Management</span></div>
+<div class="stat"><strong>29</strong><span>Numerical Techniques / Maths & Statistics</span></div>
+</div>
+<div class="toolbar"><input id="search" type="search" placeholder="Search notes and PYQs…" aria-label="Search notes and questions"><nav class="nav"><a href="#ecommerce">E-Commerce</a><a href="#business">Business & Accounting</a><a href="#km">Knowledge Management</a><a href="#numerical">Numerical Techniques</a></nav></div>
+<div class="notice"><b>Source and classification note:</b> PYQs are selected from the uploaded Part B workbook and mapped by concept. The workbook contains 1,870 records overall. This page includes 93 relevant records: 41 Business & Accounting, 5 E-Commerce, 18 Knowledge Management/information-systems and 29 Maths/Statistics/Numerical Techniques. Clearly unrelated records (including one network-reset item, one e-waste item, a flowchart-symbol item, a commerce-definition item, a graph-theory item and a data-protection-law item) are not counted here. In older workbook rows, the options are embedded in the question-text cell; those complete cells are reproduced verbatim rather than guessed into A–D. Answer keys and explanations are the workbook's values; entries explicitly flagged in the source explanation should be checked against standard concepts.</div>
+<section class="chapter" id="ecommerce"><h2>E-Commerce</h2><section class="topic" id="ecommerce-1"><h3>E-commerce meaning, scope and process</h3><p><b>Electronic commerce (e-commerce)</b> is the conduct of commercial transactions—buying, selling, ordering, marketing, servicing and exchanging business information—through electronic networks, mainly the Internet. It includes more than the payment step: product discovery, order placement, payment, fulfilment, delivery and after-sales service.</p>
+<p><b>Commerce</b> is the wider activity of buying and selling goods and services, often on a large scale. E-commerce is commerce conducted electronically. An online catalogue without online ordering may be e-business activity, but a complete e-commerce transaction normally includes electronic order processing.</p>
+<ul><li><b>Pre-sale:</b> product search, comparison, advertising, enquiry and negotiation.</li><li><b>Execution:</b> order placement, confirmation, payment authorisation and invoice.</li><li><b>Post-order:</b> packing, dispatch, delivery, returns, warranty and customer support.</li></ul>
+<p><b>Delivery fulfilment</b> includes packing, loading, shipping and delivery. Billing/invoicing records the amount due; contract conclusion is the agreement stage; service support occurs after the sale.</p></section><section class="topic" id="ecommerce-3"><h3>E-commerce models and stakeholders</h3><p>Models are classified by the parties transacting: <b>B2B</b> (business to business), <b>B2C</b> (business to consumer), <b>C2C</b> (consumer to consumer) and <b>C2B</b> (consumer to business). A marketplace such as OLX is commonly a C2C example when individuals sell to other individuals. A platform can support more than one model, so classify the actual transaction rather than the brand alone.</p>
+<p>In B2B, “B” denotes a business organisation/producer; in B2C, the seller is a business and the buyer is an individual consumer. Stakeholders can include buyers, sellers, platform operators, payment providers, logistics partners, banks and regulators.</p>
+<ul><li><b>Subscription model:</b> customer pays a recurring fixed fee (monthly, quarterly or annually) for continued access to a service or content.</li><li><b>Marketplace model:</b> platform connects buyers and sellers and may earn commission, listing or service fees.</li><li><b>Affiliate marketing:</b> publisher refers customers to a merchant and receives commission for qualifying actions.</li></ul><h4>Previous-year questions (2)</h4><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1417</span></div>
+      <div class="question">With reference to stakeholders of e-commerce, business organisations abbreviated by &#x27;B&#x27; may include government consumers customers producers</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>In e-commerce models (B2B, B2C…) &#x27;B&#x27; = business organisations: producers, manufacturers and sellers. &#x27;C&#x27; = consumers, &#x27;G&#x27; = government.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1467</span></div>
+      <div class="question">The E-commerce segment(s) is/are represented by OLX. C2C, B2C and B2B B2B C2C B2C</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>OLX lets individuals sell to other individuals: C2C (consumer-to-consumer) e-commerce.</p>
+      </details>
+    </article></section><section class="topic" id="ecommerce-8"><h3>Electronic payment, EDI, privacy and security</h3><p><b>Electronic Funds Transfer (EFT)</b> is the transfer of money between accounts through electronic systems. In India, NEFT is an RBI-operated electronic funds transfer system. Cards, smart cards, mobile banking, UPI and e-wallets are payment channels/instruments; they are not interchangeable terms.</p>
+<ul><li><b>Smart card:</b> plastic card containing an embedded integrated-circuit chip that can store/process data securely. A magnetic-stripe card stores data differently.</li><li><b>E-wallet:</b> digital service that stores payment credentials and/or a stored balance and facilitates electronic payments.</li><li><b>EDI (Electronic Data Interchange):</b> computer-to-computer exchange of standardised business documents (such as purchase orders and invoices) in an agreed structured format. It is not merely sending an ordinary email attachment.</li></ul>
+<p>Key risks include phishing, identity theft, unauthorised access, payment fraud, data leakage, repudiation and privacy misuse. Controls include strong authentication, encryption in transit, access control, transaction alerts, secure payment gateways, audit trails and dispute handling. <b>Website visibility</b> refers to how easily users can discover a site through search engines, directories, links and other channels; search-engine optimisation improves discoverability but does not itself guarantee sales.</p></section><section class="topic"><h3>E-commerce operations and business models</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1314</span></div>
+      <div class="question">Who is the father of e-commerce in India? Bryan Eisenberg Michael Aldrich K Vaitheeswaran Tim Ferris</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>K. Vaitheeswaran, founder of Fabmall/Indiaplaza, is called the father of e-commerce in India. Michael Aldrich invented online shopping (1979, UK).</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1381</span></div>
+      <div class="question">Activities like packing goods, loading goods and shipping goods belong to which step of the e-commerce primary process? Contract conclusion Delive1Y fulfilment Billing/invoice Service suppolt</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Packing, loading and shipping goods are part of delivery/fulfilment in the e-commerce order cycle.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1428</span></div>
+      <div class="question">A fixed sum that is paid by customers for a service, typically on a monthly, quarterly or annual basis, is called electronic commerce. licensing affiliate marketing subscription</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>A fixed recurring fee (monthly, quarterly, annual) for a service is the subscription model of e-commerce (e.g. Netflix, SaaS).</p>
+      </details>
+    </article></section></section><section class="chapter" id="business"><h2>Business and Accounting</h2><section class="topic" id="business-1"><h3>Business organisation, activity and management</h3><p><b>Business</b> is an organised economic activity involving production or exchange of goods/services with the objective of earning income or profit while meeting customer needs. <b>Trade</b> is the buying and selling of goods/services and is a central part of business. Business activities are often grouped into <b>industry</b> (production/processing) and <b>commerce</b> (trade and auxiliaries to trade).</p>
+<ul><li><b>Primary activities:</b> extraction and collection of natural resources (agriculture, mining, fishing, forestry).</li><li><b>Secondary activities:</b> manufacturing and construction, converting raw materials into finished/semi-finished products.</li><li><b>Tertiary activities:</b> services such as transport, banking, insurance, warehousing, communication and trade.</li></ul>
+<p><b>Sole proprietorship</b> is owned and controlled by one person; it is easy to form but the proprietor generally has unlimited liability. <b>Partnership</b> is a relationship between persons who agree to share profits of a business carried on by all or any acting for all; ordinary partners generally have unlimited liability. A <b>company</b> is a separate legal entity and shareholders generally enjoy limited liability. A cooperative is a member-owned organisation formed for mutual benefit.</p>
+<p><b>Organisation structure</b> defines relationships among people, work, authority and resources. <b>Centralisation</b> concentrates decision authority at higher levels; <b>decentralisation</b> distributes it. <b>Bootstrapping</b> means starting/growing a venture primarily using founders’ own funds, operating revenue and lean resource use rather than depending initially on large external financing.</p>
+<p>Management functions include planning (objectives and courses of action), organising (roles/resources), staffing (people), directing/leading (guidance and motivation), coordinating (alignment) and controlling (compare actual performance with standards and correct deviations). Organisation structure should support coordination, responsibility and goals.</p></section><section class="topic" id="business-3"><h3>Business economics: demand, utility, elasticity and revenue</h3><p><b>Demand</b> is the quantity of a good consumers are willing and able to buy at different prices during a given period, other things being equal. A mere desire is not demand: it must be backed by purchasing power and willingness to pay (effective desire). The law of demand generally states that quantity demanded varies inversely with price, ceteris paribus.</p>
+<ul><li><b>Movement along demand curve:</b> caused by a change in the good’s own price.</li><li><b>Shift of demand curve:</b> caused by income, tastes, prices of related goods, expectations or number of buyers.</li><li><b>Normal good:</b> demand usually rises as income rises. <b>Inferior good:</b> demand may fall as income rises.</li><li><b>Price elasticity of demand:</b> percentage change in quantity demanded divided by percentage change in price (usually reported in absolute value). Perfectly elastic demand has an infinite elasticity; perfectly inelastic demand has zero elasticity.</li></ul>
+<p><b>Marginal revenue (MR)</b> is the change in total revenue divided by the change in quantity sold: MR = ΔTR/ΔQ. <b>Marginal utility</b> is the additional satisfaction from consuming one more unit. The law of diminishing marginal utility says that, under stated assumptions, marginal utility tends to decline as more units of the same good are consumed.</p>
+<p><b>Demand forecasting</b> estimates future demand. Methods for new products can include opinion polling, vicarious methods, evolutionary approaches, substitute-product analysis and growth-curve approaches. These labels are textbook-specific; do not treat “growth curve” and “substitute approach” as synonyms.</p></section><section class="topic" id="business-5"><h3>Economy, inflation and banking</h3><p><b>Microeconomics</b> studies the economic behaviour of individual units such as a consumer, household or firm. <b>Macroeconomics</b> studies aggregates such as national income, general price level, employment and overall output. A market economy relies substantially on price signals and private decisions; a command/socialist economy gives the state a larger role in resource allocation. Real economies can be mixed.</p>
+<ul><li><b>Demand-pull inflation:</b> general prices rise because aggregate demand grows faster than the economy’s ability to supply.</li><li><b>Cost-push inflation:</b> prices rise because production costs (such as wages or raw materials) increase.</li><li><b>Working capital:</b> funds required for day-to-day operations/current assets. <b>Fixed capital:</b> funds invested in long-lived assets such as plant and machinery.</li></ul>
+<p><b>Reserve Bank of India (RBI)</b> is India’s central bank. The <b>Cash Reserve Ratio (CRR)</b> is the prescribed share of a bank’s net demand and time liabilities maintained as cash balance with the RBI. The <b>Statutory Liquidity Ratio (SLR)</b> is maintained by banks themselves in specified liquid assets. <b>Open-market operations (OMO)</b> are RBI purchases/sales of government securities: an RBI sale generally absorbs liquidity and reduces banking-system reserves; a purchase injects liquidity. Distinguish CRR from SLR and policy rates from reserve requirements.</p></section><section class="topic" id="business-7"><h3>Financial accounting: meaning, principles and accounting cycle</h3><p><b>Accounting</b> is the process of identifying, measuring, recording, classifying, summarising, interpreting and communicating financial information about an entity. It supports stewardship, decision-making and assessment of financial performance/position. Transactions are recorded in monetary terms and follow the applicable accounting framework.</p>
+<p>The accounting equation is <b>Assets = Liabilities + Owner’s Equity</b>. Every transaction has a dual effect. Under the traditional rules: personal accounts—debit the receiver, credit the giver; real accounts—debit what comes in, credit what goes out; nominal accounts—debit expenses/losses, credit incomes/gains. Under the modern approach, assets and expenses normally increase by debit; liabilities, equity and income normally increase by credit.</p>
+<ol><li>Identify and analyse transaction with source document.</li><li>Record chronologically in the <b>journal</b> (book of original entry).</li><li>Post entries to the <b>ledger</b> (account-wise classification).</li><li>Prepare trial balance to check arithmetical equality of debits and credits.</li><li>Pass adjustment entries and prepare adjusted trial balance.</li><li>Prepare financial statements (trading account, profit and loss account and balance sheet, as applicable).</li><li>Close temporary nominal accounts and carry forward permanent balances.</li></ol>
+<p><b>Permanent accounts</b> (assets, liabilities and capital) carry balances into the next period. <b>Temporary accounts</b> (income, expenses and drawings/dividends as applicable) are closed at period end. A trial balance may agree even when errors of omission, principle, compensating errors or complete reversal have occurred.</p></section><section class="topic" id="business-9"><h3>Trading account, profit and loss, balance sheet and stock</h3><p>The <b>Trading Account</b> determines gross profit or gross loss from core trading activity. In simplified form: Gross Profit = Net Sales − Cost of Goods Sold (COGS); COGS = Opening Inventory + Net Purchases + Direct Expenses − Closing Inventory. If gross profit is 20% <i>on sales</i>, then GP = 0.20 × Sales and COGS = 0.80 × Sales. Do not confuse “20% on sales” with “20% on cost”.</p>
+<p>The <b>Profit and Loss Account</b> starts with gross profit and deducts indirect expenses while adding other incomes to determine net profit/loss. The <b>Balance Sheet</b> reports assets, liabilities and equity at a point in time. Rent received in advance is not income earned in the current period; it is generally shown as a liability (unearned income) while only the earned portion is credited to current-period income.</p>
+<p>When stock is destroyed by fire, estimate stock at the date of loss using the trading account/stock estimation method, then deduct salvage value to determine the stock loss. Insurance claims depend on the policy and evidence. Working steps: calculate cost of goods available, estimate cost of sales using the gross-profit rate, derive stock at the loss date, then subtract salvage.</p></section><section class="topic" id="business-11"><h3>Depreciation, reserves, provisions and long-term assets</h3><p><b>Depreciation</b> is the systematic allocation of the depreciable amount of a tangible fixed asset over its useful life. It reflects consumption of economic benefits, not necessarily a market-value decline. It is charged over time and reduces the asset’s carrying amount (directly or through accumulated depreciation).</p>
+<ul><li><b>Straight-line method:</b> annual depreciation = (cost − residual value) ÷ useful life; equal charge each full year.</li><li><b>Written-down/reducing-balance method:</b> depreciation = fixed rate × opening carrying amount; charge usually declines over time.</li><li><b>Accumulated depreciation:</b> total depreciation recognised to date.</li><li><b>Book/carrying value:</b> cost less accumulated depreciation and impairment.</li></ul>
+<p>A <b>provision</b> is recognised for a present obligation or expected loss/expense when recognition requirements are met and amount/timing is uncertain. A <b>reserve</b> generally represents retained/appropriated profit or an equity component, not the same as a provision. <b>Fixed assets</b> are long-term resources held for use in operations; intangible assets (such as patents) can also be non-current assets. Current liabilities are obligations expected to be settled in the operating cycle or within the applicable short-term period.</p></section><section class="topic"><h3>Business economics, demand and banking</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1267</span></div>
+      <div class="question">Elasticity of demand explains the level, degree and angle angle level degree of the corelation between price and quantity.</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Elasticity of demand measures the degree of responsiveness of quantity demanded to a change in price.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1310</span></div>
+      <div class="question">Which of the following inflations describes how demand for goods and services can drive up their prices? Cost-push inflation Built-in Inflation Demand-puli inflation Demand-push inflation</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Demand-pull inflation: aggregate demand outruns supply and pulls prices up. Cost-push inflation comes from rising input costs; built-in inflation comes from wage-price expectations.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1350</span></div>
+      <div class="question">The demand is said to be quantity demanded. perfectly inelastic relatively elastic relatively inelastic petfectly elastic when a vety insignificant change in price leads to an infinite change in</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Demand is perfectly elastic when an insignificant price change causes an infinite change in quantity demanded (a horizontal demand curve).</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1365</span></div>
+      <div class="question">W-hich of the following is defined as that branch of economic analysis that studies the economic behaviour of the individual unit and may be a person, a particular household or a panicular firm? International Economics Macro Economics Environmental Economics Micro Economics</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Microeconomics studies the economic behaviour of individual units: a person, a household or a firm. Macroeconomics studies the economy as a whole.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1460</span></div>
+      <div class="question">What is effective desire? Demand Consumption Calculus Utility</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ The printed key marks consumption. In economics, &#x27;effective desire&#x27; (desire backed by ability and willingness to pay) is the definition of demand. For the concept, remember: effective desire = demand.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1492</span></div>
+      <div class="question">According to business economics, the growth of an existing product is used to estimate the demand for a new product using: growth curve approach vicarious approach substitute approach opinion polling approach</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C <span class="flag">Check source key</span></p>
+        <p>⚠ The printed key marks the substitute approach. In Joel Dean&#x27;s methods, estimating new-product demand from the growth of an established product is the growth curve approach; the substitute approach treats the new product as a substitute for an existing one. Remember the textbook mapping; the paper&#x27;s key says substitute.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1495</span></div>
+      <div class="question">Which method is used for demand forecasting of new products? Evolutionaay approach, opinion polling approach and vicarious approach Opinion polling approach Evolutionary approach Vicarious approach</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Joel Dean&#x27;s methods for forecasting new-product demand include the evolutionary, opinion-polling and vicarious approaches (also substitute, growth curve and sales experience). All three listed apply.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 08</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1575</span></div>
+      <div class="question">A certain percentage of deposits which a bank must keep in the form of cash with the RBI is called _______.</div><ol class="options" type="A"><li>Open Market Operations</li><li>Cash Reserve Ratio</li><li>Liquidity Adjustment Facility</li><li>Statutory Liquidity Ratio</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>The share of deposits a bank must keep as cash with the RBI is the Cash Reserve Ratio (CRR).<br>SLR is kept by the bank itself in liquid assets.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 09</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1739</span></div>
+      <div class="question">If consumer income increases, _______.</div><ol class="options" type="A"><li>The demand for an low level good decreases.</li><li>The demand for a normal good decreases.</li><li>The demand for an low level good increases.</li><li>The demand for a normal good falls to zero.</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>When income rises, demand for inferior (&quot;low-level&quot;) goods falls, because consumers switch to better goods. Demand for normal goods rises.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 10</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1750</span></div>
+      <div class="question">Sale of a bond by RBI to private individuals or institutions leads to ______.<br><br>I. reduction in the quantity of reserves<br><br>II. reduction in money supply</div><ol class="options" type="A"><li>Only I</li><li>Neither I nor ॥</li><li>Both I and II</li><li>Only II</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ When the RBI sells bonds (an open-market sale), buyers pay with money from their banks. This reduces bank reserves and therefore the money supply (NCERT Macroeconomics). So both I and II hold.<br>The source key&#x27;s answer, neither, is wrong.</p>
+      </details>
+    </article></section><section class="topic"><h3>Business organisation and management</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1221</span></div>
+      <div class="question">Which of the following is NOT a tertiary business activity?</div><ol class="options" type="A"><li>Manufacturing</li><li>Warehousing</li><li>Transportation</li><li>Insurance</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Tertiary activities are services that support trade: transport, warehousing, insurance, banking and communication.<br>Manufacturing is a secondary activity.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1232</span></div>
+      <div class="question">Which of the following statement is correct for a business organisation?</div><ol class="options" type="A"><li>Centralisation leads to autonomy</li><li>Responsibility leads to decentralisation</li><li>Authority leads to decentralisation</li><li>Delegation leads to decentralisation</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Delegation passes authority down to subordinates. When delegation is spread systematically through all levels, the result is decentralisation.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1237</span></div>
+      <div class="question">What does the term &#x27;bootstrapping&#x27; refer to in the context of starting a business?</div><ol class="options" type="A"><li>Obtaining bank loans for initial capital</li><li>Self-funding the business using personal resources</li><li>Raising funds through venture capitalists</li><li>Crowdfunding through online platforms</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Bootstrapping is starting and growing a business with the founder&#x27;s own savings and revenue, without outside investors or loans.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1243</span></div>
+      <div class="question">The lowest cost solution to developing a KM system is: in-house development outsourcing development by end users off-the shelf solution</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Per the official key, in-house development is the lowest-cost route to a knowledge-management system: existing staff and infrastructure are used, with no vendor, licence or outsourcing fees. Other routes are end-user development, outsourcing and off-the-shelf packages.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1244</span></div>
+      <div class="question">is a set of interrelated components that collect (or retrieve), process, store and distribute information to support decision-making and control in an organisation. An infonnation technology Mini model ofa processed system Max model of a processed system An information system</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>An information system is a set of interrelated components that collect, process, store and distribute information to support decision-making and control (Laudon&#x27;s definition). Information technology is just the hardware/software part.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1250</span></div>
+      <div class="question">Which of the following is NOT a risk management methodology? Acceptance of threats Risk generation Avoidance of threats Transfer of risks</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Standard risk-response strategies: avoid, transfer, mitigate (reduce) and accept. &#x27;Risk generation&#x27; is not a risk-management method.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1270</span></div>
+      <div class="question">Which of the following is NOT a type of business? Experience driven Expense driven Efficiency driven Expert driven</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Professional service firms are classed (Maister) as expertise-driven, experience-driven and efficiency-driven. &#x27;Expense driven&#x27; is not a type.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 08</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1318</span></div>
+      <div class="question">An organisation stmcture establishes relationships between: people, work and resources organisations and environment suppliers and customers organisations and society</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>An organisation structure defines relationships among people, work (tasks) and resources: who does what, with whom, and who reports to whom.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 09</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1320</span></div>
+      <div class="question">is a person who carries on business by himself/herself. Cooperative Sole proprietorship Pannership Trader</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>A sole proprietorship is a business owned and run by one person, who bears unlimited liability.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 10</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1418</span></div>
+      <div class="question">Which of the following is the fundamental state of business activity and involves the sale and purchase of goods and sereices? Enterprise Trade Supply Industry</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Trade (buying and selling goods and services) is the fundamental business activity. Industry produces; commerce = trade + its aids.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 11</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1439</span></div>
+      <div class="question">The most common type of business organisation is: partnership sole proprietorship NGO corporation</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Sole proprietorship (one owner) is the most common and simplest form of business organisation.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 12</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1446</span></div>
+      <div class="question">Which qualitative statistic is difficult to quantify precisely? Model Infrastmcture Value Decision making</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Value (worth, benefit) is a qualitative measure that is hard to quantify precisely, unlike infrastructure or models.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 13</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1491</span></div>
+      <div class="question">Which of the following business stmctures has limited liability to its members? Paftnership Cooperative society Company Sole proprietorship</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>A company gives its members limited liability: shareholders risk only their investment. Sole proprietorships and partnerships have unlimited liability.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 14</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1597</span></div>
+      <div class="question">_______ is the process of identifying, organizing, storing and disseminating information within an organization.</div><ol class="options" type="A"><li>Knowledge management</li><li>Management information system</li><li>Human resource management</li><li>Financial management</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Knowledge management is identifying, organising, storing and sharing an organisation&#x27;s information and know-how.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 15</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1774</span></div>
+      <div class="question">Which type of information is very personal and difficult to formalize?</div><ol class="options" type="A"><li>Concrete information</li><li>Tacit information</li><li>Explicit information</li><li>Theoretical information</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Tacit knowledge or information is personal and experience-based, so it is hard to put in words or formalise.<br>Explicit information is documented.</p>
+      </details>
+    </article></section><section class="topic"><h3>Financial accounting and accounting cycle</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1212</span></div>
+      <div class="question">The total Purchases of ABC Ltd., during the FY 2024-25 was ₹1,90,000. If the gross profit of ABC Ltd. was 20% on sales and closing stock was more than the opening stock by ₹30,000 the gross profit earned by ABC Ltd., during the year 2024-25 was:</div><ol class="options" type="A"><li>₹35,000.00</li><li>₹25,000.00</li><li>₹40,000.00</li><li>₹52,000.00</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Cost of goods sold = opening stock + purchases − closing stock = 1,90,000 − 30,000 = ₹1,60,000, since closing stock exceeds opening by 30,000.<br>With gross profit at 20% on sales, COGS is 80% of sales, so sales = ₹2,00,000 and gross profit = ₹40,000.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1226</span></div>
+      <div class="question">On 15 December 2024, a fire occurred in the godown of M Ltd., and the entire stock was destroyed. The value of the stock salvaged was ₹3,00,000. The following transactions took place between 1 October 2024 and 15 December 2024. Study the table and answer the question that follows.<br><br>Purchases<br><br>Sales<br><br>Wages<br><br>Opening Stock<br><br>Gross Profit<br><br>The value of stock lost by fire was _________.</div><ol class="options" type="A"><li>₹6,75,000</li><li>₹2,55,000</li><li>₹5,92,000</li><li>₹6,30,000</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D <span class="flag">Check source key</span></p>
+        <p>⚠ This question can&#x27;t be answered as given. The source lists the table headings (Purchases, Sales, Wages, Opening Stock, Gross Profit) but none of their amounts.<br>The method is: stock at the date of the fire = opening stock + purchases + wages − (sales − gross profit). Stock lost = that figure − salvaged stock (₹3,00,000).<br>The source key gives ₹6,30,000.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1227</span></div>
+      <div class="question">MC Publications has received rent amounting to ₹2,50,000 during the financial year ending 31st March 2024. Out of this ₹50,000 represents rent relating to next financial year. The rent account to be credited to the profit and loss account for the year ended 31st March 2024 is ________ and the rent received in advance will be shown as a/an ________.</div><ol class="options" type="A"><li>₹2,00,000; Asset</li><li>₹3,00,000; Asset</li><li>₹1,50,000; Liability</li><li>₹2,00,000; Liability</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Rent earned for the year = 2,50,000 − 50,000 (relates to next year) = ₹2,00,000, credited to P&amp;L.<br>The ₹50,000 received in advance is income not yet earned, so it is shown as a liability in the balance sheet.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1256</span></div>
+      <div class="question">Marginal revenue is calculated by dividing the change in total output quantity by the change in total revenue dividing the change in total cost by the change in total output quantity dividing the change in total revenue by the change in total output quantity dividing the change in total revenue by the change in total profit</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Marginal revenue = ΔTotal revenue / ΔQuantity: the extra revenue from selling one more unit.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1260</span></div>
+      <div class="question">Any account or goods used by the owner ofthe business for his personal use is called as: sales drawings geneml expenses expenses</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Cash or goods taken by the owner for personal use are drawings. They reduce the owner&#x27;s capital and are not business expenses.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1313</span></div>
+      <div class="question">The part of the firm&#x27;s capital that is required for conducting day to day expenses is called: working capital asset expenses fixed capital</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Working capital (current assets − current liabilities) funds day-to-day operations. Fixed capital buys long-term assets.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1375</span></div>
+      <div class="question">Which of the following is the proper sequence of the accounting cycle? Recording of Transaction Joumal Ledger Trial Balance Adjusted Trial Balance Adjustment Entries Closing Entries Financial Statement Recording of Transaction Joumal Ledger Trial Balance Adjustment Entries Adjusted Trial Balance Closing Entries Financial Statement Recording of Transaction Journal Ledger Trial Balance Adjustment En</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>The keyed order is: record transactions → journal → ledger → trial balance → adjusting entries → adjusted trial balance → closing entries → financial statements. ⚠ Many textbooks prepare the financial statements from the adjusted trial balance before passing closing entries (option 4); the official key is option 2.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 08</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1379</span></div>
+      <div class="question">iVhich of the following refers to the mt of recoding, classifying and summarising in a significant manner, and in terms of money, transactions and events that are in part at least of a financial character, and intemreting the results thereof? Financial Accounting Cost Accounting Management Accounting Book Keeping</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>This is the AICPA definition: the art of recording, classifying and summarising, in money terms, transactions of a financial character and interpreting the results. The keyed answer is financial accounting.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 09</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1389</span></div>
+      <div class="question">The economic system is characterised by free markets and the absence Of government intervention in the economy. private capitalist public socialist</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Capitalism is marked by free markets and minimal government intervention, with private ownership of the means of production.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 10</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1420</span></div>
+      <div class="question">&#x27;As the stock of a commodity increases with the consumer, its malginal utility to the consumer decreases&#x27;. To which of the following laws does the given statement refer to? Law of Diminishing Marginal Utility Law of Supply Law of Elasticity Law of Demand</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Law of Diminishing Marginal Utility: as a consumer has more of a commodity, the extra utility from each additional unit falls.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 11</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1442</span></div>
+      <div class="question">Which of the following comes under applied mathematics? Information processing Operations research Management accounting Organisation</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Operations research (linear programming, queuing, optimisation) is a branch of applied mathematics used for decision-making.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 12</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1473</span></div>
+      <div class="question">Which of the following accounts is/are prepared for net profit? Profit and loss account Trading account, profit and loss account and balance sheet Trading account Balance sheet</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Net profit is worked out in the Profit &amp; Loss account. The trading account gives gross profit; the balance sheet shows financial position.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 13</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1503</span></div>
+      <div class="question">What is a long-term asset in accounting? Intangible assets Current liabilities Fixed liabilities Fixed assets</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Fixed assets (land, buildings, machinery) are long-term assets held for use over many years, not for resale.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 14</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1565</span></div>
+      <div class="question">Which of the following is/are correct?<br><br>I. All permanent accounts are balanced and carried forward to the next accounting period.<br><br>II. The temporary accounts are closed at the end of the accounting period.</div><ol class="options" type="A"><li>Neither I nor II</li><li>Only II</li><li>Both I and II</li><li>Only I</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Both are correct. Permanent (real and personal) accounts are balanced and carried forward. Temporary (nominal) accounts, such as income and expenses, are closed to the P&amp;L account at the end of the period.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 15</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1716</span></div>
+      <div class="question">Which of the following statements is correct?<br><br>- The decrease in assets is recorded on the credit side.<br><br>II. The increases in liabilities are recorded on the credit side.</div><ol class="options" type="A"><li>Both I and II</li><li>Only I</li><li>Only II</li><li>Neither I nor II</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Both are correct. In double entry, assets increase on the debit side and decrease on the credit side. Liabilities (and capital and income) increase on the credit side.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 16</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1726</span></div>
+      <div class="question">Which of the following is a characteristic of depreciation?<br><br>I. It is the depreciation of the book value of fixed assets.<br><br>II. It is an ongoing process.</div><ol class="options" type="A"><li>Only I</li><li>Neither I nor II</li><li>Both I and II</li><li>Only II</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Both are characteristics. Depreciation is the fall in book value of fixed assets, and it is a continuous process over the asset&#x27;s life.</p>
+      </details>
+    </article></section></section><section class="chapter" id="km"><h2>Knowledge Management</h2><section class="topic" id="km-1"><h3>Knowledge, data, information and knowledge types</h3><p><b>Data</b> are raw facts or observations. <b>Information</b> is data processed and placed in context so that it is meaningful. <b>Knowledge</b> combines information with experience, interpretation, skills and judgement so that a person or organisation can act.</p>
+<ul><li><b>Tacit knowledge:</b> personal, context-specific know-how built through experience, intuition and practice; difficult to articulate, codify or transfer completely (e.g. a technician’s diagnostic judgement).</li><li><b>Explicit knowledge:</b> knowledge expressed in words, numbers or symbols and stored in documents, manuals, databases, procedures and videos.</li><li><b>Implicit knowledge:</b> not yet documented but potentially articulable; the term is sometimes used inconsistently, so distinguish it from fully tacit and already codified explicit knowledge.</li></ul>
+<p>Shared experience can create common know-how; knowledge is not merely stored information. “Best practices” are methods regarded as effective solutions in an organisation or industry. Knowledge management is the broader discipline that identifies, develops, captures, organises, shares and applies such knowledge.</p></section><section class="topic" id="km-3"><h3>Knowledge management process and KMS</h3><p><b>Knowledge Management (KM)</b> is the systematic process of creating/acquiring, capturing, organising, storing, sharing, transferring and applying knowledge to achieve organisational objectives. It connects people, processes, culture and technology; it is not just buying software or building a database.</p>
+<ol><li><b>Creation/acquisition:</b> generate new knowledge or obtain it from employees, customers, partners, research and external sources.</li><li><b>Capture/codification:</b> document lessons, expertise, procedures and insights so they can be reused.</li><li><b>Organisation/refinement:</b> classify, tag, connect and add value by identifying relationships, synthesising and abstracting.</li><li><b>Storage:</b> preserve knowledge in repositories, document systems, databases and knowledge bases.</li><li><b>Sharing/distribution:</b> make relevant knowledge available through communities, collaboration, training and search.</li><li><b>Application:</b> use knowledge in decisions, problem solving, innovation and daily work; evaluate outcomes and update knowledge.</li></ol>
+<p>A <b>Knowledge Management System (KMS)</b> is a socio-technical system supporting these activities. It may include document/repository tools, search, collaboration platforms, expert directories, lessons-learned databases, workflow and analytics. An off-the-shelf solution may have lower initial development cost than building in-house, but total cost must include licensing, configuration, integration, security, training and maintenance. A KMS should serve strategy, sharing, retrieval and reuse; portability alone is not its central purpose.</p></section><section class="topic" id="km-5"><h3>Information systems, MIS, DSS and expert systems</h3><p>An <b>information system</b> is a set of interrelated components that collect/retrieve, process, store and distribute information to support decision-making, coordination and control. Typical components include people, procedures/processes, data, software, hardware and networks.</p>
+<ul><li><b>Office Automation System (OAS):</b> supports routine office work such as word processing, electronic filing, email, messaging, data storage and voice/data communication.</li><li><b>Management Information System (MIS):</b> converts operational data into routine, structured reports for planning, monitoring and control. It serves management levels and functional areas; sources can include internal and external databases.</li><li><b>Decision Support System (DSS):</b> interactive computer-based support for semi-structured/unstructured decisions using data, models and an interface. It improves decision capability; it does not replace the decision-maker.</li><li><b>Expert system:</b> applies specialised domain knowledge and inference rules to solve problems in a narrow domain. Core elements include knowledge base, inference engine, user interface and knowledge acquisition/engineering.</li></ul>
+<p>Information quality dimensions can include accuracy, relevance, timeliness, completeness, accessibility, interpretability, format, coherence and compatibility. Strategic information concerns long-term objectives and policy; tactical information supports middle-management resource allocation; operational information supports day-to-day execution.</p>
+<p>Do not confuse MIS with KMS: MIS primarily supplies information for management and control; KMS captures, shares and applies organisational knowledge. DSS is a decision-support application; an expert system encodes specialised expert reasoning. The terms overlap in modern systems but are not synonyms.</p><h4>Previous-year questions (12)</h4><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1253</span></div>
+      <div class="question">DSS is a computer program application used to improve a company&#x27;s decision-making capabilities marketing capabilities delegation capabilities resources utilisation capabilities capabilities.</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>A Decision Support System (DSS) is an interactive computer application that helps managers make better decisions with data and models.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1304</span></div>
+      <div class="question">Which of the following is NOT the purpose of I-mowledge management system? Driving strategy Integration Sharing of knowledge Portability</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>A KM system aims at knowledge sharing, integration and supporting/driving strategy. &#x27;Portability&#x27; is not one of its purposes.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1331</span></div>
+      <div class="question">Which of the following systems comprises word processing, electronic filing, electronic mail, message switching, data storage and data and voice communication? Executive Suppolt Systems Office Automation Systems Qistomer Relationship Management Decision Suppolt Systems</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Office Automation Systems (OAS) bundle word processing, electronic filing, e-mail, messaging, data storage and voice/data communication for office work.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1357</span></div>
+      <div class="question">Which of the following refers to expertise and skills acquired by a person through experience or education, the theoretical or practical understanding of a subject? Synthesis Reference Knowledge Problem solving</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Knowledge = expertise and skills gained through experience or education, i.e. theoretical or practical understanding of a subject.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1377</span></div>
+      <div class="question">Interpretability, Format, Coherence and Compatibility refer to which quality Of information with reference to Management Information System? Contextual Representational Intrinsic Accessibility</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>In the information-quality framework, representational quality covers interpretability, format (representation), coherence (consistency) and compatibility. Intrinsic = accuracy; contextual = relevance; accessibility = access/security.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1392</span></div>
+      <div class="question">With reference to Management Information System, which of the following categories refers to information that is concerned with long-term policy decisions that define the objectives of a business and check how well these objectives Tactical information Strategic information Operational information Planning information</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>Strategic information supports long-term policy decisions that set organisational objectives and check whether they are being achieved. Tactical = medium-term, operational = day-to-day.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1404</span></div>
+      <div class="question">Which of the following is NOT a component of Management Information System? People Software Education procedures Data</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>MIS components: people, hardware, software, data and procedures. &#x27;Education procedures&#x27; is not a component.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 08</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1419</span></div>
+      <div class="question">Which Of the following refers to a planned system of collecting, storing and disseminating data in the form Of information needed to cany out the functions Of management? Computer Networks Software Engineering Management Information System Database Management System</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>A Management Information System (MIS) is a planned system to collect, store and disseminate information that managers need for their functions.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 09</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1459</span></div>
+      <div class="question">In a management information system, what is:are the formal social unit that istare devoted to attaining specified goals? Organisation, management and marketing Organisation Management Marketing</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>An organisation is a formal social unit devoted to attaining specified goals.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 10</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1586</span></div>
+      <div class="question">Which of the following characteristic(s) of expert systems is/are correct?<br><br>I. The direction of interaction is from machine to the user.<br><br>II. Its domain of knowledge is narrow.<br><br>III. Information is produced by analysis of operational and external data.</div><ol class="options" type="A"><li>I, II and III</li><li>I and III</li><li>I and II</li><li>Only II</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>In an expert system the machine questions the user (interaction runs from machine to user), and its knowledge domain is narrow and specialised.<br>III, producing information by analysing operational and external data, describes MIS/DSS. Answer: I and II.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 11</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1664</span></div>
+      <div class="question">Which of the following is a component of Management Information System (MIS)?</div><ol class="options" type="A"><li>Inquiry processing</li><li>Data entry</li><li>External database</li><li>Knowledge engine</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>The keyed answer is external database. An MIS draws on internal databases and on external databases (market, economic and industry data) to produce reports.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 12</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1762</span></div>
+      <div class="question">Which of the following are correct examples of Management Information System?<br><br>I. Train reservation with the help of IRCTC.<br><br>II. Bank operations electronically with a specific payment gateway.<br><br>III. Logistics management application for streamlining the transportation system.</div><ol class="options" type="A"><li>II and III</li><li>I, II and III</li><li>I and II</li><li>I and III</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>The keyed answer is that all three are MIS examples: computerised systems (IRCTC reservations, electronic banking through payment gateways, logistics applications) that collect and process data to provide information for operations and decisions.</p>
+      </details>
+    </article></section><section class="topic"><h3>Knowledge concepts and KM lifecycle</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1322</span></div>
+      <div class="question">The set of processes developed in an organisation to create, gather, store, transfer and apply knowledge best describes: knowledge management organisational learnings knowledge asset organisational memory</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Knowledge management is the set of processes to create, gather, store, transfer and apply knowledge in an organisation. Organisational memory is only the stored part.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1338</span></div>
+      <div class="question">Which ofthe following refers to focusing on determining, organising. directing, facilitating and monitoring knowledge- related pmctices and activities required to achieve the desired business strategies and objectives with reference to knowledge management in organisations? Business point of view Education point of view Hands-on operational point of view Management point of view</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>From the management point of view, KM means determining, organising, directing, facilitating and monitoring knowledge-related practices to achieve business strategies.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1369</span></div>
+      <div class="question">Which step of the knowledge management process involves adding value by discovering relationships, abstracting and sharing? Knowledge refining Knowledge gathering or acquisition Knowledge organisation Knowledge sharing</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Knowledge refining adds value to gathered knowledge by discovering relationships, abstracting, synthesising and sharing it, before it is organised and disseminated.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1444</span></div>
+      <div class="question">An individual&#x27;s shared experience results in systematic knowledge shared knowledge tacit knowledge tacit knowledge, systematic knowledge and shared knowledge</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Per the key, knowledge built from an individual&#x27;s shared experiences is tacit knowledge: personal and experience-based, hard to formalise (unlike explicit or systematic knowledge).</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1472</span></div>
+      <div class="question">A particular organisation or industxy&#x27;s most successful solutions or problem-solving methods are called knowledge warehouse knowledge management organisational learning best practices</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ The printed key marks &#x27;knowledge management&#x27;, but the standard term for an organisation&#x27;s or industry&#x27;s most successful solutions or methods is best practices. Know both: KM is the overall discipline, best practices are what it captures.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1687</span></div>
+      <div class="question">The two-dimensional perspective of knowledge management includes which of the following element(s)?<br><br>I. Strategy<br><br>II. Content</div><ol class="options" type="A"><li>Neither I nor II</li><li>Both I and II</li><li>Only I</li><li>Only II</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>The keyed answer is only I (strategy): this two-dimensional view of knowledge management treats strategy as one of its dimensions.</p>
+      </details>
+    </article></section></section><section class="chapter" id="numerical"><h2>Numerical Techniques</h2><section class="topic" id="numerical-1"><h3>Descriptive statistics and measures</h3><p><b>Statistics</b> concerns collecting, organising, presenting, analysing and interpreting data. A <b>population</b> is the complete group of interest; a <b>sample</b> is a subset. A frequency distribution summarises how often values or classes occur.</p>
+<ul><li><b>Mean:</b> arithmetic average, \(\bar{x}=\sum x_i/n\). For frequency data, \(\bar{x}=\sum f_ix_i/\sum f_i\).</li><li><b>Median:</b> middle observation after sorting; for even n, average the two middle observations.</li><li><b>Mode:</b> most frequently occurring value.</li><li><b>Range:</b> maximum − minimum.</li><li><b>Variance:</b> average squared deviation from the mean. Population variance divides by N; sample variance commonly divides by n−1.</li><li><b>Standard deviation:</b> square root of variance; expressed in the original unit.</li></ul>
+<p>The algebraic sum of deviations from the arithmetic mean is zero: \(\sum(x_i-\bar{x})=0\). This property is not generally true when deviations are measured from the median, mode, geometric mean or harmonic mean.</p></section><section class="topic" id="numerical-3"><h3>Probability, conditional probability and distributions</h3><p>For equally likely outcomes, \(P(A)=\frac{\text{favourable outcomes}}{\text{total outcomes}}\), with \(0\le P(A)\le1\). The complement rule is \(P(A')=1-P(A)\). The addition rule is \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\).</p>
+<ul><li><b>Conditional probability:</b> \(P(A\mid B)=P(A\cap B)/P(B)\), for P(B)&gt;0.</li><li><b>Independent events:</b> \(P(A\cap B)=P(A)P(B)\). Mutually exclusive events with positive probabilities are not independent.</li><li><b>Bayes’ theorem:</b> \(P(A_i\mid B)=\frac{P(B\mid A_i)P(A_i)}{\sum_jP(B\mid A_j)P(A_j)}\).</li><li><b>Bernoulli:</b> one trial with success/failure. <b>Binomial:</b> fixed number of independent trials with constant success probability.</li><li><b>Poisson:</b> discrete distribution for event counts under suitable independence/constant-rate assumptions; parameter λ is both mean and variance.</li><li><b>Normal:</b> continuous, symmetric bell-shaped distribution; mean = median = mode.</li></ul>
+<p>For a Bernoulli variable with success probability p, variance is p(1−p). For independent attempts with success probabilities p₁, p₂, …, the probability of at least one success is 1−∏(1−pᵢ). A contingency-table test for association between two categorical variables commonly uses the chi-square test of independence, subject to expected-frequency assumptions.</p></section><section class="topic" id="numerical-5"><h3>Matrices, determinants and eigenvalue basics</h3><p>A matrix is a rectangular array of numbers. A matrix with m rows and n columns has order m×n. Addition requires equal orders; multiplication AB is defined when columns of A equal rows of B. Matrix multiplication is associative and distributive but generally not commutative.</p>
+<ul><li><b>Identity matrix:</b> diagonal entries 1 and other entries 0; AI=IA=A.</li><li><b>Transpose:</b> rows and columns are interchanged.</li><li><b>Determinant:</b> for \(\begin{bmatrix}a&b\\c&d\end{bmatrix}\), determinant is ad−bc.</li><li><b>Inverse:</b> a square matrix is invertible iff its determinant is non-zero.</li><li><b>Characteristic equation:</b> \(\det(A-\lambda I)=0\); its roots are eigenvalues.</li></ul>
+<p>For powers of matrices, use structure (diagonal/triangular/idempotent/involutory forms) rather than expanding blindly. A matrix is idempotent if A²=A and involutory if A²=I. A sparse matrix contains a high proportion of zero entries; a dense matrix contains comparatively few zeros.</p></section><section class="topic" id="numerical-7"><h3>Numerical errors, approximation and root finding</h3><p><b>Numerical analysis</b> develops algorithms for approximate solutions when exact analytical solutions are difficult or unsuitable for computation. Results should be assessed for accuracy, stability and convergence.</p>
+<ul><li><b>Absolute error:</b> \(|x_{true}-x_{approx}|\).</li><li><b>Relative error:</b> absolute error divided by \(|x_{true}|\), when true value is non-zero.</li><li><b>Percentage error:</b> relative error × 100%.</li><li><b>Round-off error:</b> caused by finite precision/rounding in representation or arithmetic.</li><li><b>Truncation error:</b> caused by replacing an infinite process or exact expression with a finite approximation.</li></ul>
+<p><b>Bisection method:</b> requires a continuous function and an interval [a,b] with a sign change; repeatedly halves the bracket, guaranteeing a bracketed root under these conditions. <b>Newton–Raphson:</b> \(x_{n+1}=x_n-f(x_n)/f'(x_n)\); often fast near a simple root but depends on a good starting value and non-zero derivative, and can diverge.</p>
+<p>Stopping criteria may use interval width, successive-iterate difference or residual |f(x)|. Do not report more significant digits than the input precision justifies.</p></section><section class="topic" id="numerical-9"><h3>Interpolation and finite differences</h3><p><b>Interpolation</b> estimates an unknown function value <i>within</i> the range of given tabulated data. <b>Extrapolation</b> estimates outside the known range and is usually less reliable. Interpolation assumes the data can be represented adequately by a suitable interpolating function.</p>
+<ul><li><b>Lagrange interpolation:</b> constructs a polynomial through known points \((x_i,y_i)\): \(P(x)=\sum_i y_iL_i(x)\), where \(L_i(x)=\prod_{j\ne i}\frac{x-x_j}{x_i-x_j}\). It works for distinct nodes, including unequally spaced x-values.</li><li><b>Newton divided differences:</b> convenient for unequally spaced nodes; uses divided-difference coefficients.</li><li><b>Newton forward difference:</b> suited to equally spaced data and values near the beginning of the table.</li><li><b>Newton backward difference:</b> suited to equally spaced data and values near the end of the table.</li><li><b>Finite differences:</b> forward, backward and central differences estimate changes/derivatives from tabulated values.</li></ul>
+<p><b>Polynomial interpolation</b> uses one polynomial across the data set and may oscillate for high degree. <b>Piecewise linear interpolation</b> joins adjacent points by straight segments. <b>Spline interpolation</b> uses piecewise low-degree polynomials joined with continuity/smoothness conditions; cubic splines are common and often produce smoother interpolants than a single high-degree polynomial. Curve fitting/regression models an overall trend and generally does not require the fitted curve to pass through every observation, unlike interpolation.</p><h4>Previous-year questions (7)</h4><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1296</span></div>
+      <div class="question">The values of x are l, 3, 4 and those of rx) are l, 27, 64. What is the polynomial equation by using the Lagrange interpolation formula? 8X2 — 19 X 12 8X2 9X 12 8x2 — 9X + 12 8X2 9X 12</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Interpolating (1, 1), (3, 27), (4, 64) gives 8x² − 19x + 12. Check: x = 1 → 8 − 19 + 12 = 1 ✓; x = 3 → 72 − 57 + 12 = 27 ✓; x = 4 → 128 − 76 + 12 = 64 ✓.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1384</span></div>
+      <div class="question">Which of the following methods is used for the function y = f(x), with the given discrete set of points ( Xi, Yi ), i O, 1, 2, 3, .. n where xi &#x27;s are NOT equispaced? Newton&#x27;s backward intelpolation formula Newton&#x27;s divided difference formula Newton&#x27;s forward interpolation formula Gauss&#x27;s fonvard difference formula</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>For unequally spaced x values use Newton&#x27;s divided-difference formula (or Lagrange). Newton&#x27;s forward/backward and Gauss&#x27;s formulas need equal spacing.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1434</span></div>
+      <div class="question">Which method creates interpolants that are softer? Polynomial and spline interpolation Piecewise constant intelpolation Polynomial interpolation Linear interpolation and spline interpolation</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ The printed key marks piecewise-constant interpolation (the simplest, nearest-neighbour method). If &#x27;softer&#x27; means smoother, spline interpolation would be the textbook answer. Remember: piecewise-constant is the simplest/crudest, splines the smoothest.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1469</span></div>
+      <div class="question">Interpolation is carried out using data from: regression analysis curce fitting and regression analysis linear inteapolation curce fitting and linear analysis</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Per the key, interpolation uses data from curve fitting and linear analysis: known data points are fitted to estimate intermediate values.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1480</span></div>
+      <div class="question">interpolation method is used in probability theuy and statistics, and the Gaussian process is one example. linear polynomial spline nonlinear</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Gaussian-process regression (kriging) is a nonlinear interpolation method used in probability and statistics.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1593</span></div>
+      <div class="question">If f(1) = 4 and f(5) = 6, then what is the value of f(3) using Lagrange’s interpolation?</div><ol class="options" type="A"><li>5</li><li>6.5</li><li>4</li><li>3</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>With two points, Lagrange interpolation is linear: f(3) = 4 × (3 − 5)/(1 − 5) + 6 × (3 − 1)/(5 − 1) = 2 + 3 = 5.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1773</span></div>
+      <div class="question">What is the value of f(5) for the Newtonian backward difference form of the interpolating polynomial for the data?<br><br>x | 2 | 4 | 6 | 8 <br>f(x) | 5 | 8 | 12 | 16</div><ol class="options" type="A"><li>8.0625</li><li>10.0625</li><li>13.125</li><li>11.125</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ The cubic through (2, 5), (4, 8), (6, 12) and (8, 16) gives f(5) = 9.9375.<br>By Newton backward with p = (5 − 8)/2 = −1.5, ∇f = 4, ∇²f = 0 and ∇³f = −1: f = 16 + (−1.5)(4) + 0 + (−1.5)(−0.5)(0.5)/6 × (−1) = 16 − 6 − 0.0625. Lagrange interpolation gives the same value.<br>The keyed 10.0625 adds the last term instead of subtracting it. No option is correct.</p>
+      </details>
+    </article></section><section class="topic"><h3>Descriptive statistics and numerical measures</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>24 Jun 2023 · Shift 3</span><span>Workbook row 1271</span></div>
+      <div class="question">The algebraic sum of deviations is zero when measured from the second quanile geometric mean arithmetic mean harmonic mean</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>The algebraic sum of deviations is zero when taken from the arithmetic mean: Σ(x − x̄) = 0. (The sum of absolute deviations is least about the median.)</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1352</span></div>
+      <div class="question">Consider the following data set: 6, 20, 25, 63, 92, 101. What is the range of the data set? 63 95</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Range = maximum − minimum = 101 − 6 = 95.</p>
+      </details>
+    </article></section><section class="topic"><h3>Functions, equations and calculus</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1219</span></div>
+      <div class="question">Which of the following options is the differential equation corresponding to \(y=ae^2+be^{-x}\)  where a and b are arbitrary?</div><ol class="options" type="A"><li>\(y&#x27;&#x27; - 2y&#x27; + y = 0\)</li><li>\(y&#x27;&#x27; - y&#x27; - 2y = 0\)</li><li>\(y&#x27;&#x27; + y&#x27; - 2y = 0\)</li><li>\(y&#x27;&#x27; + 2y&#x27; + y = 0\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>The function is y = ae^{2x} + be^{−x}; the source prints e² for e^{2x}. Its roots are 2 and −1, so the auxiliary equation is (m − 2)(m + 1) = m² − m − 2 = 0.<br>The differential equation is y″ − y′ − 2y = 0.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1222</span></div>
+      <div class="question">Which of the following options is the particular solution of the differential equation<br><br>\(y&#x27;&#x27; - 6y&#x27; + 9y = 2e^{3t}?\)</div><ol class="options" type="A"><li>\(\frac{e^{3t}}{2}\)</li><li>\(\frac{e^{3t}}{9}\)</li><li>\(t^2e^{3t}\)</li><li>\(e^{3t}\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>The auxiliary equation (m − 3)² = 0 has a double root 3, and the right side 2e^{3t} matches it twice. So try y_p = At²e^{3t}.<br>Substituting gives 2A = 2, so A = 1 and y_p = t²e^{3t}. (Shortcut: y_p = t²·2e^{3t}/2!.)</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1228</span></div>
+      <div class="question">The particular solution of the differential equation \((D ^ 4 - 18D ^ 2 + 81) y=\) :</div><ol class="options" type="A"><li>\(\frac{72 x^2 e^{3x}}{104}\)</li><li>\(x^2 e^{3x}\)</li><li>\(2 x^2 e^{3x}\)</li><li>\(12 x^2 e^{3x}\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B <span class="flag">Check source key</span></p>
+        <p>⚠ The source has lost the right-hand side of the equation. With the keyed answer it must have been 72e^{3x}.<br>D⁴ − 18D² + 81 = (D² − 9)² = (D − 3)²(D + 3)², so 3 is a double root. For a right side ke^{3x}: y_p = k·x²e^{3x} / (2! × (3 + 3)²) = k·x²e^{3x}/72.<br>With k = 72 that gives x²e^{3x}.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1526</span></div>
+      <div class="question">What is the minimum value of function y = x2 in the interval [1, 6]?</div><ol class="options" type="A"><li>3</li><li>1</li><li>2</li><li>4</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>y = x² increases on [1, 6], so its minimum is at x = 1: y = 1.</p>
+      </details>
+    </article></section><section class="topic"><h3>Matrices and linear algebra</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1220</span></div>
+      <div class="question">The characteristic equation of matrix \(A = \begin{bmatrix} 1 &amp; 4 \\ 3 &amp; 5 \end{bmatrix} \) is ______.</div><ol class="options" type="A"><li>\(\lambda^2 - 6\lambda + 7 = 0\)</li><li>\(\lambda^2 + 6\lambda - 7 = 0\)</li><li>\(\lambda^2 - 6\lambda - 7 = 0\)</li><li>\(\lambda^2 + 6\lambda + 7 = 0\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>The characteristic equation is λ² − (trace)λ + det = 0. Trace = 1 + 5 = 6 and det = 5 − 12 = −7.<br>So it is λ² − 6λ − 7 = 0.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1225</span></div>
+      <div class="question">If \(A = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \end{bmatrix} \) then the matrix for \(A^6\) is  ________ .</div><ol class="options" type="A"><li>\(\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 6 &amp; 0 &amp; 1 \end{bmatrix} \)</li><li>\(\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \end{bmatrix} \)</li><li>\(\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 6 &amp; 0 &amp; 1 \end{bmatrix} \)</li><li>\(\begin{bmatrix} 6 &amp; 0 &amp; 0 \\ 0 &amp; 6 &amp; 0 \\ 6 &amp; 0 &amp; 6 \end{bmatrix} \)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>A² = [[1,0,0],[0,1,0],[2,0,1]]. Each power adds 1 to the bottom-left entry, and the middle entry is (−1)ⁿ.<br>So A⁶ = [[1,0,0],[0,1,0],[6,0,1]].</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1606</span></div>
+      <div class="question">2 Dimensional array (Matrices) with relatively high proportion of zero entries are called ______ while with low proportion of zero entries are called ______.</div><ol class="options" type="A"><li>Regular Matrix; Non-Regular Matrix</li><li>Square Matrix; Dense Matrix</li><li>Transpose Matrix; Inverse Matrix</li><li>Sparse Matrix; Dense Matrix</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>A matrix with many zero entries is sparse, one with few zeros is dense. Sparse matrices are stored compactly (e.g. as triplets).</p>
+      </details>
+    </article></section><section class="topic"><h3>Probability and distributions</h3><article class="pyq">
+      <div class="pyq-top"><span>PYQ 01</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1233</span></div>
+      <div class="question">Eighty eight residents of a city, who were interviewed in a city are classified as male or female and also as drinkers or non-drinkers of tea. For testing association between sex and drinking of tea, the test statistic follows:</div><ol class="options" type="A"><li>Chi Square distribution with 2 degrees of freedom</li><li>Normal distribution</li><li>Chi square distribution with 1 degree of freedom</li><li>t distribution with 1 degree of freedom</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Sex (male/female) × tea (drinker/non-drinker) is a 2 × 2 contingency table. The chi-square test of independence has (2 − 1)(2 − 1) = 1 degree of freedom.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 02</span><span>12 Sep 2025 · Shift 1</span><span>Workbook row 1234</span></div>
+      <div class="question">Suppose a six faced die is thrown. Then the probability that the number appearing on the top is even is equal to:</div><ol class="options" type="A"><li>\(\frac{1}{2}\)</li><li>\(\frac{1}{4}\)</li><li>\(\frac{1}{9}\)</li><li>\(\frac{1}{6}\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>The even outcomes are 2, 4 and 6: 3 of 6, so P = 1/2.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 03</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1359</span></div>
+      <div class="question">Which of the following is a type of Discrete Probability Distribution? Log-Normal Distribution Exponential Distribution Normal Distribution Poisson Distribution</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>The Poisson distribution is discrete (counts of events). Normal, log-normal and exponential are continuous distributions.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 04</span><span>25 Jun 2023 · Shift 1</span><span>Workbook row 1373</span></div>
+      <div class="question">Suppose we are given values of y nx) for a set of values Of x, the process Of finding the value of y corresponding to any value ofx between xo and xn is called bias variance hypothesis inteapolation</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>Estimating y = f(x) for an x between the tabulated values x₀…xₙ is interpolation. Estimating outside that range is extrapolation.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 05</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1466</span></div>
+      <div class="question">Which probability calculus of views obeys panicular Lilles? Standard deviation Variance Bayesian probability Frequency probability</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>Bayesian probability treats probability as a degree of belief that still obeys the rules of the probability calculus and is updated with evidence via Bayes&#x27; theorem.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 06</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1471</span></div>
+      <div class="question">Who invented the probability definition? Simon Laplace Euclid None of the given answer Einstein</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>Pierre-Simon Laplace formalised the classical definition of probability: P(E) = favourable outcomes / total equally likely outcomes.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 07</span><span>25 Jun 2023 · Shift 2</span><span>Workbook row 1479</span></div>
+      <div class="question">Identify the generic probability density ftnction that corrsponds with discrete random variables. annulative distribution Gaussian distribution Poisson distribution Rayleigh distribution</div><p class="source-note">The workbook stores the question and option text together in the Question Text cell; the original text is reproduced without guessing the A–D boundaries.</p>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>For discrete random variables the probability (mass) function is of the Poisson type (also binomial). Gaussian and Rayleigh are continuous.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 08</span><span>1 Aug 2021 · Shift 2</span><span>Workbook row 1595</span></div>
+      <div class="question">A question in mathematics is given to three students P, Q and R whose chances of solving are 1/3, 1/4, 1/5 respectively. What is the probability that the problem will be solved?</div><ol class="options" type="A"><li>0.6</li><li>0.7</li><li>0.8</li><li>0.4</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>P(nobody solves it) = (2/3)(3/4)(4/5) = 2/5. So P(solved) = 1 − 2/5 = 0.6.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 09</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1683</span></div>
+      <div class="question">If the probability of winning a match is 0.7, then what is the value of variance ?</div><ol class="options" type="A"><li>0.3</li><li>0.21</li><li>0.7</li><li>0.31</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> B </p>
+        <p>One match is a Bernoulli trial: variance = p(1 − p) = 0.7 × 0.3 = 0.21.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 10</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1686</span></div>
+      <div class="question">A bike manufacturing factory has two plants P and Q. Plant P manufactures 60 percent of bikes and plant Q manufacture 40 percent. 80 percent of the bikes at plant P and 90 percent of the bikes at plant Q are rated of standard quality. A bike is chosen at random and is found to be of standard quality. What is the probability that it has come from plant P?</div><ol class="options" type="A"><li>4/7</li><li>6/7</li><li>2/7</li><li>1/7</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> A </p>
+        <p>By Bayes&#x27; theorem: P(P | standard) = (0.6 × 0.8) / (0.6 × 0.8 + 0.4 × 0.9) = 0.48/0.84 = 4/7.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 11</span><span>7 Aug 2021 · Shift 1</span><span>Workbook row 1691</span></div>
+      <div class="question">20 percent of the pens produced in a factory are of red colour and 4 percent are red and defective. If one pen is picked up at random, then what is the probability of its being defective if it is red?</div><ol class="options" type="A"><li>0.6</li><li>0.4</li><li>0.8</li><li>0.2</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>P(defective | red) = P(red and defective) / P(red) = 0.04/0.20 = 0.2.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 12</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1772</span></div>
+      <div class="question">A discrete random variable X has the following probability distribution.<br><br>X | 1 | 2 | 3 | 4 | 5 | 6 | 7 <br>P(X) | K | 2K | 2K | 3K | K2 | 2K2 | 7K2 + K <br>What is the value of K?</div><ol class="options" type="A"><li>\(\frac{1}{20}\)</li><li>\(\frac{1}{30}\)</li><li>\(\frac{1}{40}\)</li><li>\(\frac{1}{10}\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> D </p>
+        <p>The probabilities sum to 1: 9K + 10K² = 1, so 10K² + 9K − 1 = 0, i.e. (10K − 1)(K + 1) = 0.<br>K can&#x27;t be negative, so K = 1/10.</p>
+      </details>
+    </article><article class="pyq">
+      <div class="pyq-top"><span>PYQ 13</span><span>7 Aug 2021 · Shift 2</span><span>Workbook row 1777</span></div>
+      <div class="question">Two balls are drawn at random and replaced from a box of ten blue and eight pink balls. What is the probability that both balls are pink?</div><ol class="options" type="A"><li>\(\frac{64}{81}\)</li><li>\(\frac{4}{9}\)</li><li>\(\frac{16}{81}\)</li><li>\(\frac{8}{81}\)</li></ol>
+      <details class="answer"><summary>Show answer and explanation</summary>
+        <p class="answer-key"><b>Workbook answer key:</b> C </p>
+        <p>With replacement, P(pink) = 8/18 = 4/9 on each draw.<br>P(both pink) = (4/9)² = 16/81.</p>
+      </details>
+    </article></section></section>
+<footer>Prepared from the supplied DSSSB syllabus and Part B PYQ workbook. “Workbook row” refers to the Excel row number including the header.</footer>
+</main>
+<script>
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{
+ const q=search.value.trim().toLowerCase();
+ document.querySelectorAll('.chapter').forEach(ch=>{
+  let visible=0;
+  ch.querySelectorAll('.topic').forEach(topic=>{
+   const match=!q||topic.innerText.toLowerCase().includes(q);
+   topic.classList.toggle('hidden-by-search',!match);
+   if(match)visible++;
+  });
+  ch.classList.toggle('hidden-by-search',visible===0);
+ });
+});
+</script></body></html>
