@@ -523,7 +523,7 @@ async function hydratePyqPlaceholders(
 
   const classifyGraphicsMobileQuestion = (question: EmbeddedPyqRecord): string => {
     const text = questionText(question);
-    if (/mobile computing|mobile ip|mobile node|gsm|gprs|edge|\blte\b|\bcdma\b|\bbts\b|\bhlr\b|\bvlr\b|home agent|foreign agent|care.?of address|handover|handoff|tdma|fdma|mobile agent|mobile operating system|haptic|cellular network|mobile station/.test(text)) return 'graphics-mobile';
+    if (/mobile computing|mobile ip|mobile node|gsm|gprs|edge|\blte\b|\bcdma\b|\bbts\b|\bhlr\b|\bvlr\b|\bcoa\b|home agent|foreign agent|care.?of address|tunnel endpoint|handover|handoff|tdma|fdma|time division multiple access|frequency division multiple access|mobile agent|mobile operating system|haptic|cellular network|cellular system|mobile station|macro.?mobility|micro.?mobility|ad hoc mobility|manet|iot adoption|internet of things|wireless configuration|device configuration|wi.?fi|circuit.?switched system|packet.?switched system/.test(text)) return 'graphics-mobile';
     if (/sampling|quantization|compression|mpeg|audio|video|multimedia|frame rate|bit rate|png|jpeg|bmp|tiff|image format|sound|animation/.test(text)) return 'graphics-multimedia';
     if (/pixel|resolution|aspect ratio|crt|refresh rate|persistence|rgb|cmy|colour model|color model|translation|scaling|rotation|clipping|liang.?barsky|cohen.?sutherland|dda|bresenham|curve|surface model|solid model|viewing pipeline|graphics|photoshop|plotter|display/.test(text)) return 'graphics-core';
     return 'graphics-misc';
