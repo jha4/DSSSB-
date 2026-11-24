@@ -16,6 +16,7 @@ import {
 import { useStudyVault } from '../context/StudyVaultContext';
 import { formatShortDate } from '../utils/formatters';
 import { renderPartAQuantReasoningHtml } from '../utils/partAQuantReasoningRenderer';
+import { TeachingMethodologyPYQBank } from '../components/TeachingMethodologyPYQBank';
 import {
   fetchNoteHtml,
   getAdjacentNotes,
@@ -503,6 +504,7 @@ export const NoteReaderPage: React.FC = () => {
             className={`note-html-body ${FONT_SIZE_CLASS[readingFontSize]}`}
             dangerouslySetInnerHTML={{ __html: enhancedHtml ?? loadedNote.html }}
           />
+          {note.id === 'teaching-methodology-pedagogy-short-notes' && <TeachingMethodologyPYQBank />}
         ) : null}
       </div>
 
