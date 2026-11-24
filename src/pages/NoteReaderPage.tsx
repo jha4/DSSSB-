@@ -500,11 +500,13 @@ export const NoteReaderPage: React.FC = () => {
             </div>
           </div>
         ) : loadedNote ? (
-          <div
-            className={`note-html-body ${FONT_SIZE_CLASS[readingFontSize]}`}
-            dangerouslySetInnerHTML={{ __html: enhancedHtml ?? loadedNote.html }}
-          />
-          {note.id === 'teaching-methodology-pedagogy-short-notes' && <TeachingMethodologyPYQBank />}
+          <>
+            <div
+              className={`note-html-body ${FONT_SIZE_CLASS[readingFontSize]}`}
+              dangerouslySetInnerHTML={{ __html: enhancedHtml ?? loadedNote.html }}
+            />
+            {note.id === 'teaching-methodology-pedagogy-short-notes' && <TeachingMethodologyPYQBank />}
+          </>
         ) : null}
       </div>
 
